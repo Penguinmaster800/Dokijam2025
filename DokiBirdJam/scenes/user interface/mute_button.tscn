@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj5aio8r1dai2"]
+
+[ext_resource type="Script" uid="uid://dwadtuumb4hgx" path="res://scenes/user interface/mute_button.gd" id="1_oy0ju"]
+
+[node name="MuteButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oy0ju")
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 1
+offset_right = 44.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 48
+text = "Mute"
+
+[connection signal="pressed" from="CheckButton" to="." method="_on_check_button_pressed"]
