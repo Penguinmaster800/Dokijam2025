@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfaa7wf8y3pqt"
+path="res://.godot/imported/DGJ Grass sprinkler.mp3-2411f2d7e57232a50e354b3fddd58654.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Grass sprinkler.mp3"
+dest_files=["res://.godot/imported/DGJ Grass sprinkler.mp3-2411f2d7e57232a50e354b3fddd58654.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctjlt14ff44l0"]
+
+[ext_resource type="PackedScene" uid="uid://8l40p14fjdd2" path="res://scenes/objects/player/player.tscn" id="1_u0om3"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_u0om3")]
+position = Vector2(347, 638)
+
+[node name="Hp-Bar" type="TextureProgressBar" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 80.0
+offset_right = 34.0
+offset_bottom = 94.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Ammo Tracker" type="TextureProgressBar" parent="."]
+offset_left = 99.0
+offset_top = 81.0
+offset_right = 139.0
+offset_bottom = 121.0

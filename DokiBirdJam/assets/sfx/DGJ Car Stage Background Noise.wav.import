@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://u6rl3dfdx234"
+path="res://.godot/imported/DGJ Car Stage Background Noise.wav-8f1d73989c4720cd47c8a1d7b08086c8.sample"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Car Stage Background Noise.wav"
+dest_files=["res://.godot/imported/DGJ Car Stage Background Noise.wav-8f1d73989c4720cd47c8a1d7b08086c8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

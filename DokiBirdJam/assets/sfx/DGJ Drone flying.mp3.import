@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2dkqw1j4qhdj"
+path="res://.godot/imported/DGJ Drone flying.mp3-52b4ba534616d1e94ca66bbec72339df.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Drone flying.mp3"
+dest_files=["res://.godot/imported/DGJ Drone flying.mp3-52b4ba534616d1e94ca66bbec72339df.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
