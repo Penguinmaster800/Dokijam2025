@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0bdqq0hgd5i7"
+path="res://.godot/imported/DGJ Car crash.wav-e39dc657430e1de71ca62adc8b2f91ac.sample"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Car crash.wav"
+dest_files=["res://.godot/imported/DGJ Car crash.wav-e39dc657430e1de71ca62adc8b2f91ac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

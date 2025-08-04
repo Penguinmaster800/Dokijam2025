@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://8l40p14fjdd2"]
+
+[ext_resource type="Script" uid="uid://bx3xlh8ifu4nf" path="res://scenes/scripts/objects/player.gd" id="1_1bf4k"]
+[ext_resource type="Texture2D" uid="uid://dk5seuv6nqkoi" path="res://assets/player/Dokijam.png" id="2_g10m2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0a575"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g10m2")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g10m2"]
+size = Vector2(201, 151)
+
+[node name="Dokibird" type="CharacterBody2D"]
+script = ExtResource("1_1bf4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_0a575")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0.5)
+shape = SubResource("RectangleShape2D_g10m2")

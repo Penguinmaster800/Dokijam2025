@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ubkhjtsjhfb8"
+path="res://.godot/imported/DGJ comedic Helicopter crash.mp3-7f8ed61b42445fc97715c661c8b604bb.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ comedic Helicopter crash.mp3"
+dest_files=["res://.godot/imported/DGJ comedic Helicopter crash.mp3-7f8ed61b42445fc97715c661c8b604bb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
