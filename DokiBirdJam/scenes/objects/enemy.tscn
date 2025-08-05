@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd0yfpmn5oeag"]
+
+[ext_resource type="Texture2D" uid="uid://cdwxi4h1k18ai" path="res://assets/object/enemy.png" id="1_ja0ge"]
+[ext_resource type="Script" uid="uid://cx7bcpp3v8evt" path="res://scenes/scripts/objects/enemy.gd" id="1_lp353"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lp353"]
+radius = 60.407
+
+[node name="Enemy" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_lp353")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ja0ge")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lp353")
+
+[node name="TimerLaser" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="TimerGrenade" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="TimerLaser" to="." method="_on_timer_laser_timeout"]
+[connection signal="timeout" from="TimerGrenade" to="." method="_on_timer_grenade_timeout"]
