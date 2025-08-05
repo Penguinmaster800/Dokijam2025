@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctjlt14ff44l0"]
+[gd_scene load_steps=3 format=3 uid="uid://ctjlt14ff44l0"]
 
 [ext_resource type="Script" uid="uid://crri73psdo5st" path="res://scenes/scripts/scenes/level_base.gd" id="1_0y8gg"]
 [ext_resource type="PackedScene" uid="uid://8l40p14fjdd2" path="res://scenes/objects/player/player.tscn" id="1_u0om3"]
-[ext_resource type="Texture2D" uid="uid://dt3rxq4mcmsng" path="res://assets/ui/health_empty.png" id="3_d61h5"]
-[ext_resource type="Texture2D" uid="uid://d0jfokd1sw2j8" path="res://assets/ui/health_full.png" id="4_6cjw3"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_0y8gg")
@@ -15,30 +13,17 @@ position = Vector2(300, 638)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 203.0
-offset_top = 539.0
-offset_right = 236.0
-offset_bottom = 553.0
+offset_left = 1.0
+offset_top = 80.0
+offset_right = 34.0
+offset_bottom = 94.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-max_value = 10.0
-value = 10.0
-fill_mode = 2
-texture_under = ExtResource("3_d61h5")
-texture_progress = ExtResource("4_6cjw3")
 
 [node name="Ammo Tracker" type="TextureProgressBar" parent="."]
-offset_left = 271.0
-offset_top = 538.0
-offset_right = 311.0
-offset_bottom = 578.0
-max_value = 6.0
-texture_under = ExtResource("3_d61h5")
-texture_progress = ExtResource("4_6cjw3")
-
-[node name="Reload Timer" type="Timer" parent="."]
-wait_time = 3.0
-
-[connection signal="timeout" from="Reload Timer" to="." method="_on_reload_timer_timeout"]
+offset_left = 99.0
+offset_top = 81.0
+offset_right = 139.0
+offset_bottom = 121.0
