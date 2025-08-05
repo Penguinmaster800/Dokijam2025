@@ -30,3 +30,5 @@ var enemies_remaining: int = 12:
 	set(value):
 		enemies_remaining = value
 		enemies_remaining_change.emit()
+
+var in_cover: bool = false

@@ -15,25 +15,30 @@ position = Vector2(300, 638)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = 80.0
-offset_right = 34.0
-offset_bottom = 94.0
+offset_left = 203.0
+offset_top = 539.0
+offset_right = 236.0
+offset_bottom = 553.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 max_value = 10.0
+value = 10.0
+fill_mode = 2
 texture_under = ExtResource("3_d61h5")
-texture_over = ExtResource("4_6cjw3")
+texture_progress = ExtResource("4_6cjw3")
 
 [node name="Ammo Tracker" type="TextureProgressBar" parent="."]
-offset_left = 99.0
-offset_top = 81.0
-offset_right = 139.0
-offset_bottom = 121.0
+offset_left = 271.0
+offset_top = 538.0
+offset_right = 311.0
+offset_bottom = 578.0
 max_value = 6.0
 texture_under = ExtResource("3_d61h5")
-texture_over = ExtResource("4_6cjw3")
+texture_progress = ExtResource("4_6cjw3")
 
 [node name="Reload Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Reload Timer" to="." method="_on_reload_timer_timeout"]
