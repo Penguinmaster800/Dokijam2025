@@ -39,5 +39,3 @@ func _input(event):
 func move_to_x_pos(x_pos: float):
 	target = Vector2(x_pos, position.y)
 	
-	
-	
