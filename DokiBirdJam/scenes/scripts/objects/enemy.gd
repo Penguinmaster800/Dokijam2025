@@ -29,4 +29,5 @@ func _on_timer_grenade_timeout() -> void:
 	can_grenade = true
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	print("Input!")
+	if event.is_action("primary action"):
+		print("Input!")
