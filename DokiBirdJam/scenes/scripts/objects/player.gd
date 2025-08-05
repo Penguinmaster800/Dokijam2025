@@ -8,10 +8,6 @@ const doki_location_y: int = 638
 
 #speed at which doki will enter and exit cover. this is here to make tuning for feel easier
 var speed : int = 40000
-#tracks if doki is reloading, checked to prevent shooting 
-var is_reloading: bool = false
-#tracks if doki is in cover
-var cover : bool = false
 
 #functions called when instantiated, will fill with checks connecting to signals and resets states
 
@@ -26,6 +22,10 @@ func _process(delta):
 		move_and_slide()
 	else:
 		position = target
+	if position.x >=295:
+		Status.in_cover = false
+	else:
+		Status.in_cover = true
 
 
 func _input(event):
@@ -38,6 +38,3 @@ func _input(event):
 
 func move_to_x_pos(x_pos: float):
 	target = Vector2(x_pos, position.y)
-	
-	
-	
