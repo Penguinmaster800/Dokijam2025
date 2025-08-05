@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
-var pos: Vector2 = Vector2.ZERO
-const speed: int = 200
-var can_laser: bool = true
-var can_grenade: bool = true
+## Max Health of the Enemy
+var max_health: int = 10
+## Current Health of the Enemy
+var health: int = max_health
+
+## Signal for Death of the Enemy
+signal enemy_death
 
 func _process(_delta: float) -> void:
 	
@@ -11,23 +14,33 @@ func _process(_delta: float) -> void:
 	velocity = direction * 500
 	move_and_slide()
 	
-	## laser shooting input
-	#if Input.is_action_pressed("primary action") and can_laser:
-		#print("shoot laser")
-		#can_laser = false
-		#$TimerLaser.start()
-	#
-	#if Input.is_action_pressed("secondary action") and can_grenade:
-		#print("shoot grenade")
-		#can_grenade = false
-		#$TimerGrenade.start()
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if not event.is_action("primary action"):
+		return
+	
+	if health <= 0:
+		return
 
-func _on_timer_laser_timeout() -> void:
-	can_laser = true
+	# TODO: Temporary variable for Damage. Replace Later.
+	var _damage: int = 1
 
-func _on_timer_grenade_timeout() -> void:
-	can_grenade = true
+	health = health - _damage
+	print("Hit! Current Health: %s" % health)
+	
+	if health == 0:
+		death()
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action("primary action"):
-		print("Input!")
+func death():
+	# Wait few seconds
+	var deletion_timer = get_tree().create_timer(3)
+
+	# Play animation
+	$AnimationPlayer.play("death")
+	# Await for animation to end
+	await $AnimationPlayer.animation_finished
+	# Emit Death Signal
+	enemy_death.emit()
+	
+	# Remove itself
+	await deletion_timer.timeout
+	queue_free()
