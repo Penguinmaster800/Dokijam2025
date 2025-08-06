@@ -7,6 +7,15 @@ size = Vector2(256, 256)
 
 [node name="Wall" type="StaticBody2D"]
 
+[node name="Container" type="PanelContainer" parent="."]
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+
+[node name="Control" type="Control" parent="Container"]
+layout_mode = 2
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_srbs8")
 
