@@ -133,6 +133,11 @@ libraries = {
 
 [node name="TimerFireRate" type="Timer" parent="."]
 
+[node name="BulletStartPosition" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="BulletStartPosition"]
+position = Vector2(-42, 16)
+
 [connection signal="input_event" from="HitboxHead" to="." method="_on_hitbox_head_input_event"]
 [connection signal="input_event" from="Hitbox" to="." method="_on_hitbox_input_event"]
 [connection signal="timeout" from="TimerCurrentStance" to="." method="_on_timer_current_stance_timeout"]
