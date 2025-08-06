@@ -45,3 +45,18 @@ func _input(event):
 		Abilities.ability2
 	if event.is_action_pressed("Ability 3"):
 		Abilities.ability3
+
+func random_enemy_bullet_destination() -> Vector2:
+	var rect_shape: RectangleShape2D = $EnemyProjectilesDestinationArea/CollisionShape2D.shape as RectangleShape2D
+	var extents: Vector2 = rect_shape.size / 2.0
+	var local_x = randf_range(-extents.x, extents.x)
+	var local_y = randf_range(-extents.y, extents.y)
+	return $EnemyProjectilesDestinationArea.global_position + Vector2(local_x, local_y)
+
+func _on_enemy_enemy_attack(pos: Variant) -> void:
+	var enemy_bullet = enemy_bullet_scene.instantiate()
+	enemy_bullet.position = pos
+	
+	var dest = random_enemy_bullet_destination()
+	enemy_bullet.destination = dest
+	add_child(enemy_bullet)
