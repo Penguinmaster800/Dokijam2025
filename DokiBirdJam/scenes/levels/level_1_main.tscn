@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnvwnsf0ut2ll"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_731hl"]
-[ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemy.tscn" id="2_m6g7d"]
+[ext_resource type="Script" uid="uid://dvelwpg1vp7dt" path="res://scenes/scripts/scenes/level_1_main.gd" id="2_3fypp"]
 [ext_resource type="PackedScene" uid="uid://wv41il63ds28" path="res://scenes/objects/block.tscn" id="3_m6g7d"]
 
 [node name="Level" instance=ExtResource("1_731hl")]
+script = ExtResource("2_3fypp")
 
-[node name="Enemy" parent="." index="3" instance=ExtResource("2_m6g7d")]
-position = Vector2(412, 236)
+[node name="Enemy" parent="." index="4"]
+position = Vector2(555, 345)
 
-[node name="Wall" parent="." index="4" instance=ExtResource("3_m6g7d")]
-position = Vector2(1044, 444)
+[node name="Wall" parent="." index="5" instance=ExtResource("3_m6g7d")]
+position = Vector2(467, 313)

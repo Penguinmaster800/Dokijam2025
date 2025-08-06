@@ -1,4 +1,5 @@
 extends Node2D
+class_name LevelParent
 
 var reloading: bool = false
 
@@ -28,7 +29,7 @@ func _on_reload_timer_timeout() -> void:
 
 func _input(event):
 	if event.is_action_pressed("primary action"):
-		if Status.doki_ammo <= 0:
+		if Status.doki_ammo <= 0 and not reloading:
 			#play sound of no ammo
 			reload()
 		elif  Status.doki_ammo >=1 and not reloading and Status.in_cover == false:
@@ -39,9 +40,12 @@ func _input(event):
 	if event.is_action_pressed("reload"):
 		reload()
 	
-	#abilities will be added here
-
-
+	if event.is_action_pressed("Ability 1"):
+		Abilities.ability1
+	if event.is_action_pressed("Ability 2"):
+		Abilities.ability2
+	if event.is_action_pressed("Ability 3"):
+		Abilities.ability3
 
 
 
