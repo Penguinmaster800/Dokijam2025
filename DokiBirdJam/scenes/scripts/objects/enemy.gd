@@ -1,6 +1,6 @@
-extends CharacterBody2D
+extends Node2D
 
-enum Stance {SPAWN, COVER, ATTACK, DEATH}
+enum Stance {SPAWN, COVER, ATTACK, ATTACK_COOLDOWN, DEATH}
 
 ## Max Health of the Enemy
 var max_health: int = 10
@@ -27,6 +27,8 @@ var current_ammo: int = max_ammo
 var reload_time: float = 4.0
 ## Reloading State
 var _is_reloading: bool = false
+## Cooldown time before going to Cover
+var attack_cooldown_time: float = 1.2
 
 ## Signal for Death of the Enemy
 signal enemy_death
@@ -44,20 +46,41 @@ func _process(delta: float) -> void:
 	if !_reached_spawn_move_position:
 		after_spawn(delta)
 
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if not event.is_action("primary action"):
+func _on_hitbox_head_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if not event.is_action_pressed("primary action"):
 		return
 	
+	if Status.doki_ammo <= 0:
+		return
+		
+	handle_damage(2)
+	get_viewport().set_input_as_handled()
+
+func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if not event.is_action_pressed("primary action"):
+		return
+
+	if Status.doki_ammo <= 0:
+		return
+
+	handle_damage()
+
+func handle_damage(multiplier: int = 1):
+	
 	if health <= 0:
+		return
+	
+	if current_stance == Stance.COVER:
 		return
 
 	# TODO: Temporary variable for Damage. Replace Later.
 	var _damage: int = 1
+	_damage = _damage * multiplier
 
 	health = health - _damage
 	print("Hit! Current Health: %s" % health)
 	
-	if health == 0:
+	if health <= 0:
 		death()
 
 func after_spawn(delta):
@@ -76,9 +99,16 @@ func switch_stance():
 		Stance.COVER:
 			stance_to_attack()
 		Stance.ATTACK:
+			stance_attack_cooldown()
+		Stance.ATTACK_COOLDOWN:
 			stance_to_cover()
 		Stance.DEATH:
 			return
+
+func stance_attack_cooldown():
+	$TimerCurrentStance.start(attack_cooldown_time)
+	current_stance = Stance.ATTACK_COOLDOWN
+	$TimerFireRate.stop()
 
 func stance_to_cover():
 	var min_cover_time: float = 2.0
@@ -87,11 +117,9 @@ func stance_to_cover():
 		min_cover_time = reload_time
 	
 	var random_time = randf_range(min_cover_time, 5.0)
-	print("Cover: %s seconds" % random_time)
 	$TimerCurrentStance.start(random_time)
 	current_stance = Stance.COVER
 	$AnimationPlayer.play("cover")
-	$TimerFireRate.stop()
 	
 	if _is_reloading:
 		current_ammo = max_ammo
@@ -100,7 +128,6 @@ func stance_to_cover():
 
 func stance_to_attack():
 	var random_time = randf_range(2.0, 7.0)
-	print("Attack: %s seconds" % random_time)
 	$TimerCurrentStance.start(random_time)
 	current_stance = Stance.ATTACK
 	$AnimationPlayer.play("attack")
@@ -113,7 +140,7 @@ func attack():
 	
 	if current_ammo <= 0:
 		_is_reloading = true
-		switch_stance()
+		stance_attack_cooldown()
 
 func death():
 	current_stance = Stance.DEATH

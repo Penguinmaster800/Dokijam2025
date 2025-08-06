@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvoag6on3yocn"]
+
+[ext_resource type="Texture2D" uid="uid://qmx4lynpqim" path="res://assets/object/enemy_bullet.png" id="1_dd4g7"]
+
+[node name="EnemyBullet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dd4g7")
