@@ -2,6 +2,7 @@ extends Node2D
 class_name LevelParent
 
 var reloading: bool = false
+var enemy_bullet_scene: PackedScene = preload("res://scenes/objects/enemy_bullet.tscn")
 
 func _ready():
 	Status.doki_ammo = Status.doki_max_ammo

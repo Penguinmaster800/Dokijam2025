@@ -35,7 +35,7 @@ signal enemy_death
 ## Signal for Enemy Reaching the Position
 signal enemy_reached_position
 ## Signal for Attack of the Enemy
-signal enemy_attack
+signal enemy_attack(pos)
 
 func _process(delta: float) -> void:
 	
@@ -134,7 +134,7 @@ func stance_to_attack():
 	$TimerFireRate.start(fire_rate)
 
 func attack():
-	enemy_attack.emit()
+	enemy_attack.emit($BulletStartPosition/Marker2D.global_position)
 	current_ammo -= 1
 	print("Enemy Fired! Current ammo: %s" % current_ammo)
 	
