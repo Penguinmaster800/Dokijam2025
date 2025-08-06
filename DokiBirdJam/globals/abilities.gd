@@ -8,6 +8,11 @@ var ability1 = null
 var ability2 = null
 var ability3 = null
 
+var ability1_ready : bool = false
+var ability2_ready : bool = false
+var ability3_ready : bool = false
+
+
 var going_ghost_active: bool = false
 var red_eye_active: bool = false
 var aim_bot_active: bool = false
