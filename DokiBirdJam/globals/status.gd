@@ -5,6 +5,7 @@ signal doki_max_health_change
 signal doki_ammo_change
 signal doki_max_ammo_change
 signal enemies_remaining_change
+signal doki_can_fire_change
 
 var doki_max_health: int = 10:
 	set(value):
@@ -32,3 +33,8 @@ var enemies_remaining: int = 12:
 		enemies_remaining_change.emit()
 
 var in_cover: bool = false
+
+var doki_can_fire: bool = true:
+	set(value):
+		doki_can_fire = value
+		doki_can_fire_change.emit()

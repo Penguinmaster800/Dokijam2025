@@ -33,8 +33,15 @@ sprite_frames = SubResource("SpriteFrames_0a575")
 animation = &"new_animation"
 
 [node name="PlayerHitbox" type="Area2D" parent="."]
+collision_mask = 4
 script = ExtResource("3_0a575")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
 position = Vector2(0.5, -2)
 shape = SubResource("RectangleShape2D_g10m2")
+
+[node name="RedEyeTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="GoingGhostTimer" type="Timer" parent="."]
