@@ -10,4 +10,4 @@
 position = Vector2(412, 236)
 
 [node name="Wall" parent="." index="4" instance=ExtResource("3_m6g7d")]
-position = Vector2(661, 265)
+position = Vector2(1044, 444)
