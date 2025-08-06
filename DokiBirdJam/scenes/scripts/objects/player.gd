@@ -18,7 +18,7 @@ func _ready():
 
 func _process(delta):
 	velocity = position.direction_to(target) * speed * delta
-	if position.distance_to(target) > 5:
+	if position.distance_to(target) > 10:
 		move_and_slide()
 	else:
 		position = target
@@ -38,3 +38,7 @@ func _input(event):
 
 func move_to_x_pos(x_pos: float):
 	target = Vector2(x_pos, position.y)
+
+
+func red_eye():
+	$RedEyeTimer

@@ -4,10 +4,7 @@ class_name LevelParent
 var reloading: bool = false
 
 func _ready():
-	Status.doki_health_change.connect(_doki_health_change)
-	Status.doki_ammo_change.connect(_doki_ammo_change)
 	Status.doki_ammo = Status.doki_max_ammo
-
 
 
 func reload():
@@ -18,13 +15,14 @@ func reload():
 	if Status.doki_ammo < Status.doki_max_ammo:
 		$"Reload Timer".start()
 		reloading = true
+		Status.doki_can_fire = false
 		print("reloading")
 
 func _on_reload_timer_timeout() -> void:
 	Status.doki_ammo = Status.doki_max_ammo
 	reloading = false
+	Status.doki_can_fire = true
 	print("reloading complete")
-	$"Reload Timer".stop()
 
 
 func _input(event):
@@ -46,13 +44,3 @@ func _input(event):
 		Abilities.ability2
 	if event.is_action_pressed("Ability 3"):
 		Abilities.ability3
-
-
-
-
-
-func _doki_health_change():
-	$"Hp-Bar".value = Status.doki_health
-
-func _doki_ammo_change():
-	$"Ammo Tracker".value = Status.doki_ammo

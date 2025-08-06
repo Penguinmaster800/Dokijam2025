@@ -7,8 +7,8 @@
 [node name="Level" instance=ExtResource("1_731hl")]
 script = ExtResource("2_3fypp")
 
-[node name="Enemy" parent="." index="4"]
+[node name="Enemy" parent="." index="2"]
 position = Vector2(555, 345)
 
-[node name="Wall" parent="." index="5" instance=ExtResource("3_m6g7d")]
+[node name="Wall" parent="." index="4" instance=ExtResource("3_m6g7d")]
 position = Vector2(467, 313)
