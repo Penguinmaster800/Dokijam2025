@@ -26,7 +26,7 @@ position = Vector2(-75, 642)
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="EnemyProjectilesDestinationArea" type="Area2D" parent="."]
-position = Vector2(351, 718)
+position = Vector2(351, 723)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyProjectilesDestinationArea"]
 shape = SubResource("RectangleShape2D_d61h5")
