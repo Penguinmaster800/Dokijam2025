@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvjmoe3acpb6"]
+[gd_scene load_steps=6 format=3 uid="uid://bvjmoe3acpb6"]
 
 [ext_resource type="Script" uid="uid://bfu4hwsm2iuy4" path="res://scenes/scripts/scenes/hud.gd" id="1_16vcj"]
 [ext_resource type="Texture2D" uid="uid://dt3rxq4mcmsng" path="res://assets/ui/health_empty.png" id="2_f2y6e"]
 [ext_resource type="Texture2D" uid="uid://d0jfokd1sw2j8" path="res://assets/ui/health_full.png" id="3_0jkms"]
+[ext_resource type="Script" uid="uid://ckhvoibeq1gtr" path="res://scenes/scripts/scenes/time_left_panel.gd" id="4_0jkms"]
+[ext_resource type="Texture2D" uid="uid://crxvs3hxnlb7" path="res://assets/object/enemy_attack.png" id="4_f2y6e"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_16vcj")
@@ -34,3 +36,57 @@ max_value = 6.0
 fill_mode = 4
 texture_under = ExtResource("2_f2y6e")
 texture_progress = ExtResource("3_0jkms")
+
+[node name="TimeLeft" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimeLeftPanel" type="Panel" parent="TimeLeft"]
+offset_left = 2.0
+offset_right = 99.0
+offset_bottom = 23.0
+script = ExtResource("4_0jkms")
+
+[node name="minute" type="Label" parent="TimeLeft/TimeLeftPanel"]
+offset_left = 1.0
+offset_right = 26.0
+offset_bottom = 23.0
+text = "10"
+horizontal_alignment = 1
+
+[node name="second" type="Label" parent="TimeLeft/TimeLeftPanel"]
+offset_left = 35.0
+offset_right = 56.0
+offset_bottom = 23.0
+text = "10"
+horizontal_alignment = 1
+
+[node name="milisecond" type="Label" parent="TimeLeft/TimeLeftPanel"]
+offset_left = 67.0
+offset_right = 86.0
+offset_bottom = 23.0
+text = "10"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 100.0
+offset_right = 140.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 23.0
+texture = ExtResource("4_f2y6e")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "12"
+horizontal_alignment = 2

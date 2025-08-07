@@ -9,13 +9,13 @@ func _ready():
 
 
 func reload():
-	if reloading == true:
+	if Status.doki_reloading == true:
 		pass
 	if Status.doki_ammo == Status.doki_max_ammo:
 		pass
 	if Status.doki_ammo < Status.doki_max_ammo:
 		$"Reload Timer".start()
-		reloading = true
+		Status.doki_reloading = true
 		Status.doki_can_fire = false
 		print("reloading")
 
