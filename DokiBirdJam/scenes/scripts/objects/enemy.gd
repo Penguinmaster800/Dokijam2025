@@ -52,17 +52,22 @@ func _on_hitbox_head_input_event(_viewport: Node, event: InputEvent, _shape_idx:
 	
 	if Status.doki_ammo <= 0:
 		return
-		
+	if Status.in_cover == true:
+		return
+	if Status.doki_reloading == true:
+		return
 	handle_damage(2)
 	get_viewport().set_input_as_handled()
 
 func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not event.is_action_pressed("primary action"):
 		return
-
 	if Status.doki_ammo <= 0:
 		return
-
+	if Status.in_cover == true:
+		return
+	if Status.doki_reloading == true:
+		return
 	handle_damage()
 
 func handle_damage(multiplier: int = 1):
@@ -152,6 +157,8 @@ func death():
 	# Await for animation to end
 	await $AnimationPlayer.animation_finished
 	# Emit Death Signal
+	Status.enemies_remaining -= 1
+	print(Status.enemies_remaining)
 	enemy_death.emit()
 	
 	# Remove itself
