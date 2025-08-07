@@ -22,7 +22,7 @@ func _process(delta):
 		move_and_slide()
 	else:
 		position = target
-	if position.x >=295:
+	if position.x >=290:
 		Status.in_cover = false
 	else:
 		Status.in_cover = true
