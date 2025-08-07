@@ -42,3 +42,5 @@ func move_to_x_pos(x_pos: float):
 
 func red_eye():
 	$RedEyeTimer
+func going_ghost():
+	$GoingGhostTimer
