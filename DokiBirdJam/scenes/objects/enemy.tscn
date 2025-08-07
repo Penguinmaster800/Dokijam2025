@@ -1,16 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cd0yfpmn5oeag"]
+[gd_scene load_steps=11 format=3 uid="uid://cd0yfpmn5oeag"]
 
 [ext_resource type="Texture2D" uid="uid://cdwxi4h1k18ai" path="res://assets/object/enemy.png" id="1_ja0ge"]
 [ext_resource type="Script" uid="uid://cx7bcpp3v8evt" path="res://scenes/scripts/objects/enemy.gd" id="1_lp353"]
 [ext_resource type="Texture2D" uid="uid://bo8kr63or10f8" path="res://assets/object/enemy_death.png" id="2_lp353"]
 [ext_resource type="Texture2D" uid="uid://conmykyy3ic53" path="res://assets/object/enemy_cover.png" id="4_ptshl"]
 [ext_resource type="Texture2D" uid="uid://crxvs3hxnlb7" path="res://assets/object/enemy_attack.png" id="5_d83f0"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_d83f0"]
-radius = 26.0192
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3ch6f"]
-radius = 64.0703
 
 [sub_resource type="Animation" id="Animation_gwbwg"]
 length = 0.001
@@ -116,13 +110,10 @@ texture = ExtResource("1_ja0ge")
 [node name="HitboxHead" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxHead"]
-position = Vector2(0, -33)
-shape = SubResource("CircleShape2D_d83f0")
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-shape = SubResource("CircleShape2D_3ch6f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -136,7 +127,6 @@ libraries = {
 [node name="BulletStartPosition" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="BulletStartPosition"]
-position = Vector2(-42, 16)
 
 [connection signal="input_event" from="HitboxHead" to="." method="_on_hitbox_head_input_event"]
 [connection signal="input_event" from="Hitbox" to="." method="_on_hitbox_input_event"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://byjv058djw8av"]
+
+[ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemy.tscn" id="1_yphfb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yphfb"]
+radius = 21.095
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b320k"]
+radius = 64.0078
+
+[node name="Enemy" instance=ExtResource("1_yphfb")]
+
+[node name="CollisionShape2D" parent="HitboxHead" index="0"]
+position = Vector2(0, -35)
+shape = SubResource("CircleShape2D_yphfb")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_b320k")
+
+[node name="Marker2D" parent="BulletStartPosition" index="0"]
+position = Vector2(-42, 17)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://csf7ycrwqs03r"]
+
+[ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemy.tscn" id="1_qbjeo"]
+[ext_resource type="Script" uid="uid://be7ll7u6csn7b" path="res://scenes/scripts/objects/enemy_brute.gd" id="2_06mwg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_06mwg"]
+radius = 34.1321
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w0llk"]
+radius = 96.0208
+
+[node name="EnemyBrute" instance=ExtResource("1_qbjeo")]
+script = ExtResource("2_06mwg")
+spawn_move_position = Vector2(800, 200)
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" parent="HitboxHead" index="0"]
+position = Vector2(0, -45)
+shape = SubResource("CircleShape2D_06mwg")
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_w0llk")
+
+[node name="Marker2D" parent="BulletStartPosition" index="0"]
+position = Vector2(-59, 12)
