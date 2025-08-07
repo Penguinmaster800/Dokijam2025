@@ -1,14 +1,15 @@
 extends Node2D
+class_name EnemyParent
 
 enum Stance {SPAWN, COVER, ATTACK, ATTACK_COOLDOWN, DEATH}
 
 ## Max Health of the Enemy
-var max_health: int = 10
+@export var max_health: int = 10
 ## Current Health of the Enemy
 var health: int = max_health
 
 ## Position to move on spawn
-var spawn_move_position: Vector2 = Vector2(640, 360)
+@export var spawn_move_position: Vector2 = Vector2(640, 360)
 ## Flag of Destination Reached
 var _reached_spawn_move_position: bool = false
 ## Speed of movement

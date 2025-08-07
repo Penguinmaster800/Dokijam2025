@@ -3,6 +3,8 @@ class_name LevelParent
 
 var reloading: bool = false
 var enemy_bullet_scene: PackedScene = preload("res://scenes/objects/enemy_bullet.tscn")
+var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemy_gunman.tscn")
+var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemy_brute.tscn")
 
 func _ready():
 	Status.doki_ammo = Status.doki_max_ammo
@@ -22,6 +24,7 @@ func reload():
 func _on_reload_timer_timeout() -> void:
 	Status.doki_ammo = Status.doki_max_ammo
 	reloading = false
+	Status.doki_reloading = false
 	Status.doki_can_fire = true
 	print("reloading complete")
 
@@ -59,4 +62,16 @@ func _on_enemy_enemy_attack(pos: Variant) -> void:
 	
 	var dest = random_enemy_bullet_destination()
 	enemy_bullet.destination = dest
-	add_child(enemy_bullet)
+	$Projectiles.add_child(enemy_bullet)
+
+func spawn_enemy_gunman(pos: Vector2):
+	spawn_enemy(enemy_gunman_scene, pos)
+
+func spawn_enemy_brute(pos: Vector2):
+	spawn_enemy(enemy_brute_scene, pos)
+
+func spawn_enemy(enemy_scene: PackedScene, pos: Vector2):
+	var enemy = enemy_scene.instantiate()
+	enemy.position = pos
+	enemy.enemy_attack.connect(_on_enemy_enemy_attack)
+	$Enemies.add_child(enemy)
