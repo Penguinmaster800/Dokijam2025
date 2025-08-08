@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://csf7ycrwqs03r"]
 
-[ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemy.tscn" id="1_qbjeo"]
+[ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_qbjeo"]
 [ext_resource type="Script" uid="uid://be7ll7u6csn7b" path="res://scenes/scripts/objects/enemy_brute.gd" id="2_06mwg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06mwg"]

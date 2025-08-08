@@ -7,10 +7,15 @@ signal doki_max_ammo_change
 signal enemies_remaining_change
 signal doki_can_fire_change
 signal time_remaining_change
+signal level_change
 
 
+var level: int = 1:
+	set(value):
+		level = value
+		level_change.emit()
 
-var doki_max_health: int = 10:
+var doki_max_health: int = 1:
 	set(value):
 		doki_max_health = value
 		doki_max_health_change.emit()
@@ -20,7 +25,7 @@ var doki_health: int = doki_max_health:
 		doki_health = value
 		doki_health_change.emit()
 
-var doki_max_ammo: int = 6:
+var doki_max_ammo: int = 1:
 	set(value):
 		doki_max_ammo = value
 		doki_max_ammo_change.emit()

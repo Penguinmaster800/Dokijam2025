@@ -2,12 +2,18 @@ extends Node2D
 class_name LevelParent
 
 var reloading: bool = false
-var enemy_bullet_scene: PackedScene = preload("res://scenes/objects/enemy_bullet.tscn")
-var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemy_gunman.tscn")
-var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemy_brute.tscn")
+var enemy_bullet_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_bullet.tscn")
+var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_gunman.tscn")
+var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_brute.tscn")
+var level_1_beat = "res://scenes/levels/level_1_beat.tscn"
+var level_2_beat = "res://scenes/levels/level_2_beat.tscn"
+var level_3_beat = "res://scenes/levels/level_3_beat.tscn"
 
 func _ready():
 	Status.doki_ammo = Status.doki_max_ammo
+	Status.doki_health = Status.doki_max_health
+	Status.enemies_remaining_change.connect(enemy_defeated)
+	Status.doki_health_change.connect(doki_hurt)
 
 
 func reload():
@@ -15,7 +21,7 @@ func reload():
 		pass
 	if Status.doki_ammo == Status.doki_max_ammo:
 		pass
-	if Status.doki_ammo < Status.doki_max_ammo:
+	if Status.doki_ammo < Status.doki_max_ammo and not Status.doki_reloading:
 		$"Reload Timer".start()
 		Status.doki_reloading = true
 		Status.doki_can_fire = false
@@ -75,3 +81,28 @@ func spawn_enemy(enemy_scene: PackedScene, pos: Vector2):
 	enemy.position = pos
 	enemy.enemy_attack.connect(_on_enemy_enemy_attack)
 	$Enemies.add_child(enemy)
+
+func enemy_defeated():
+	if Status.enemies_remaining >= 1:
+		pass
+	if Status.enemies_remaining <= 0:
+		level_beat()
+
+func doki_hurt():
+	if Status.doki_health >= 1:
+		pass
+	if Status.doki_health <= 0:
+		level_loss()
+
+func level_loss():
+	TransitionLayer.change_scene("res://scenes/levels/game_over.tscn")
+
+
+func level_beat():
+	Status.level += 1
+	if Status.level == 2:
+		TransitionLayer.change_scene(level_1_beat)
+	if Status.level == 3:
+		TransitionLayer.change_scene(level_2_beat)
+	if Status.level == 4:
+		TransitionLayer.change_scene(level_3_beat)
