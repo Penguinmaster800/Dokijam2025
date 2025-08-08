@@ -3,7 +3,7 @@ extends CanvasLayer
 
 func _ready():
 	Status.doki_health_change.connect(_doki_health_change)
-	Status.doki_ammo_change.connect(_doki_ammo_change)
+	Status.connect("doki_ammo_change", _doki_ammo_change)
 	Status.enemies_remaining_change.connect(_enemies_remaining_change)
 
 func _doki_health_change():
