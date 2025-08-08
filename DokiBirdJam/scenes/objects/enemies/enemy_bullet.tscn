@@ -8,11 +8,13 @@ radius = 4.0
 height = 22.0
 
 [node name="EnemyBullet" type="StaticBody2D"]
+rotation = -0.00329971
 collision_layer = 4
 script = ExtResource("1_ebqjs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -3)
+rotation = -3.14159
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_dd4g7")
 

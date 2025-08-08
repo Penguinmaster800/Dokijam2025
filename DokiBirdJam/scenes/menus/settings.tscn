@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3cow3hhtflxv"]
 
-[ext_resource type="PackedScene" uid="uid://dj5aio8r1dai2" path="res://scenes/user interface/mute_button.tscn" id="1_hlmtr"]
-[ext_resource type="Script" uid="uid://cs8xnt4bm61ki" path="res://scenes/levels/settings.gd" id="1_ni6ub"]
-[ext_resource type="PackedScene" uid="uid://c4fgpbww4k2xd" path="res://scenes/user interface/full_screen_button.tscn" id="2_ni6ub"]
-[ext_resource type="PackedScene" uid="uid://4ykogtci8enh" path="res://scenes/user interface/main_menu_button.tscn" id="4_dleyi"]
+[ext_resource type="Script" uid="uid://cs8xnt4bm61ki" path="res://scenes/scripts/scenes/settings.gd" id="1_g2810"]
+[ext_resource type="PackedScene" uid="uid://dj5aio8r1dai2" path="res://scenes/user interface/mute_button.tscn" id="2_swl1s"]
+[ext_resource type="PackedScene" uid="uid://c4fgpbww4k2xd" path="res://scenes/user interface/full_screen_button.tscn" id="3_d8vgy"]
+[ext_resource type="PackedScene" uid="uid://4ykogtci8enh" path="res://scenes/user interface/main_menu_button.tscn" id="4_v4co7"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ni6ub")
+script = ExtResource("1_g2810")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -35,21 +35,21 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "Settings"
 
-[node name="MuteButton" parent="." instance=ExtResource("1_hlmtr")]
+[node name="MuteButton" parent="." instance=ExtResource("2_swl1s")]
 layout_mode = 1
 offset_left = 54.0
 offset_top = 185.0
 offset_right = -1040.0
 offset_bottom = -451.0
 
-[node name="FullScreenButton" parent="." instance=ExtResource("2_ni6ub")]
+[node name="FullScreenButton" parent="." instance=ExtResource("3_d8vgy")]
 layout_mode = 1
 offset_left = 58.0
 offset_top = 282.0
 offset_right = -1008.0
 offset_bottom = -357.0
 
-[node name="MainMenuButton" parent="." instance=ExtResource("4_dleyi")]
+[node name="MainMenuButton" parent="." instance=ExtResource("4_v4co7")]
 layout_mode = 1
 offset_left = 46.0
 offset_top = 103.0
