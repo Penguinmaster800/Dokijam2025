@@ -9,13 +9,24 @@ radius = 21.095
 radius = 64.0078
 
 [node name="Enemy" instance=ExtResource("1_yphfb")]
+max_health = 1
+max_ammo = 2
+
+[node name="HitboxHead" parent="." index="1"]
+position = Vector2(0, -64)
 
 [node name="CollisionShape2D" parent="HitboxHead" index="0"]
 position = Vector2(0, -35)
 shape = SubResource("CircleShape2D_yphfb")
 
+[node name="Hitbox" parent="." index="2"]
+position = Vector2(0, -64)
+
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_b320k")
+
+[node name="BulletStartPosition" parent="." index="6"]
+position = Vector2(0, -64)
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]
 position = Vector2(-42, 17)

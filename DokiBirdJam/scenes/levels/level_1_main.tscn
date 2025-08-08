@@ -22,13 +22,13 @@ position = Vector2(1322, 300)
 [node name="CoverPoint1" parent="EnemyLayer/Row2/CoverPoints" index="0" instance=ExtResource("3_3fypp")]
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint1/InCover" index="0"]
-position = Vector2(979, 250)
+position = Vector2(979, 341)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint1/OutOfCover" index="0"]
-position = Vector2(811, 258)
+position = Vector2(811, 339)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint1/OutOfCover" index="1"]
-position = Vector2(1153, 248)
+position = Vector2(1153, 339)
 
 [node name="Wall" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("3_m6g7d")]
 position = Vector2(983, 229)
@@ -41,13 +41,13 @@ position = Vector2(-63, 392)
 [node name="CoverPoint1" parent="EnemyLayer/Row1/CoverPoints" index="0" instance=ExtResource("3_3fypp")]
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/InCover" index="0"]
-position = Vector2(460, 349)
+position = Vector2(460, 418)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/OutOfCover" index="0"]
-position = Vector2(279, 350)
+position = Vector2(279, 419)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/OutOfCover" index="1"]
-position = Vector2(635, 350)
+position = Vector2(635, 419)
 
 [node name="Wall" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("3_m6g7d")]
 position = Vector2(467, 313)
