@@ -5,15 +5,16 @@ var reloading: bool = false
 var enemy_bullet_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_bullet.tscn")
 var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_gunman.tscn")
 var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_brute.tscn")
-var level_1_beat = "res://scenes/levels/level_1_beat.tscn"
-var level_2_beat = "res://scenes/levels/level_2_beat.tscn"
-var level_3_beat = "res://scenes/levels/level_3_beat.tscn"
+const level_1_beat = "res://scenes/levels/level_1_beat.tscn"
+const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
+const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
 
 func level_startup():
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.doki_health = Status.doki_max_health
-	Status.connect("enemies_remaining_check", _enemy_defeated)
-	Status.connect("doki_health_check", _doki_hurt)
+	Status.enemies_remaining_change.connect(_enemy_defeated)
+	Status.doki_health_change.connect(_doki_hurt)
+	Status.time_remaining_change.connect(_time_remaining_check)
 	print("ready")
 
 
@@ -97,6 +98,12 @@ func _doki_hurt():
 		pass
 	if Status.doki_health <= 0:
 		print("death")
+		level_loss()
+
+func _time_remaining_check():
+	if Status.time_remaining >=0:
+		pass
+	if Status.time_remaining <=0:
 		level_loss()
 
 func level_loss():
