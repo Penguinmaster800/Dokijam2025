@@ -1,11 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnvwnsf0ut2ll"]
+[gd_scene load_steps=6 format=3 uid="uid://cnvwnsf0ut2ll"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_731hl"]
 [ext_resource type="Script" uid="uid://dvelwpg1vp7dt" path="res://scenes/scripts/scenes/level_1_main.gd" id="2_3fypp"]
+[ext_resource type="PackedScene" uid="uid://tun578ei5uga" path="res://scenes/objects/enemies/cover_point.tscn" id="3_3fypp"]
 [ext_resource type="PackedScene" uid="uid://wv41il63ds28" path="res://scenes/objects/Environment/block.tscn" id="3_m6g7d"]
+[ext_resource type="PackedScene" uid="uid://dfp4e0kdr2s1h" path="res://scenes/objects/enemies/spawn_point.tscn" id="3_wvij7"]
 
 [node name="Level" instance=ExtResource("1_731hl")]
 script = ExtResource("2_3fypp")
 
-[node name="Wall" parent="." index="4" instance=ExtResource("3_m6g7d")]
+[node name="SpawnPoint1" parent="EnemyLayer/Row2/SpawnPoints" index="0" instance=ExtResource("3_wvij7")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/SpawnPoints/SpawnPoint1" index="0"]
+position = Vector2(-38, 294)
+
+[node name="SpawnPoint2" parent="EnemyLayer/Row2/SpawnPoints" index="1" instance=ExtResource("3_wvij7")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/SpawnPoints/SpawnPoint2" index="0"]
+position = Vector2(1322, 300)
+
+[node name="CoverPoint1" parent="EnemyLayer/Row2/CoverPoints" index="0" instance=ExtResource("3_3fypp")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint1/InCover" index="0"]
+position = Vector2(979, 250)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint1/OutOfCover" index="0"]
+position = Vector2(811, 258)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint1/OutOfCover" index="1"]
+position = Vector2(1153, 248)
+
+[node name="Wall" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("3_m6g7d")]
+position = Vector2(983, 229)
+
+[node name="SpawnPoint1" parent="EnemyLayer/Row1/SpawnPoints" index="0" instance=ExtResource("3_wvij7")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/SpawnPoints/SpawnPoint1" index="0"]
+position = Vector2(-63, 392)
+
+[node name="CoverPoint1" parent="EnemyLayer/Row1/CoverPoints" index="0" instance=ExtResource("3_3fypp")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/InCover" index="0"]
+position = Vector2(460, 349)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/OutOfCover" index="0"]
+position = Vector2(279, 350)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/OutOfCover" index="1"]
+position = Vector2(635, 350)
+
+[node name="Wall" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("3_m6g7d")]
 position = Vector2(467, 313)
+
+[editable path="EnemyLayer/Row4"]
+[editable path="EnemyLayer/Row3"]
+[editable path="EnemyLayer/Row2"]
+[editable path="EnemyLayer/Row2/SpawnPoints/SpawnPoint1"]
+[editable path="EnemyLayer/Row2/SpawnPoints/SpawnPoint2"]
+[editable path="EnemyLayer/Row2/CoverPoints/CoverPoint1"]
+[editable path="EnemyLayer/Row1"]
+[editable path="EnemyLayer/Row1/CoverPoints/CoverPoint1"]

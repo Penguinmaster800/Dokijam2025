@@ -71,18 +71,34 @@ func _on_enemy_enemy_attack(pos: Variant) -> void:
 	enemy_bullet.destination = dest
 	$Projectiles.add_child(enemy_bullet)
 
-func spawn_enemy_gunman(pos: Vector2):
-	spawn_enemy(enemy_gunman_scene, pos)
+func spawn_enemy_gunman(row_no: int):
+	spawn_enemy(enemy_gunman_scene, row_no)
 
-func spawn_enemy_brute(pos: Vector2):
-	spawn_enemy(enemy_brute_scene, pos)
+func spawn_enemy_brute(row_no: int):
+	spawn_enemy(enemy_brute_scene, row_no)
 
-func spawn_enemy(enemy_scene: PackedScene, pos: Vector2):
+func spawn_enemy(enemy_scene: PackedScene, row_no: int):
+	var row = get_row_no_instance(row_no)
+	var cover_point: CoverPointData = row.cover_points.pick_random()
+	var spawn_point: SpawnPointData = row.spawn_points.pick_random()
+	
 	var enemy = enemy_scene.instantiate()
-	enemy.position = pos
+	enemy.position = spawn_point.spawn_point_positions[0]
+	enemy.cover_point = cover_point
+	enemy.spawn_move_position = cover_point.in_cover_positions[0]
 	enemy.enemy_attack.connect(_on_enemy_enemy_attack)
-	$Enemies.add_child(enemy)
+	
+	row.get_node("Enemies").add_child(enemy)
 
+func get_row_no_instance(row: int) -> Node:
+	match row:
+		1: 
+			return $EnemyLayer/Row1
+		2: 
+			return $EnemyLayer/Row2
+	
+	return $EnemyLayer/Row1
+		
 func _enemy_defeated():
 	print("dragoon down")
 	if Status.enemies_remaining >= 1:
