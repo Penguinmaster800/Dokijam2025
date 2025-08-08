@@ -9,11 +9,12 @@ var level_1_beat = "res://scenes/levels/level_1_beat.tscn"
 var level_2_beat = "res://scenes/levels/level_2_beat.tscn"
 var level_3_beat = "res://scenes/levels/level_3_beat.tscn"
 
-func _ready():
+func level_startup():
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.doki_health = Status.doki_max_health
-	Status.enemies_remaining_change.connect(enemy_defeated)
-	Status.doki_health_change.connect(doki_hurt)
+	Status.connect("enemies_remaining_check", _enemy_defeated)
+	Status.connect("doki_health_check", _doki_hurt)
+	print("ready")
 
 
 func reload():
@@ -82,16 +83,20 @@ func spawn_enemy(enemy_scene: PackedScene, pos: Vector2):
 	enemy.enemy_attack.connect(_on_enemy_enemy_attack)
 	$Enemies.add_child(enemy)
 
-func enemy_defeated():
+func _enemy_defeated():
+	print("dragoon down")
 	if Status.enemies_remaining >= 1:
 		pass
 	if Status.enemies_remaining <= 0:
+		print("victory")
 		level_beat()
 
-func doki_hurt():
+func _doki_hurt():
+	print("doki hit")
 	if Status.doki_health >= 1:
 		pass
 	if Status.doki_health <= 0:
+		print("death")
 		level_loss()
 
 func level_loss():
