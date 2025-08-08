@@ -1,35 +1,44 @@
 extends Node2D
 class_name EnemyParent
 
-enum Stance {SPAWN, COVER, ATTACK, ATTACK_COOLDOWN, DEATH}
+enum Stance {SPAWN, COVER, MOVE_TO_ATTACK, ATTACK, ATTACK_COOLDOWN, DEATH}
 
 ## Max Health of the Enemy
 @export var max_health: int = 10
 ## Current Health of the Enemy
 var health: int = max_health
 
+## Cover Position Data
+var cover_point: CoverPointData
+## Flag of In Cover Reached
+var _reached_in_cover_position: bool = true
+var _reached_out_of_cover_position: bool = true
+var current_cover_destination: Vector2
+
 ## Position to move on spawn
-@export var spawn_move_position: Vector2 = Vector2(640, 360)
+var spawn_move_position: Vector2 = Vector2(640, 360)
 ## Flag of Destination Reached
 var _reached_spawn_move_position: bool = false
 ## Speed of movement
 var movement_speed: int = 100
 
+
 ## Current Stance of the Enemy
 var current_stance: Stance = Stance.SPAWN
 
 ## Fire Rate of the Attack
-var fire_rate: float = 0.5
+@export var fire_rate: float = 0.5
 ## Max Ammo
-var max_ammo: int = 6
+@export var max_ammo: int = 6
 ## Current Ammo
 var current_ammo: int = max_ammo
 ## Reload Time
-var reload_time: float = 4.0
+@export var reload_time: float = 4.0
 ## Reloading State
 var _is_reloading: bool = false
 ## Cooldown time before going to Cover
 var attack_cooldown_time: float = 1.2
+var move_out_of_cover_time: float = 1.2
 
 ## Signal for Death of the Enemy
 signal enemy_death
@@ -39,13 +48,14 @@ signal enemy_reached_position
 signal enemy_attack(pos)
 
 func _process(delta: float) -> void:
-	
-	#var direction = Input.get_vector("left", "right", "up", "down")
-	#velocity = direction * 500
-	#move_and_slide()
-	
 	if !_reached_spawn_move_position:
 		after_spawn(delta)
+	
+	if !_reached_in_cover_position:
+		move_to_cover(delta)
+	
+	if !_reached_out_of_cover_position:
+		move_out_of_cover(delta)
 
 func _on_hitbox_head_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not event.is_action_pressed("primary action"):
@@ -76,8 +86,9 @@ func handle_damage(multiplier: int = 1):
 	if health <= 0:
 		return
 	
-	if current_stance == Stance.COVER:
-		return
+	# TODO: Remove this. Might be useful for Abilities.
+	#if current_stance == Stance.COVER:
+		#return
 
 	# TODO: Temporary variable for Damage. Replace Later.
 	var _damage: int = 1
@@ -98,11 +109,28 @@ func after_spawn(delta):
 		enemy_reached_position.emit()
 		switch_stance()
 
+func move_to_cover(delta):
+	# Move to position
+	var in_cover_pos = cover_point.in_cover_positions[0]
+	position += position.direction_to(in_cover_pos) * movement_speed * delta
+	if position.distance_to(in_cover_pos) < 1.0:
+		_reached_in_cover_position = true
+		switch_stance()
+
+func move_out_of_cover(delta):
+	# Move to position
+	position += position.direction_to(current_cover_destination) * movement_speed * delta
+	if position.distance_to(current_cover_destination) < 1.0:
+		_reached_out_of_cover_position = true
+		switch_stance()
+
 func switch_stance():
 	match current_stance:
 		Stance.SPAWN:
 			stance_to_cover()
 		Stance.COVER:
+			stance_move_to_attack()
+		Stance.MOVE_TO_ATTACK:
 			stance_to_attack()
 		Stance.ATTACK:
 			stance_attack_cooldown()
@@ -111,9 +139,15 @@ func switch_stance():
 		Stance.DEATH:
 			return
 
+func stance_move_to_attack():
+	current_cover_destination = cover_point.out_of_cover_positions.pick_random()
+	current_stance = Stance.MOVE_TO_ATTACK
+	_reached_out_of_cover_position = false
+
 func stance_attack_cooldown():
-	$TimerCurrentStance.start(attack_cooldown_time)
+	#$TimerCurrentStance.start(attack_cooldown_time)
 	current_stance = Stance.ATTACK_COOLDOWN
+	_reached_in_cover_position = false
 	$TimerFireRate.stop()
 
 func stance_to_cover():
