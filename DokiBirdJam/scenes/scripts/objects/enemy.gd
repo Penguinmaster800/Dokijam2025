@@ -6,7 +6,7 @@ enum Stance {SPAWN, COVER, MOVE_TO_ATTACK, ATTACK, ATTACK_COOLDOWN, DEATH}
 ## Max Health of the Enemy
 @export var max_health: int = 10
 ## Current Health of the Enemy
-var health: int = max_health
+var health: int
 
 ## Cover Position Data
 var cover_point: CoverPointData
@@ -31,7 +31,7 @@ var current_stance: Stance = Stance.SPAWN
 ## Max Ammo
 @export var max_ammo: int = 6
 ## Current Ammo
-var current_ammo: int = max_ammo
+var current_ammo: int
 ## Reload Time
 @export var reload_time: float = 4.0
 ## Reloading State
@@ -46,6 +46,10 @@ signal enemy_death
 signal enemy_reached_position
 ## Signal for Attack of the Enemy
 signal enemy_attack(pos)
+
+func _ready() -> void:
+	health = max_health
+	current_ammo = max_ammo
 
 func _process(delta: float) -> void:
 	if !_reached_spawn_move_position:
