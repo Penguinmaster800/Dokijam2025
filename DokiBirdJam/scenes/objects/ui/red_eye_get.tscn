@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://upontktgvflk"]
+
+[ext_resource type="PackedScene" uid="uid://b0d202dxj0wqu" path="res://scenes/objects/ui/upgrade_choice.tscn" id="1_0grif"]
+[ext_resource type="Script" uid="uid://byk8v7jd2kjhl" path="res://scenes/scripts/objects/red_eye_get.gd" id="2_7lb8o"]
+
+[node name="RedEyeGet" instance=ExtResource("1_0grif")]
+script = ExtResource("2_7lb8o")
+
+[node name="Label" parent="." index="1"]
+text = "Red Eye"
+
+[connection signal="pressed" from="Button" to="." method="_on_red_eye_get_button_pressed"]

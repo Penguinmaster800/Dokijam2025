@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cstdfjbgtcing"]
+[gd_scene load_steps=3 format=3 uid="uid://cstdfjbgtcing"]
 
 [ext_resource type="Script" uid="uid://wkyaratdd7f7" path="res://scenes/scripts/scenes/level_1_beat.gd" id="1_ibyhu"]
+[ext_resource type="PackedScene" uid="uid://byglw22sudck0" path="res://scenes/objects/ui/upgrade_selector.tscn" id="2_d63wk"]
 
 [node name="Level1Beat" type="Node2D"]
 script = ExtResource("1_ibyhu")
@@ -29,5 +30,8 @@ offset_right = 1224.0
 offset_bottom = 647.0
 theme_override_font_sizes/font_size = 48
 text = "Next Level"
+
+[node name="UpgradeSelector" parent="." instance=ExtResource("2_d63wk")]
+position = Vector2(633, 349)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

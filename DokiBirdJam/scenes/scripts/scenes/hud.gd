@@ -7,10 +7,10 @@ func _ready():
 	Status.enemies_remaining_change.connect(_enemies_remaining_change)
 
 func _doki_health_change():
-	$"Hp-Bar".value = Status.doki_health
+	$HpBar.value = Status.doki_health
 
 func _doki_ammo_change():
-	$"Ammo Tracker".value = Status.doki_ammo
+	$AmmoTracker.value = Status.doki_ammo
 
 func _enemies_remaining_change():
-	$Control/Label.text = str(Status.enemies_remaining)
+	$DragoonCounter/Label.text = str(Status.enemies_remaining)

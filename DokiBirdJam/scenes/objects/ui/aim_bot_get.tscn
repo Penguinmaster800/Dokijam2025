@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6gxbv80cl611"]
+
+[ext_resource type="PackedScene" uid="uid://b0d202dxj0wqu" path="res://scenes/objects/ui/upgrade_choice.tscn" id="1_ekpdo"]
+[ext_resource type="Script" uid="uid://mbl58oxvoiay" path="res://scenes/scripts/objects/aim_bot_get.gd" id="2_ficiv"]
+
+[node name="AimBotGet" instance=ExtResource("1_ekpdo")]
+script = ExtResource("2_ficiv")
+
+[node name="Label" parent="." index="1"]
+text = "Aim Bot"
+
+[connection signal="pressed" from="Button" to="." method="_on_aim_bot_get_button_pressed"]

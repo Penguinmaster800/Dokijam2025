@@ -4,6 +4,10 @@ signal aim_bot_activate
 signal red_eye_activate
 signal going_ghost_activate
 
+var aim_bot_learned : bool = false
+var going_ghost_learned : bool = false
+var red_eye_learned : bool = false
+
 var ability1 = null
 var ability2 = null
 var ability3 = null
