@@ -26,6 +26,8 @@ var _reached_spawn_move_position: bool = false
 ## Current Stance of the Enemy
 var current_stance: Stance = Stance.SPAWN
 
+## Weapon Type
+@export var attack_type: EnemyAttackType.AttackType = EnemyAttackType.AttackType.NORMAL
 ## Fire Rate of the Attack
 @export var fire_rate: float = 0.5
 ## Max Ammo
@@ -45,7 +47,7 @@ signal enemy_death
 ## Signal for Enemy Reaching the Position
 signal enemy_reached_position
 ## Signal for Attack of the Enemy
-signal enemy_attack(pos)
+signal enemy_attack(pos, type)
 
 func _ready() -> void:
 	health = max_health
@@ -178,7 +180,7 @@ func stance_to_attack():
 	$TimerFireRate.start(fire_rate)
 
 func attack():
-	enemy_attack.emit($BulletStartPosition/Marker2D.global_position)
+	enemy_attack.emit($BulletStartPosition/Marker2D.global_position, attack_type)
 	current_ammo -= 1
 	print("Enemy Fired! Current ammo: %s" % current_ammo)
 	
