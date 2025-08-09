@@ -10,6 +10,7 @@ radius = 64.0078
 
 [node name="Enemy" instance=ExtResource("1_yphfb")]
 max_health = 1
+movement_speed = 200
 max_ammo = 2
 
 [node name="HitboxHead" parent="." index="1"]

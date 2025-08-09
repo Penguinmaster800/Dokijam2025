@@ -10,13 +10,17 @@ const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
 const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
 
 func level_startup():
+	var vp = get_viewport()
+	vp.set_physics_object_picking_sort(true)
+	vp.set_physics_object_picking_first_only(true)
+	
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.doki_health = Status.doki_max_health
 	Status.enemies_remaining_change.connect(_enemy_defeated)
 	Status.doki_health_change.connect(_doki_hurt)
 	Status.time_remaining_change.connect(_time_remaining_check)
+	
 	print("ready")
-
 
 func reload():
 	if Status.doki_reloading == true:

@@ -20,7 +20,7 @@ var spawn_move_position: Vector2 = Vector2(640, 360)
 ## Flag of Destination Reached
 var _reached_spawn_move_position: bool = false
 ## Speed of movement
-var movement_speed: int = 100
+@export var movement_speed: int = 100
 
 
 ## Current Stance of the Enemy
