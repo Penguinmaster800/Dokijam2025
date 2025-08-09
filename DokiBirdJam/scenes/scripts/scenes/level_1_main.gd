@@ -9,7 +9,7 @@ func _ready():
 	Status.doki_health = Status.doki_max_health
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.level = 1
-	
+	AudioManager.level_one_music.play()
 	
 	
 	

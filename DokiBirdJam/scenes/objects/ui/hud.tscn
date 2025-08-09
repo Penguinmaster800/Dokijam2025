@@ -46,7 +46,7 @@ offset_bottom = 40.0
 [node name="TimeLeftPanel" type="Panel" parent="TimeLeft"]
 layout_mode = 0
 offset_left = 2.0
-offset_right = 99.0
+offset_right = 142.0
 offset_bottom = 23.0
 script = ExtResource("4_k4aum")
 
@@ -60,16 +60,16 @@ horizontal_alignment = 1
 
 [node name="second" type="Label" parent="TimeLeft/TimeLeftPanel"]
 layout_mode = 0
-offset_left = 35.0
-offset_right = 56.0
+offset_left = 27.0
+offset_right = 48.0
 offset_bottom = 23.0
 text = "10"
 horizontal_alignment = 1
 
 [node name="milisecond" type="Label" parent="TimeLeft/TimeLeftPanel"]
 layout_mode = 0
-offset_left = 67.0
-offset_right = 86.0
+offset_left = 54.0
+offset_right = 73.0
 offset_bottom = 23.0
 text = "10"
 horizontal_alignment = 1
@@ -77,8 +77,8 @@ horizontal_alignment = 1
 [node name="DragoonCounter" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 100.0
-offset_right = 140.0
+offset_left = 99.0
+offset_right = 139.0
 offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="DragoonCounter"]
