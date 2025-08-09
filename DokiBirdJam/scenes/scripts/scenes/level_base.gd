@@ -117,8 +117,6 @@ func _doki_hurt():
 		level_loss()
 
 func _time_remaining_check():
-	if Status.time_remaining >=0:
-		pass
 	if Status.time_remaining <=0:
 		level_loss()
 

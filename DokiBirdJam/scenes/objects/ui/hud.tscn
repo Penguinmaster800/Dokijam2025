@@ -6,10 +6,10 @@
 [ext_resource type="Script" uid="uid://ckhvoibeq1gtr" path="res://scenes/scripts/scenes/time_left_panel.gd" id="4_k4aum"]
 [ext_resource type="Texture2D" uid="uid://crxvs3hxnlb7" path="res://assets/object/enemy_attack.png" id="5_e4dsg"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_vinhp")
 
-[node name="Hp-Bar" type="TextureProgressBar" parent="."]
+[node name="HpBar" type="TextureProgressBar" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,7 +27,7 @@ fill_mode = 4
 texture_under = ExtResource("2_bk1an")
 texture_progress = ExtResource("3_av8p5")
 
-[node name="Ammo Tracker" type="TextureProgressBar" parent="."]
+[node name="AmmoTracker" type="TextureProgressBar" parent="."]
 offset_left = 271.0
 offset_top = 538.0
 offset_right = 311.0
@@ -74,21 +74,21 @@ offset_bottom = 23.0
 text = "10"
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="DragoonCounter" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 100.0
 offset_right = 140.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="DragoonCounter"]
 layout_mode = 0
 offset_right = 22.0
 offset_bottom = 23.0
 texture = ExtResource("5_e4dsg")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="DragoonCounter"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0

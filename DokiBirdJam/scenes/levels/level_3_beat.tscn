@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://haxra8p5x4k3"]
+[gd_scene load_steps=3 format=3 uid="uid://haxra8p5x4k3"]
 
 [ext_resource type="Script" uid="uid://by8raxh0sh0o5" path="res://scenes/scripts/scenes/level_3_beat.gd" id="1_b3lfu"]
+[ext_resource type="PackedScene" uid="uid://byglw22sudck0" path="res://scenes/objects/ui/upgrade_selector.tscn" id="2_iojjf"]
 
 [node name="Level3Beat" type="Node2D"]
 script = ExtResource("1_b3lfu")
@@ -29,5 +30,8 @@ offset_right = 1124.0
 offset_bottom = 576.0
 theme_override_font_sizes/font_size = 48
 text = "Play"
+
+[node name="UpgradeSelector" parent="." instance=ExtResource("2_iojjf")]
+position = Vector2(644, 343)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

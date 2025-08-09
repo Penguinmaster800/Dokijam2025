@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b52jkbpv3oqqo"]
+
+[ext_resource type="PackedScene" uid="uid://b0d202dxj0wqu" path="res://scenes/objects/ui/upgrade_choice.tscn" id="1_2kh3a"]
+[ext_resource type="Script" uid="uid://w5u4drw42xhy" path="res://scenes/scripts/objects/ammo_up.gd" id="2_di8kg"]
+
+[node name="AmmoUp" instance=ExtResource("1_2kh3a")]
+script = ExtResource("2_di8kg")
+
+[node name="Label" parent="." index="1"]
+text = "ammo up"
+
+[connection signal="pressed" from="Button" to="." method="_on_ammo_button_pressed"]
