@@ -101,6 +101,10 @@ func get_row_no_instance(row: int) -> Node:
 			return $EnemyLayer/Row1
 		2: 
 			return $EnemyLayer/Row2
+		3:
+			return $EnemyLayer/Row3
+		4:
+			return $EnemyLayer/Row4
 	
 	return $EnemyLayer/Row1
 		
