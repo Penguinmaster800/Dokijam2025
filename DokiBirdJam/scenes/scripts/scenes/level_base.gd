@@ -5,6 +5,7 @@ var reloading: bool = false
 var enemy_bullet_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_bullet.tscn")
 var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_gunman.tscn")
 var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_brute.tscn")
+const AttackType = EnemyAttackType.AttackType
 const level_1_beat = "res://scenes/levels/level_1_beat.tscn"
 const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
 const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
@@ -68,13 +69,45 @@ func random_enemy_bullet_destination() -> Vector2:
 	var local_y = randf_range(-extents.y, extents.y)
 	return $EnemyProjectilesDestinationArea.global_position + Vector2(local_x, local_y)
 
-func _on_enemy_enemy_attack(pos: Variant) -> void:
+func _on_enemy_enemy_attack(pos: Variant, type: AttackType) -> void:
+	
+	match type:
+		AttackType.NORMAL, _:
+			enemy_bullet_attack_default(pos)
+		AttackType.SHOTGUN:
+			enemy_bullet_attack_shotgun(pos)
+
+func enemy_bullet_attack_default(pos: Variant) -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate()
 	enemy_bullet.position = pos
-	
+
 	var dest = random_enemy_bullet_destination()
 	enemy_bullet.destination = dest
+	
 	$Projectiles.add_child(enemy_bullet)
+
+func enemy_bullet_attack_shotgun(pos: Variant) -> void:
+	var bullets_per_shot: int = 3
+	var spread_angle_degrees: float = -15.0
+	var spread_radians = deg_to_rad(spread_angle_degrees)
+	var base_dest = random_enemy_bullet_destination()
+
+	for i in range(bullets_per_shot):
+		var enemy_bullet = enemy_bullet_scene.instantiate()
+		enemy_bullet.position = pos
+
+		var angle_step = spread_radians / (bullets_per_shot - 1) if bullets_per_shot > 1 else 0.0
+		var bullet_angle = i * angle_step
+
+		var base_direction = (base_dest - pos).normalized()
+		var rotated_direction = base_direction.rotated(bullet_angle)
+		
+		var y_diff = base_dest.y - pos.y
+		var distance = y_diff / rotated_direction.y if rotated_direction.y != 0 else 800.0
+		
+		enemy_bullet.destination = pos + (rotated_direction * distance)
+		
+		$Projectiles.add_child(enemy_bullet)
 
 func spawn_enemy_gunman(row_no: int):
 	spawn_enemy(enemy_gunman_scene, row_no)
@@ -105,8 +138,8 @@ func get_row_no_instance(row: int) -> Node:
 			return $EnemyLayer/Row3
 		4:
 			return $EnemyLayer/Row4
-	
-	return $EnemyLayer/Row1
+		_:
+			return $EnemyLayer/Row1
 		
 func _enemy_defeated():
 	print("dragoon down")
