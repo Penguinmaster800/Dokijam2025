@@ -11,17 +11,24 @@ radius = 96.0208
 
 [node name="EnemyBrute" instance=ExtResource("1_qbjeo")]
 script = ExtResource("2_06mwg")
-spawn_move_position = Vector2(800, 200)
+max_health = 2
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -96)
 scale = Vector2(0.75, 0.75)
+
+[node name="HitboxHead" parent="." index="1"]
+position = Vector2(0, -96)
 
 [node name="CollisionShape2D" parent="HitboxHead" index="0"]
 position = Vector2(0, -45)
 shape = SubResource("CircleShape2D_06mwg")
 
+[node name="Hitbox" parent="." index="2"]
+position = Vector2(0, -96)
+
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_w0llk")
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]
-position = Vector2(-59, 12)
+position = Vector2(-56, -66)

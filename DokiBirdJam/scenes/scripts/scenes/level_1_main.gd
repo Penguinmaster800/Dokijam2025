@@ -13,5 +13,5 @@ func _ready():
 	
 	
 	
-	spawn_enemy_gunman(Vector2(600,300))
-	spawn_enemy_brute(Vector2(800,200))
+	spawn_enemy_gunman(1)
+	spawn_enemy_brute(2)

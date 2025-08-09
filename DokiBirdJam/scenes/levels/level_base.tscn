@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctjlt14ff44l0"]
+[gd_scene load_steps=6 format=3 uid="uid://ctjlt14ff44l0"]
 
 [ext_resource type="Script" uid="uid://crri73psdo5st" path="res://scenes/scripts/scenes/level_base.gd" id="1_0y8gg"]
 [ext_resource type="PackedScene" uid="uid://8l40p14fjdd2" path="res://scenes/objects/player/player.tscn" id="1_u0om3"]
+[ext_resource type="PackedScene" uid="uid://cv3diwybrt3fj" path="res://scenes/objects/rows/row.tscn" id="4_6cjw3"]
 [ext_resource type="PackedScene" uid="uid://bvjmoe3acpb6" path="res://scenes/objects/ui/hud.tscn" id="4_d61h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d61h5"]
@@ -17,7 +18,18 @@ position = Vector2(300, 638)
 wait_time = 3.0
 one_shot = true
 
-[node name="Enemies" type="Node2D" parent="."]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_d61h5")]
+
+[node name="EnemyLayer" type="Node2D" parent="."]
+
+[node name="Row4" parent="EnemyLayer" instance=ExtResource("4_6cjw3")]
+
+[node name="Row3" parent="EnemyLayer" instance=ExtResource("4_6cjw3")]
+
+[node name="Row2" parent="EnemyLayer" instance=ExtResource("4_6cjw3")]
+
+[node name="Row1" parent="EnemyLayer" instance=ExtResource("4_6cjw3")]
 
 [node name="Projectiles" type="Node2D" parent="."]
 
@@ -30,3 +42,8 @@ shape = SubResource("RectangleShape2D_d61h5")
 [node name="Hud" parent="." instance=ExtResource("4_d61h5")]
 
 [connection signal="timeout" from="Reload Timer" to="." method="_on_reload_timer_timeout"]
+
+[editable path="EnemyLayer/Row4"]
+[editable path="EnemyLayer/Row3"]
+[editable path="EnemyLayer/Row2"]
+[editable path="EnemyLayer/Row1"]
