@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://diatoj0yv1pn6"]
+
+[ext_resource type="PackedScene" uid="uid://d1ajt4tf4la11" path="res://scenes/objects/Environment/cover_object.tscn" id="1_limg8"]
+[ext_resource type="Texture2D" uid="uid://c8uo3ps4dkfar" path="res://assets/object/cover_object_pillars_l1r3.png" id="2_kuo8l"]
+
+[node name="CoverObjectPillarsL1R3" instance=ExtResource("1_limg8")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kuo8l")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-328, -223, -326, -204, -312, -189, -311, -138, -312, 46, -320, 237, -165, 236, -169, 191, -179, 179, -179, -165, -165, -179, -165, -203, -157, -211, -158, -230, -234, -233, -294, -231)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="2"]
+polygon = PackedVector2Array(-127, -222, -126, -203, -117, -193, -113, 165, -124, 174, -120, 219, -28, 227, -11, 225, 30, 209, 30, 188, 17, 177, 18, -165, 35, -207, 41, -228, -26, -230, -93, -230, -106, -223)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="." index="3"]
+polygon = PackedVector2Array(79, -224, 80, -208, 94, -177, 92, 158, 82, 174, 82, 205, 110, 214, 113, 223, 156, 233, 206, 223, 233, 209, 234, 189, 221, 178, 221, -166, 223, -198, 228, -208, 230, -227, 159, -233, 110, -229)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="." index="4"]
+polygon = PackedVector2Array(279, -222, 280, -207, 292, -195, 296, -172, 296, 166, 285, 174, 286, 203, 302, 209, 315, 209, 319, 218, 352, 228, 387, 229, 386, -231, 316, -229, 306, -225)

@@ -3,25 +3,29 @@
 [ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_yphfb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yphfb"]
-radius = 21.095
+radius = 11.1803
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b320k"]
-radius = 64.0078
+radius = 32.3883
 
 [node name="Enemy" instance=ExtResource("1_yphfb")]
 max_health = 1
 movement_speed = 200
 max_ammo = 2
 
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -32)
+scale = Vector2(0.25, 0.25)
+
 [node name="HitboxHead" parent="." index="1"]
-position = Vector2(0, -64)
+position = Vector2(0, -32)
 
 [node name="CollisionShape2D" parent="HitboxHead" index="0"]
-position = Vector2(0, -35)
+position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_yphfb")
 
 [node name="Hitbox" parent="." index="2"]
-position = Vector2(0, -64)
+position = Vector2(0, -32)
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_b320k")
@@ -30,4 +34,4 @@ shape = SubResource("CircleShape2D_b320k")
 position = Vector2(0, -64)
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]
-position = Vector2(-42, 17)
+position = Vector2(-22, 39)

@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnvwnsf0ut2ll"]
+[gd_scene load_steps=9 format=3 uid="uid://cnvwnsf0ut2ll"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_731hl"]
 [ext_resource type="Script" uid="uid://dvelwpg1vp7dt" path="res://scenes/scripts/scenes/level_1_main.gd" id="2_3fypp"]
 [ext_resource type="PackedScene" uid="uid://tun578ei5uga" path="res://scenes/objects/enemies/cover_point.tscn" id="3_3fypp"]
 [ext_resource type="Texture2D" uid="uid://11viesk807no" path="res://assets/object/background_level1.png" id="3_i6tn1"]
-[ext_resource type="PackedScene" uid="uid://wv41il63ds28" path="res://scenes/objects/Environment/block.tscn" id="3_m6g7d"]
 [ext_resource type="PackedScene" uid="uid://dfp4e0kdr2s1h" path="res://scenes/objects/enemies/spawn_point.tscn" id="3_wvij7"]
+[ext_resource type="PackedScene" uid="uid://diatoj0yv1pn6" path="res://scenes/objects/Environment/cover_object_pillars_l_1r_3.tscn" id="4_nc32v"]
 [ext_resource type="PackedScene" uid="uid://dfbno7bxwndcg" path="res://scenes/objects/Environment/cover_object_fountain.tscn" id="6_qjymw"]
+[ext_resource type="PackedScene" uid="uid://o2krh3yv5u14" path="res://scenes/objects/Environment/cover_object_wall_l1r1.tscn" id="7_qjymw"]
 
 [node name="Level" instance=ExtResource("1_731hl")]
 script = ExtResource("2_3fypp")
@@ -15,6 +16,34 @@ script = ExtResource("2_3fypp")
 position = Vector2(640, 360)
 scale = Vector2(0.55, 0.55)
 texture = ExtResource("3_i6tn1")
+
+[node name="SpawnPoint1" parent="EnemyLayer/Row3/SpawnPoints" index="0" instance=ExtResource("3_wvij7")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/SpawnPoints/SpawnPoint1" index="0"]
+position = Vector2(1318, 327)
+
+[node name="CoverPoint1" parent="EnemyLayer/Row3/CoverPoints" index="0" instance=ExtResource("3_3fypp")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint1/InCover" index="0"]
+position = Vector2(1162, 332)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint1/OutOfCover" index="0"]
+position = Vector2(1211, 332)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint1/OutOfCover" index="1"]
+position = Vector2(1109, 330)
+
+[node name="CoverPoint2" parent="EnemyLayer/Row3/CoverPoints" index="1" instance=ExtResource("3_3fypp")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint2/InCover" index="0"]
+position = Vector2(1042, 334)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint2/OutOfCover" index="0"]
+position = Vector2(996, 330)
+
+[node name="CoverObjectPillarsL1R3" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("4_nc32v")]
+position = Vector2(1071, 245)
+scale = Vector2(0.55, 0.55)
 
 [node name="SpawnPoint1" parent="EnemyLayer/Row2/SpawnPoints" index="0" instance=ExtResource("3_wvij7")]
 
@@ -52,16 +81,20 @@ position = Vector2(1360, 480)
 position = Vector2(925, 480)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/OutOfCover" index="0"]
-position = Vector2(751, 480)
+position = Vector2(759, 480)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/OutOfCover" index="1"]
-position = Vector2(1107, 480)
+position = Vector2(1143, 480)
 
-[node name="Wall" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("3_m6g7d")]
-position = Vector2(924, 385)
+[node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("7_qjymw")]
+position = Vector2(1008, 392)
+scale = Vector2(0.55, 0.55)
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row3"]
+[editable path="EnemyLayer/Row3/SpawnPoints/SpawnPoint1"]
+[editable path="EnemyLayer/Row3/CoverPoints/CoverPoint1"]
+[editable path="EnemyLayer/Row3/CoverPoints/CoverPoint2"]
 [editable path="EnemyLayer/Row2"]
 [editable path="EnemyLayer/Row2/SpawnPoints/SpawnPoint1"]
 [editable path="EnemyLayer/Row2/SpawnPoints/SpawnPoint2"]
