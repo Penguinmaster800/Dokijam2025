@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c33klxmts74ao"]
+
+[ext_resource type="Script" uid="uid://if0lge8p86d4" path="res://globals/audio_manager.gd" id="1_3uslp"]
+[ext_resource type="AudioStream" uid="uid://dmhu50pcb10te" path="res://assets/sfx/DGJ Doki shot 1.wav" id="1_hilj8"]
+[ext_resource type="AudioStream" uid="uid://d11jnvw1w0srx" path="res://assets/music/Demo 2 wip v2 (1).mp3" id="2_3uslp"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_3uslp")
+
+[node name="DokiShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_hilj8")
+volume_db = -5.029
+bus = &"SFX"
+
+[node name="LevelOneMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3uslp")
+volume_db = -0.215
+bus = &"Music"

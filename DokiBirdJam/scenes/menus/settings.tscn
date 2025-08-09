@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3cow3hhtflxv"]
+[gd_scene load_steps=6 format=3 uid="uid://d3cow3hhtflxv"]
 
 [ext_resource type="Script" uid="uid://cs8xnt4bm61ki" path="res://scenes/scripts/scenes/settings.gd" id="1_g2810"]
 [ext_resource type="PackedScene" uid="uid://dj5aio8r1dai2" path="res://scenes/user interface/mute_button.tscn" id="2_swl1s"]
 [ext_resource type="PackedScene" uid="uid://c4fgpbww4k2xd" path="res://scenes/user interface/full_screen_button.tscn" id="3_d8vgy"]
 [ext_resource type="PackedScene" uid="uid://4ykogtci8enh" path="res://scenes/user interface/main_menu_button.tscn" id="4_v4co7"]
+[ext_resource type="PackedScene" uid="uid://bgpr26aegt7se" path="res://scenes/objects/ui/volume_slider.tscn" id="5_swl1s"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -55,3 +56,62 @@ offset_left = 46.0
 offset_top = 103.0
 offset_right = -1181.0
 offset_bottom = -586.0
+
+[node name="Sliders" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Sliders"]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 197.0
+offset_right = 730.0
+offset_bottom = 434.0
+color = Color(0.352941, 0.458824, 1, 1)
+
+[node name="MasterSlider" parent="Sliders" instance=ExtResource("5_swl1s")]
+layout_mode = 1
+offset_left = 380.0
+offset_top = 245.0
+offset_right = 380.0
+offset_bottom = 245.0
+bus_name = "Master"
+
+[node name="MusicSlider" parent="Sliders" instance=ExtResource("5_swl1s")]
+layout_mode = 1
+offset_left = 381.0
+offset_top = 307.0
+offset_right = 381.0
+offset_bottom = 307.0
+bus_name = "Music"
+
+[node name="SFXSlider" parent="Sliders" instance=ExtResource("5_swl1s")]
+layout_mode = 1
+offset_left = 381.0
+offset_top = 370.0
+offset_right = 381.0
+offset_bottom = 370.0
+bus_name = "SFX"
+
+[node name="Label" type="Label" parent="Sliders"]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 216.0
+offset_right = 504.0
+offset_bottom = 241.0
+text = "Master"
+
+[node name="Label2" type="Label" parent="Sliders"]
+offset_left = 457.0
+offset_top = 283.0
+offset_right = 512.0
+offset_bottom = 308.0
+text = "Music"
+
+[node name="Label3" type="Label" parent="Sliders"]
+offset_left = 461.0
+offset_top = 339.0
+offset_right = 516.0
+offset_bottom = 364.0
+text = "SFX"

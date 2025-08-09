@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 TransitionLayer="*res://globals/transition_layer.tscn"
 Status="*res://globals/status.gd"
 Abilities="*res://globals/abilities.gd"
+AudioManager="*res://globals/audio_manager.tscn"
 
 [display]
 
