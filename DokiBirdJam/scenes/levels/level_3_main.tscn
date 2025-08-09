@@ -5,3 +5,8 @@
 
 [node name="Level" instance=ExtResource("1_3p6ud")]
 script = ExtResource("2_3p6ud")
+
+[editable path="EnemyLayer/Row4"]
+[editable path="EnemyLayer/Row3"]
+[editable path="EnemyLayer/Row2"]
+[editable path="EnemyLayer/Row1"]
