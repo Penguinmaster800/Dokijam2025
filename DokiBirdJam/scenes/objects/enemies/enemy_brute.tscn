@@ -12,7 +12,10 @@ radius = 64.0703
 [node name="EnemyBrute" instance=ExtResource("1_qbjeo")]
 script = ExtResource("2_06mwg")
 max_health = 2
+movement_speed = 150
 attack_type = 1
+fire_rate = 1.0
+max_ammo = 2
 
 [node name="HitboxHead" parent="." index="1"]
 position = Vector2(0, -64)

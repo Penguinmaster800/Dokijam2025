@@ -72,10 +72,12 @@ func random_enemy_bullet_destination() -> Vector2:
 func _on_enemy_enemy_attack(pos: Variant, type: AttackType) -> void:
 	
 	match type:
-		AttackType.NORMAL, _:
+		AttackType.NORMAL:
 			enemy_bullet_attack_default(pos)
 		AttackType.SHOTGUN:
 			enemy_bullet_attack_shotgun(pos)
+		_:
+			enemy_bullet_attack_default(pos)
 
 func enemy_bullet_attack_default(pos: Variant) -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate()

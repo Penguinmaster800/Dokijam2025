@@ -54,6 +54,10 @@ func _ready() -> void:
 	current_ammo = max_ammo
 
 func _process(delta: float) -> void:
+
+	if current_stance == Stance.DEATH:
+		return
+
 	if !_reached_spawn_move_position:
 		after_spawn(delta)
 	
@@ -109,7 +113,7 @@ func handle_damage(multiplier: int = 1):
 func after_spawn(delta):
 	# Move to position
 	position += position.direction_to(spawn_move_position) * movement_speed * delta
-	if position.distance_to(spawn_move_position) < 1.0:
+	if position.distance_to(spawn_move_position) < 3.0:
 		print("Reached Position!")
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
@@ -119,14 +123,14 @@ func move_to_cover(delta):
 	# Move to position
 	var in_cover_pos = cover_point.in_cover_positions[0]
 	position += position.direction_to(in_cover_pos) * movement_speed * delta
-	if position.distance_to(in_cover_pos) < 1.0:
+	if position.distance_to(in_cover_pos) < 3.0:
 		_reached_in_cover_position = true
 		switch_stance()
 
 func move_out_of_cover(delta):
 	# Move to position
 	position += position.direction_to(current_cover_destination) * movement_speed * delta
-	if position.distance_to(current_cover_destination) < 1.0:
+	if position.distance_to(current_cover_destination) < 3.0:
 		_reached_out_of_cover_position = true
 		switch_stance()
 
