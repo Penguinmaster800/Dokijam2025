@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c33klxmts74ao"]
+[gd_scene load_steps=5 format=3 uid="uid://c33klxmts74ao"]
 
 [ext_resource type="Script" uid="uid://if0lge8p86d4" path="res://globals/audio_manager.gd" id="1_3uslp"]
 [ext_resource type="AudioStream" uid="uid://dmhu50pcb10te" path="res://assets/sfx/DGJ Doki shot 1.wav" id="1_hilj8"]
 [ext_resource type="AudioStream" uid="uid://d11jnvw1w0srx" path="res://assets/music/Demo 2 wip v2 (1).mp3" id="2_3uslp"]
+[ext_resource type="AudioStream" uid="uid://gnoi4idg2k1w" path="res://assets/music/Game Over Try Again V2 final.wav" id="4_dd2wf"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_3uslp")
@@ -16,3 +17,6 @@ bus = &"SFX"
 stream = ExtResource("2_3uslp")
 volume_db = -0.215
 bus = &"Music"
+
+[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dd2wf")
