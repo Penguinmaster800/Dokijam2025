@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://q6614ma3oif6"]
+
+[ext_resource type="Script" uid="uid://cjdf3n4f4dy7d" path="res://scenes/scripts/scenes/env_object_base.gd" id="1_2r04s"]
+
+[node name="EnvObjectBase" type="Area2D"]
+script = ExtResource("1_2r04s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

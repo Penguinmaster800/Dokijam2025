@@ -105,7 +105,6 @@ func handle_damage(multiplier: int = 1):
 	_damage = _damage * multiplier
 
 	health = health - _damage
-	print("Hit! Current Health: %s" % health)
 	
 	if health <= 0:
 		death()
