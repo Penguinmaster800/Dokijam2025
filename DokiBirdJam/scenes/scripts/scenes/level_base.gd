@@ -145,6 +145,7 @@ func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: int):
 		$Projectiles.add_child(enemy_sniper_laser)
 		enemy.aiming.connect(enemy_sniper_laser.start_aiming)
 		enemy.stop_aiming.connect(enemy_sniper_laser.stop_aiming)
+		enemy.enemy_death.connect(enemy_sniper_laser.stop_aiming)
 	
 	row.get_node("Enemies").add_child(enemy)
 

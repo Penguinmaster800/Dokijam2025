@@ -11,6 +11,13 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if not event.is_action_pressed("primary action"):
 		return
 	
+	if Status.doki_ammo <= 0:
+		return
+	if Status.in_cover == true:
+		return
+	if Status.doki_reloading == true:
+		return
+	
 	handle_damage()
 
 func handle_damage() -> void:
