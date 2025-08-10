@@ -5,7 +5,10 @@ var reloading: bool = false
 var enemy_bullet_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_bullet.tscn")
 var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_gunman.tscn")
 var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_brute.tscn")
+var enemy_sniper_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper.tscn")
+var enemy_sniper_laser_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper_laser.tscn")
 const AttackType = EnemyAttackType.AttackType
+const EnemyType = EnumEnemyType.EnemyType
 const level_1_beat = "res://scenes/levels/level_1_beat.tscn"
 const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
 const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
@@ -69,6 +72,9 @@ func random_enemy_bullet_destination() -> Vector2:
 	var local_y = randf_range(-extents.y, extents.y)
 	return $EnemyProjectilesDestinationArea.global_position + Vector2(local_x, local_y)
 
+#func _on_enemy_sniper_aiming() -> void:
+	#
+
 func _on_enemy_enemy_attack(pos: Variant, type: AttackType) -> void:
 	
 	match type:
@@ -112,12 +118,15 @@ func enemy_bullet_attack_shotgun(pos: Variant) -> void:
 		$Projectiles.add_child(enemy_bullet)
 
 func spawn_enemy_gunman(row_no: int):
-	spawn_enemy(enemy_gunman_scene, row_no)
+	spawn_enemy(enemy_gunman_scene, EnemyType.GUNMAN, row_no)
 
 func spawn_enemy_brute(row_no: int):
-	spawn_enemy(enemy_brute_scene, row_no)
+	spawn_enemy(enemy_brute_scene, EnemyType.BRUTE, row_no)
+	
+func spawn_enemy_sniper(row_no: int):
+	spawn_enemy(enemy_sniper_scene, EnemyType.SNIPER, row_no)
 
-func spawn_enemy(enemy_scene: PackedScene, row_no: int):
+func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: int):
 	var row = get_row_no_instance(row_no)
 	var cover_point: CoverPointData = row.cover_points.pick_random()
 	var spawn_point: SpawnPointData = row.spawn_points.pick_random()
@@ -127,6 +136,15 @@ func spawn_enemy(enemy_scene: PackedScene, row_no: int):
 	enemy.cover_point = cover_point
 	enemy.spawn_move_position = cover_point.in_cover_positions[0]
 	enemy.enemy_attack.connect(_on_enemy_enemy_attack)
+
+	if enemy_type == EnemyType.SNIPER:
+		var enemy_sniper_laser = enemy_sniper_laser_scene.instantiate()
+
+		enemy_sniper_laser.player = $Player
+		enemy_sniper_laser.enemy = enemy
+		$Projectiles.add_child(enemy_sniper_laser)
+		enemy.aiming.connect(enemy_sniper_laser.start_aiming)
+		enemy.stop_aiming.connect(enemy_sniper_laser.stop_aiming)
 	
 	row.get_node("Enemies").add_child(enemy)
 
@@ -165,7 +183,6 @@ func _time_remaining_check():
 
 func level_loss():
 	TransitionLayer.change_scene("res://scenes/levels/game_over.tscn")
-
 
 func level_beat():
 	Status.level += 1

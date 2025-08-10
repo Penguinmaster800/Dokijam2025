@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3mte5b4lj4xf"]
+
+[ext_resource type="Script" uid="uid://5713mgek7rlf" path="res://scenes/scripts/objects/enemy_sniper_laser.gd" id="1_hbiy4"]
+
+[sub_resource type="Gradient" id="Gradient_hbiy4"]
+offsets = PackedFloat32Array(0, 0.574257, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1)
+
+[node name="EnemySniperLaser" type="Node2D"]
+script = ExtResource("1_hbiy4")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 100, 0)
+width = 2.0
+gradient = SubResource("Gradient_hbiy4")
+begin_cap_mode = 2
+end_cap_mode = 2

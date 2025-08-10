@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtqkerpbi7iai"]
+
+[ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_tekap"]
+[ext_resource type="Script" uid="uid://c8upwl5jrifs5" path="res://scenes/scripts/objects/enemy_sniper.gd" id="2_uf6m5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tekap"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uf6m5"]
+radius = 19.0
+
+[node name="Enemy" instance=ExtResource("1_tekap")]
+script = ExtResource("2_uf6m5")
+max_health = 1
+movement_speed = 300
+fire_rate = 2.0
+max_ammo = 1
+reload_time = 3.0
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -19)
+scale = Vector2(0.15, 0.15)
+
+[node name="HitboxHead" parent="." index="1"]
+position = Vector2(0, -28)
+
+[node name="CollisionShape2D" parent="HitboxHead" index="0"]
+shape = SubResource("CircleShape2D_tekap")
+
+[node name="Hitbox" parent="." index="2"]
+position = Vector2(0, -19)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_uf6m5")
+
+[node name="Marker2D" parent="BulletStartPosition" index="0"]
+position = Vector2(-13, -14)
