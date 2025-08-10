@@ -11,7 +11,7 @@ func _ready() -> void:
 	line_2d.visible = false
 
 func _process(delta: float) -> void:
-	if is_aiming == true:
+	if is_aiming and enemy:
 		var bullet_start_position: Vector2 = enemy.get_node("BulletStartPosition").get_node("Marker2D").global_position
 		origin_position = bullet_start_position
 		line_2d.points[0] = origin_position

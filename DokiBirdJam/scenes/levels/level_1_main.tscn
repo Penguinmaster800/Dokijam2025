@@ -88,7 +88,7 @@ position = Vector2(759, 480)
 position = Vector2(1143, 480)
 
 [node name="EnvObjectBase" parent="EnemyLayer/Row1/Enemies" index="0" instance=ExtResource("7_5b10o")]
-position = Vector2(816, 478)
+position = Vector2(1392, 479)
 
 [node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("7_qjymw")]
 position = Vector2(1008, 392)
