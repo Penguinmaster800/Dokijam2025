@@ -15,4 +15,4 @@ func _ready():
 	
 	spawn_enemy_brute(1)
 	spawn_enemy_gunman(2)
-	spawn_enemy_gunman(3)
+	spawn_enemy_sniper(3)
