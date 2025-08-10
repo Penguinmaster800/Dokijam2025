@@ -7,8 +7,11 @@ var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemies/enem
 var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_brute.tscn")
 var enemy_sniper_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper.tscn")
 var enemy_sniper_laser_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper_laser.tscn")
+var env_object_drone_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_drone.tscn")
+var env_effect_explosion_scene: PackedScene = preload("res://scenes/objects/Environment/env_effect_explosion.tscn")
 const AttackType = EnemyAttackType.AttackType
 const EnemyType = EnumEnemyType.EnemyType
+const EnvObjectType = EnumEnvObjectType.EnvObjectType
 const level_1_beat = "res://scenes/levels/level_1_beat.tscn"
 const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
 const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
@@ -84,6 +87,12 @@ func _on_enemy_enemy_attack(pos: Variant, type: AttackType) -> void:
 			enemy_bullet_attack_shotgun(pos)
 		_:
 			enemy_bullet_attack_default(pos)
+			
+func _on_env_object_drone_box_explode(row_no: EnumRowNo.RowNo, pos: Vector2) -> void:
+	var env_effect_explosion = env_effect_explosion_scene.instantiate()
+	env_effect_explosion.global_position = pos
+	env_effect_explosion.row_no = row_no
+	$Projectiles.add_child(env_effect_explosion)
 
 func enemy_bullet_attack_default(pos: Variant) -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate()
@@ -117,16 +126,16 @@ func enemy_bullet_attack_shotgun(pos: Variant) -> void:
 		
 		$Projectiles.add_child(enemy_bullet)
 
-func spawn_enemy_gunman(row_no: int):
+func spawn_enemy_gunman(row_no: EnumRowNo.RowNo):
 	spawn_enemy(enemy_gunman_scene, EnemyType.GUNMAN, row_no)
 
-func spawn_enemy_brute(row_no: int):
+func spawn_enemy_brute(row_no: EnumRowNo.RowNo):
 	spawn_enemy(enemy_brute_scene, EnemyType.BRUTE, row_no)
 	
-func spawn_enemy_sniper(row_no: int):
+func spawn_enemy_sniper(row_no: EnumRowNo.RowNo):
 	spawn_enemy(enemy_sniper_scene, EnemyType.SNIPER, row_no)
 
-func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: int):
+func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: EnumRowNo.RowNo):
 	var row = get_row_no_instance(row_no)
 	var cover_point: CoverPointData = row.cover_points.pick_random()
 	var spawn_point: SpawnPointData = row.spawn_points.pick_random()
@@ -149,15 +158,30 @@ func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: int):
 	
 	row.get_node("Enemies").add_child(enemy)
 
-func get_row_no_instance(row: int) -> Node:
+func spawn_env_object_drone(row_no: EnumRowNo.RowNo):
+	spawn_env_object(env_object_drone_scene, EnvObjectType.DRONE, row_no)
+
+func spawn_env_object(env_object_scene: PackedScene, env_object_type: EnvObjectType, row_no: EnumRowNo.RowNo):
+	var env_object = env_object_scene.instantiate()
+	var row = get_row_no_instance(row_no)
+	var spawn_point: SpawnPointData = row.spawn_points.pick_random()
+	env_object.position = spawn_point.spawn_point_positions[0]
+	env_object.row_no = row_no
+	
+	if env_object_type == EnvObjectType.DRONE:
+		env_object.get_node("EnvObjectDroneBox").explode.connect(_on_env_object_drone_box_explode)
+
+	row.get_node("EnvObjects").add_child(env_object)
+
+func get_row_no_instance(row: EnumRowNo.RowNo) -> Node:
 	match row:
-		1: 
+		EnumRowNo.RowNo.ROW1: 
 			return $EnemyLayer/Row1
-		2: 
+		EnumRowNo.RowNo.ROW2: 
 			return $EnemyLayer/Row2
-		3:
+		EnumRowNo.RowNo.ROW3:
 			return $EnemyLayer/Row3
-		4:
+		EnumRowNo.RowNo.ROW4:
 			return $EnemyLayer/Row4
 		_:
 			return $EnemyLayer/Row1

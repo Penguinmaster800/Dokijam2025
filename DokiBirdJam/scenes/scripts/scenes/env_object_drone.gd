@@ -8,6 +8,7 @@ var position_x_right: int = 1100
 var position_y: int = 0
 var movement_speed: int = 200
 var current_stance: Stance = Stance.SPAWN
+@onready var drone_box = $EnvObjectDroneBox
 
 func _ready() -> void:
 	var current_x = position.x
@@ -18,6 +19,8 @@ func _ready() -> void:
 		current_stance = Stance.MOVE_TO_RIGHT
 	else:
 		current_stance = Stance.MOVE_TO_LEFT
+	
+	drone_box.row_no = row_no
 
 func _process(delta: float) -> void:
 	if current_stance == Stance.MOVE_TO_RIGHT:
@@ -34,8 +37,7 @@ func _process(delta: float) -> void:
 	
 		position.x -= movement_speed * delta
 
-func handle_destroyed():
-	var drone_box = $EnvObjectDroneBox
+func handle_destroyed() -> void:
 	if drone_box:
 		var box_global_pos = drone_box.global_position
 		var box_sprite = drone_box.get_node("Sprite2D")
