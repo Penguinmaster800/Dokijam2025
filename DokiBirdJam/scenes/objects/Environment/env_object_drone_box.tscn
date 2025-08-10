@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://j3pjofvf7x"]
+
+[ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_fw1m3"]
+[ext_resource type="Texture2D" uid="uid://c1gxry5287woe" path="res://assets/object/env_obj_drone_box.png" id="2_1ypfp"]
+[ext_resource type="Script" uid="uid://k3bgmjatq0ta" path="res://scenes/scripts/scenes/env_object_drone_box.gd" id="2_sb755"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sb755"]
+size = Vector2(64.5, 64)
+
+[node name="EnvObjectDroneBox" instance=ExtResource("1_fw1m3")]
+script = ExtResource("2_sb755")
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_1ypfp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.25, 0)
+shape = SubResource("RectangleShape2D_sb755")
