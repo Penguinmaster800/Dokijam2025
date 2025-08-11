@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnvwnsf0ut2ll"]
+[gd_scene load_steps=9 format=3 uid="uid://cnvwnsf0ut2ll"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_731hl"]
 [ext_resource type="Script" uid="uid://dvelwpg1vp7dt" path="res://scenes/scripts/scenes/level_1_main.gd" id="2_3fypp"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dfp4e0kdr2s1h" path="res://scenes/objects/enemies/spawn_point.tscn" id="3_wvij7"]
 [ext_resource type="PackedScene" uid="uid://diatoj0yv1pn6" path="res://scenes/objects/Environment/cover_object_pillars_l_1r_3.tscn" id="4_nc32v"]
 [ext_resource type="PackedScene" uid="uid://dfbno7bxwndcg" path="res://scenes/objects/Environment/cover_object_fountain.tscn" id="6_qjymw"]
-[ext_resource type="PackedScene" uid="uid://dc07p4mkym2oo" path="res://scenes/objects/Environment/env_object_drone.tscn" id="7_5b10o"]
 [ext_resource type="PackedScene" uid="uid://o2krh3yv5u14" path="res://scenes/objects/Environment/cover_object_wall_l1r1.tscn" id="7_qjymw"]
 
 [node name="Level" instance=ExtResource("1_731hl")]
@@ -86,9 +85,6 @@ position = Vector2(759, 480)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/OutOfCover" index="1"]
 position = Vector2(1143, 480)
-
-[node name="EnvObjectBase" parent="EnemyLayer/Row1/Enemies" index="0" instance=ExtResource("7_5b10o")]
-position = Vector2(1392, 479)
 
 [node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("7_qjymw")]
 position = Vector2(1008, 392)

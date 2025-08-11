@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://buklxsl1u3ihu"
-
-path="res://.godot/imported/Dokibird.png-be42239407c4cece072aa92e5b035877.ctex"
+uid="uid://tgtdatqgggwg"
+path="res://.godot/imported/env_obj_drone_shadow.png-a05ea770ca8d70f907cc4199a07032e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/Dokibird.png"
-dest_files=["res://.godot/imported/Dokibird.png-be42239407c4cece072aa92e5b035877.ctex"]
+source_file="res://assets/object/env_obj_drone_shadow.png"
+dest_files=["res://.godot/imported/env_obj_drone_shadow.png-a05ea770ca8d70f907cc4199a07032e8.ctex"]
 
 [params]
 

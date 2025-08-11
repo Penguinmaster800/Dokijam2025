@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc85ohi67me78"]
+
+[ext_resource type="Script" uid="uid://b15ppdowb68rn" path="res://scenes/scripts/objects/env_effect_base.gd" id="1_8fj55"]
+
+[node name="EnvEffectBase" type="Area2D"]
+collision_layer = 0
+collision_mask = 24
+script = ExtResource("1_8fj55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -3,6 +3,7 @@ class_name EnvObjectParent
 
 @export var max_health: int
 var health: int
+var row_no: EnumRowNo.RowNo
 
 func _ready() -> void:
 	health = max_health
