@@ -13,9 +13,6 @@ script = ExtResource("1_0y8gg")
 
 [node name="Background" type="Sprite2D" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("1_u0om3")]
-position = Vector2(300, 638)
-
 [node name="Reload Timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -32,6 +29,9 @@ row_no = 2
 row_no = 1
 
 [node name="Row1" parent="EnemyLayer" instance=ExtResource("4_6cjw3")]
+
+[node name="Player" parent="." instance=ExtResource("1_u0om3")]
+position = Vector2(300, 638)
 
 [node name="Projectiles" type="Node2D" parent="."]
 

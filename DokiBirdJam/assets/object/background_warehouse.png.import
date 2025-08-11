@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buklxsl1u3ihu"
-path="res://.godot/imported/Dokibird.png-be42239407c4cece072aa92e5b035877.ctex"
+uid="uid://b63xp0mka6km6"
+path="res://.godot/imported/background_warehouse.png-4dc76c5dbc650943ab506795e146ca9e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/Dokibird.png"
-dest_files=["res://.godot/imported/Dokibird.png-be42239407c4cece072aa92e5b035877.ctex"]
+source_file="res://assets/object/background_warehouse.png"
+dest_files=["res://.godot/imported/background_warehouse.png-4dc76c5dbc650943ab506795e146ca9e.ctex"]
 
 [params]
 

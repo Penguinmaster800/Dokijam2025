@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8q4p6bpnwb7d"]
+
+[ext_resource type="PackedScene" uid="uid://d1ajt4tf4la11" path="res://scenes/objects/Environment/cover_object.tscn" id="1_ihgpf"]
+[ext_resource type="Texture2D" uid="uid://d70vkep2wjjf" path="res://assets/object/cover_object_warehouse_r1.png" id="2_lplm6"]
+
+[node name="CoverObjectWarehouseR1" instance=ExtResource("1_ihgpf")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lplm6")
