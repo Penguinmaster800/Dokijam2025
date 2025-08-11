@@ -23,13 +23,17 @@ bus = &"Music"
 
 [node name="GameOverMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_dd2wf")
+bus = &"Music"
 
 [node name="DokiDryFire" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_8ak76")
 volume_db = 2.122
+bus = &"SFX"
 
 [node name="DokiReload" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_nvroi")
+bus = &"SFX"
 
 [node name="EnemyDeath" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_nvroi")
+bus = &"SFX"

@@ -29,6 +29,10 @@ func _process(delta):
 		Status.in_cover = true
 	else:
 		Status.in_cover = false
+	if position.x >= exposed_location_x - 10:
+		Status.doki_exposed = true
+	else:
+		Status.doki_exposed = false
 
 
 func _input(event):
@@ -36,10 +40,14 @@ func _input(event):
 		target = cover_location_x
 		move_to_x_pos(target)
 		$AnimatedSprite2D.play("EnterCover")
-	elif event.is_action_released("enter_cover") && Status.doki_reloading == false:
+	if event.is_action_released("enter_cover") && Status.doki_reloading == false:
 		target = exposed_location_x
 		move_to_x_pos(target)
 		$AnimatedSprite2D.play("ExitCover")
+	if event.is_action_pressed("enter_cover"):
+		Status.cover_held = true
+	if event.is_action_released("enter_cover"):
+		Status.cover_held = false
 
 func move_to_x_pos(x_pos: float):
 	target = Vector2(x_pos, position.y)
@@ -54,10 +62,10 @@ func _reload():
 	if Status.doki_reloading == true && Status.in_cover == false:
 		target = Vector2(cover_location_x, doki_location_y)
 		$AnimatedSprite2D.play("EnterCover")
-	if Status.doki_reloading == false && Status.in_cover == true:
+	if Status.doki_reloading == false && Status.in_cover == true && Status.cover_held == false:
 		target = Vector2(exposed_location_x, doki_location_y)
 		$AnimatedSprite2D.play("ExitCover")
-	if Status.doki_reloading == false && Status.in_cover == false:
+	if Status.doki_reloading == false && Status.in_cover == false && Status.cover_held == false:
 		target = Vector2(exposed_location_x, doki_location_y)
 
 func red_eye():

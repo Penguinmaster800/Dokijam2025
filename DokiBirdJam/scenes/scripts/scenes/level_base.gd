@@ -66,12 +66,12 @@ func _input(event):
 		if Status.doki_ammo <= 0 and not reloading:
 			AudioManager.doki_dry_fire.play()
 			$Timers/DokiReloadWaitTimer.start()
-		elif Status.doki_ammo >=1 and not reloading and Status.in_cover == false and Status.doki_shot_cooldown == false:
+		elif Status.doki_ammo >=1 and not reloading and Status.in_cover == false and Status.doki_shot_cooldown == false and Status.doki_exposed == true:
 			AudioManager.doki_shoot.play()
 			Status.doki_ammo -=1
 			Status.doki_shot +=1
 			$Timers/DokiFireTimer.start()
-		
+	
 	if event.is_action_pressed("reload"):
 		reload()
 	
