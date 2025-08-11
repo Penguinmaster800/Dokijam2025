@@ -12,9 +12,5 @@ script = ExtResource("2_isqiw")
 water_color = Color(0, 0.5, 1, 0.6)
 
 [node name="CollisionShape2D" parent="." index="0"]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_isqiw")
-
-[node name="Timer" type="Timer" parent="." index="1"]
-wait_time = 3.0
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,8 +1,7 @@
 extends EnvEffectParent
 
-var puddle_radius: float = 50.0
-var puddle_height: float = 200.0
-@export var water_color: Color = Color(0, 0.5, 1, 0.6)
+var electric_radius: float = 50.0
+var electric_height: float = 200.0
 
 func _ready() -> void:
 	_set_collision_circle()
@@ -10,12 +9,12 @@ func _ready() -> void:
 
 func _set_collision_circle() -> void:
 	var col_shape: CapsuleShape2D = $CollisionShape2D.shape
-	col_shape.radius = puddle_radius
-	col_shape.height = puddle_height
+	col_shape.radius = electric_radius
+	col_shape.height = electric_height
 	$CollisionShape2D.rotation_degrees = 90
 
 func _on_area_entered(area: Area2D) -> void:
 	var enemy_node = super.get_entered_enemy_node(area)
 	if enemy_node:
 		enemy_node.is_wet = true
-		print("Enemy is wet")
+		print("Enemy is shocked")
