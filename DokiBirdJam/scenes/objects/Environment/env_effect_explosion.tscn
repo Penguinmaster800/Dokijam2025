@@ -12,7 +12,3 @@ col = Color(0.878431, 0.0588235, 0.0352941, 0.788235)
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_qybhk")
-
-[node name="Timer" type="Timer" parent="." index="1"]
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

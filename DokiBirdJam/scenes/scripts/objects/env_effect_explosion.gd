@@ -16,9 +16,6 @@ func _draw() -> void:
 	var cen = Vector2.ZERO
 	draw_circle(cen, rad, col)
 
-func _on_timer_timeout() -> void:
-	queue_free()
-
 func _on_area_entered(area: Area2D) -> void:
 	var enemy_node = super.get_entered_enemy_node(area)
 	
