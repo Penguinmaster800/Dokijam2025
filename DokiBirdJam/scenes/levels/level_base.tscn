@@ -13,8 +13,14 @@ script = ExtResource("1_0y8gg")
 
 [node name="Background" type="Sprite2D" parent="."]
 
-[node name="Reload Timer" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="Reload Timer" type="Timer" parent="Timers"]
 wait_time = 3.0
+one_shot = true
+
+[node name="DokiFireTimer" type="Timer" parent="Timers"]
+wait_time = 0.55
 one_shot = true
 
 [node name="EnemyLayer" type="Node2D" parent="."]
@@ -43,7 +49,8 @@ shape = SubResource("RectangleShape2D_d61h5")
 
 [node name="Hud" parent="." instance=ExtResource("4_d61h5")]
 
-[connection signal="timeout" from="Reload Timer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="Timers/Reload Timer" to="." method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="Timers/DokiFireTimer" to="." method="_on_doki_fire_timer_timeout"]
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row3"]

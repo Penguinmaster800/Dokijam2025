@@ -20,22 +20,20 @@ func level_startup():
 	var vp = get_viewport()
 	vp.set_physics_object_picking_sort(true)
 	vp.set_physics_object_picking_first_only(true)
-	
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.doki_health = Status.doki_max_health
 	Status.enemies_remaining_change.connect(_enemy_defeated)
 	Status.doki_health_change.connect(_doki_hurt)
 	Status.time_remaining_change.connect(_time_remaining_check)
+	Status.doki_can_fire = true
+	Status.doki_reloading = false
+	Status.in_cover = false
 	
 	print("ready")
 
 func reload():
-	if Status.doki_reloading == true:
-		pass
-	if Status.doki_ammo == Status.doki_max_ammo:
-		pass
 	if Status.doki_ammo < Status.doki_max_ammo and not Status.doki_reloading:
-		$"Reload Timer".start()
+		$"Timers/Reload Timer".start()
 		Status.doki_reloading = true
 		Status.doki_can_fire = false
 		print("reloading")
@@ -47,16 +45,21 @@ func _on_reload_timer_timeout() -> void:
 	Status.doki_can_fire = true
 	print("reloading complete")
 
+func _on_doki_fire_timer_timeout() -> void:
+	Status.doki_shot_cooldown = false
+
 
 func _input(event):
 	if event.is_action_pressed("primary action"):
 		if Status.doki_ammo <= 0 and not reloading:
 			#play sound of no ammo
 			reload()
-		elif  Status.doki_ammo >=1 and not reloading and Status.in_cover == false:
+		elif Status.doki_ammo >=1 and not reloading and Status.in_cover == false and Status.doki_shot_cooldown == false:
 			#play fire sound
 			Status.doki_ammo -=1
-			#send damage signal
+			Status.doki_shot +=1
+			Status.doki_shot_cooldown = true
+			$Timers/DokiFireTimer.start()
 		
 	if event.is_action_pressed("reload"):
 		reload()

@@ -9,8 +9,8 @@ func _ready():
 	Status.doki_health = Status.doki_max_health
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.level = 1
+	Status.doki_shot = 0
 	AudioManager.level_one_music.play()
-	
 	
 	
 	spawn_enemy_brute(EnumRowNo.RowNo.ROW1)

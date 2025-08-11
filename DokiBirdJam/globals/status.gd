@@ -8,6 +8,8 @@ signal enemies_remaining_change
 signal doki_can_fire_change
 signal time_remaining_change
 signal level_change
+signal doki_reloading_change
+signal doki_shot_change
 
 
 var level: int = 1:
@@ -46,8 +48,16 @@ var time_remaining: float = 80:
 		time_remaining_change.emit()
 
 var in_cover: bool = false
-var doki_reloading: bool = false
+var doki_reloading: bool = false:
+	set(value):
+		doki_reloading = value
+		doki_reloading_change.emit()
 var doki_can_fire: bool = true:
 	set(value):
 		doki_can_fire = value
 		doki_can_fire_change.emit()
+var doki_shot: int =0:
+	set(value):
+		doki_shot = value
+		doki_shot_change.emit()
+var doki_shot_cooldown: bool = false
