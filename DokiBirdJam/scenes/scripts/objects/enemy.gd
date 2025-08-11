@@ -201,6 +201,7 @@ func death():
 
 	# Play animation
 	$AnimationPlayer.play("death")
+	AudioManager.enemy_death.play()
 	# Await for animation to end
 	await $AnimationPlayer.animation_finished
 	# Emit Death Signal

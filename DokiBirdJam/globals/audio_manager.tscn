@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c33klxmts74ao"]
+[gd_scene load_steps=8 format=3 uid="uid://c33klxmts74ao"]
 
 [ext_resource type="Script" uid="uid://if0lge8p86d4" path="res://globals/audio_manager.gd" id="1_3uslp"]
 [ext_resource type="AudioStream" uid="uid://d11jnvw1w0srx" path="res://assets/music/Demo 2 wip v2 (1).mp3" id="2_3uslp"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://gnoi4idg2k1w" path="res://assets/music/Game Over Try Again V2 final.wav" id="4_dd2wf"]
 [ext_resource type="AudioStream" uid="uid://cejqis2le0ila" path="res://assets/sfx/DGJ Doki Revolver Dry Fire.wav" id="5_8ak76"]
 [ext_resource type="AudioStream" uid="uid://ciors4qbc80nd" path="res://assets/sfx/DGJ Doki Revolver Reloading (3sec).mp3" id="6_nvroi"]
+[ext_resource type="AudioStream" uid="uid://bcb6m41omdbtg" path="res://assets/sfx/DGJ Dragoon Death Poof.mp3" id="7_nvroi"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_3uslp")
@@ -29,3 +30,6 @@ volume_db = 2.122
 
 [node name="DokiReload" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_nvroi")
+
+[node name="EnemyDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_nvroi")
