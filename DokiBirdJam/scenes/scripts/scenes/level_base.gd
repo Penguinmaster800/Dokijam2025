@@ -28,6 +28,7 @@ func level_startup():
 	Status.doki_can_fire = true
 	Status.doki_reloading = false
 	Status.in_cover = false
+	Status.doki_shot_cooldown = false
 	
 	print("ready")
 
@@ -36,6 +37,7 @@ func reload():
 		$"Timers/Reload Timer".start()
 		Status.doki_reloading = true
 		Status.doki_can_fire = false
+		AudioManager.doki_reload.play()
 		print("reloading")
 
 func _on_reload_timer_timeout() -> void:
@@ -43,22 +45,28 @@ func _on_reload_timer_timeout() -> void:
 	reloading = false
 	Status.doki_reloading = false
 	Status.doki_can_fire = true
+	
 	print("reloading complete")
 
-func _on_doki_fire_timer_timeout() -> void:
-	Status.doki_shot_cooldown = false
+func _on_doki_reload_wait_timer_timeout() -> void:
+	reload()
 
+func _on_doki_fire_timer_timeout() -> void:
+	Status.doki_shot_cooldown = true
+	$Timers/DokiCooldownTimer.start()
+
+func _on_doki_cooldown_timer_timeout() -> void:
+	Status.doki_shot_cooldown = false
 
 func _input(event):
 	if event.is_action_pressed("primary action"):
 		if Status.doki_ammo <= 0 and not reloading:
-			#play sound of no ammo
-			reload()
+			AudioManager.doki_dry_fire.play()
+			$Timers/DokiReloadWaitTimer.start()
 		elif Status.doki_ammo >=1 and not reloading and Status.in_cover == false and Status.doki_shot_cooldown == false:
-			#play fire sound
+			AudioManager.doki_shoot.play()
 			Status.doki_ammo -=1
 			Status.doki_shot +=1
-			Status.doki_shot_cooldown = true
 			$Timers/DokiFireTimer.start()
 		
 	if event.is_action_pressed("reload"):

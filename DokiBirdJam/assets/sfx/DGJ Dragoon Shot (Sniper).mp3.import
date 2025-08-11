@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv1i5w11xm7tg"
+path="res://.godot/imported/DGJ Dragoon Shot (Sniper).mp3-8e7d6e0a7a1365ee81cc0fda91bd9b17.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Dragoon Shot (Sniper).mp3"
+dest_files=["res://.godot/imported/DGJ Dragoon Shot (Sniper).mp3-8e7d6e0a7a1365ee81cc0fda91bd9b17.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
