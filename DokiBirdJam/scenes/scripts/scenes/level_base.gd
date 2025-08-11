@@ -9,9 +9,12 @@ var enemy_sniper_scene: PackedScene = preload("res://scenes/objects/enemies/enem
 var enemy_sniper_laser_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper_laser.tscn")
 var env_object_drone_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_drone.tscn")
 var env_effect_explosion_scene: PackedScene = preload("res://scenes/objects/Environment/env_effect_explosion.tscn")
+var env_effect_water_scene: PackedScene = preload("res://scenes/objects/Environment/env_effect_water.tscn")
+
 const AttackType = EnemyAttackType.AttackType
 const EnemyType = EnumEnemyType.EnemyType
 const EnvObjectType = EnumEnvObjectType.EnvObjectType
+
 const level_1_beat = "res://scenes/levels/level_1_beat.tscn"
 const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
 const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
@@ -101,9 +104,6 @@ func random_enemy_bullet_destination() -> Vector2:
 	var local_x = randf_range(-extents.x, extents.x)
 	var local_y = randf_range(-extents.y, extents.y)
 	return $EnemyProjectilesDestinationArea.global_position + Vector2(local_x, local_y)
-
-#func _on_enemy_sniper_aiming() -> void:
-	#
 
 func _on_enemy_enemy_attack(pos: Variant, type: AttackType) -> void:
 	

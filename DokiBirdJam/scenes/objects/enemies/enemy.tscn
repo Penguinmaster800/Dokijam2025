@@ -127,6 +127,10 @@ libraries = {
 
 [node name="TimerFireRate" type="Timer" parent="."]
 
+[node name="TimerEffectWet" type="Timer" parent="."]
+
+[node name="TimerEffectShock" type="Timer" parent="."]
+
 [node name="BulletStartPosition" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="BulletStartPosition"]
@@ -135,3 +139,5 @@ libraries = {
 [connection signal="input_event" from="Hitbox" to="." method="_on_hitbox_input_event"]
 [connection signal="timeout" from="TimerCurrentStance" to="." method="_on_timer_current_stance_timeout"]
 [connection signal="timeout" from="TimerFireRate" to="." method="_on_timer_fire_rate_timeout"]
+[connection signal="timeout" from="TimerEffectWet" to="." method="_on_timer_effect_wet_timeout"]
+[connection signal="timeout" from="TimerEffectShock" to="." method="_on_timer_effect_shock_timeout"]
