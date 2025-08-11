@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvjmoe3acpb6"]
+[gd_scene load_steps=7 format=3 uid="uid://bvjmoe3acpb6"]
 
 [ext_resource type="Script" uid="uid://bfu4hwsm2iuy4" path="res://scenes/scripts/scenes/hud.gd" id="1_vinhp"]
 [ext_resource type="Texture2D" uid="uid://dt3rxq4mcmsng" path="res://assets/ui/health_empty.png" id="2_bk1an"]
 [ext_resource type="Texture2D" uid="uid://d0jfokd1sw2j8" path="res://assets/ui/health_full.png" id="3_av8p5"]
 [ext_resource type="Script" uid="uid://ckhvoibeq1gtr" path="res://scenes/scripts/scenes/time_left_panel.gd" id="4_k4aum"]
 [ext_resource type="Texture2D" uid="uid://crxvs3hxnlb7" path="res://assets/object/enemy_attack.png" id="5_e4dsg"]
+[ext_resource type="PackedScene" uid="uid://bnsha6fgbgpfa" path="res://scenes/user interface/crosshair_swapper.tscn" id="6_bk1an"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_vinhp")
@@ -105,3 +106,5 @@ position = Vector2(1100, 640)
 
 [node name="Ability 3" type="Marker2D" parent="AbilityTrackers"]
 position = Vector2(1000, 640)
+
+[node name="CrosshairSwapper" parent="." instance=ExtResource("6_bk1an")]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnsha6fgbgpfa"]
+
+[ext_resource type="Script" uid="uid://dnle0a04frgoj" path="res://scenes/scripts/scenes/crosshair_swapper.gd" id="1_2tjdc"]
+
+[node name="CrosshairSwapper" type="Node2D"]
+script = ExtResource("1_2tjdc")
