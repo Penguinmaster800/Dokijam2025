@@ -8,6 +8,10 @@ enum Stance {SPAWN, COVER, MOVE_TO_ATTACK, ATTACK, ATTACK_COOLDOWN, DEATH}
 ## Current Health of the Enemy
 var health: int
 
+## Environmental Status Effects
+var is_wet: bool = false
+var is_shocked: bool = false
+
 ## Cover Position Data
 var cover_point: CoverPointData
 ## Flag of In Cover Reached
@@ -216,3 +220,17 @@ func _on_timer_fire_rate_timeout() -> void:
 		return
 		
 	attack()
+
+func apply_effect_wet():
+	is_wet = true
+	$TimerEffectWet.start()
+
+func apply_effect_shocked():
+	is_shocked = true
+	$TimerEffectShock.start()
+
+func _on_timer_effect_wet_timeout() -> void:
+	is_wet = true
+
+func _on_timer_effect_shock_timeout() -> void:
+	is_shocked = false

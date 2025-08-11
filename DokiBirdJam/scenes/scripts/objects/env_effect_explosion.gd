@@ -1,6 +1,5 @@
-extends EnvEffectExplosion
+extends EnvEffectParent
 
-var row_no: EnumRowNo.RowNo
 var rad: int = 200
 @export var col: Color = Color(255, 0, 255)
 
@@ -21,19 +20,9 @@ func _on_timer_timeout() -> void:
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	var enemy_node = area.get_parent()
-	if not (enemy_node is EnemyParent):
-		return
-
-	var row_node = enemy_node.get_parent().get_parent()
-	if not (row_node is RowParent):
-		return
-		
-	var enemy_row_no = row_node.row_no
-	if row_no != enemy_row_no:
-		return
+	var enemy_node = super.get_entered_enemy_node(area)
 	
 	if area.name != "Hitbox":
 		return
-		
-	enemy_node.handle_damage()
+	if enemy_node:
+		enemy_node.handle_damage()
