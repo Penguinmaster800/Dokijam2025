@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cugs3vytqirn3"]
+
+[ext_resource type="PackedScene" uid="uid://y0c1grh7psfw" path="res://scenes/objects/ui/ability_button.tscn" id="1_imnhw"]
+[ext_resource type="Script" uid="uid://dwm6it055mb53" path="res://scenes/scripts/scenes/red_eye_tracker.gd" id="2_y58y4"]
+
+[node name="RedEyeTracker" instance=ExtResource("1_imnhw")]
+script = ExtResource("2_y58y4")
+
+[node name="ReadyTracker" parent="." index="0"]
+value = 100.0
