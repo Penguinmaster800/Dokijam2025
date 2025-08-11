@@ -16,5 +16,5 @@ func _set_collision_circle() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	var enemy_node = super.get_entered_enemy_node(area)
 	if enemy_node:
-		enemy_node.is_wet = true
+		enemy_node.is_shocked = true
 		print("Enemy is shocked")
