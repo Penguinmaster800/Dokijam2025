@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_aim_bot_get_button_pressed() -> void:
-	Abilities.obtain_ability(Abilities.aim_bot)
+	Abilities.obtain_ability("Aim Bot")
 	next_level()
 
 

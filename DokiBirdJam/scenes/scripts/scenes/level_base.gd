@@ -59,11 +59,27 @@ func _input(event):
 		reload()
 	
 	if event.is_action_pressed("Ability 1"):
-		Abilities.ability1
+		if Abilities.ability1 == "Going Ghost":
+			Abilities.going_ghost() 
+		if Abilities.ability1 == "Red Eye":
+			Abilities.red_eye()
+		if Abilities.ability3 == "Aim Bot":
+			Abilities.aim_bot()
+		
 	if event.is_action_pressed("Ability 2"):
-		Abilities.ability2
+		if Abilities.ability2 == "Going Ghost":
+			Abilities.going_ghost() 
+		if Abilities.ability2 == "Red Eye":
+			Abilities.red_eye()
+		if Abilities.ability2 == "Aim Bot":
+			Abilities.aim_bot()
 	if event.is_action_pressed("Ability 3"):
-		Abilities.ability3
+		if Abilities.ability3 == "Going Ghost":
+			Abilities.going_ghost() 
+		if Abilities.ability3 == "Red Eye":
+			Abilities.red_eye()
+		if Abilities.ability3 == "Aim Bot":
+			Abilities.aim_bot()
 
 func random_enemy_bullet_destination() -> Vector2:
 	var rect_shape: RectangleShape2D = $EnemyProjectilesDestinationArea/CollisionShape2D.shape as RectangleShape2D

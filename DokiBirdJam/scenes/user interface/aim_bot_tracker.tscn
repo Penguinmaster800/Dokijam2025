@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b202xfi5smhor"]
+
+[ext_resource type="PackedScene" uid="uid://y0c1grh7psfw" path="res://scenes/objects/ui/ability_button.tscn" id="1_4fmp6"]
+[ext_resource type="Script" uid="uid://bn6qot1emlgj4" path="res://scenes/scripts/scenes/aim_bot_tracker.gd" id="2_7j0n8"]
+
+[node name="AimBotTracker" instance=ExtResource("1_4fmp6")]
+script = ExtResource("2_7j0n8")
+
+[node name="ReadyTracker" parent="." index="0"]
+value = 100.0

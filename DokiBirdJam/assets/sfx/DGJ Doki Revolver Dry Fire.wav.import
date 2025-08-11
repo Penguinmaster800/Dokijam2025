@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cr1k1ldq0hxq8"
+path="res://.godot/imported/DGJ Doki Revolver Dry Fire.wav-54699b9696b2623f1ce5c2e52740275c.sample"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Doki Revolver Dry Fire.wav"
+dest_files=["res://.godot/imported/DGJ Doki Revolver Dry Fire.wav-54699b9696b2623f1ce5c2e52740275c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

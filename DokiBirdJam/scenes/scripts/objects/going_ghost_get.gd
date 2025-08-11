@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_ghost_get_button_pressed() -> void:
-	Abilities.obtain_ability(Abilities.going_ghost)
+	Abilities.obtain_ability("Going Ghost")
 	next_level()
 
 

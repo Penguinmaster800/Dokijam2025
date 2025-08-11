@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbip5j5fs3pjp"]
+
+[ext_resource type="PackedScene" uid="uid://y0c1grh7psfw" path="res://scenes/objects/ui/ability_button.tscn" id="1_v7w7n"]
+[ext_resource type="Script" uid="uid://c5fqhq0fl2asr" path="res://scenes/scripts/scenes/going_ghost_tracker.gd" id="2_cvi5s"]
+
+[node name="GoingGhostTracker" instance=ExtResource("1_v7w7n")]
+script = ExtResource("2_cvi5s")
+
+[node name="ReadyTracker" parent="." index="0"]
+max_value = 30.0
+value = 30.0
+rounded = true
