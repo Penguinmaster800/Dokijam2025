@@ -159,9 +159,10 @@ func enemy_bullet_attack_sniper(pos: Variant) -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate()
 	enemy_bullet.position = pos
 
-	var dest: Vector2 = random_enemy_bullet_destination()
-	dest = $Player.global_position
+	#var dest: Vector2 = random_enemy_bullet_destination()
+	var dest = $Player/PlayerHitbox.global_position
 	enemy_bullet.destination = dest
+	enemy_bullet.damage = 3
 	
 	$Projectiles.add_child(enemy_bullet)
 
