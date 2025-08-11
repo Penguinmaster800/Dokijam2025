@@ -6,7 +6,7 @@ var rad: int = 200
 
 func _ready() -> void:
 	_set_collison_circle()
-	_draw()
+	queue_redraw()
 	$Timer.start()
 
 func _set_collison_circle() -> void:

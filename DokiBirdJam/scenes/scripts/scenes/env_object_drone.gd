@@ -44,9 +44,9 @@ func handle_destroyed() -> void:
 		var box_height = box_sprite.texture.get_height() * box_sprite.scale.y
 		remove_child(drone_box)
 
-		get_parent().add_child(drone_box)
 		drone_box.global_position = box_global_pos
 		drone_box.drop_destination = global_position - Vector2(0, box_height * 0.5) 
 		drone_box.current_stance = DroneBoxStatus.DROPPED
+		get_parent().add_child(drone_box)
 
 	super.handle_destroyed()

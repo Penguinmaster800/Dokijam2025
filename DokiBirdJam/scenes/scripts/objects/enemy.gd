@@ -113,7 +113,6 @@ func after_spawn(delta):
 	# Move to position
 	position += position.direction_to(spawn_move_position) * movement_speed * delta
 	if position.distance_to(spawn_move_position) < 3.0:
-		print("Reached Position!")
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
 		switch_stance()
@@ -172,7 +171,6 @@ func stance_to_cover():
 	
 	if _is_reloading:
 		current_ammo = max_ammo
-		print("Enemy Reloaded! Current Ammo: %s" % current_ammo)
 		_is_reloading = false
 
 func stance_to_attack():
@@ -185,7 +183,6 @@ func stance_to_attack():
 func attack():
 	enemy_attack.emit($BulletStartPosition/Marker2D.global_position, attack_type)
 	current_ammo -= 1
-	print("Enemy Fired! Current ammo: %s" % current_ammo)
 	
 	if current_ammo <= 0:
 		_is_reloading = true
