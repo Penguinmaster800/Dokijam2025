@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmdcrfw4xp5bs"
+path="res://.godot/imported/DGJ Doki Shot (variation 1).mp3-1d290a787f460e05faba19eabb0e8de3.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Doki Shot (variation 1).mp3"
+dest_files=["res://.godot/imported/DGJ Doki Shot (variation 1).mp3-1d290a787f460e05faba19eabb0e8de3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

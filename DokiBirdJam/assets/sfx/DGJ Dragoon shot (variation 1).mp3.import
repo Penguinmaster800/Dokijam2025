@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvwndji4vi3jo"
+path="res://.godot/imported/DGJ Dragoon shot (variation 1).mp3-81a42ebaf4d5a71aa4727b7974db352d.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Dragoon shot (variation 1).mp3"
+dest_files=["res://.godot/imported/DGJ Dragoon shot (variation 1).mp3-81a42ebaf4d5a71aa4727b7974db352d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

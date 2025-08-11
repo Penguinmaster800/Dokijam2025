@@ -15,12 +15,20 @@ script = ExtResource("1_0y8gg")
 
 [node name="Timers" type="Node" parent="."]
 
+[node name="DokiReloadWaitTimer" type="Timer" parent="Timers"]
+wait_time = 0.8
+one_shot = true
+
 [node name="Reload Timer" type="Timer" parent="Timers"]
-wait_time = 3.0
+wait_time = 3.2
 one_shot = true
 
 [node name="DokiFireTimer" type="Timer" parent="Timers"]
-wait_time = 0.55
+wait_time = 0.05
+one_shot = true
+
+[node name="DokiCooldownTimer" type="Timer" parent="Timers"]
+wait_time = 0.56
 one_shot = true
 
 [node name="EnemyLayer" type="Node2D" parent="."]
@@ -37,7 +45,7 @@ row_no = 1
 [node name="Row1" parent="EnemyLayer" instance=ExtResource("4_6cjw3")]
 
 [node name="Player" parent="." instance=ExtResource("1_u0om3")]
-position = Vector2(300, 638)
+position = Vector2(300, 631)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
@@ -49,8 +57,10 @@ shape = SubResource("RectangleShape2D_d61h5")
 
 [node name="Hud" parent="." instance=ExtResource("4_d61h5")]
 
+[connection signal="timeout" from="Timers/DokiReloadWaitTimer" to="." method="_on_doki_reload_wait_timer_timeout"]
 [connection signal="timeout" from="Timers/Reload Timer" to="." method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Timers/DokiFireTimer" to="." method="_on_doki_fire_timer_timeout"]
+[connection signal="timeout" from="Timers/DokiCooldownTimer" to="." method="_on_doki_cooldown_timer_timeout"]
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row3"]
