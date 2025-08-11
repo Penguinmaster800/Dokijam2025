@@ -1,5 +1,7 @@
 extends StaticBody2D
+class_name EnemyBullet
 
+@export var damage: int = 1
 var speed: int = 1500
 var destination: Vector2 = Vector2.ZERO
 var velocity: Vector2

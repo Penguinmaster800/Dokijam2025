@@ -1,11 +1,10 @@
 extends Area2D
 
-
-
-
-
-func _on_body_entered(_body):
+func _on_body_entered(body: Node):
+	
+	var damage = body.damage
+	
 	#add sound for getting hit
-	Status.doki_health -= 1
+	Status.doki_health -= damage
 	print(Status.doki_health)
-	_body.queue_free()
+	body.queue_free()

@@ -27,5 +27,4 @@ func attack():
 	pass
 
 func _on_timer_can_shoot_timeout() -> void:
-	print("Sniper Shot!")
 	super.attack()
