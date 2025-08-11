@@ -91,6 +91,8 @@ func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int)
 		return
 	if Status.in_cover == true:
 		return
+	if Status.doki_exposed == false:
+		return
 	if Status.doki_reloading == true:
 		return
 	if Status.doki_shot_cooldown == true:

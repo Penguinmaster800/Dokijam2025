@@ -12,6 +12,8 @@ signal doki_reloading_change
 signal doki_shot_change
 
 
+
+
 var level: int = 1:
 	set(value):
 		level = value
@@ -48,6 +50,8 @@ var time_remaining: float = 80:
 		time_remaining_change.emit()
 
 var in_cover: bool = false
+var cover_held: bool = false
+var doki_exposed: bool = true
 var doki_reloading: bool = false:
 	set(value):
 		doki_reloading = value
