@@ -109,10 +109,12 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ja0ge")
 
 [node name="HitboxHead" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxHead"]
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 

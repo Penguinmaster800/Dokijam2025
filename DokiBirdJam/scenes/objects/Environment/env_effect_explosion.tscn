@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjfuueg7br8cj"]
+
+[ext_resource type="PackedScene" uid="uid://bc85ohi67me78" path="res://scenes/objects/Environment/env_effect_base.tscn" id="1_773iy"]
+[ext_resource type="Script" uid="uid://dqq8q3mfyopks" path="res://scenes/scripts/objects/env_effect_explosion.gd" id="2_qybhk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qybhk"]
+radius = 40.0125
+
+[node name="EnvEffectExplosion" instance=ExtResource("1_773iy")]
+script = ExtResource("2_qybhk")
+col = Color(0.878431, 0.0588235, 0.0352941, 0.788235)
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_qybhk")
+
+[node name="Timer" type="Timer" parent="." index="1"]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

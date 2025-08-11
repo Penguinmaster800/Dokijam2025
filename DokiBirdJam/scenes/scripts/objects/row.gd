@@ -1,7 +1,9 @@
 extends Node2D
+class_name RowParent
 
 var cover_points: Array[CoverPointData]
 var spawn_points: Array[SpawnPointData]
+@export var row_no: EnumRowNo.RowNo
 
 func _ready() -> void:
 	var cover_point_nodes = $CoverPoints.get_children()
