@@ -112,6 +112,8 @@ func _on_enemy_enemy_attack(pos: Variant, type: AttackType) -> void:
 			enemy_bullet_attack_default(pos)
 		AttackType.SHOTGUN:
 			enemy_bullet_attack_shotgun(pos)
+		AttackType.SNIPER:
+			enemy_bullet_attack_sniper(pos)
 		_:
 			enemy_bullet_attack_default(pos)
 			
@@ -152,6 +154,16 @@ func enemy_bullet_attack_shotgun(pos: Variant) -> void:
 		enemy_bullet.destination = pos + (rotated_direction * distance)
 		
 		$Projectiles.add_child(enemy_bullet)
+
+func enemy_bullet_attack_sniper(pos: Variant) -> void:
+	var enemy_bullet = enemy_bullet_scene.instantiate()
+	enemy_bullet.position = pos
+
+	var dest: Vector2 = random_enemy_bullet_destination()
+	dest = $Player.global_position
+	enemy_bullet.destination = dest
+	
+	$Projectiles.add_child(enemy_bullet)
 
 func spawn_enemy_gunman(row_no: EnumRowNo.RowNo):
 	spawn_enemy(enemy_gunman_scene, EnemyType.GUNMAN, row_no)
