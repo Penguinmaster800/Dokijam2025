@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://c8upwl5jrifs5" path="res://scenes/scripts/objects/enemy_sniper.gd" id="2_uf6m5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tekap"]
-radius = 7.07107
+radius = 9.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uf6m5"]
-radius = 19.0
+radius = 26.0
 
 [node name="Enemy" instance=ExtResource("1_tekap")]
 script = ExtResource("2_uf6m5")
@@ -19,17 +19,17 @@ max_ammo = 1
 reload_time = 3.0
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -19)
-scale = Vector2(0.15, 0.15)
+position = Vector2(0, -26)
+scale = Vector2(0.2, 0.2)
 
 [node name="HitboxHead" parent="." index="1"]
-position = Vector2(0, -28)
+position = Vector2(0, -42)
 
 [node name="CollisionShape2D" parent="HitboxHead" index="0"]
 shape = SubResource("CircleShape2D_tekap")
 
 [node name="Hitbox" parent="." index="2"]
-position = Vector2(0, -19)
+position = Vector2(0, -26)
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource("CircleShape2D_uf6m5")
@@ -37,6 +37,6 @@ shape = SubResource("CircleShape2D_uf6m5")
 [node name="TimerCanShoot" type="Timer" parent="." index="6"]
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]
-position = Vector2(-13, -14)
+position = Vector2(-17, -20)
 
 [connection signal="timeout" from="TimerCanShoot" to="." method="_on_timer_can_shoot_timeout"]
