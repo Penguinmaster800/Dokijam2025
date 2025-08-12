@@ -34,4 +34,5 @@ func _going_ghost():
 	Abilities.going_ghost_ready = false
 
 func _update_ready():
-	$ReadyTracker.value = Abilities.going_ghost_time_remaining
+	if Abilities.going_ghost_time_remaining != 0:
+		$ReadyTracker.value = Abilities.going_ghost_time_remaining
