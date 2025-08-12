@@ -3,6 +3,7 @@ extends Control
 
 func _on_aim_bot_get_button_pressed() -> void:
 	Abilities.obtain_ability("Aim Bot")
+	Abilities.aim_bot_learned = true
 	next_level()
 
 

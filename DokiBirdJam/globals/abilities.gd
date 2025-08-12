@@ -6,6 +6,7 @@ signal going_ghost_activate
 signal aim_bot_time_remaining_change
 signal going_ghost_time_remaining_change
 signal red_eye_time_remaining_change
+signal red_eye_cover_change
 
 var aim_bot_learned : bool = false
 var going_ghost_learned : bool = false
@@ -31,25 +32,32 @@ var red_eye_time_remaining: float = 45:
 		red_eye_time_remaining = value
 		red_eye_time_remaining_change.emit()
 
+var red_eye_cover : bool = false:
+	set(value):
+		red_eye_cover = value
+		red_eye_cover_change.emit()
 
 var going_ghost_active: bool = false
 var red_eye_active: bool = false
 var aim_bot_active: bool = false
 
 func aim_bot():
-	print("aim_bot_activated")
-	aim_bot_active = true
-	aim_bot_activate.emit()
+	if Abilities.aim_bot_ready == true:
+		print("aim_bot_activated")
+		aim_bot_active = true
+		aim_bot_activate.emit()
 
 func red_eye():
-	print("red eye_activated")
-	red_eye_active = true
-	red_eye_activate.emit()
+	if Abilities.red_eye_ready == true:
+		print("red eye_activated")
+		red_eye_active = true
+		red_eye_activate.emit()
 
 func going_ghost():
-	print("going ghost_activated")
-	going_ghost_active = true
-	going_ghost_activate.emit()
+	if Abilities.going_ghost_ready == true:
+		print("going ghost_activated")
+		going_ghost_active = true
+		going_ghost_activate.emit()
 
 func obtain_ability(new_ability):
 	print(ability1, ability2, ability3)

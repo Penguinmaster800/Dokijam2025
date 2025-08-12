@@ -1,6 +1,7 @@
 extends Control
 
 var no_ammo = preload("res://assets/ui/Crosshairs/No Ammo.png")
+
 func _ready():
 	Input.set_custom_mouse_cursor(no_ammo, Input.CURSOR_ARROW, Vector2(42, 49))
 
