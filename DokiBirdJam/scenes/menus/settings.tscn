@@ -103,6 +103,7 @@ offset_bottom = 241.0
 text = "Master"
 
 [node name="Label2" type="Label" parent="Sliders"]
+layout_mode = 0
 offset_left = 457.0
 offset_top = 283.0
 offset_right = 512.0
@@ -110,6 +111,7 @@ offset_bottom = 308.0
 text = "Music"
 
 [node name="Label3" type="Label" parent="Sliders"]
+layout_mode = 0
 offset_left = 461.0
 offset_top = 339.0
 offset_right = 516.0

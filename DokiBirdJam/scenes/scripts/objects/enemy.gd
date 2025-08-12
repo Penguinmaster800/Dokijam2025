@@ -97,6 +97,7 @@ func _on_hitbox_head_input_event(_viewport: Node, event: InputEvent, _shape_idx:
 	if Status.doki_reloading == true:
 		return
 	handle_damage(2)
+	#add sound from headshot
 	get_viewport().set_input_as_handled()
 
 func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
@@ -112,6 +113,7 @@ func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int)
 		return
 	if Status.doki_shot_cooldown == true:
 		return
+	#add basic hit sound
 	handle_damage()
 
 func _aim_bot_target():
