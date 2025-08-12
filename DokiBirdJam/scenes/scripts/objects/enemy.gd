@@ -46,6 +46,12 @@ var _is_reloading: bool = false
 var attack_cooldown_time: float = 1.2
 var move_out_of_cover_time: float = 1.2
 
+## Scaling enemy sizes
+var min_y: float = 150.0
+var max_y: float = 550.0
+var min_scale: float = 0.5
+var max_scale: float = 1.0
+
 ## Signal for Death of the Enemy
 signal enemy_death
 ## Signal for Enemy Reaching the Position
@@ -56,6 +62,7 @@ signal enemy_attack(pos, type)
 func _ready() -> void:
 	health = max_health
 	current_ammo = max_ammo
+	set_scale_from_position()
 	Abilities.aim_bot_activate.connect(_aim_bot_target)
 
 func _process(delta: float) -> void:
@@ -71,6 +78,13 @@ func _process(delta: float) -> void:
 	
 	if !_reached_out_of_cover_position:
 		move_out_of_cover(delta)
+
+func set_scale_from_position() -> void:
+	var clamped = clamp(position.y, min_y, max_y)
+	var normalized_position = (clamped - min_y) / (max_y - min_y)
+	var calculated_scale = min_scale + (normalized_position * (max_scale - min_scale))
+	scale = Vector2(calculated_scale, calculated_scale)
+
 
 func _on_hitbox_head_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not event.is_action_pressed("primary action"):
