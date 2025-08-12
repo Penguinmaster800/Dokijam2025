@@ -35,4 +35,5 @@ func _aim_bot():
 	Abilities.aim_bot_ready = false
 
 func _update_ready():
-	$ReadyTracker.value = Abilities.aim_bot_time_remaining
+	if Abilities.aim_bot_time_remaining != 0:
+		$ReadyTracker.value = Abilities.aim_bot_time_remaining

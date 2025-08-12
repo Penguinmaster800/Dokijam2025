@@ -35,4 +35,5 @@ func _red_eye():
 	Abilities.red_eye_ready = false
 
 func _update_ready():
-	$ReadyTracker.value = Abilities.red_eye_time_remaining
+	if Abilities.red_eye_time_remaining != 0:
+		$ReadyTracker.value = Abilities.red_eye_time_remaining
