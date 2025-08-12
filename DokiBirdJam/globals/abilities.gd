@@ -42,10 +42,11 @@ var red_eye_active: bool = false
 var aim_bot_active: bool = false
 
 func aim_bot():
-	if Abilities.aim_bot_ready == true:
+	if Abilities.aim_bot_ready == true && Status.doki_ammo >= 6:
 		print("aim_bot_activated")
-		aim_bot_active = true
+		Status.doki_ammo -=6
 		aim_bot_activate.emit()
+		
 
 func red_eye():
 	if Abilities.red_eye_ready == true:

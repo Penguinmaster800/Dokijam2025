@@ -10,7 +10,7 @@ signal time_remaining_change
 signal level_change
 signal doki_reloading_change
 signal doki_shot_change
-
+signal combo_change
 
 
 
@@ -65,3 +65,9 @@ var doki_shot: int =0:
 		doki_shot = value
 		doki_shot_change.emit()
 var doki_shot_cooldown: bool = false
+
+
+var combo:int = 0:
+	set(value):
+		combo = value
+		combo_change.emit()
