@@ -29,6 +29,7 @@ texture_under = ExtResource("2_bk1an")
 texture_progress = ExtResource("3_av8p5")
 
 [node name="AmmoTracker" type="TextureProgressBar" parent="."]
+visible = false
 offset_left = 271.0
 offset_top = 538.0
 offset_right = 311.0

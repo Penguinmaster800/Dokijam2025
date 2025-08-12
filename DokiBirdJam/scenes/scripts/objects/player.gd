@@ -15,6 +15,9 @@ func _ready():
 	target = Vector2(exposed_location_x,doki_location_y)
 	Status.doki_reloading_change.connect(_reload)
 	Status.doki_shot_change.connect(_fire)
+	Abilities.going_ghost_activate.connect(_going_ghost)
+	Abilities.red_eye_activate.connect(_red_eye)
+	$AnimatedSprite2D.modulate.a = 1
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if Status.in_cover == true:
@@ -68,7 +71,22 @@ func _reload():
 	if Status.doki_reloading == false && Status.in_cover == false && Status.cover_held == false:
 		target = Vector2(exposed_location_x, doki_location_y)
 
-func red_eye():
-	$RedEyeTimer
-func going_ghost():
-	$GoingGhostTimer
+func _red_eye():
+	$RedEyeTimer.start()
+#	Abilities.red_eye_active = true
+	Abilities.red_eye_ready = false
+	Abilities.red_eye_cover = true
+
+func _going_ghost():
+	$GoingGhostTimer.start()
+#	Abilities.going_ghost_active = true
+	Abilities.going_ghost_ready = false
+	$AnimatedSprite2D.modulate.a = 0.75
+
+func _on_going_ghost_timer_timeout() -> void:
+	Abilities.going_ghost_active = false
+	$AnimatedSprite2D.modulate.a = 1
+
+func _on_red_eye_timer_timeout() -> void:
+	Abilities.red_eye_active = false
+	Abilities.red_eye_cover = false
