@@ -56,6 +56,7 @@ signal enemy_attack(pos, type)
 func _ready() -> void:
 	health = max_health
 	current_ammo = max_ammo
+	Abilities.aim_bot_activate.connect(_aim_bot_target)
 
 func _process(delta: float) -> void:
 
@@ -98,6 +99,10 @@ func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int)
 	if Status.doki_shot_cooldown == true:
 		return
 	handle_damage()
+
+func _aim_bot_target():
+	if current_stance != Stance.COVER:
+		handle_damage(3)
 
 func handle_damage(multiplier: int = 1):
 	

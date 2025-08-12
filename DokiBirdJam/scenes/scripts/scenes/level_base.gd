@@ -80,7 +80,7 @@ func _input(event):
 			Abilities.going_ghost() 
 		if Abilities.ability1 == "Red Eye":
 			Abilities.red_eye()
-		if Abilities.ability3 == "Aim Bot":
+		if Abilities.ability1 == "Aim Bot":
 			Abilities.aim_bot()
 		
 	if event.is_action_pressed("Ability 2"):

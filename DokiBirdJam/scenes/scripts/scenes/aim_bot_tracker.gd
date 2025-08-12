@@ -15,11 +15,11 @@ func _ready():
 
 
 func _process(delta):
-	if Abilities.aim_bot_time_remaining < cooldown :
+	if Abilities.aim_bot_time_remaining > cooldown :
 			Abilities.aim_bot_time_remaining = 0
 			$ReadyTracker/TimeRemaining.text = "Ready"
-			Abilities.red_eye_ready = true
-	if Abilities.aim_bot_time_remaining >= cooldown && Abilities.aim_bot_time_remaining != 0:
+			Abilities.aim_bot_ready = true
+	if Abilities.aim_bot_time_remaining <= cooldown && Abilities.aim_bot_time_remaining != 0:
 			time = Abilities.aim_bot_time_remaining
 			time += delta 
 			Abilities.aim_bot_time_remaining = time
