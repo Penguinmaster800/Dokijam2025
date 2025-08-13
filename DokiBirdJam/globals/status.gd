@@ -11,7 +11,8 @@ signal level_change
 signal doki_reloading_change
 signal doki_shot_change
 signal combo_change
-
+signal score_change
+signal highScore_change
 
 
 var level: int = 1:
@@ -66,8 +67,17 @@ var doki_shot: int =0:
 		doki_shot_change.emit()
 var doki_shot_cooldown: bool = false
 
+var score:int = 0:
+	set(value):
+		score = value
+		score_change.emit()
 
-var combo:int = 0:
+var combo:float = 1:
 	set(value):
 		combo = value
 		combo_change.emit()
+
+var highScore:int = 0:
+	set(value):
+		highScore = value
+		highScore_change.emit()

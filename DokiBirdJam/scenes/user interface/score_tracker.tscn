@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd5tqul65krab"]
+
+[ext_resource type="Script" uid="uid://d1egxkrh44hgn" path="res://scenes/scripts/scenes/score_tracker.gd" id="1_hf3is"]
+
+[node name="ScoreTracker" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hf3is")
+
+[node name="ScorePanel" type="Panel" parent="."]
+layout_mode = 1
+offset_right = 160.0
+offset_bottom = 118.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScorePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = -53.5
+offset_right = 74.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="CurrentScore" type="Label" parent="ScorePanel/VBoxContainer"]
+layout_mode = 2
+text = "Current Score:"
+
+[node name="Multiplier" type="Label" parent="ScorePanel/VBoxContainer"]
+layout_mode = 2
+text = "Multiplier:"
+
+[node name="HighScore" type="Label" parent="ScorePanel/VBoxContainer"]
+layout_mode = 2
+text = "High Score:"
+
+[node name="HighScoreTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 92.0
+offset_right = 154.0
+offset_bottom = 119.0
+max_value = 5.0
+show_percentage = false
+
+[connection signal="timeout" from="HighScoreTimer" to="." method="_on_high_score_timer_timeout"]

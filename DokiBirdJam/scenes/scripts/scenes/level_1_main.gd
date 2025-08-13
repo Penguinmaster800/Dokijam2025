@@ -13,7 +13,11 @@ func _ready():
 	Abilities.going_ghost_learned = false
 	Abilities.red_eye_learned = false
 	Abilities.going_ghost_learned = false
+	Abilities.ability1 = null
+	Abilities.ability2 = null
+	Abilities.ability3 = null
 	AudioManager.level_one_music.play()
+	Status.score = 0
 	
 	
 	spawn_enemy_brute(EnumRowNo.RowNo.ROW1)
