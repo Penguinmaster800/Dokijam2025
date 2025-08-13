@@ -9,7 +9,7 @@ func _ready():
 	Status.combo_change.connect(_combo_change)
 	Status.highScore_change.connect(_highScore_change)
 
-func _process(delta:) -> void:
+func _process(_delta) -> void:
 	$ProgressBar.value -=.018
 
 func _score_update():
