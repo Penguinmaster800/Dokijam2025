@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cjdf3n4f4dy7d" path="res://scenes/scripts/scenes/env_object_base.gd" id="1_2r04s"]
 
 [node name="EnvObjectBase" type="Area2D"]
+collision_layer = 16
 script = ExtResource("1_2r04s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

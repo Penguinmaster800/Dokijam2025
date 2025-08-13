@@ -128,8 +128,12 @@ libraries = {
 [node name="TimerFireRate" type="Timer" parent="."]
 
 [node name="TimerEffectWet" type="Timer" parent="."]
+wait_time = 5.0
 
 [node name="TimerEffectShock" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="TimerEffectWetShockDamage" type="Timer" parent="."]
 
 [node name="BulletStartPosition" type="Node2D" parent="."]
 
@@ -141,3 +145,4 @@ libraries = {
 [connection signal="timeout" from="TimerFireRate" to="." method="_on_timer_fire_rate_timeout"]
 [connection signal="timeout" from="TimerEffectWet" to="." method="_on_timer_effect_wet_timeout"]
 [connection signal="timeout" from="TimerEffectShock" to="." method="_on_timer_effect_shock_timeout"]
+[connection signal="timeout" from="TimerEffectWetShockDamage" to="." method="_on_timer_effect_wet_shock_damage_timeout"]
