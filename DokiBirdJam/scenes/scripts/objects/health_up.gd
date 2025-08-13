@@ -7,6 +7,8 @@ func _on_health_button_pressed() -> void:
 
 
 func next_level():
+	if Status.level == 1:
+		TransitionLayer.change_scene("res://scenes/levels/level_1_main.tscn")
 	if Status.level == 2:
 		TransitionLayer.change_scene("res://scenes/levels/level_2_main.tscn")
 	if Status.level == 3:
