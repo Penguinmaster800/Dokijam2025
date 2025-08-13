@@ -30,5 +30,5 @@ func _on_quit_to_menu_pressed() -> void:
 	resume()
 	TransitionLayer.change_scene("res://scenes/menus/main_menu.tscn")
 
-func _process(delta):
+func _process(_delta):
 	testEsc()
