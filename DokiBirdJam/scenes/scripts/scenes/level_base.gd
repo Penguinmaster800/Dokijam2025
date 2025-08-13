@@ -32,7 +32,7 @@ func level_startup():
 	Status.doki_reloading = false
 	Status.in_cover = false
 	Status.doki_shot_cooldown = false
-	
+	Status.combo = 1
 	print("ready")
 
 func reload():
@@ -228,6 +228,9 @@ func get_row_no_instance(row: EnumRowNo.RowNo) -> Node:
 		
 func _enemy_defeated():
 	print("dragoon down")
+	Status.score += 100 * (Status.combo)
+	Status.combo += 0.1
+	print(Status.combo)
 	if Status.enemies_remaining >= 1:
 		pass
 	if Status.enemies_remaining <= 0:
