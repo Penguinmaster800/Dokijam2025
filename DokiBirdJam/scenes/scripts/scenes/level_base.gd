@@ -11,6 +11,11 @@ var env_object_drone_scene: PackedScene = preload("res://scenes/objects/Environm
 var env_effect_explosion_scene: PackedScene = preload("res://scenes/objects/Environment/env_effect_explosion.tscn")
 var env_effect_water_scene: PackedScene = preload("res://scenes/objects/Environment/env_effect_water.tscn")
 
+var current_wave: int = 0
+var total_waves: int = 0
+var wave_in_progress: bool = false
+var wave_enemy_count: int = 0
+
 const AttackType = EnemyAttackType.AttackType
 const EnemyType = EnumEnemyType.EnemyType
 const EnvObjectType = EnumEnvObjectType.EnvObjectType
@@ -34,6 +39,26 @@ func level_startup():
 	Status.doki_shot_cooldown = false
 	Status.combo = 1
 	print("ready")
+	
+func setup_enemy_waves(wave_count: int):
+	total_waves = wave_count
+	current_wave = 0
+	start_new_wave()
+
+func start_new_wave():
+	if current_wave >= total_waves:
+		return
+	
+	if wave_enemy_count >0:
+		return
+	
+	wave_in_progress = true
+	current_wave += 1
+	print("Wave %s" % current_wave)
+	spawn_wave(current_wave)
+
+func spawn_wave(_wave_number: int):
+	pass
 
 func reload():
 	if Status.doki_ammo < Status.doki_max_ammo and not Status.doki_reloading:
@@ -169,15 +194,37 @@ func enemy_bullet_attack_sniper(pos: Variant) -> void:
 func spawn_enemy_gunman(row_no: EnumRowNo.RowNo):
 	spawn_enemy(enemy_gunman_scene, EnemyType.GUNMAN, row_no)
 
+func spawn_enemy_gunman_random_row():
+	spawn_enemy_random_row(enemy_gunman_scene, EnemyType.GUNMAN)
+
 func spawn_enemy_brute(row_no: EnumRowNo.RowNo):
 	spawn_enemy(enemy_brute_scene, EnemyType.BRUTE, row_no)
-	
+
+func spawn_enemy_brute_random_row():
+	spawn_enemy_random_row(enemy_brute_scene, EnemyType.BRUTE)
+
 func spawn_enemy_sniper(row_no: EnumRowNo.RowNo):
 	spawn_enemy(enemy_sniper_scene, EnemyType.SNIPER, row_no)
 
+func spawn_enemy_sniper_random_row():
+	spawn_enemy_random_row(enemy_sniper_scene, EnemyType.SNIPER)
+
+func spawn_enemy_random_row(enemy_scene: PackedScene, enemy_type: EnemyType):
+	var available_rows = get_rows_with_available_cover()
+	var target_row = available_rows.pick_random()
+	spawn_enemy(enemy_scene, enemy_type, target_row)
+
 func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: EnumRowNo.RowNo):
 	var row = get_row_no_instance(row_no)
-	var cover_point: CoverPointData = row.cover_points.pick_random()
+
+	var available_cover_points = row.get_available_cover_points()
+	if available_cover_points.size() <= 0:
+		print("No available points :(")
+		return
+	
+	var cover_point: CoverPointData = available_cover_points.pick_random()
+	cover_point.is_available = false
+
 	var spawn_point: SpawnPointData = row.spawn_points.pick_random()
 	
 	var enemy = enemy_scene.instantiate()
@@ -185,6 +232,7 @@ func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: EnumRo
 	enemy.cover_point = cover_point
 	enemy.spawn_move_position = cover_point.in_cover_positions[0]
 	enemy.enemy_attack.connect(_on_enemy_enemy_attack)
+	enemy.enemy_death.connect(_on_enemy_death.bind(cover_point))
 
 	if enemy_type == EnemyType.SNIPER:
 		var enemy_sniper_laser = enemy_sniper_laser_scene.instantiate()
@@ -197,6 +245,9 @@ func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: EnumRo
 		enemy.enemy_death.connect(enemy_sniper_laser.stop_aiming)
 	
 	row.get_node("Enemies").add_child(enemy)
+
+func _on_enemy_death(cover_point: CoverPointData):
+	cover_point.is_available = true
 
 func spawn_env_object_drone(row_no: EnumRowNo.RowNo):
 	spawn_env_object(env_object_drone_scene, EnvObjectType.DRONE, row_no)
@@ -225,17 +276,31 @@ func get_row_no_instance(row: EnumRowNo.RowNo) -> Node:
 			return $EnemyLayer/Row4
 		_:
 			return $EnemyLayer/Row1
-		
+
+func get_rows_with_available_cover() -> Array[EnumRowNo.RowNo]:
+	var available_rows: Array[EnumRowNo.RowNo] = []
+	var all_rows = [EnumRowNo.RowNo.ROW1, EnumRowNo.RowNo.ROW2, EnumRowNo.RowNo.ROW3, EnumRowNo.RowNo.ROW4]
+	
+	for row_no in all_rows:
+		var row = get_row_no_instance(row_no)
+		if row.has_available_cover_points():
+			available_rows.append(row_no)
+
+	return available_rows
+	
 func _enemy_defeated():
 	print("dragoon down")
 	Status.score += 100 * (Status.combo)
 	Status.combo += 0.1
 	print(Status.combo)
+	wave_enemy_count -= 1
 	if Status.enemies_remaining >= 1:
 		pass
 	if Status.enemies_remaining <= 0:
 		print("victory")
 		level_beat()
+	if current_wave < total_waves and wave_enemy_count <= 0:
+		$Timers/EnemyWaveCooldownTimer.start()
 
 func _doki_hurt():
 	print("doki hit")
@@ -260,3 +325,6 @@ func level_beat():
 		TransitionLayer.change_scene(level_2_beat)
 	if Status.level == 4:
 		TransitionLayer.change_scene(level_3_beat)
+
+func _on_enemy_wave_cooldown_timer_timeout() -> void:
+	start_new_wave()

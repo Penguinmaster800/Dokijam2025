@@ -15,3 +15,14 @@ func _ready() -> void:
 	
 	for spawn_point_node in spawn_point_nodes:
 		spawn_points.append(spawn_point_node.data)
+
+func get_available_cover_points() -> Array[CoverPointData]:
+	var available_points: Array[CoverPointData] = []
+	
+	for cover_point in cover_points:
+		if cover_point.is_available:
+			available_points.append(cover_point)
+	return available_points
+
+func has_available_cover_points() -> bool:
+	return get_available_cover_points().size() > 0
