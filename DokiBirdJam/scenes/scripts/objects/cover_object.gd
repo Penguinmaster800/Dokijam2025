@@ -10,8 +10,8 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 
 func _red_eye():
 	if Abilities.red_eye_active == true:
-		$CollisionPolygon2D.hide()
+		$CollisionPolygon2D.disabled = true
 		$Sprite2D.modulate.a = 0.6
 	if Abilities.red_eye_active == false:
-		$CollisionPolygon2D.show()
+		$CollisionPolygon2D.disabled = false
 		$Sprite2D.modulate.a = 1

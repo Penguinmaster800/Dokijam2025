@@ -10,12 +10,6 @@ func _ready():
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.level = 1
 	Status.doki_shot = 0
-	Abilities.going_ghost_learned = false
-	Abilities.red_eye_learned = false
-	Abilities.going_ghost_learned = false
-	Abilities.ability1 = null
-	Abilities.ability2 = null
-	Abilities.ability3 = null
 	AudioManager.level_one_music.play()
 	Status.score = 0
 	
