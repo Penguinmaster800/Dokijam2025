@@ -19,7 +19,12 @@ func _draw() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	var enemy_node = super.get_entered_enemy_node(area)
 	
-	if area.name != "Hitbox":
-		return
-	if enemy_node:
+	if area.name != "Hitbox" and enemy_node:
 		enemy_node.handle_damage()
+		return
+	
+	var object_node = super.get_entered_object_node(area)
+	
+	if object_node:
+		object_node.handle_damage()
+		return

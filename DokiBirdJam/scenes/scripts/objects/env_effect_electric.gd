@@ -18,3 +18,9 @@ func _on_area_entered(area: Area2D) -> void:
 	if enemy_node:
 		enemy_node.is_shocked = true
 		print("Enemy is shocked")
+		return
+
+	var object_node = super.get_entered_object_node(area)
+	if object_node:
+		object_node.is_shocked = true
+		return

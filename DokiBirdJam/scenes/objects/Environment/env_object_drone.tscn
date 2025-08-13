@@ -28,3 +28,4 @@ shape = SubResource("RectangleShape2D_5jcw0")
 
 [node name="EnvObjectDroneBox" parent="." index="3" instance=ExtResource("4_088wc")]
 position = Vector2(0, -222)
+collision_layer = 1

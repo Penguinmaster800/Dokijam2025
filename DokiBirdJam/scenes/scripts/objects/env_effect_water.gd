@@ -19,3 +19,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if enemy_node:
 		enemy_node.is_wet = true
 		print("Enemy is wet")
+
+	var object_node = super.get_entered_object_node(area)
+	if object_node:
+		object_node.is_wet = true
+		return

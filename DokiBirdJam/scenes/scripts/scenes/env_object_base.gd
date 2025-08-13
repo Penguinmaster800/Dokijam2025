@@ -5,7 +5,7 @@ class_name EnvObjectParent
 var health: int
 var row_no: EnumRowNo.RowNo
 
-var is_wet: bool =false
+var is_wet: bool = false
 var is_shocked: bool = false
 
 func _ready() -> void:
