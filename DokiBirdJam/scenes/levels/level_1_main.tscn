@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dfbno7bxwndcg" path="res://scenes/objects/Environment/cover_object_fountain.tscn" id="6_qjymw"]
 [ext_resource type="PackedScene" uid="uid://o2krh3yv5u14" path="res://scenes/objects/Environment/cover_object_wall_l1r1.tscn" id="7_qjymw"]
 
-[node name="Level" instance=ExtResource("1_731hl")]
+[node name="Level2" instance=ExtResource("1_731hl")]
 script = ExtResource("2_3fypp")
 
 [node name="Background" parent="." index="0"]
