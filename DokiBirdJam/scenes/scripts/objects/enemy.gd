@@ -64,6 +64,9 @@ func _ready() -> void:
 	current_ammo = max_ammo
 	set_scale_from_position()
 	Abilities.aim_bot_activate.connect(_aim_bot_target)
+	$AnimatedSprite2D.play("Move")
+	if spawn_move_position.x < global_position.x:
+		$AnimatedSprite2D.flip_h = true
 
 func _process(delta: float) -> void:
 
@@ -145,6 +148,7 @@ func after_spawn(delta):
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
 		switch_stance()
+		$AnimatedSprite2D.flip_h = false
 
 func move_to_cover(delta):
 	# Move to position
@@ -196,7 +200,7 @@ func stance_to_cover():
 	var random_time = randf_range(min_cover_time, 5.0)
 	$TimerCurrentStance.start(random_time)
 	current_stance = Stance.COVER
-	$AnimationPlayer.play("cover")
+	$AnimatedSprite2D.play("InCover")
 	
 	if _is_reloading:
 		current_ammo = max_ammo
@@ -206,7 +210,7 @@ func stance_to_attack():
 	var random_time = randf_range(2.0, 7.0)
 	$TimerCurrentStance.start(random_time)
 	current_stance = Stance.ATTACK
-	$AnimationPlayer.play("attack")
+	$AnimatedSprite2D.play("Attack")
 	$TimerFireRate.start(fire_rate)
 
 func attack():
@@ -223,10 +227,10 @@ func death():
 	var deletion_timer = get_tree().create_timer(3)
 
 	# Play animation
-	$AnimationPlayer.play("death")
+	# TODO $AnimationPlayer.play("death")
 	AudioManager.enemy_death.play()
 	# Await for animation to end
-	await $AnimationPlayer.animation_finished
+	#await $AnimationPlayer.animation_finished
 	# Emit Death Signal
 	Status.enemies_remaining -= 1
 	print(Status.enemies_remaining)

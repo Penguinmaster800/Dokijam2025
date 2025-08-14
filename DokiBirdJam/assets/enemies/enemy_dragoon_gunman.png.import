@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djw2sx65wjpxs"
-path="res://.godot/imported/Stationary Dragoons.png-732839491f20e7ce9a9b939c0bbdd0dc.ctex"
+uid="uid://irpurihhixrd"
+path="res://.godot/imported/enemy_dragoon_gunman.png-ed7728d75cb7f1bcb2edb54702a1a5c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/Stationary Dragoons.png"
-dest_files=["res://.godot/imported/Stationary Dragoons.png-732839491f20e7ce9a9b939c0bbdd0dc.ctex"]
+source_file="res://assets/enemies/enemy_dragoon_gunman.png"
+dest_files=["res://.godot/imported/enemy_dragoon_gunman.png-ed7728d75cb7f1bcb2edb54702a1a5c1.ctex"]
 
 [params]
 

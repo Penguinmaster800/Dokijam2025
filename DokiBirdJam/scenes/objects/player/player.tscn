@@ -285,7 +285,7 @@ script = ExtResource("1_1bf4k")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_0a575")
-animation = &"EnterCover"
+animation = &"InCover"
 
 [node name="PlayerHitbox" type="Area2D" parent="."]
 collision_mask = 4

@@ -1,112 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd0yfpmn5oeag"]
+[gd_scene load_steps=3 format=3 uid="uid://cd0yfpmn5oeag"]
 
-[ext_resource type="Texture2D" uid="uid://cdwxi4h1k18ai" path="res://assets/object/enemy.png" id="1_ja0ge"]
 [ext_resource type="Script" uid="uid://cx7bcpp3v8evt" path="res://scenes/scripts/objects/enemy.gd" id="1_lp353"]
-[ext_resource type="Texture2D" uid="uid://bo8kr63or10f8" path="res://assets/object/enemy_death.png" id="2_lp353"]
-[ext_resource type="Texture2D" uid="uid://conmykyy3ic53" path="res://assets/object/enemy_cover.png" id="4_ptshl"]
-[ext_resource type="Texture2D" uid="uid://crxvs3hxnlb7" path="res://assets/object/enemy_attack.png" id="5_d83f0"]
 
-[sub_resource type="Animation" id="Animation_gwbwg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_ja0ge")]
-}
-
-[sub_resource type="Animation" id="Animation_3ch6f"]
-resource_name = "attack"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_d83f0")]
-}
-
-[sub_resource type="Animation" id="Animation_d83f0"]
-resource_name = "cover"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_ptshl")]
-}
-
-[sub_resource type="Animation" id="Animation_lp353"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 3.14159]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("1_ja0ge"), ExtResource("2_lp353")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gwbwg"]
-_data = {
-&"RESET": SubResource("Animation_gwbwg"),
-&"attack": SubResource("Animation_3ch6f"),
-&"cover": SubResource("Animation_d83f0"),
-&"death": SubResource("Animation_lp353")
-}
+[sub_resource type="SpriteFrames" id="SpriteFrames_pr36w"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_lp353")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ja0ge")
+sprite_frames = SubResource("SpriteFrames_pr36w")
+animation = &"death"
 
 [node name="HitboxHead" type="Area2D" parent="."]
 collision_layer = 8
@@ -117,11 +33,6 @@ collision_layer = 8
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_gwbwg")
-}
 
 [node name="TimerCurrentStance" type="Timer" parent="."]
 
