@@ -111,7 +111,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w137s")
 }],
-"loop": true,
+"loop": false,
 "name": &"InCover",
 "speed": 15.0
 }, {
@@ -153,7 +153,7 @@ max_ammo = 2
 position = Vector2(0, -57)
 scale = Vector2(0.948333, 0.948333)
 sprite_frames = SubResource("SpriteFrames_ioh30")
-animation = &"Move"
+animation = &"Attack"
 
 [node name="HitboxHead" parent="." index="1"]
 position = Vector2(-22, -66)

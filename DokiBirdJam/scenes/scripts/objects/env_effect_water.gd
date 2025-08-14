@@ -1,5 +1,7 @@
 extends EnvEffectParent
 
+var is_wet = false
+
 var puddle_radius: float = 50.0
 var puddle_height: float = 200.0
 @export var water_color: Color = Color(0, 0.5, 1, 0.6)
@@ -15,12 +17,20 @@ func _set_collision_circle() -> void:
 	$CollisionShape2D.rotation_degrees = 90
 
 func _on_area_entered(area: Area2D) -> void:
-	var enemy_node = super.get_entered_enemy_node(area)
-	if enemy_node:
+	var enemy_node = area.get_parent()
+	var object_node = area
+	if not (enemy_node is EnemyParent):
+		return
+	if ! is_wet:
+		object_node = super.get_entered_object_node(area)
+		enemy_node = super.get_entered_enemy_node(area)
+	if  enemy_node:
 		enemy_node.is_wet = true
-		print("Enemy is wet")
-
-	var object_node = super.get_entered_object_node(area)
+		print("enemy_node is wet")
+		return
+	if not (area is EnvObjectParent):
+		return
 	if object_node:
 		object_node.is_wet = true
 		return
+		

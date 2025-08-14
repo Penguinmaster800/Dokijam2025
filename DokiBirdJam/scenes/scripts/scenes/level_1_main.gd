@@ -28,12 +28,13 @@ func spawn_wave_1():
 	spawn_enemy_brute_random_row()
 	spawn_enemy_gunman_random_row()
 	spawn_enemy_gunman_random_row()
-	spawn_env_object_drone(EnumRowNo.RowNo.ROW1)
-	spawn_env_object_drone(EnumRowNo.RowNo.ROW3)
+	spawn_env_object_drone(EnumRowNo.RowNo.ROW1, water_drone)
+	spawn_env_object_drone(EnumRowNo.RowNo.ROW3, electric_drone)
+
 
 func spawn_wave_2():
 	wave_enemy_count = 4
-	spawn_enemy_sniper(EnumRowNo.RowNo.ROW3)
+	spawn_enemy_sniper(EnumRowNo.RowNo.ROW3,)
 	spawn_enemy_brute_random_row()
 	spawn_enemy_gunman_random_row()
 	spawn_enemy_gunman_random_row()

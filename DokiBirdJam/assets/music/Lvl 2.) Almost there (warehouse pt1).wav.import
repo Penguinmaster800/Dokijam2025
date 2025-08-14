@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cltevh0kjoc8"
+path="res://.godot/imported/Lvl 2.) Almost there (warehouse pt1).wav-a768c3ce0e56b29084734ff8afdd812d.sample"
+
+[deps]
+
+source_file="res://assets/music/Lvl 2.) Almost there (warehouse pt1).wav"
+dest_files=["res://.godot/imported/Lvl 2.) Almost there (warehouse pt1).wav-a768c3ce0e56b29084734ff8afdd812d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

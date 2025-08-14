@@ -8,8 +8,11 @@ var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemies/enemy
 var enemy_sniper_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper.tscn")
 var enemy_sniper_laser_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper_laser.tscn")
 var env_object_drone_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_drone.tscn")
+var env_object_drone_water_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_water_drone.tscn")
+var env_object_drone_electric_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_electric_drone.tscn")
 var env_effect_explosion_scene: PackedScene = preload("res://scenes/objects/Environment/env_effect_explosion.tscn")
 var env_effect_water_scene: PackedScene = preload("res://scenes/objects/Environment/env_effect_water.tscn")
+var env_effect_electric_scene: PackedScene = preload("res://scenes/objects/Environment/env_effect_electric.tscn")
 
 var current_wave: int = 0
 var total_waves: int = 0
@@ -23,6 +26,12 @@ const EnvObjectType = EnumEnvObjectType.EnvObjectType
 const level_1_beat = "res://scenes/levels/level_1_beat.tscn"
 const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
 const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
+
+
+var explosion_drone = env_object_drone_scene
+var water_drone = env_object_drone_water_scene
+var electric_drone = env_object_drone_electric_scene
+var random_drone := [explosion_drone, explosion_drone, electric_drone]
 
 func level_startup():
 	var vp = get_viewport()
@@ -152,6 +161,28 @@ func _on_env_object_drone_box_explode(row_no: EnumRowNo.RowNo, pos: Vector2, is_
 		env_effect_explosion.scale.x = 1
 	$Projectiles.add_child(env_effect_explosion)
 
+func _on_env_object_drone_box_drench(row_no: EnumRowNo.RowNo, pos: Vector2, is_wet:bool = false) -> void:
+	var env_effect_water = env_effect_water_scene.instantiate()
+	env_effect_water.global_position = pos
+	env_effect_water.row_no = row_no
+	if is_wet == true:
+		env_effect_water.scale.x = 2
+	if is_wet == false:
+		env_effect_water.scale.x = 1
+	$Projectiles.add_child(env_effect_water)
+
+func _on_env_object_drone_box_shock(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool = false) -> void:
+	var env_effect_electric = env_effect_electric_scene.instantiate()
+	env_effect_electric.global_position = pos
+	env_effect_electric.row_no = row_no
+	if is_shocked == true:
+		env_effect_electric.scale.x = 2
+		env_effect_electric.scale.y = 2
+	if is_shocked == false:
+		env_effect_electric.scale.x = 1
+		env_effect_electric.scale.y = 1
+	$Projectiles.add_child(env_effect_electric)
+
 func enemy_bullet_attack_default(pos: Variant) -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate()
 	enemy_bullet.position = pos
@@ -253,8 +284,22 @@ func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: EnumRo
 func _on_enemy_death(cover_point: CoverPointData):
 	cover_point.is_available = true
 
-func spawn_env_object_drone(row_no: EnumRowNo.RowNo):
-	spawn_env_object(env_object_drone_scene, EnvObjectType.DRONE, row_no)
+func spawn_env_object_drone(row_no: EnumRowNo.RowNo, type= null):
+	if type == null:
+		random_drone.shuffle()
+		type = random_drone[0]
+		if type == explosion_drone:
+			spawn_env_object(type, EnvObjectType.DRONE, row_no)
+		if type == water_drone:
+			spawn_env_object(type, EnvObjectType.WATER_DRONE, row_no)
+		if type == electric_drone:
+			spawn_env_object(type, EnvObjectType.ELECTRIC_DRONE, row_no)
+	if type == explosion_drone:
+		spawn_env_object(type, EnvObjectType.DRONE, row_no)
+	if type == water_drone:
+		spawn_env_object(type, EnvObjectType.WATER_DRONE, row_no)
+	if type == electric_drone:
+		spawn_env_object(type, EnvObjectType.ELECTRIC_DRONE, row_no)
 
 func spawn_env_object(env_object_scene: PackedScene, env_object_type: EnvObjectType, row_no: EnumRowNo.RowNo):
 	var env_object = env_object_scene.instantiate()
@@ -262,9 +307,12 @@ func spawn_env_object(env_object_scene: PackedScene, env_object_type: EnvObjectT
 	var spawn_point: SpawnPointData = row.spawn_points.pick_random()
 	env_object.position = spawn_point.spawn_point_positions[0]
 	env_object.row_no = row_no
-	
 	if env_object_type == EnvObjectType.DRONE:
 		env_object.get_node("EnvObjectDroneBox").explode.connect(_on_env_object_drone_box_explode)
+	if env_object_type == EnvObjectType.WATER_DRONE:
+		env_object.get_node("EnvObjectDroneBox").drench.connect(_on_env_object_drone_box_drench)
+	if env_object_type == EnvObjectType.ELECTRIC_DRONE:
+		env_object.get_node("EnvObjectDroneBox").shock.connect(_on_env_object_drone_box_shock)
 
 	row.get_node("EnvObjects").add_child(env_object)
 
