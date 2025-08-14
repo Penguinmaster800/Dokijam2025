@@ -6,7 +6,7 @@ var health: int
 var row_no: EnumRowNo.RowNo
 
 var is_wet: bool = false
-var is_shocked: bool = false
+var is_shocked: bool = true
 
 func _ready() -> void:
 	health = max_health
@@ -19,7 +19,11 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		return
 	if Status.in_cover == true:
 		return
+	if Status.doki_exposed == false:
+		return
 	if Status.doki_reloading == true:
+		return
+	if Status.doki_shot_cooldown == true:
 		return
 	
 	handle_damage()

@@ -292,7 +292,7 @@ collision_mask = 4
 script = ExtResource("3_0a575")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitbox"]
-position = Vector2(-7, 8)
+position = Vector2(0.161472, 8)
 shape = SubResource("CapsuleShape2D_0a575")
 
 [node name="RedEyeTimer" type="Timer" parent="."]

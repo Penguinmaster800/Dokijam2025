@@ -1,0 +1,151 @@
+[gd_scene load_steps=22 format=3 uid="uid://ddtso2jbcytc0"]
+
+[ext_resource type="Script" uid="uid://csui0o0jsqlp7" path="res://scenes/scripts/objects/effect_animations.gd" id="1_a71mk"]
+[ext_resource type="Texture2D" uid="uid://dgao17mx86mqe" path="res://assets/EnvironmentalEffects/shock/spark_01.png" id="2_h04lq"]
+[ext_resource type="Texture2D" uid="uid://e7h518qqousg" path="res://assets/EnvironmentalEffects/shock/spark_02.png" id="3_u5v83"]
+[ext_resource type="Texture2D" uid="uid://cteddw2svwtr" path="res://assets/EnvironmentalEffects/shock/spark_03.png" id="4_hsynf"]
+[ext_resource type="Texture2D" uid="uid://ci0qhwsr0s50h" path="res://assets/EnvironmentalEffects/shock/spark_04.png" id="5_6r0x4"]
+[ext_resource type="Texture2D" uid="uid://ce65ix8036hbc" path="res://assets/EnvironmentalEffects/fire/flame_01.png" id="6_cpwep"]
+[ext_resource type="Texture2D" uid="uid://capxdlv0ps16x" path="res://assets/EnvironmentalEffects/fire/flame_02.png" id="7_qqbkb"]
+[ext_resource type="Texture2D" uid="uid://cqn5s3kwn6yh0" path="res://assets/EnvironmentalEffects/fire/flame_03.png" id="8_rjspj"]
+[ext_resource type="Texture2D" uid="uid://cyslpknie016h" path="res://assets/EnvironmentalEffects/fire/flame_04.png" id="9_pmuol"]
+[ext_resource type="Texture2D" uid="uid://dqoe3tguluf5w" path="res://assets/EnvironmentalEffects/explosion/scorch_01.png" id="10_qqbkb"]
+[ext_resource type="Texture2D" uid="uid://c0mno5jdna43r" path="res://assets/EnvironmentalEffects/explosion/scorch_02.png" id="11_rjspj"]
+[ext_resource type="Texture2D" uid="uid://dghdpsfp776w2" path="res://assets/EnvironmentalEffects/explosion/scorch_03.png" id="12_pmuol"]
+[ext_resource type="Texture2D" uid="uid://tbyv16ogp7r8" path="res://assets/EnvironmentalEffects/explosion/smoke_01.png" id="13_ilvf4"]
+[ext_resource type="Texture2D" uid="uid://bw5wpbdj0gxf6" path="res://assets/EnvironmentalEffects/explosion/smoke_02.png" id="14_5acmo"]
+[ext_resource type="Texture2D" uid="uid://wpi4c6e3xlo6" path="res://assets/EnvironmentalEffects/explosion/smoke_03.png" id="15_ssano"]
+
+[sub_resource type="Animation" id="Animation_ilvf4"]
+resource_name = "Shocked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spark:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qqbkb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spark:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5acmo"]
+_data = {
+&"RESET": SubResource("Animation_qqbkb"),
+&"Shocked": SubResource("Animation_ilvf4")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssano"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h04lq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_u5v83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hsynf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6r0x4")
+}],
+"loop": true,
+"name": &"Spark",
+"speed": 12.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4bju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cpwep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qqbkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rjspj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pmuol")
+}],
+"loop": true,
+"name": &"Flame",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6gof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_qqbkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rjspj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_pmuol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ilvf4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5acmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ssano")
+}],
+"loop": true,
+"name": &"Explosion",
+"speed": 10.0
+}]
+
+[node name="EffectAnimations" type="Node2D"]
+script = ExtResource("1_a71mk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5acmo")
+}
+
+[node name="Spark" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(0.739954, 0.963247, 0.956912, 1)
+scale = Vector2(0.1975, 0.1975)
+sprite_frames = SubResource("SpriteFrames_ssano")
+animation = &"Spark"
+frame_progress = 0.219435
+
+[node name="Flame" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(0.973136, 0.581925, 0.268398, 1)
+position = Vector2(-7.62939e-06, 2)
+scale = Vector2(0.115268, 0.249544)
+sprite_frames = SubResource("SpriteFrames_q4bju")
+animation = &"Flame"
+frame_progress = 0.156066
+
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
+visible = false
+modulate = Color(0.777493, 0.249115, 0.0106292, 1)
+sprite_frames = SubResource("SpriteFrames_f6gof")
+animation = &"Explosion"
+frame_progress = 0.370394

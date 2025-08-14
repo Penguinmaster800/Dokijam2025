@@ -40,7 +40,7 @@ var doki_ammo: int = doki_max_ammo:
 		doki_ammo = value
 		doki_ammo_change.emit()
 
-var enemies_remaining: int = 12:
+var enemies_remaining: int = 8:
 	set(value):
 		enemies_remaining = value
 		enemies_remaining_change.emit()
