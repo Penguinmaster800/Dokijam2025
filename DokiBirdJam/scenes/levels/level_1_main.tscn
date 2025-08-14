@@ -1,21 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://cnvwnsf0ut2ll"]
+[gd_scene load_steps=13 format=3 uid="uid://cnvwnsf0ut2ll"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_731hl"]
 [ext_resource type="Script" uid="uid://dvelwpg1vp7dt" path="res://scenes/scripts/scenes/level_1_main.gd" id="2_3fypp"]
 [ext_resource type="PackedScene" uid="uid://tun578ei5uga" path="res://scenes/objects/enemies/cover_point.tscn" id="3_3fypp"]
-[ext_resource type="Texture2D" uid="uid://11viesk807no" path="res://assets/object/background_level1.png" id="3_i6tn1"]
+[ext_resource type="Texture2D" uid="uid://dui184blbuwpr" path="res://assets/object/background_mansion.png" id="3_nc32v"]
 [ext_resource type="PackedScene" uid="uid://dfp4e0kdr2s1h" path="res://scenes/objects/enemies/spawn_point.tscn" id="3_wvij7"]
-[ext_resource type="PackedScene" uid="uid://diatoj0yv1pn6" path="res://scenes/objects/Environment/cover_object_pillars_l_1r_3.tscn" id="4_nc32v"]
-[ext_resource type="PackedScene" uid="uid://dfbno7bxwndcg" path="res://scenes/objects/Environment/cover_object_fountain.tscn" id="6_qjymw"]
-[ext_resource type="PackedScene" uid="uid://o2krh3yv5u14" path="res://scenes/objects/Environment/cover_object_wall_l1r1.tscn" id="7_qjymw"]
+[ext_resource type="Texture2D" uid="uid://b0pqwgmgufsvs" path="res://assets/object/cover_object_mansion_f.png" id="4_5b10o"]
+[ext_resource type="PackedScene" uid="uid://diatoj0yv1pn6" path="res://scenes/objects/Environment/cover_object_mansion_r3.tscn" id="4_nc32v"]
+[ext_resource type="PackedScene" uid="uid://b76u13du2a0ma" path="res://scenes/objects/Environment/cover_object_mansion_r4_1.tscn" id="5_gx8m8"]
+[ext_resource type="PackedScene" uid="uid://xrpm7w2xojeo" path="res://scenes/objects/Environment/cover_object_mansion_r4_2.tscn" id="6_q4spl"]
+[ext_resource type="PackedScene" uid="uid://dfbno7bxwndcg" path="res://scenes/objects/Environment/cover_object_mansion_r2.tscn" id="6_qjymw"]
+[ext_resource type="PackedScene" uid="uid://o2krh3yv5u14" path="res://scenes/objects/Environment/cover_object_mansion_r1.tscn" id="7_qjymw"]
+[ext_resource type="PackedScene" uid="uid://dokgowjl4e1ka" path="res://scenes/objects/Environment/cover_object_mansion_r_4_3.tscn" id="7_ylxjl"]
 
 [node name="Level2" instance=ExtResource("1_731hl")]
 script = ExtResource("2_3fypp")
 
 [node name="Background" parent="." index="0"]
 position = Vector2(640, 360)
-scale = Vector2(0.55, 0.55)
-texture = ExtResource("3_i6tn1")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_nc32v")
+
+[node name="CoverObjectMansionF" type="Sprite2D" parent="." index="1"]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_5b10o")
+
+[node name="CoverObjectMansionR41" parent="EnemyLayer/Row4/Covers" index="0" instance=ExtResource("5_gx8m8")]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+
+[node name="CoverObjectMansionR42" parent="EnemyLayer/Row4/Covers" index="1" instance=ExtResource("6_q4spl")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectMansionR43" parent="EnemyLayer/Row4/Covers" index="2" instance=ExtResource("7_ylxjl")]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
 
 [node name="SpawnPoint1" parent="EnemyLayer/Row3/SpawnPoints" index="0" instance=ExtResource("3_wvij7")]
 
@@ -41,9 +61,9 @@ position = Vector2(1042, 334)
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint2/OutOfCover" index="0"]
 position = Vector2(996, 330)
 
-[node name="CoverObjectPillarsL1R3" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("4_nc32v")]
-position = Vector2(1071, 245)
-scale = Vector2(0.55, 0.55)
+[node name="CoverObjectMansionR3" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("4_nc32v")]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
 
 [node name="SpawnPoint1" parent="EnemyLayer/Row2/SpawnPoints" index="0" instance=ExtResource("3_wvij7")]
 
@@ -67,8 +87,8 @@ position = Vector2(280, 420)
 position = Vector2(640, 420)
 
 [node name="CoverObject" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("6_qjymw")]
-position = Vector2(460, 274)
-scale = Vector2(0.55, 0.55)
+position = Vector2(641, 360)
+scale = Vector2(0.5, 0.5)
 
 [node name="SpawnPoint1" parent="EnemyLayer/Row1/SpawnPoints" index="0" instance=ExtResource("3_wvij7")]
 
@@ -87,8 +107,8 @@ position = Vector2(759, 480)
 position = Vector2(1143, 480)
 
 [node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("7_qjymw")]
-position = Vector2(1008, 392)
-scale = Vector2(0.55, 0.55)
+position = Vector2(640, 359)
+scale = Vector2(0.5, 0.5)
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row3"]
