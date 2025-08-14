@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dfp4e0kdr2s1h" path="res://scenes/objects/enemies/spawn_point.tscn" id="7_y41dx"]
 [ext_resource type="PackedScene" uid="uid://tun578ei5uga" path="res://scenes/objects/enemies/cover_point.tscn" id="8_04yuh"]
 
-[node name="Level" instance=ExtResource("1_txvap")]
+[node name="Level2" instance=ExtResource("1_txvap")]
 script = ExtResource("2_ykheh")
 
 [node name="Background" parent="." index="0"]

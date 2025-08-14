@@ -10,6 +10,9 @@ func _ready():
 	Status.doki_shot = 0
 	AudioManager.level_one_music.play()
 
+	setup_enemy_waves(2)
+
+
 func spawn_wave(wave_number: int):
 	match wave_number:
 		1:
