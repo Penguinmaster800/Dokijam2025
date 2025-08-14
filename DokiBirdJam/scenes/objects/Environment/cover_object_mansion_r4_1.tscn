@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b76u13du2a0ma"]
+
+[ext_resource type="PackedScene" uid="uid://d1ajt4tf4la11" path="res://scenes/objects/Environment/cover_object.tscn" id="1_1ulud"]
+[ext_resource type="Texture2D" uid="uid://bcaeva26pfho8" path="res://assets/object/cover_object_mansion_r4_1.png" id="2_gppo3"]
+
+[node name="CoverObjectMansionR41" instance=ExtResource("1_1ulud")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_gppo3")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-1277, -675, -1197, -670, -1164, -496, -1148, -257, -1050, -256, -1046, -280, -1033, -280, -1030, -210, -1020, -211, -1004, -235, -975, -240, -957, -233, -944, -216, -931, -217, -933, -376, -923, -390, -786, -390, -772, -375, -771, -73, -931, -67, -1055, -77, -1063, -54, -1142, -43, -1244, -47, -1262, -59, -1274, -132, -1265, -167, -1249, -169, -1252, -332, -1250, -428, -1241, -428, -1254, -643, -1278, -648)
