@@ -40,8 +40,6 @@ func _process(delta: float) -> void:
 func handle_destroyed() -> void:
 	if drone_box:
 		var box_global_pos = drone_box.global_position
-		var box_sprite = drone_box.get_node("Sprite2D")
-		var box_height = box_sprite.texture.get_height() * box_sprite.scale.y
 		remove_child(drone_box)
 
 		drone_box.global_position = box_global_pos
