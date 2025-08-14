@@ -29,6 +29,7 @@ func spawn_wave_1():
 	spawn_enemy_gunman_random_row()
 	spawn_enemy_gunman_random_row()
 	spawn_env_object_drone(EnumRowNo.RowNo.ROW1)
+	spawn_env_object_drone(EnumRowNo.RowNo.ROW3)
 
 func spawn_wave_2():
 	wave_enemy_count = 4

@@ -18,5 +18,5 @@ func _process(delta: float) -> void:
 	position.y += drop_speed * delta
 
 func handle_destroyed() -> void:
-	explode.emit(row_no, global_position)
+	explode.emit(row_no, global_position, is_shocked)
 	super.handle_destroyed()

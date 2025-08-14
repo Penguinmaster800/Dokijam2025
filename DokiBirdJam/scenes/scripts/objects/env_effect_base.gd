@@ -17,7 +17,7 @@ func get_entered_enemy_node(area: Area2D) -> Node:
 		return
 	
 	var enemy_row_no = row_node.row_no
-	if row_no != enemy_row_no:
+	if row_no > enemy_row_no +1 or row_no < enemy_row_no -1:
 		return
 
 	return enemy_node

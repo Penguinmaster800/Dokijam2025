@@ -142,10 +142,14 @@ func _on_enemy_enemy_attack(pos: Variant, type: AttackType) -> void:
 		_:
 			enemy_bullet_attack_default(pos)
 			
-func _on_env_object_drone_box_explode(row_no: EnumRowNo.RowNo, pos: Vector2) -> void:
+func _on_env_object_drone_box_explode(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool = false) -> void:
 	var env_effect_explosion = env_effect_explosion_scene.instantiate()
 	env_effect_explosion.global_position = pos
 	env_effect_explosion.row_no = row_no
+	if is_shocked == true:
+		env_effect_explosion.scale.x = 3
+	if is_shocked == false:
+		env_effect_explosion.scale.x = 1
 	$Projectiles.add_child(env_effect_explosion)
 
 func enemy_bullet_attack_default(pos: Variant) -> void:
