@@ -45,7 +45,7 @@ func handle_destroyed() -> void:
 		remove_child(drone_box)
 
 		drone_box.global_position = box_global_pos
-		drone_box.drop_destination = global_position - Vector2(0, box_height * 0.5) 
+		drone_box.drop_destination = global_position
 		drone_box.current_stance = DroneBoxStatus.DROPPED
 		get_parent().add_child(drone_box)
 
