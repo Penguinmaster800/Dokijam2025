@@ -1,6 +1,6 @@
 extends EnvEffectParent
 
-var is_shocked = true
+var is_shocked = false
 
 var rad: int = 200
 @export var col: Color = Color(255, 0, 255)

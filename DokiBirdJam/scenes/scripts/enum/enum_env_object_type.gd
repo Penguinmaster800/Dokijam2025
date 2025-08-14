@@ -1,5 +1,7 @@
 class_name EnumEnvObjectType
 
 enum EnvObjectType {
-	DRONE
+	DRONE,
+	WATER_DRONE,
+	ELECTRIC_DRONE
 }

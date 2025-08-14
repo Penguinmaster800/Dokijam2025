@@ -157,7 +157,7 @@ max_ammo = 2
 position = Vector2(-2.38419e-07, -115)
 scale = Vector2(2.07833, 2.07833)
 sprite_frames = SubResource("SpriteFrames_ksvvs")
-animation = &"InCover"
+animation = &"Attack"
 
 [node name="HitboxHead" parent="." index="1"]
 position = Vector2(-45, -137)

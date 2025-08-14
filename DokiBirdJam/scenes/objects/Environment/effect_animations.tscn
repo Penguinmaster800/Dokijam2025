@@ -16,21 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://bw5wpbdj0gxf6" path="res://assets/EnvironmentalEffects/explosion/smoke_02.png" id="14_5acmo"]
 [ext_resource type="Texture2D" uid="uid://wpi4c6e3xlo6" path="res://assets/EnvironmentalEffects/explosion/smoke_03.png" id="15_ssano"]
 
-[sub_resource type="Animation" id="Animation_ilvf4"]
-resource_name = "Shocked"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Spark:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.333333),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_qqbkb"]
 length = 0.001
 tracks/0/type = "value"
@@ -44,6 +29,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ilvf4"]
+resource_name = "Shocked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spark:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5acmo"]
