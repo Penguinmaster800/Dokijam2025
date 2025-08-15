@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1vokhs68myvr"
-path="res://.godot/imported/Heavy Dragoon.png-62b5b60ac884b14ba111bf2f7d98eb99.ctex"
+uid="uid://b2k0t873moy0d"
+path="res://.godot/imported/Aimbot Icon Grey.png-e36b512f5a2c2198af1b1fc0e27ebe71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/Heavy Dragoon.png"
-dest_files=["res://.godot/imported/Heavy Dragoon.png-62b5b60ac884b14ba111bf2f7d98eb99.ctex"]
+source_file="res://assets/ui/Aimbot Icon Grey.png"
+dest_files=["res://.godot/imported/Aimbot Icon Grey.png-e36b512f5a2c2198af1b1fc0e27ebe71.ctex"]
 
 [params]
 
