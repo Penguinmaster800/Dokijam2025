@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1vokhs68myvr"
-path="res://.godot/imported/Heavy Dragoon.png-62b5b60ac884b14ba111bf2f7d98eb99.ctex"
+uid="uid://r12m8gu2feai"
+path="res://.godot/imported/Ghost Icon Color.png-3b0329bd280657d82143f0b2af00346a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/Heavy Dragoon.png"
-dest_files=["res://.godot/imported/Heavy Dragoon.png-62b5b60ac884b14ba111bf2f7d98eb99.ctex"]
+source_file="res://assets/ui/Ghost Icon Color.png"
+dest_files=["res://.godot/imported/Ghost Icon Color.png-3b0329bd280657d82143f0b2af00346a.ctex"]
 
 [params]
 

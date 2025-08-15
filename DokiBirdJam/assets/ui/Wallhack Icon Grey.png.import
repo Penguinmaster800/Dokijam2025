@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1vokhs68myvr"
-path="res://.godot/imported/Heavy Dragoon.png-62b5b60ac884b14ba111bf2f7d98eb99.ctex"
+uid="uid://ccsvg4n0m1cyd"
+path="res://.godot/imported/Wallhack Icon Grey.png-b62835c9aeb1ac046fb1117be71339df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemies/Heavy Dragoon.png"
-dest_files=["res://.godot/imported/Heavy Dragoon.png-62b5b60ac884b14ba111bf2f7d98eb99.ctex"]
+source_file="res://assets/ui/Wallhack Icon Grey.png"
+dest_files=["res://.godot/imported/Wallhack Icon Grey.png-b62835c9aeb1ac046fb1117be71339df.ctex"]
 
 [params]
 

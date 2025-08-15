@@ -420,6 +420,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_ttob7"]
 resource_name = "Run"
+length = 0.35
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -586,7 +588,7 @@ frame = 1
 position = Vector2(51.688, 10.549)
 
 [node name="CollisionShape2D" parent="Sprite2D/HitboxHead" index="0"]
-position = Vector2(-23.2068, -11.6034)
+position = Vector2(-71.73, -21.097)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_f4hpt")
 
