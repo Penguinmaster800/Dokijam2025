@@ -1,12 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg1v7u0d1sykk"]
+[gd_scene load_steps=17 format=3 uid="uid://bg1v7u0d1sykk"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_3p6ud"]
 [ext_resource type="Script" uid="uid://e10c7ryqyifq" path="res://scenes/scripts/scenes/level_3_main.gd" id="2_3p6ud"]
+[ext_resource type="Texture2D" uid="uid://bg385edu4l7e2" path="res://assets/object/trophyRoom/TrophyRoomBackground.png" id="3_52u50"]
+[ext_resource type="PackedScene" uid="uid://btjkbv3qq80g" path="res://scenes/objects/Environment/cover_object_trophy_room_r_4.tscn" id="4_16fj4"]
+[ext_resource type="PackedScene" uid="uid://dfp4e0kdr2s1h" path="res://scenes/objects/enemies/spawn_point.tscn" id="4_bsbp7"]
+[ext_resource type="PackedScene" uid="uid://df28a73qeru0s" path="res://scenes/objects/Environment/cover_object_trophy_room_r_1.tscn" id="4_ol3cn"]
+[ext_resource type="PackedScene" uid="uid://tun578ei5uga" path="res://scenes/objects/enemies/cover_point.tscn" id="4_rannr"]
+[ext_resource type="Texture2D" uid="uid://yipjnfovhuqv" path="res://assets/object/trophyRoom/TrophyRoomDokiCover.png" id="4_ugwxs"]
+[ext_resource type="PackedScene" uid="uid://bsodg8oo7jv4p" path="res://scenes/objects/Environment/cover_object_trophy_room_r_2.tscn" id="4_x207h"]
+[ext_resource type="PackedScene" uid="uid://co30yi1aq2v1i" path="res://scenes/objects/Environment/cover_object_trophy_room_r_3_1.tscn" id="4_xcii8"]
+[ext_resource type="PackedScene" uid="uid://ckg6ibj80tcxh" path="res://scenes/objects/Environment/cover_object_trophy_room_r_3_2.tscn" id="5_3j5ud"]
+[ext_resource type="PackedScene" uid="uid://cvad2bj5t008r" path="res://scenes/objects/Environment/cover_object_trophy_room_r_2_2.tscn" id="5_8wcvq"]
+[ext_resource type="PackedScene" uid="uid://be0syp8eqomm8" path="res://scenes/objects/Environment/cover_object_trophy_room_r_1_2.tscn" id="5_if02g"]
+[ext_resource type="PackedScene" uid="uid://dlhd4voltg6sh" path="res://scenes/objects/Environment/cover_object_trophy_room_r_2_3.tscn" id="6_c2vgs"]
+[ext_resource type="PackedScene" uid="uid://dx378sc7xnvnu" path="res://scenes/objects/Environment/cover_object_trophy_room_r_1_3.tscn" id="6_wqbey"]
+[ext_resource type="PackedScene" uid="uid://c4xmkidhvf56m" path="res://scenes/objects/Environment/env_object_trophhy_room_sitting_bomb.tscn" id="10_1ayn0"]
 
 [node name="Level" instance=ExtResource("1_3p6ud")]
 script = ExtResource("2_3p6ud")
+
+[node name="Background" parent="." index="0"]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_52u50")
+
+[node name="CoverObjectTrophyRoomR4" parent="EnemyLayer/Row4/Covers" index="0" instance=ExtResource("4_16fj4")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectTrophyRoomR31" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("4_xcii8")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectTrophyRoomR32" parent="EnemyLayer/Row3/Covers" index="1" instance=ExtResource("5_3j5ud")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectTrophyRoomR2" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("4_x207h")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectTrophyRoomR22" parent="EnemyLayer/Row2/Covers" index="1" instance=ExtResource("5_8wcvq")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectTrophyRoomR23" parent="EnemyLayer/Row2/Covers" index="2" instance=ExtResource("6_c2vgs")]
+position = Vector2(640, 360)
+
+[node name="EnvObjectTrophhyRoomSittingBomb" parent="EnemyLayer/Row2/Covers" index="3" instance=ExtResource("10_1ayn0")]
+position = Vector2(366, 268)
+
+[node name="SpawnPoint" parent="EnemyLayer/Row1/SpawnPoints" index="0" instance=ExtResource("4_bsbp7")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/SpawnPoints/SpawnPoint" index="0"]
+position = Vector2(74, 397)
+
+[node name="CoverPoint" parent="EnemyLayer/Row1/CoverPoints" index="0" instance=ExtResource("4_rannr")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint/InCover" index="0"]
+position = Vector2(827, 459)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint/OutOfCover" index="0"]
+position = Vector2(728, 454)
+
+[node name="CoverObjectTrophyRoomR1" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("4_ol3cn")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectTrophyRoomR12" parent="EnemyLayer/Row1/Covers" index="1" instance=ExtResource("5_if02g")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectTrophyRoomR13" parent="EnemyLayer/Row1/Covers" index="2" instance=ExtResource("6_wqbey")]
+position = Vector2(640, 360)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ugwxs")
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row3"]
 [editable path="EnemyLayer/Row2"]
 [editable path="EnemyLayer/Row1"]
+[editable path="EnemyLayer/Row1/CoverPoints/CoverPoint"]

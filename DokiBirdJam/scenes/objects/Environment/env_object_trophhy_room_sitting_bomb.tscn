@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4xmkidhvf56m"]
+
+[ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_g21sd"]
+[ext_resource type="Texture2D" uid="uid://rro7avoj73xr" path="res://assets/object/trophyRoom/TrophyRoomSittingBomb.png" id="2_afvae"]
+
+[node name="EnvObjectTrophhyRoomSittingBomb" instance=ExtResource("1_g21sd")]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_afvae")
