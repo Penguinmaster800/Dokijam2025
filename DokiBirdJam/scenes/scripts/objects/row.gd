@@ -3,6 +3,7 @@ class_name RowParent
 
 var cover_points: Array[CoverPointData]
 var spawn_points: Array[SpawnPointData]
+var stationary_points: Array[StationaryPointData]
 @export var row_no: EnumRowNo.RowNo
 
 func _ready() -> void:
@@ -15,6 +16,11 @@ func _ready() -> void:
 	
 	for spawn_point_node in spawn_point_nodes:
 		spawn_points.append(spawn_point_node.data)
+	
+	var stationary_point_nodes = $StationaryPoints.get_children()
+
+	for stationary_point_node in stationary_point_nodes:
+		stationary_points.append(stationary_point_node.data)
 
 func get_available_cover_points() -> Array[CoverPointData]:
 	var available_points: Array[CoverPointData] = []
