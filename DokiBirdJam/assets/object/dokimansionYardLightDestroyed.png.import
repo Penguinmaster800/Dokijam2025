@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4x04ygke8gr0"
-path="res://.godot/imported/cover_object_fountain.png-6f9c74308280a9591830943465208f37.ctex"
+uid="uid://20v177txof0p"
+path="res://.godot/imported/dokimansionYardLightDestroyed.png-86e4fcef154bc2eb28ab7ea58c8a7550.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/object/cover_object_fountain.png"
-dest_files=["res://.godot/imported/cover_object_fountain.png-6f9c74308280a9591830943465208f37.ctex"]
+source_file="res://assets/object/dokimansionYardLightDestroyed.png"
+dest_files=["res://.godot/imported/dokimansionYardLightDestroyed.png-86e4fcef154bc2eb28ab7ea58c8a7550.ctex"]
 
 [params]
 

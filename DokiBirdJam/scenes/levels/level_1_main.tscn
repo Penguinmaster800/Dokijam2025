@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cnvwnsf0ut2ll"]
+[gd_scene load_steps=17 format=3 uid="uid://cnvwnsf0ut2ll"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_731hl"]
 [ext_resource type="Script" uid="uid://dvelwpg1vp7dt" path="res://scenes/scripts/scenes/level_1_main.gd" id="2_3fypp"]
@@ -11,8 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bi5ydle2eiom2" path="res://scenes/objects/enemies/stationary_point.tscn" id="5_mdfkt"]
 [ext_resource type="PackedScene" uid="uid://xrpm7w2xojeo" path="res://scenes/objects/Environment/cover_object_mansion_r4_2.tscn" id="6_q4spl"]
 [ext_resource type="PackedScene" uid="uid://dfbno7bxwndcg" path="res://scenes/objects/Environment/cover_object_mansion_r2.tscn" id="6_qjymw"]
+[ext_resource type="PackedScene" uid="uid://byavcxbieanhq" path="res://scenes/objects/Environment/env_object_mansion_gate_light.tscn" id="7_pv0im"]
 [ext_resource type="PackedScene" uid="uid://o2krh3yv5u14" path="res://scenes/objects/Environment/cover_object_mansion_r1.tscn" id="7_qjymw"]
 [ext_resource type="PackedScene" uid="uid://dokgowjl4e1ka" path="res://scenes/objects/Environment/cover_object_mansion_r_4_3.tscn" id="7_ylxjl"]
+[ext_resource type="PackedScene" uid="uid://bnj6nkgi2nqyg" path="res://scenes/objects/Environment/env_object_mansion_sprinkler.tscn" id="14_sanpu"]
+[ext_resource type="PackedScene" uid="uid://dw44u6taofk6f" path="res://scenes/objects/Environment/env_object_mansion_yard_light.tscn" id="15_qx61c"]
 
 [node name="Level2" instance=ExtResource("1_731hl")]
 script = ExtResource("2_3fypp")
@@ -41,6 +44,12 @@ position = Vector2(-58, 280)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/StationaryPoints/StationaryPoint" index="0"]
 position = Vector2(760, 280)
+
+[node name="EnvObjectMansionGateLight" parent="EnemyLayer/Row4/EnvObjects" index="0" instance=ExtResource("7_pv0im")]
+position = Vector2(214, 165)
+
+[node name="EnvObjectMansionGateLight2" parent="EnemyLayer/Row4/EnvObjects" index="1" instance=ExtResource("7_pv0im")]
+position = Vector2(517, 169)
 
 [node name="CoverObjectMansionR41" parent="EnemyLayer/Row4/Covers" index="0" instance=ExtResource("5_gx8m8")]
 position = Vector2(640, 360)
@@ -76,6 +85,9 @@ position = Vector2(1042, 334)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint2/OutOfCover" index="0"]
 position = Vector2(996, 330)
+
+[node name="EnvObjectMansionSprinkler" parent="EnemyLayer/Row3/EnvObjects" index="0" instance=ExtResource("14_sanpu")]
+position = Vector2(718, 353)
 
 [node name="CoverObjectMansionR3" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("4_nc32v")]
 position = Vector2(640, 360)
@@ -121,6 +133,12 @@ position = Vector2(759, 480)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint1/OutOfCover" index="1"]
 position = Vector2(1143, 480)
+
+[node name="EnvObjectMansionSprinkler" parent="EnemyLayer/Row1/EnvObjects" index="0" instance=ExtResource("14_sanpu")]
+position = Vector2(721, 486)
+
+[node name="EnvObjectMansionYardLight" parent="EnemyLayer/Row1/EnvObjects" index="1" instance=ExtResource("15_qx61c")]
+position = Vector2(790, 320)
 
 [node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("7_qjymw")]
 position = Vector2(640, 359)
