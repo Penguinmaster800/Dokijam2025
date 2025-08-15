@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckg6ibj80tcxh"]
+
+[ext_resource type="PackedScene" uid="uid://d1ajt4tf4la11" path="res://scenes/objects/Environment/cover_object.tscn" id="1_kwpsc"]
+[ext_resource type="Texture2D" uid="uid://d3bcvxm5mdmjr" path="res://assets/object/trophyRoom/TrophyRoomLayer3-2.png" id="2_eve8r"]
+
+[node name="CoverObjectTrophyRoomR32" instance=ExtResource("1_kwpsc")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_eve8r")
