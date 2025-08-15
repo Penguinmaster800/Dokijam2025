@@ -1,15 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4fmjim2k8dq4"]
+[gd_scene load_steps=20 format=3 uid="uid://c4fmjim2k8dq4"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_txvap"]
 [ext_resource type="Script" uid="uid://cj20ounm7p11h" path="res://scenes/scripts/scenes/level_2_main.gd" id="2_ykheh"]
 [ext_resource type="Texture2D" uid="uid://c1qfovu8j65d" path="res://assets/object/warehouse/WarehouseBackground.png" id="3_04yuh"]
-[ext_resource type="Texture2D" uid="uid://d21ifl1shnwdg" path="res://assets/object/cover_object_warehouse_f.png" id="4_tex7k"]
 [ext_resource type="PackedScene" uid="uid://c2t5yaur3205u" path="res://scenes/objects/Environment/cover_object_warehouse_r_2.tscn" id="5_avj2m"]
 [ext_resource type="PackedScene" uid="uid://nlbx4x8oitvp" path="res://scenes/objects/Environment/cover_object_warehouse_r_3.tscn" id="5_k1byu"]
 [ext_resource type="PackedScene" uid="uid://b8q4p6bpnwb7d" path="res://scenes/objects/Environment/cover_object_warehouse_r_1.tscn" id="5_tex7k"]
 [ext_resource type="PackedScene" uid="uid://cmgup1iqg7j8s" path="res://scenes/objects/Environment/cover_object_warehouse_r_4.tscn" id="5_x1nft"]
+[ext_resource type="PackedScene" uid="uid://bi5ydle2eiom2" path="res://scenes/objects/enemies/stationary_point.tscn" id="7_dpdh3"]
+[ext_resource type="PackedScene" uid="uid://ck4gu4xsopmxp" path="res://scenes/objects/Environment/cover_object_warehouse_r_3_2.tscn" id="7_lucow"]
 [ext_resource type="PackedScene" uid="uid://dfp4e0kdr2s1h" path="res://scenes/objects/enemies/spawn_point.tscn" id="7_y41dx"]
 [ext_resource type="PackedScene" uid="uid://tun578ei5uga" path="res://scenes/objects/enemies/cover_point.tscn" id="8_04yuh"]
+[ext_resource type="PackedScene" uid="uid://dd8gebcccbxv6" path="res://scenes/objects/Environment/env_object_warehouse_watercooler.tscn" id="9_0kn7t"]
+[ext_resource type="PackedScene" uid="uid://b3m8glhw43puq" path="res://scenes/objects/Environment/env_object_warehouse_electric_box.tscn" id="9_q42ud"]
+[ext_resource type="PackedScene" uid="uid://bxu3u7yj14gg8" path="res://scenes/objects/Environment/cover_object_warehouse_r_1_front.tscn" id="10_3a8wu"]
+[ext_resource type="Texture2D" uid="uid://dlbdh0onqxnci" path="res://assets/object/warehouse/WarehouseDokiCover.png" id="10_04yuh"]
+[ext_resource type="Texture2D" uid="uid://mduml6br58xc" path="res://assets/object/warehouse/WArehouseDroneportModified.png" id="10_d7aum"]
+[ext_resource type="PackedScene" uid="uid://io1gvw3pq7em" path="res://scenes/objects/Environment/cover_object_warehouse_r_2_front.tscn" id="10_nmocg"]
+[ext_resource type="PackedScene" uid="uid://4ec0c50qn5vb" path="res://scenes/objects/Environment/env_object_warehouse_battery.tscn" id="14_uo0ba"]
+[ext_resource type="PackedScene" uid="uid://dt8ak3w6rmcpr" path="res://scenes/objects/Environment/env_object_warehouse_explosives.tscn" id="15_qexw6"]
 
 [node name="Level2" instance=ExtResource("1_txvap")]
 script = ExtResource("2_ykheh")
@@ -48,7 +57,10 @@ position = Vector2(319, 263)
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint/OutOfCover" index="0"]
 position = Vector2(392, 263)
 
-[node name="CoverObjectWarehouseR3" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("5_k1byu")]
+[node name="CoverObjectWarehouseR32" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("7_lucow")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectWarehouseR3" parent="EnemyLayer/Row3/Covers" index="1" instance=ExtResource("5_k1byu")]
 position = Vector2(637, 359)
 
 [node name="SpawnPoint" parent="EnemyLayer/Row2/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
@@ -64,7 +76,24 @@ position = Vector2(389, 360)
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint/OutOfCover" index="0"]
 position = Vector2(314, 360)
 
+[node name="StationaryPoint" parent="EnemyLayer/Row2/StationaryPoints" index="0" instance=ExtResource("7_dpdh3")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/StationaryPoints/StationaryPoint" index="0"]
+position = Vector2(921, 389)
+
+[node name="EnvObjectWarehouseBattery" parent="EnemyLayer/Row2/EnvObjects" index="0" instance=ExtResource("14_uo0ba")]
+position = Vector2(287, 321)
+
+[node name="EnvObjectWarehouseExplosives" parent="EnemyLayer/Row2/EnvObjects" index="1" instance=ExtResource("15_qexw6")]
+position = Vector2(189, 328)
+
+[node name="EnvObjectWarehouseElectricBox" parent="EnemyLayer/Row2/EnvObjects" index="2" instance=ExtResource("9_q42ud")]
+position = Vector2(529, 302)
+
 [node name="CoverObjectWarehouseR2" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("5_avj2m")]
+position = Vector2(640, 360)
+
+[node name="CoverObjectWarehouseR2Front" parent="EnemyLayer/Row2/Covers" index="1" instance=ExtResource("10_nmocg")]
 position = Vector2(640, 360)
 
 [node name="SpawnPoint" parent="EnemyLayer/Row1/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
@@ -83,13 +112,30 @@ position = Vector2(518, 460)
 [node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint/OutOfCover" index="1"]
 position = Vector2(692, 460)
 
+[node name="EnvObjectWarehouseWatercooler" parent="EnemyLayer/Row1/EnvObjects" index="0" instance=ExtResource("9_0kn7t")]
+position = Vector2(419, 431)
+
+[node name="EnvObjectWarehouseBattery" parent="EnemyLayer/Row1/EnvObjects" index="1" instance=ExtResource("14_uo0ba")]
+position = Vector2(985, 432)
+
+[node name="EnvObjectWarehouseExplosives" parent="EnemyLayer/Row1/EnvObjects" index="2" instance=ExtResource("15_qexw6")]
+position = Vector2(866, 424)
+
 [node name="CoverObjectWarehouseR1" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("5_tex7k")]
 position = Vector2(640, 360)
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="3"]
-position = Vector2(640, 606)
+[node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="1" instance=ExtResource("10_3a8wu")]
+position = Vector2(640, 360)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="3"]
+position = Vector2(640, 360)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_d7aum")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="4"]
+position = Vector2(640, 360)
 scale = Vector2(0.5, 0.507795)
-texture = ExtResource("4_tex7k")
+texture = ExtResource("10_04yuh")
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row4/CoverPoints/CoverPoint"]

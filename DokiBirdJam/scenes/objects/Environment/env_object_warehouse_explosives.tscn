@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt8ak3w6rmcpr"]
+
+[ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_bk1ev"]
+[ext_resource type="Texture2D" uid="uid://dsevxf5wddixe" path="res://assets/object/warehouse/Interactable/WarehouseExplosives.png" id="2_c4cg8"]
+
+[node name="EnvObjectWarehouseExplosives" instance=ExtResource("1_bk1ev")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_c4cg8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-17, -44, 5, -48, -3, -37, 5, -43, 20, -49, 24, -42, 11, -38, 20, -36, 31, -32, 31, -20, 27, -19, 27, 42, 21, 46, 2, 48, -18, 47, -28, 43, -27, -20, -31, -21, -31, -34, -18, -37, -9, -38, -15, -42)
