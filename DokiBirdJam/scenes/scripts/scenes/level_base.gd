@@ -253,8 +253,9 @@ func spawn_enemy_stationary_random_row():
 
 func spawn_enemy_random_row(enemy_scene: PackedScene, enemy_type: EnemyType):
 	var available_rows = get_rows_with_available_cover()
-	var target_row = available_rows.pick_random()
-	spawn_enemy(enemy_scene, enemy_type, target_row)
+	if available_rows.size() > 0:
+		var target_row = available_rows.pick_random()
+		spawn_enemy(enemy_scene, enemy_type, target_row)
 
 func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: EnumRowNo.RowNo):
 	var row = get_row_no_instance(row_no)
