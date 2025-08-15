@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://byjv058djw8av"]
+[gd_scene load_steps=35 format=3 uid="uid://byjv058djw8av"]
 
 [ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_yphfb"]
 [ext_resource type="Texture2D" uid="uid://irpurihhixrd" path="res://assets/enemies/enemy_dragoon_gunman.png" id="2_f4hpt"]
@@ -264,10 +264,51 @@ tracks/5/keys = {
 "values": [Vector2(-22, -57)]
 }
 
+[sub_resource type="Animation" id="Animation_vngbr"]
+resource_name = "Death"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DeathSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333, 0.6, 0.666667, 0.733333, 0.8, 0.866667, 0.933333, 1, 1.06667, 1.13333, 1.2, 1.26667, 1.33333, 1.4, 1.46667, 1.53333, 1.6, 1.66667, 1.73333, 1.8, 1.86667, 1.93333, 2, 2.06667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeathSprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.00833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fvr6i"]
 _data = {
 &"Aim": ExtResource("5_w137s"),
 &"Attack": ExtResource("4_ipwwu"),
+&"Death": SubResource("Animation_vngbr"),
 &"Hide": ExtResource("7_sb0yu"),
 &"RESET": SubResource("Animation_wgsee"),
 &"Run": ExtResource("3_vngbr"),
@@ -279,7 +320,7 @@ max_health = 1
 movement_speed = 200
 max_ammo = 2
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="." index="1"]
 position = Vector2(-22, -57)
 scale = Vector2(0.948, 0.948)
 texture = ExtResource("2_f4hpt")
@@ -297,19 +338,19 @@ shape = SubResource("CapsuleShape2D_f4hpt")
 [node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
 polygon = PackedVector2Array(-66.4557, 16.8776, -51.6878, 14.7679, -52.7426, 2.10971, -48.5232, -13.7131, -41.1392, -21.097, -37.9747, -34.8101, -28.481, -31.6456, -24.2616, -43.2489, -15.8228, -36.9198, -1.05485, -21.097, 5.27426, -14.7679, 9.49367, -4.21941, 15.8228, 2.10971, 10.5485, 6.32911, 11.6034, 14.7679, 4.21941, 24.2616, 10.5485, 35.865, 4.21941, 36.9198, -5.27426, 34.8101, -13.7131, 37.9747, -30.5907, 39.0295, -46.4135, 33.7553)
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="2"]
 visible = false
 position = Vector2(0, -57)
 scale = Vector2(0.948333, 0.948333)
 sprite_frames = SubResource("SpriteFrames_ioh30")
 animation = &"Move"
 
-[node name="AnimationPlayer" parent="." index="2"]
+[node name="AnimationPlayer" parent="." index="3"]
 libraries = {
 &"": SubResource("AnimationLibrary_fvr6i")
 }
 
-[node name="BulletStartPosition" parent="." index="8"]
+[node name="BulletStartPosition" parent="." index="9"]
 position = Vector2(0, -64)
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]
