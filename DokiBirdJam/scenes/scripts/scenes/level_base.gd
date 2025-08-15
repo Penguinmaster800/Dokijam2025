@@ -153,14 +153,7 @@ func _on_enemy_enemy_attack(pos: Variant, type: AttackType) -> void:
 			enemy_bullet_attack_default(pos)
 			
 func _on_env_object_drone_box_explode(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool = false) -> void:
-	var env_effect_explosion = env_effect_explosion_scene.instantiate()
-	env_effect_explosion.global_position = pos
-	env_effect_explosion.row_no = row_no
-	if is_shocked == true:
-		env_effect_explosion.scale.x = 3
-	if is_shocked == false:
-		env_effect_explosion.scale.x = 1
-	$Projectiles.add_child(env_effect_explosion)
+	_spawn_explosive_effect(row_no, pos, is_shocked)
 
 func _on_env_object_drone_box_drench(row_no: EnumRowNo.RowNo, pos: Vector2, is_wet:bool = false) -> void:
 	_spawn_wet_effect(row_no, pos, is_wet)
@@ -170,12 +163,22 @@ func _on_env_object_drone_box_shock(row_no: EnumRowNo.RowNo, pos: Vector2, is_sh
 
 func _on_env_object_destroyed(object_type: EnumEnvObjectType.EnvObjectType, row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked: bool, is_wet: bool):
 	match object_type:
-		EnumEnvObjectType.EnvObjectType.GATE_LIGHT:
-			_spawn_shock_effect(row_no, pos, is_shocked)
-		EnumEnvObjectType.EnvObjectType.SPRINKLER:
+		EnumEnvObjectType.EnvObjectType.EXPLOSIVES:
+			_spawn_explosive_effect(row_no, pos, is_shocked)
+		EnumEnvObjectType.EnvObjectType.WATER:
 			_spawn_wet_effect(row_no, pos, is_wet)
-		EnumEnvObjectType.EnvObjectType.YARD_LIGHT:
+		EnumEnvObjectType.EnvObjectType.ELECTRIC:
 			_spawn_shock_effect(row_no, pos, is_shocked)
+
+func _spawn_explosive_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool = false):
+	var env_effect_explosion = env_effect_explosion_scene.instantiate()
+	env_effect_explosion.global_position = pos
+	env_effect_explosion.row_no = row_no
+	if is_shocked == true:
+		env_effect_explosion.scale.x = 3
+	if is_shocked == false:
+		env_effect_explosion.scale.x = 1
+	$Projectiles.add_child(env_effect_explosion)
 
 func _spawn_shock_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool = false):
 	var env_effect_electric = env_effect_electric_scene.instantiate()

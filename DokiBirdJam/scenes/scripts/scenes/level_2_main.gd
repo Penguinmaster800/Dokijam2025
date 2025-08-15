@@ -1,5 +1,8 @@
 extends LevelParent
 
+var env_object_battery_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_warehouse_battery.tscn")
+var env_object_explosives_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_warehouse_explosives.tscn")
+
 func _ready():
 	level_startup()
 	Status.enemies_remaining = 8
@@ -11,7 +14,8 @@ func _ready():
 	AudioManager.level_one_music.stop()
 	AudioManager.level_two_music.play()
 	setup_enemy_waves(2)
-
+	spawn_object_conveyor_random()
+	$Timers/ConveyorBeltSpawnTimer.start()
 
 func spawn_wave(wave_number: int):
 	match wave_number:
@@ -35,3 +39,36 @@ func spawn_wave_2():
 	spawn_enemy_gunman_random_row()
 	spawn_enemy_gunman_random_row()
 	spawn_env_object_drone(EnumRowNo.RowNo.ROW1)
+
+func spawn_object_conveyor_random():
+	var rand_val = randi_range(1, 2)
+	match rand_val:
+		1:
+			spawn_object_conveyor_battery()
+		2:
+			spawn_object_conveyor_explosives()
+
+func spawn_object_conveyor_battery():
+	spawn_object_conveyor(env_object_battery_scene)
+
+func spawn_object_conveyor_explosives():
+	spawn_object_conveyor(env_object_explosives_scene)
+
+func spawn_object_conveyor(scene: PackedScene):
+	var spawn_pos = $EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1/Points/Marker2DSpawnPoint.global_position
+	var dest_pos = $EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1/Points/Marker2DDestinationPoint.global_position
+	var env_object_battery = scene.instantiate()
+	env_object_battery.position = spawn_pos
+	env_object_battery.dest_pos = dest_pos
+	env_object_battery.row_no = EnumRowNo.RowNo.ROW1
+	$EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1.add_child(env_object_battery)
+	
+func _move_conveyor(env_object_battery: Node, dest_pos: Vector2, delta: float):
+	var direction = env_object_battery.position.direction_to(dest_pos)
+	env_object_battery.position += direction * 200 * delta
+	if env_object_battery.position.distance_to(dest_pos) < 3.0:
+		env_object_battery.queue_free()
+
+func _on_conveyor_belt_spawn_timer_timeout() -> void:
+	spawn_object_conveyor_random()
+	$Timers/ConveyorBeltSpawnTimer.start()
