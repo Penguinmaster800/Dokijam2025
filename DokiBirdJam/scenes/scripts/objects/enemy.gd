@@ -239,10 +239,10 @@ func death():
 	var deletion_timer = get_tree().create_timer(3)
 
 	# Play animation
-	# TODO $AnimationPlayer.play("death")
+	$AnimationPlayer.play("Death")
 	AudioManager.enemy_death.play()
 	# Await for animation to end
-	#await $AnimationPlayer.animation_finished
+	await $AnimationPlayer.animation_finished
 	# Emit Death Signal
 	Status.enemies_remaining -= 1
 	print(Status.enemies_remaining)
