@@ -8,3 +8,6 @@
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_yab0h")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-640, -77, -418, -138, -416, -38, -484, 0, -484, 102, -640, 101)
