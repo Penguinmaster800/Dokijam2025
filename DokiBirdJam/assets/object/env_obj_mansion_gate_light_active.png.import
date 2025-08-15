@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://11viesk807no"
-path="res://.godot/imported/background_level1.png-91a070b7e515634b1fbf99b844b8357a.ctex"
+uid="uid://msamh0o2uhdk"
+path="res://.godot/imported/env_obj_mansion_gate_light_active.png-edd8f5aa8d83ea7d3070696e30ef75f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/object/background_level1.png"
-dest_files=["res://.godot/imported/background_level1.png-91a070b7e515634b1fbf99b844b8357a.ctex"]
+source_file="res://assets/object/env_obj_mansion_gate_light_active.png"
+dest_files=["res://.godot/imported/env_obj_mansion_gate_light_active.png-edd8f5aa8d83ea7d3070696e30ef75f2.ctex"]
 
 [params]
 
