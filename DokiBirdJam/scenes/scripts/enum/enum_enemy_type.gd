@@ -3,5 +3,6 @@ class_name EnumEnemyType
 enum EnemyType {
 	GUNMAN,
 	BRUTE,
-	SNIPER
+	SNIPER,
+	STATIONARY
 }

@@ -7,6 +7,7 @@ var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemies/enem
 var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_brute.tscn")
 var enemy_sniper_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper.tscn")
 var enemy_sniper_laser_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper_laser.tscn")
+var enemy_stationary_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_stationary.tscn")
 var env_object_drone_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_drone.tscn")
 var env_object_drone_water_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_water_drone.tscn")
 var env_object_drone_electric_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_electric_drone.tscn")
@@ -243,6 +244,12 @@ func spawn_enemy_sniper(row_no: EnumRowNo.RowNo):
 
 func spawn_enemy_sniper_random_row():
 	spawn_enemy_random_row(enemy_sniper_scene, EnemyType.SNIPER)
+	
+func spawn_enemy_stationary(row_no: EnumRowNo.RowNo):
+	spawn_enemy(enemy_stationary_scene, EnemyType.STATIONARY, row_no)
+	
+func spawn_enemy_stationary_random_row():
+	spawn_enemy_random_row(enemy_stationary_scene, EnemyType.STATIONARY)
 
 func spawn_enemy_random_row(enemy_scene: PackedScene, enemy_type: EnemyType):
 	var available_rows = get_rows_with_available_cover()
@@ -252,22 +259,27 @@ func spawn_enemy_random_row(enemy_scene: PackedScene, enemy_type: EnemyType):
 func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: EnumRowNo.RowNo):
 	var row = get_row_no_instance(row_no)
 
-	var available_cover_points = row.get_available_cover_points()
-	if available_cover_points.size() <= 0:
-		print("No available points :(")
-		return
-	
-	var cover_point: CoverPointData = available_cover_points.pick_random()
-	cover_point.is_available = false
-
 	var spawn_point: SpawnPointData = row.spawn_points.pick_random()
 	
 	var enemy = enemy_scene.instantiate()
 	enemy.position = spawn_point.spawn_point_positions[0]
-	enemy.cover_point = cover_point
-	enemy.spawn_move_position = cover_point.in_cover_positions[0]
+
 	enemy.enemy_attack.connect(_on_enemy_enemy_attack)
-	enemy.enemy_death.connect(_on_enemy_death.bind(cover_point))
+
+	if enemy_type != EnemyType.STATIONARY:
+		var available_cover_points = row.get_available_cover_points()
+		if available_cover_points.size() <= 0:
+			print("No available points :(")
+			return
+		
+		var cover_point: CoverPointData = available_cover_points.pick_random()
+		cover_point.is_available = false
+		
+		enemy.cover_point = cover_point
+		enemy.spawn_move_position = cover_point.in_cover_positions[0]
+
+		enemy.enemy_death.connect(_on_enemy_death.bind(cover_point))
+	
 
 	if enemy_type == EnemyType.SNIPER:
 		var enemy_sniper_laser = enemy_sniper_laser_scene.instantiate()
@@ -278,6 +290,9 @@ func spawn_enemy(enemy_scene: PackedScene, enemy_type: EnemyType, row_no: EnumRo
 		enemy.aiming.connect(enemy_sniper_laser.start_aiming)
 		enemy.stop_aiming.connect(enemy_sniper_laser.stop_aiming)
 		enemy.enemy_death.connect(enemy_sniper_laser.stop_aiming)
+	
+	if enemy_type == EnemyType.STATIONARY:
+		enemy.stationary_position = row.stationary_points.pick_random()
 	
 	row.get_node("Enemies").add_child(enemy)
 

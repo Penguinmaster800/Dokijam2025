@@ -24,6 +24,7 @@ func spawn_wave(wave_number: int):
 
 func spawn_wave_1():
 	wave_enemy_count = 4
+	spawn_enemy_stationary(EnumRowNo.RowNo.ROW4)
 	spawn_enemy_sniper(EnumRowNo.RowNo.ROW3)
 	spawn_enemy_brute_random_row()
 	spawn_enemy_gunman_random_row()

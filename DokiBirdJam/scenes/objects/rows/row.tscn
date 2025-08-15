@@ -9,6 +9,8 @@ script = ExtResource("1_b1lq8")
 
 [node name="CoverPoints" type="Node2D" parent="."]
 
+[node name="StationaryPoints" type="Node2D" parent="."]
+
 [node name="EnvObjects" type="Node2D" parent="."]
 
 [node name="Enemies" type="Node2D" parent="."]
