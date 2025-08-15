@@ -53,14 +53,12 @@ func _process(delta: float) -> void:
 func handle_destroyed() -> void:
 	if drone_box:
 		var box_global_pos = drone_box.global_position
-		var drone_box_copy = drone_box.duplicate()
 		remove_child(drone_box)
-		drone_box = drone_box_copy
+		get_parent().add_child(drone_box)
 
 		drone_box.global_position = box_global_pos
 		drone_box.drop_destination = global_position
 		drone_box.current_stance = DroneBoxStatus.DROPPED
-		get_parent().add_child(drone_box)
 
 	super.handle_destroyed()
 
@@ -71,4 +69,3 @@ func _on_env_object_drone_box_tree_exited() -> void:
 		current_stance = Stance.MOVE_OFF_SCREEN_LEFT
 	else:
 		current_stance = Stance.MOVE_OFF_SCREEN_RIGHT
-	drone_box = null
