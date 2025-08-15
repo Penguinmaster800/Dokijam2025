@@ -49,12 +49,12 @@ row_no = 1
 [node name="Row1" parent="EnemyLayer" instance=ExtResource("4_6cjw3")]
 
 [node name="Player" parent="." instance=ExtResource("1_u0om3")]
-position = Vector2(300, 631)
+position = Vector2(349, 631)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="EnemyProjectilesDestinationArea" type="Area2D" parent="."]
-position = Vector2(355, 720)
+position = Vector2(404, 720)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyProjectilesDestinationArea"]
 position = Vector2(-39.5, 3)

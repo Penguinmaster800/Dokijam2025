@@ -6,6 +6,8 @@ func _ready():
 	Abilities.ability3 = null
 
 	AudioManager.level_one_music.stop()
+	AudioManager.level_two_music.stop()
+	AudioManager.level_three_music.stop()
 	AudioManager.game_over_music.play()
 
 func _on_button_pressed() -> void:

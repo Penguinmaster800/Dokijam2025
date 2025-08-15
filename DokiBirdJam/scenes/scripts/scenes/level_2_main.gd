@@ -10,7 +10,6 @@ func _ready():
 	Status.doki_shot = 0
 	AudioManager.level_one_music.stop()
 	AudioManager.level_two_music.play()
-
 	setup_enemy_waves(2)
 
 
