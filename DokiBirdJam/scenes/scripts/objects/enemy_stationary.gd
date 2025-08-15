@@ -29,13 +29,13 @@ func after_spawn(delta):
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
 		switch_stance()
-		$AnimatedSprite2D.flip_h = false
+		$Sprite2D.flip_h = false
 
 func stance_to_stationary_attack():
 	var random_time = randf_range(2.0, 7.0)
 	$TimerCurrentStance.start(random_time)
 	current_stance = Stance.ATTACK
-	$AnimatedSprite2D.play("Attack")
+	$AnimationPlayer.play("Attack")
 	$TimerFireRate.start(fire_rate)
 
 func stance_stationary_attack_cooldown():
@@ -45,11 +45,11 @@ func stance_stationary_attack_cooldown():
 	if _is_reloading:
 		var reload_wait_time = reload_time
 		$TimerCurrentStance.start(reload_wait_time)
-		$AnimatedSprite2D.play("InCover")
+		$AnimationPlayer.play("Hide")
 	else:
 		var cooldown_time = randf_range(1.0, 2.0)
 		$TimerCurrentStance.start(cooldown_time)
-		$AnimatedSprite2D.play("InCover")
+		$AnimationPlayer.play("Hide")
 
 func _on_timer_current_stance_timeout() -> void:
 	if current_stance == Stance.ATTACK_COOLDOWN and _is_reloading:

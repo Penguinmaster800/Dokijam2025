@@ -46,6 +46,7 @@ func aim_bot():
 		print("aim_bot_activated")
 		Status.doki_ammo -=6
 		aim_bot_activate.emit()
+		AudioManager.doki_fan_the_hammer.play()
 		
 
 func red_eye():

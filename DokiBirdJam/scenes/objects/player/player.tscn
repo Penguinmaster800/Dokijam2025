@@ -275,7 +275,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0a575"]
 radius = 17.0
-height = 64.0
+height = 41.2918
 
 [node name="Dokibird" type="CharacterBody2D"]
 scale = Vector2(3.21163, 3.21163)
