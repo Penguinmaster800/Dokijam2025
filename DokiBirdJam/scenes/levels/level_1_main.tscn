@@ -11,11 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bi5ydle2eiom2" path="res://scenes/objects/enemies/stationary_point.tscn" id="5_mdfkt"]
 [ext_resource type="PackedScene" uid="uid://xrpm7w2xojeo" path="res://scenes/objects/Environment/cover_object_mansion_r4_2.tscn" id="6_q4spl"]
 [ext_resource type="PackedScene" uid="uid://dfbno7bxwndcg" path="res://scenes/objects/Environment/cover_object_mansion_r2.tscn" id="6_qjymw"]
-[ext_resource type="PackedScene" path="res://scenes/objects/Environment/env_object_mansion_gate_light.tscn" id="7_pv0im"]
+[ext_resource type="PackedScene" uid="uid://byavcxbieanhq" path="res://scenes/objects/Environment/env_object_mansion_gate_light.tscn" id="7_pv0im"]
 [ext_resource type="PackedScene" uid="uid://o2krh3yv5u14" path="res://scenes/objects/Environment/cover_object_mansion_r1.tscn" id="7_qjymw"]
 [ext_resource type="PackedScene" uid="uid://dokgowjl4e1ka" path="res://scenes/objects/Environment/cover_object_mansion_r_4_3.tscn" id="7_ylxjl"]
-[ext_resource type="PackedScene" path="res://scenes/objects/Environment/env_object_mansion_sprinkler.tscn" id="14_sanpu"]
-[ext_resource type="PackedScene" path="res://scenes/objects/Environment/env_object_mansion_yard_light.tscn" id="15_qx61c"]
+[ext_resource type="PackedScene" uid="uid://bnj6nkgi2nqyg" path="res://scenes/objects/Environment/env_object_mansion_sprinkler.tscn" id="14_sanpu"]
+[ext_resource type="PackedScene" uid="uid://dw44u6taofk6f" path="res://scenes/objects/Environment/env_object_mansion_yard_light.tscn" id="15_qx61c"]
 
 [node name="Level2" instance=ExtResource("1_731hl")]
 script = ExtResource("2_3fypp")
