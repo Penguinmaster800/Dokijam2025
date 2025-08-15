@@ -29,18 +29,21 @@ texture = ExtResource("3_04yuh")
 [node name="ConveyorBeltSpawnTimer" type="Timer" parent="Timers" index="5"]
 wait_time = 5.0
 
+[node name="ConveyorBeltRow2SpawnTimer" type="Timer" parent="Timers" index="6"]
+wait_time = 6.0
+
 [node name="SpawnPoint" parent="EnemyLayer/Row4/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/SpawnPoints/SpawnPoint" index="0"]
-position = Vector2(882, 188)
+position = Vector2(1313, 175)
 
 [node name="CoverPoint" parent="EnemyLayer/Row4/CoverPoints" index="0" instance=ExtResource("8_04yuh")]
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/CoverPoints/CoverPoint/InCover" index="0"]
-position = Vector2(660, 188)
+position = Vector2(660, 175)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/CoverPoints/CoverPoint/OutOfCover" index="0"]
-position = Vector2(760, 188)
+position = Vector2(760, 175)
 
 [node name="CoverObjectWarehouseR4" parent="EnemyLayer/Row4/Covers" index="0" instance=ExtResource("5_x1nft")]
 position = Vector2(640, 360)
@@ -88,13 +91,26 @@ position = Vector2(529, 302)
 [node name="CoverObjectWarehouseR2" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("5_avj2m")]
 position = Vector2(640, 360)
 
-[node name="CoverObjectWarehouseR2Front" parent="EnemyLayer/Row2/Covers" index="1" instance=ExtResource("10_nmocg")]
+[node name="EnvObjectsWarehouseConveyorR2" type="Node2D" parent="EnemyLayer/Row2/Covers" index="1"]
+
+[node name="Points" type="Node2D" parent="EnemyLayer/Row2/Covers/EnvObjectsWarehouseConveyorR2" index="0"]
+
+[node name="Marker2DSpawnPoint" type="Marker2D" parent="EnemyLayer/Row2/Covers/EnvObjectsWarehouseConveyorR2/Points" index="0"]
+position = Vector2(-29, 350)
+
+[node name="Marker2DDestinationPoint" type="Marker2D" parent="EnemyLayer/Row2/Covers/EnvObjectsWarehouseConveyorR2/Points" index="1"]
+position = Vector2(713, 350)
+
+[node name="CoverObjectWarehouseR2Front" parent="EnemyLayer/Row2/Covers" index="2" instance=ExtResource("10_nmocg")]
 position = Vector2(640, 360)
 
 [node name="SpawnPoint" parent="EnemyLayer/Row1/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/SpawnPoints/SpawnPoint" index="0"]
 position = Vector2(1400, 460)
+
+[node name="CoverPoints" parent="EnemyLayer/Row1" index="1"]
+visible = false
 
 [node name="CoverPoint" parent="EnemyLayer/Row1/CoverPoints" index="0" instance=ExtResource("8_04yuh")]
 
@@ -137,6 +153,7 @@ scale = Vector2(0.5, 0.507795)
 texture = ExtResource("10_04yuh")
 
 [connection signal="timeout" from="Timers/ConveyorBeltSpawnTimer" to="." method="_on_conveyor_belt_spawn_timer_timeout"]
+[connection signal="timeout" from="Timers/ConveyorBeltRow2SpawnTimer" to="." method="_on_conveyor_belt_row_2_spawn_timer_timeout"]
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row4/CoverPoints/CoverPoint"]

@@ -16,6 +16,8 @@ func _ready():
 	setup_enemy_waves(2)
 	spawn_object_conveyor_random()
 	$Timers/ConveyorBeltSpawnTimer.start()
+	spawn_object_conveyor_random_row2()
+	$Timers/ConveyorBeltRow2SpawnTimer.start()
 
 func spawn_wave(wave_number: int):
 	match wave_number:
@@ -57,12 +59,36 @@ func spawn_object_conveyor_explosives():
 func spawn_object_conveyor(scene: PackedScene):
 	var spawn_pos = $EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1/Points/Marker2DSpawnPoint.global_position
 	var dest_pos = $EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1/Points/Marker2DDestinationPoint.global_position
-	var env_object_battery = scene.instantiate()
-	env_object_battery.position = spawn_pos
-	env_object_battery.dest_pos = dest_pos
-	env_object_battery.row_no = EnumRowNo.RowNo.ROW1
-	$EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1.add_child(env_object_battery)
-	
+	var env_object = scene.instantiate()
+	env_object.position = spawn_pos
+	env_object.dest_pos = dest_pos
+	env_object.row_no = EnumRowNo.RowNo.ROW1
+	$EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1.add_child(env_object)
+
+func spawn_object_conveyor_random_row2():
+	var rand_val = randi_range(1, 2)
+	match rand_val:
+		1:
+			spawn_object_conveyor_battery_row2()
+		2:
+			spawn_object_conveyor_explosives_row2()
+
+func spawn_object_conveyor_battery_row2():
+	spawn_object_conveyor_row2(env_object_battery_scene)
+
+func spawn_object_conveyor_explosives_row2():
+	spawn_object_conveyor_row2(env_object_explosives_scene)
+
+func spawn_object_conveyor_row2(scene: PackedScene):
+	var spawn_pos = $EnemyLayer/Row2/Covers/EnvObjectsWarehouseConveyorR2/Points/Marker2DSpawnPoint.global_position
+	var dest_pos = $EnemyLayer/Row2/Covers/EnvObjectsWarehouseConveyorR2/Points/Marker2DDestinationPoint.global_position
+	var env_object = scene.instantiate()
+	env_object.position = spawn_pos
+	env_object.dest_pos = dest_pos
+	env_object.row_no = EnumRowNo.RowNo.ROW2
+	env_object.scale = Vector2(0.5, 0.5)
+	$EnemyLayer/Row2/Covers/EnvObjectsWarehouseConveyorR2.add_child(env_object)
+
 func _move_conveyor(env_object_battery: Node, dest_pos: Vector2, delta: float):
 	var direction = env_object_battery.position.direction_to(dest_pos)
 	env_object_battery.position += direction * 200 * delta
@@ -72,3 +98,7 @@ func _move_conveyor(env_object_battery: Node, dest_pos: Vector2, delta: float):
 func _on_conveyor_belt_spawn_timer_timeout() -> void:
 	spawn_object_conveyor_random()
 	$Timers/ConveyorBeltSpawnTimer.start()
+
+func _on_conveyor_belt_row_2_spawn_timer_timeout() -> void:
+	spawn_object_conveyor_random_row2()
+	$Timers/ConveyorBeltRow2SpawnTimer.start()
