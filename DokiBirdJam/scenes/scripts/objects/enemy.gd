@@ -227,7 +227,7 @@ func stance_to_attack():
 func attack():
 	enemy_attack.emit($BulletStartPosition/Marker2D.global_position, attack_type)
 	current_ammo -= 1
-	var random_attack_sound = attack_sound.pick_random()
+	random_attack_sound = attack_sound.pick_random()
 	random_attack_sound.play()
 	if current_ammo <= 0:
 		_is_reloading = true
