@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnul33vl5v0qw"]
+
+[ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_bga1r"]
+[ext_resource type="Texture2D" uid="uid://b1vokhs68myvr" path="res://assets/enemies/Heavy Dragoon.png" id="2_vt6jn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ynd3f"]
+height = 72.0
+
+[node name="Enemy" instance=ExtResource("1_bga1r")]
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -66)
+texture = ExtResource("2_vt6jn")
+hframes = 8
+vframes = 3
+
+[node name="CollisionShape2D" parent="Sprite2D/HitboxHead" index="0"]
+position = Vector2(38, -7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ynd3f")
