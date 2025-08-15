@@ -10,6 +10,7 @@ func _ready():
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.level = 1
 	Status.doki_shot = 0
+	AudioManager.main_menu_music.stop()
 	AudioManager.level_one_music.play()
 	Status.score = 0
 	
@@ -29,8 +30,8 @@ func spawn_wave_1():
 	spawn_enemy_brute_random_row()
 	spawn_enemy_gunman_random_row()
 	spawn_enemy_gunman_random_row()
-	spawn_env_object_drone(EnumRowNo.RowNo.ROW1, water_drone)
-	spawn_env_object_drone(EnumRowNo.RowNo.ROW3, electric_drone)
+	spawn_env_object_drone(EnumRowNo.RowNo.ROW1, explosion_drone)
+	spawn_env_object_drone(EnumRowNo.RowNo.ROW3, explosion_drone)
 
 
 func spawn_wave_2():

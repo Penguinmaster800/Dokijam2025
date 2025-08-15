@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://beyvq3gk7skv5"
+path="res://.godot/imported/DGJ Doki injured 3.mp3-9d3ed69b5052e9fcbc1a290af95b96b7.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Doki injured 3.mp3"
+dest_files=["res://.godot/imported/DGJ Doki injured 3.mp3-9d3ed69b5052e9fcbc1a290af95b96b7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

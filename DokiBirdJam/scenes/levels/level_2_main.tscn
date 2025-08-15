@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_txvap"]
 [ext_resource type="Script" uid="uid://cj20ounm7p11h" path="res://scenes/scripts/scenes/level_2_main.gd" id="2_ykheh"]
-[ext_resource type="Texture2D" uid="uid://b63xp0mka6km6" path="res://assets/object/background_warehouse.png" id="3_usw5p"]
+[ext_resource type="Texture2D" uid="uid://c1qfovu8j65d" path="res://assets/object/warehouse/WarehouseBackground.png" id="3_04yuh"]
 [ext_resource type="Texture2D" uid="uid://d21ifl1shnwdg" path="res://assets/object/cover_object_warehouse_f.png" id="4_tex7k"]
 [ext_resource type="PackedScene" uid="uid://c2t5yaur3205u" path="res://scenes/objects/Environment/cover_object_warehouse_r_2.tscn" id="5_avj2m"]
 [ext_resource type="PackedScene" uid="uid://nlbx4x8oitvp" path="res://scenes/objects/Environment/cover_object_warehouse_r_3.tscn" id="5_k1byu"]
@@ -17,7 +17,7 @@ script = ExtResource("2_ykheh")
 [node name="Background" parent="." index="0"]
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_usw5p")
+texture = ExtResource("3_04yuh")
 
 [node name="SpawnPoint" parent="EnemyLayer/Row4/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
 
@@ -33,7 +33,7 @@ position = Vector2(660, 188)
 position = Vector2(760, 188)
 
 [node name="CoverObjectWarehouseR4" parent="EnemyLayer/Row4/Covers" index="0" instance=ExtResource("5_x1nft")]
-position = Vector2(675, 145)
+position = Vector2(640, 360)
 
 [node name="SpawnPoint" parent="EnemyLayer/Row3/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
 
@@ -49,7 +49,7 @@ position = Vector2(319, 263)
 position = Vector2(392, 263)
 
 [node name="CoverObjectWarehouseR3" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("5_k1byu")]
-position = Vector2(515, 213)
+position = Vector2(637, 359)
 
 [node name="SpawnPoint" parent="EnemyLayer/Row2/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
 
@@ -65,7 +65,7 @@ position = Vector2(389, 360)
 position = Vector2(314, 360)
 
 [node name="CoverObjectWarehouseR2" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("5_avj2m")]
-position = Vector2(640, 229)
+position = Vector2(640, 360)
 
 [node name="SpawnPoint" parent="EnemyLayer/Row1/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
 
@@ -84,7 +84,7 @@ position = Vector2(518, 460)
 position = Vector2(692, 460)
 
 [node name="CoverObjectWarehouseR1" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("5_tex7k")]
-position = Vector2(904, 411)
+position = Vector2(640, 360)
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="3"]
 position = Vector2(640, 606)

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bpx4d222rkmhs"
+path="res://.godot/imported/DGJ Going Ghost.wav-1d1c7f0abf7ec16d6ae9d209283d7812.sample"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Going Ghost.wav"
+dest_files=["res://.godot/imported/DGJ Going Ghost.wav-1d1c7f0abf7ec16d6ae9d209283d7812.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
