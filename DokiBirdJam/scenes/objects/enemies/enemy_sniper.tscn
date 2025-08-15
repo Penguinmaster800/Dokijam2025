@@ -138,8 +138,8 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="Animation" id="Animation_if1iu"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_cyl73"]
+resource_name = "Aim"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -147,10 +147,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -159,22 +159,46 @@ tracks/1/path = NodePath("Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(-22, -57), Vector2(19, -57)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
+tracks/2/path = NodePath("Sprite2D/HitboxHead/CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(50, -92, 50, -81, 58, -77, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -47, 56, -59, 50, -59, 36, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -46, 0, -68, 7, -82, 28, -91)]
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(-23.2068, -11.6034), Vector2(-21.0971, -10.5485), Vector2(-72.7848, -18.9873), Vector2(-74.8945, -22.1519), Vector2(-74.8945, -22.1519)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.399, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(33.7553, -33.7553, 27.4262, -26.3713, 22.1519, -28.481, 17.9325, -20.0422, 6.32911, -9.49367, -1.90735e-06, 2.10971, -2.10971, 14.7679, -9.49367, 15.8228, -9.49367, 18.9873, -6.32911, 27.4262, 6.32911, 40.0844, 17.9325, 45.3587, 29.5359, 48.5232, 41.1392, 46.4135, 47.4683, 43.2489, 56.962, 29.5359, 58.0169, 16.8776, 53.7975, -2.1097, 47.4683, -12.6582, 41.1392, -20.0422), PackedVector2Array(33.7553, -33.7553, 27.4262, -26.3713, 22.1519, -28.481, 17.9325, -20.0422, 6.32911, -9.49367, -3.8147e-06, 2.10971, -3.16456, 14.7679, -9.49367, 15.8228, -9.49367, 18.9873, -6.32911, 27.4262, 6.32911, 40.0844, 17.9325, 45.3587, 29.5359, 48.5232, 41.1392, 47.4683, 47.4683, 43.2489, 56.962, 29.5359, 58.0169, 16.8776, 53.7975, -2.1097, 47.4683, -12.6582, 41.1392, -20.0422), PackedVector2Array(31.6456, -32.7004, 27.4262, -28.481, 22.1519, -28.481, 18.9873, -24.2616, 17.9325, -20.0422, 6.32911, -9.49367, -3.8147e-06, 2.10971, -3.16456, 15.8228, -9.49367, 15.8228, -5.27426, 25.3165, -2.10971, 31.6456, 6.32911, 40.0844, 17.9325, 45.3587, 29.5359, 48.5232, 41.1392, 47.4683, 47.4683, 43.2489, 56.962, 29.5359, 58.0169, 16.8776, 53.7975, -2.1097, 47.4683, -12.6582, 43.2489, -18.9873, 37.9747, -21.097), PackedVector2Array(-23.2068, -39.0295, -17.9325, -28.481, -6.32911, -32.7004, -5.27426, -30.5907, -5.27426, -23.2067, -1.90735e-06, -21.097, 7.38396, -10.5485, 8.43882, -6.32911, 21.097, -10.5485, 24.2616, -9.49367, 12.6582, 14.7679, 12.6582, 20.0422, 4.21941, 33.7553, -8.43882, 41.1392, -18.9873, 42.1941, -29.5359, 41.1392, -42.1941, 41.1392, -47.4684, 39.0295, -50.6329, 17.9325, -50.6329, 3.16456, -47.4684, -9.49367, -37.9747, -25.3165), PackedVector2Array(-23.2068, -36.9198, -17.9325, -28.481, -3.16456, -29.5359, -3.16456, -23.2068, -1.90735e-06, -21.097, 7.38396, -10.5485, 8.43882, -6.32911, 17.9325, -11.6034, 21.097, -10.5485, 16.8776, 5.27426, 13.7131, 15.8228, 12.6582, 20.0422, 4.21941, 33.7553, -8.43882, 41.1392, -18.9873, 42.1941, -29.5359, 41.1392, -39.0295, 39.0295, -48.5232, 42.1941, -52.7426, 39.0295, -53.7975, 34.8101, -47.4684, 32.7004, -51.6878, 17.9325, -51.6878, 3.16455, -47.4684, -9.49367, -43.2489, -18.9873, -37.9747, -25.3165, -31.6456, -31.6456)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(1.05485, 1.05486), Vector2(0, 0), Vector2(-2.1097, -3.16455), Vector2(-1.05485, -2.1097)]
 }
 
 [sub_resource type="Animation" id="Animation_sn2ra"]
@@ -250,6 +274,108 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(22, -57)]
+}
+
+[sub_resource type="Animation" id="Animation_wbxho"]
+resource_name = "Hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [35, 36, 37]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-28, -57)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(31.6456, -33.7553, 26.3713, -26.3713, 22.1519, -28.481, 16.8776, -20.0422, 7.38396, -10.5485, 0, 1.05486, -3.16456, 15.8228, -9.49367, 16.8776, -6.32911, 24.2616, 2.1097, 36.9198, 16.8776, 45.3587, 22.1519, 46.4135, 27.4262, 51.6878, 31.6456, 51.6878, 46.4135, 42.1941, 54.8523, 32.7004, 58.0169, 23.2068, 58.0169, 10.5485, 52.7426, -5.27426, 49.5781, -10.5485, 42.1941, -18.9873, 37.9747, -21.097), PackedVector2Array(34.8101, -32.7004, 28.481, -25.3164, 22.1519, -28.481, 16.8776, -20.0422, 7.38396, -10.5485, 0, 1.05486, -3.16456, 15.8228, -9.49367, 16.8776, -6.32911, 24.2616, 2.1097, 36.9198, 16.8776, 45.3587, 22.1519, 46.4135, 41.1392, 45.3587, 39.0295, 48.5232, 43.2489, 48.5232, 46.4135, 42.1941, 54.8523, 32.7004, 56.962, 29.5359, 59.0717, 23.2068, 58.0169, 10.5485, 52.7426, -5.27426, 49.5781, -10.5485, 42.1941, -18.9873, 40.0844, -22.1519), PackedVector2Array(33.7553, -33.7553, 27.4262, -27.4262, 22.1519, -28.481, 16.8776, -20.0422, 7.38396, -10.5485, 0, 1.05486, -3.16456, 15.8228, -10.5485, 15.8228, -7.38397, 24.2616, 2.1097, 36.9198, 16.8776, 45.3587, 22.1519, 46.4135, 26.3713, 44.3038, 39.0295, 43.2489, 36.9198, 46.4135, 41.1392, 46.4135, 46.4135, 42.1941, 54.8523, 32.7004, 56.962, 29.5359, 59.0717, 23.2068, 58.0169, 10.5485, 52.7426, -5.27426, 49.5781, -10.5485, 42.1941, -18.9873, 40.0844, -22.1519)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/HitboxHead/CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(-22.1519, -12.6582), Vector2(-22.1519, -10.5485), Vector2(-22.1519, -12.6582)]
+}
+
+[sub_resource type="Animation" id="Animation_if1iu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(50, -92, 50, -81, 58, -77, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -47, 56, -59, 50, -59, 36, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -46, 0, -68, 7, -82, 28, -91)]
 }
 
 [sub_resource type="Animation" id="Animation_ttob7"]
@@ -388,132 +514,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [Vector2(0, 0), Vector2(-1.05485, -1.05485), Vector2(2.1097, 2.10971)]
-}
-
-[sub_resource type="Animation" id="Animation_cyl73"]
-resource_name = "Aim"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [Vector2(-22, -57), Vector2(19, -57)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/HitboxHead/CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(-23.2068, -11.6034), Vector2(-21.0971, -10.5485), Vector2(-72.7848, -18.9873), Vector2(-74.8945, -22.1519), Vector2(-74.8945, -22.1519)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.399, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [PackedVector2Array(33.7553, -33.7553, 27.4262, -26.3713, 22.1519, -28.481, 17.9325, -20.0422, 6.32911, -9.49367, -1.90735e-06, 2.10971, -2.10971, 14.7679, -9.49367, 15.8228, -9.49367, 18.9873, -6.32911, 27.4262, 6.32911, 40.0844, 17.9325, 45.3587, 29.5359, 48.5232, 41.1392, 46.4135, 47.4683, 43.2489, 56.962, 29.5359, 58.0169, 16.8776, 53.7975, -2.1097, 47.4683, -12.6582, 41.1392, -20.0422), PackedVector2Array(33.7553, -33.7553, 27.4262, -26.3713, 22.1519, -28.481, 17.9325, -20.0422, 6.32911, -9.49367, -3.8147e-06, 2.10971, -3.16456, 14.7679, -9.49367, 15.8228, -9.49367, 18.9873, -6.32911, 27.4262, 6.32911, 40.0844, 17.9325, 45.3587, 29.5359, 48.5232, 41.1392, 47.4683, 47.4683, 43.2489, 56.962, 29.5359, 58.0169, 16.8776, 53.7975, -2.1097, 47.4683, -12.6582, 41.1392, -20.0422), PackedVector2Array(31.6456, -32.7004, 27.4262, -28.481, 22.1519, -28.481, 18.9873, -24.2616, 17.9325, -20.0422, 6.32911, -9.49367, -3.8147e-06, 2.10971, -3.16456, 15.8228, -9.49367, 15.8228, -5.27426, 25.3165, -2.10971, 31.6456, 6.32911, 40.0844, 17.9325, 45.3587, 29.5359, 48.5232, 41.1392, 47.4683, 47.4683, 43.2489, 56.962, 29.5359, 58.0169, 16.8776, 53.7975, -2.1097, 47.4683, -12.6582, 43.2489, -18.9873, 37.9747, -21.097), PackedVector2Array(-23.2068, -39.0295, -17.9325, -28.481, -6.32911, -32.7004, -5.27426, -30.5907, -5.27426, -23.2067, -1.90735e-06, -21.097, 7.38396, -10.5485, 8.43882, -6.32911, 21.097, -10.5485, 24.2616, -9.49367, 12.6582, 14.7679, 12.6582, 20.0422, 4.21941, 33.7553, -8.43882, 41.1392, -18.9873, 42.1941, -29.5359, 41.1392, -42.1941, 41.1392, -47.4684, 39.0295, -50.6329, 17.9325, -50.6329, 3.16456, -47.4684, -9.49367, -37.9747, -25.3165), PackedVector2Array(-23.2068, -36.9198, -17.9325, -28.481, -3.16456, -29.5359, -3.16456, -23.2068, -1.90735e-06, -21.097, 7.38396, -10.5485, 8.43882, -6.32911, 17.9325, -11.6034, 21.097, -10.5485, 16.8776, 5.27426, 13.7131, 15.8228, 12.6582, 20.0422, 4.21941, 33.7553, -8.43882, 41.1392, -18.9873, 42.1941, -29.5359, 41.1392, -39.0295, 39.0295, -48.5232, 42.1941, -52.7426, 39.0295, -53.7975, 34.8101, -47.4684, 32.7004, -51.6878, 17.9325, -51.6878, 3.16455, -47.4684, -9.49367, -43.2489, -18.9873, -37.9747, -25.3165, -31.6456, -31.6456)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 0), Vector2(1.05485, 1.05486), Vector2(0, 0), Vector2(-2.1097, -3.16455), Vector2(-1.05485, -2.1097)]
-}
-
-[sub_resource type="Animation" id="Animation_wbxho"]
-resource_name = "Hide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [35, 36, 37]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-28, -57)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [PackedVector2Array(31.6456, -33.7553, 26.3713, -26.3713, 22.1519, -28.481, 16.8776, -20.0422, 7.38396, -10.5485, 0, 1.05486, -3.16456, 15.8228, -9.49367, 16.8776, -6.32911, 24.2616, 2.1097, 36.9198, 16.8776, 45.3587, 22.1519, 46.4135, 27.4262, 51.6878, 31.6456, 51.6878, 46.4135, 42.1941, 54.8523, 32.7004, 58.0169, 23.2068, 58.0169, 10.5485, 52.7426, -5.27426, 49.5781, -10.5485, 42.1941, -18.9873, 37.9747, -21.097), PackedVector2Array(34.8101, -32.7004, 28.481, -25.3164, 22.1519, -28.481, 16.8776, -20.0422, 7.38396, -10.5485, 0, 1.05486, -3.16456, 15.8228, -9.49367, 16.8776, -6.32911, 24.2616, 2.1097, 36.9198, 16.8776, 45.3587, 22.1519, 46.4135, 41.1392, 45.3587, 39.0295, 48.5232, 43.2489, 48.5232, 46.4135, 42.1941, 54.8523, 32.7004, 56.962, 29.5359, 59.0717, 23.2068, 58.0169, 10.5485, 52.7426, -5.27426, 49.5781, -10.5485, 42.1941, -18.9873, 40.0844, -22.1519), PackedVector2Array(33.7553, -33.7553, 27.4262, -27.4262, 22.1519, -28.481, 16.8776, -20.0422, 7.38396, -10.5485, 0, 1.05486, -3.16456, 15.8228, -10.5485, 15.8228, -7.38397, 24.2616, 2.1097, 36.9198, 16.8776, 45.3587, 22.1519, 46.4135, 26.3713, 44.3038, 39.0295, 43.2489, 36.9198, 46.4135, 41.1392, 46.4135, 46.4135, 42.1941, 54.8523, 32.7004, 56.962, 29.5359, 59.0717, 23.2068, 58.0169, 10.5485, 52.7426, -5.27426, 49.5781, -10.5485, 42.1941, -18.9873, 40.0844, -22.1519)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D/HitboxHead/CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(-22.1519, -12.6582), Vector2(-22.1519, -10.5485), Vector2(-22.1519, -12.6582)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cyl73"]

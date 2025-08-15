@@ -5,6 +5,7 @@ extends Node
 @onready var level_one_music: AudioStreamPlayer2D = $Music/LevelOneMusic
 @onready var level_two_music: AudioStreamPlayer2D = $Music/LevelTwoMusic
 @onready var level_three_music: AudioStreamPlayer2D = $Music/LevelThreeMusic
+@onready var main_menu_music: AudioStreamPlayer2D = $Music/MainMenuMusic
 
 
 #Doki Sounds
@@ -12,6 +13,8 @@ extends Node
 @onready var doki_fan_the_hammer: AudioStreamPlayer2D = $DokiSounds/DokiFanTheHammer
 @onready var doki_reload: AudioStreamPlayer2D = $DokiSounds/DokiReload
 @onready var doki_dry_fire: AudioStreamPlayer2D = $DokiSounds/DokiDryFire
+@onready var doki_red_eye: AudioStreamPlayer2D = $DokiSounds/DokiRedEye
+@onready var doki_going_ghost: AudioStreamPlayer2D = $DokiSounds/DokiGoingGhost
 
 
 

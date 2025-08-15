@@ -54,12 +54,14 @@ func red_eye():
 		print("red eye_activated")
 		red_eye_active = true
 		red_eye_activate.emit()
+		AudioManager.doki_red_eye.play()
 
 func going_ghost():
 	if Abilities.going_ghost_ready == true:
 		print("going ghost_activated")
 		going_ghost_active = true
 		going_ghost_activate.emit()
+		AudioManager.doki_going_ghost.play()
 
 func obtain_ability(new_ability):
 	print(ability1, ability2, ability3)

@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmgup1iqg7j8s"]
 
 [ext_resource type="PackedScene" uid="uid://d1ajt4tf4la11" path="res://scenes/objects/Environment/cover_object.tscn" id="1_i57kp"]
-[ext_resource type="Texture2D" uid="uid://bmajg0se7t46g" path="res://assets/object/cover_object_warehouse_r4.png" id="2_r7vvb"]
+[ext_resource type="Texture2D" uid="uid://cuddg81xy55lx" path="res://assets/object/warehouse/WarehouseLayer4.png" id="2_i57kp"]
 
 [node name="CoverObjectWarehouseR4" instance=ExtResource("1_i57kp")]
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_r7vvb")
+texture = ExtResource("2_i57kp")
 
 [node name="CollisionPolygon2D" parent="." index="1"]
+position = Vector2(36, -221)
 polygon = PackedVector2Array(4, -20, 55, -20, 55, 46, -55, 45, -55, -46, 3, -44)

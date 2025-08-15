@@ -226,45 +226,6 @@ tracks/2/keys = {
 "values": [Vector2(0, -86)]
 }
 
-[sub_resource type="Animation" id="Animation_3ms0x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [7]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(52, -94, 50, -81, 59, -79, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -28, 48, -41, 43, -41, 26, -33, 20, -23, 6, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -48, 0, -68, 7, -82, 28, -91, 41, -95)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -92)]
-}
-
 [sub_resource type="Animation" id="Animation_fet3t"]
 resource_name = "Hide"
 length = 0.1
@@ -303,6 +264,45 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [PackedVector2Array(50, -92, 50, -81, 58, -77, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -47, 56, -59, 50, -59, 36, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -46, 0, -68, 7, -82, 28, -91)]
+}
+
+[sub_resource type="Animation" id="Animation_3ms0x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(52, -94, 50, -81, 59, -79, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -28, 48, -41, 43, -41, 26, -33, 20, -23, 6, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -48, 0, -68, 7, -82, 28, -91, 41, -95)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -92)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1rtrv"]

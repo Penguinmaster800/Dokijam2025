@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bmnt4vhyhnr8k"
+path="res://.godot/imported/DGJ Doki injured 8.wav-0d7196afc84f079469af67ace662d6d0.sample"
+
+[deps]
+
+source_file="res://assets/sfx/DGJ Doki injured 8.wav"
+dest_files=["res://.godot/imported/DGJ Doki injured 8.wav-0d7196afc84f079469af67ace662d6d0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
