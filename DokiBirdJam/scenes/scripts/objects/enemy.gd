@@ -52,6 +52,9 @@ var max_y: float = 550.0
 var min_scale: float = 0.5
 var max_scale: float = 1.0
 
+var attack_sound := [AudioManager.enemy_shot_1, AudioManager.enemy_shot_2]
+var random_attack_sound = attack_sound.pick_random()
+
 ## Signal for Death of the Enemy
 signal enemy_death
 ## Signal for Enemy Reaching the Position
@@ -65,9 +68,9 @@ func _ready() -> void:
 	set_scale_from_position()
 	Abilities.aim_bot_activate.connect(_aim_bot_target)
 	Abilities.red_eye_cover_change.connect(_red_eye_target)
-	$AnimatedSprite2D.play("Move")
+	$AnimationPlayer.play("Run")
 	if spawn_move_position.x < global_position.x:
-		$AnimatedSprite2D.flip_h = true
+		$Sprite2D.flip_h = true
 
 func _process(delta: float) -> void:
 
@@ -155,7 +158,7 @@ func after_spawn(delta):
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
 		switch_stance()
-		$AnimatedSprite2D.flip_h = false
+		$Sprite2D.flip_h = false
 
 func move_to_cover(delta):
 	# Move to position
@@ -207,7 +210,7 @@ func stance_to_cover():
 	var random_time = randf_range(min_cover_time, 5.0)
 	$TimerCurrentStance.start(random_time)
 	current_stance = Stance.COVER
-	$AnimatedSprite2D.play("InCover")
+	$AnimationPlayer.play("Hide")
 	
 	if _is_reloading:
 		current_ammo = max_ammo
@@ -217,13 +220,15 @@ func stance_to_attack():
 	var random_time = randf_range(2.0, 7.0)
 	$TimerCurrentStance.start(random_time)
 	current_stance = Stance.ATTACK
-	$AnimatedSprite2D.play("Attack")
+	$AnimationPlayer.play("Aim")
+	$AnimationPlayer.queue("Attack")
 	$TimerFireRate.start(fire_rate)
 
 func attack():
 	enemy_attack.emit($BulletStartPosition/Marker2D.global_position, attack_type)
 	current_ammo -= 1
-	
+	var random_attack_sound = attack_sound.pick_random()
+	random_attack_sound.play()
 	if current_ammo <= 0:
 		_is_reloading = true
 		stance_attack_cooldown()

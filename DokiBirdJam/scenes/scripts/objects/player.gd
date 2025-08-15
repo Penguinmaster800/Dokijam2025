@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var target = exposed_location_x
 const cover_location_x: int = 150
-const exposed_location_x: int = 300
+const exposed_location_x: int = 400
 const doki_location_y: int = 638
 
 #speed at which doki will enter and exit cover. this is here to make tuning for feel easier
@@ -13,6 +13,7 @@ var speed : int = 40000
 
 func _ready():
 	target = Vector2(exposed_location_x,doki_location_y)
+	$AnimatedSprite2D.play("ExitCover")
 	Status.doki_reloading_change.connect(_reload)
 	Status.doki_shot_change.connect(_fire)
 	Abilities.going_ghost_activate.connect(_going_ghost)

@@ -28,3 +28,4 @@ func attack():
 
 func _on_timer_can_shoot_timeout() -> void:
 	super.attack()
+	AudioManager.enemy_sniper_shot.play()

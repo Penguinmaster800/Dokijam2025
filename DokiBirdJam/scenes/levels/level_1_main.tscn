@@ -112,7 +112,7 @@ position = Vector2(459, 446)
 position = Vector2(280, 420)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint1/OutOfCover" index="1"]
-position = Vector2(640, 420)
+position = Vector2(660, 420)
 
 [node name="CoverObject" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("6_qjymw")]
 position = Vector2(641, 360)

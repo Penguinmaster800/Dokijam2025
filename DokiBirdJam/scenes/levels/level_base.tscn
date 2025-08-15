@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ckr14ofdq2jjy" path="res://scenes/objects/ui/pause_menu.tscn" id="5_6cjw3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d61h5"]
-size = Vector2(261, 5.25)
+size = Vector2(196, 4.625)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_0y8gg")
@@ -49,7 +49,7 @@ row_no = 1
 [node name="Row1" parent="EnemyLayer" instance=ExtResource("4_6cjw3")]
 
 [node name="Player" parent="." instance=ExtResource("1_u0om3")]
-position = Vector2(349, 631)
+position = Vector2(400, 638)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
@@ -57,7 +57,7 @@ position = Vector2(349, 631)
 position = Vector2(404, 720)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyProjectilesDestinationArea"]
-position = Vector2(-39.5, 3)
+position = Vector2(-12, 2.6875)
 shape = SubResource("RectangleShape2D_d61h5")
 
 [node name="Hud" parent="." instance=ExtResource("4_d61h5")]

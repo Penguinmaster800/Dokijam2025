@@ -18,21 +18,25 @@ animations = [{
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_lp353")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="HitboxHead" type="Area2D" parent="Sprite2D"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HitboxHead"]
+
+[node name="Hitbox" type="Area2D" parent="Sprite2D"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Sprite2D/Hitbox"]
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -64)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_pr36w")
 animation = &"death"
 
-[node name="HitboxHead" type="Area2D" parent="."]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxHead"]
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="TimerCurrentStance" type="Timer" parent="."]
 
@@ -50,8 +54,8 @@ wait_time = 5.0
 
 [node name="Marker2D" type="Marker2D" parent="BulletStartPosition"]
 
-[connection signal="input_event" from="HitboxHead" to="." method="_on_hitbox_head_input_event"]
-[connection signal="input_event" from="Hitbox" to="." method="_on_hitbox_input_event"]
+[connection signal="input_event" from="Sprite2D/HitboxHead" to="." method="_on_hitbox_head_input_event"]
+[connection signal="input_event" from="Sprite2D/Hitbox" to="." method="_on_hitbox_input_event"]
 [connection signal="timeout" from="TimerCurrentStance" to="." method="_on_timer_current_stance_timeout"]
 [connection signal="timeout" from="TimerFireRate" to="." method="_on_timer_fire_rate_timeout"]
 [connection signal="timeout" from="TimerEffectWet" to="." method="_on_timer_effect_wet_timeout"]
