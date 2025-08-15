@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b6wfei6mhh0cr" path="res://assets/object/dokimansionYardLightActive.png" id="2_fl8lp"]
 
 [node name="EnvObjectMansionYardLight" instance=ExtResource("1_ftd3u")]
+object_type = 5
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.25, 0.25)
