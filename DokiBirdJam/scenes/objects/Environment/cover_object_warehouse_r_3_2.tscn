@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck4gu4xsopmxp"]
+
+[ext_resource type="PackedScene" uid="uid://d1ajt4tf4la11" path="res://scenes/objects/Environment/cover_object.tscn" id="1_peqkn"]
+[ext_resource type="Texture2D" uid="uid://bhkb654uydqen" path="res://assets/object/warehouse/WarehouseLayer3-2.png" id="2_qk4vs"]
+
+[node name="CoverObjectWarehouseR32" instance=ExtResource("1_peqkn")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_qk4vs")
+
+[node name="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-130, -191, -57, -190, -57, -101, -129, -97)

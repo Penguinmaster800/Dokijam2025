@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://4ec0c50qn5vb"]
+
+[ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_c7i2p"]
+[ext_resource type="Texture2D" uid="uid://c2wuyvycd4iws" path="res://assets/object/warehouse/Interactable/WarehouseBattery.png" id="2_a802n"]
+
+[node name="EnvObjectWarehouseBattery" instance=ExtResource("1_c7i2p")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_a802n")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-27, -23, 23, -23, 30, -16, 31, 21, 29, 24, -21, 24, -31, 15, -31, -20)

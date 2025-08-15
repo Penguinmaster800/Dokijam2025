@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3m8glhw43puq"]
+
+[ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_5f612"]
+[ext_resource type="Texture2D" uid="uid://b8j20a4r7osn4" path="res://assets/object/warehouse/Interactable/WarehouseElectricBox.png" id="2_rwj2o"]
+
+[node name="EnvObjectWarehouseElectricBox" instance=ExtResource("1_5f612")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_rwj2o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-22, -20, 21, -19, 21, 20, -22, 20)
