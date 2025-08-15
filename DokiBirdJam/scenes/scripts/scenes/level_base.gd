@@ -163,16 +163,21 @@ func _on_env_object_drone_box_explode(row_no: EnumRowNo.RowNo, pos: Vector2, is_
 	$Projectiles.add_child(env_effect_explosion)
 
 func _on_env_object_drone_box_drench(row_no: EnumRowNo.RowNo, pos: Vector2, is_wet:bool = false) -> void:
-	var env_effect_water = env_effect_water_scene.instantiate()
-	env_effect_water.global_position = pos
-	env_effect_water.row_no = row_no
-	if is_wet == true:
-		env_effect_water.scale.x = 2
-	if is_wet == false:
-		env_effect_water.scale.x = 1
-	$Projectiles.add_child(env_effect_water)
+	_spawn_wet_effect(row_no, pos, is_wet)
 
 func _on_env_object_drone_box_shock(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool = false) -> void:
+	_spawn_shock_effect(row_no, pos, is_shocked)
+
+func _on_env_object_destroyed(object_type: EnumEnvObjectType.EnvObjectType, row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked: bool, is_wet: bool):
+	match object_type:
+		EnumEnvObjectType.EnvObjectType.GATE_LIGHT:
+			_spawn_shock_effect(row_no, pos, is_shocked)
+		EnumEnvObjectType.EnvObjectType.SPRINKLER:
+			_spawn_wet_effect(row_no, pos, is_wet)
+		EnumEnvObjectType.EnvObjectType.YARD_LIGHT:
+			_spawn_shock_effect(row_no, pos, is_shocked)
+
+func _spawn_shock_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool = false):
 	var env_effect_electric = env_effect_electric_scene.instantiate()
 	env_effect_electric.global_position = pos
 	env_effect_electric.row_no = row_no
@@ -183,6 +188,16 @@ func _on_env_object_drone_box_shock(row_no: EnumRowNo.RowNo, pos: Vector2, is_sh
 		env_effect_electric.scale.x = 1
 		env_effect_electric.scale.y = 1
 	$Projectiles.add_child(env_effect_electric)
+
+func _spawn_wet_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_wet: bool = false):
+	var env_effect_water = env_effect_water_scene.instantiate()
+	env_effect_water.global_position = pos
+	env_effect_water.row_no = row_no
+	if is_wet == true:
+		env_effect_water.scale.x = 2
+	if is_wet == false:
+		env_effect_water.scale.x = 1
+	$Projectiles.add_child(env_effect_water)
 
 func enemy_bullet_attack_default(pos: Variant) -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate()

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c0jgushbyw2tc" path="res://assets/object/dokimansionSprinklerActive.png" id="2_pyr1m"]
 
 [node name="EnvObjectMansionSprinkler" instance=ExtResource("1_isml2")]
+object_type = 4
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(-9, -12)
