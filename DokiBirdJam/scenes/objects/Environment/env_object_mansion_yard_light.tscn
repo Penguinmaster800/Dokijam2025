@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw44u6taofk6f"]
+
+[ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_ftd3u"]
+[ext_resource type="Texture2D" uid="uid://b6wfei6mhh0cr" path="res://assets/object/dokimansionYardLightActive.png" id="2_fl8lp"]
+
+[node name="EnvObjectMansionYardLight" instance=ExtResource("1_ftd3u")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_fl8lp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-18, -19, 12, -20, 20, -12, 20, -4, 3, -2, 3, 7, 3, 11, -1, 15, -9, 15, -13, 12, -14, 8, -14, 0, -14, -3, -18, -8)

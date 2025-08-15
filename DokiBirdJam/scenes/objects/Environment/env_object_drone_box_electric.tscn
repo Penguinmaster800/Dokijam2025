@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://da6nqorxsp0vx"]
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_yeker"]
-[ext_resource type="Script" uid="uid://j6cr15oi87ec" path="res://scenes/scripts/scenes/env_object_drone_box_electric.gd" id="2_yeker"]
+[ext_resource type="Script" path="res://scenes/scripts/scenes/env_object_drone_box_electric.gd" id="2_yeker"]
 [ext_resource type="Texture2D" uid="uid://drerqv5humjnh" path="res://assets/object/env_obj_drone_box.png" id="3_x7p6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb755"]

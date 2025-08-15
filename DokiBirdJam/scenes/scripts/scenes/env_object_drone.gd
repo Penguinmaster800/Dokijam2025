@@ -1,6 +1,6 @@
 extends EnvObjectParent
 
-enum Stance {SPAWN, MOVE_TO_LEFT, MOVE_TO_RIGHT, DESTROYED}
+enum Stance {SPAWN, MOVE_TO_LEFT, MOVE_TO_RIGHT, MOVE_OFF_SCREEN_LEFT, MOVE_OFF_SCREEN_RIGHT, DESTROYED}
 const DroneBoxStatus = EnumEnvObjectDroneBoxStatus.DroneBoxStatus
 
 var position_x_left: int = 200
@@ -8,6 +8,8 @@ var position_x_right: int = 1100
 var position_y: int = 0
 var movement_speed: int = 200
 var current_stance: Stance = Stance.SPAWN
+var off_screen_threshold_left: int = -100
+var off_screen_threshold_right: int = 1400
 @onready var drone_box = $EnvObjectDroneBox
 
 func _ready() -> void:
@@ -37,10 +39,23 @@ func _process(delta: float) -> void:
 	
 		position.x -= movement_speed * delta
 
+	if current_stance == Stance.MOVE_OFF_SCREEN_LEFT:
+		position.x -= movement_speed * delta
+		if position.x < off_screen_threshold_left:
+			queue_free()
+	
+	if current_stance == Stance.MOVE_OFF_SCREEN_RIGHT:
+		position.x += movement_speed * delta
+		if position.x > off_screen_threshold_right:
+			queue_free()
+
+
 func handle_destroyed() -> void:
 	if drone_box:
 		var box_global_pos = drone_box.global_position
+		var drone_box_copy = drone_box.duplicate()
 		remove_child(drone_box)
+		drone_box = drone_box_copy
 
 		drone_box.global_position = box_global_pos
 		drone_box.drop_destination = global_position
@@ -48,3 +63,12 @@ func handle_destroyed() -> void:
 		get_parent().add_child(drone_box)
 
 	super.handle_destroyed()
+
+
+
+func _on_env_object_drone_box_tree_exited() -> void:
+	if current_stance == Stance.MOVE_TO_LEFT:
+		current_stance = Stance.MOVE_OFF_SCREEN_LEFT
+	else:
+		current_stance = Stance.MOVE_OFF_SCREEN_RIGHT
+	drone_box = null

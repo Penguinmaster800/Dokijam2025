@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://byavcxbieanhq"]
+
+[ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_jshoj"]
+[ext_resource type="Texture2D" uid="uid://msamh0o2uhdk" path="res://assets/object/env_obj_mansion_gate_light_active.png" id="2_nnvbs"]
+
+[node name="EnvObjectMansionGateLight" instance=ExtResource("1_jshoj")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -30)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_nnvbs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+position = Vector2(0, 1)
+polygon = PackedVector2Array(-44, -36, -2, -61, 43, -36, 34, -33, 34, -5, 16, -4, 16, -2, -17, -1, -17, -4, -31, -4, -34, -8, -36, -31, -45, -36)
