@@ -64,6 +64,7 @@ func _ready() -> void:
 	current_ammo = max_ammo
 	set_scale_from_position()
 	Abilities.aim_bot_activate.connect(_aim_bot_target)
+	Abilities.red_eye_cover_change.connect(_red_eye_target)
 	$AnimatedSprite2D.play("Move")
 	if spawn_move_position.x < global_position.x:
 		$AnimatedSprite2D.flip_h = true
@@ -120,8 +121,14 @@ func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int)
 	handle_damage()
 
 func _aim_bot_target():
-	if current_stance != Stance.COVER:
+	if current_stance != Stance.COVER or Abilities.red_eye_cover == true:
 		handle_damage(3)
+
+func _red_eye_target():
+	if Abilities.red_eye_cover == true:
+		$".".modulate = Color(0.776, 0.066, 0.089)
+	if Abilities.red_eye_cover == false:
+		$".".modulate = Color(1.0, 1.0, 1.0)
 
 func handle_damage(multiplier: int = 1):
 	
