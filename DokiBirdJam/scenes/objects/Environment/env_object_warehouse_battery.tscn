@@ -6,6 +6,7 @@
 
 [node name="EnvObjectWarehouseBattery" instance=ExtResource("1_c7i2p")]
 script = ExtResource("2_y7uyv")
+object_type = 5
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -23.9)
