@@ -53,7 +53,9 @@ func _process(delta: float) -> void:
 func handle_destroyed() -> void:
 	if drone_box:
 		var box_global_pos = drone_box.global_position
+		var drone_box_copy = drone_box.duplicate()
 		remove_child(drone_box)
+		drone_box = drone_box_copy
 
 		drone_box.global_position = box_global_pos
 		drone_box.drop_destination = global_position
