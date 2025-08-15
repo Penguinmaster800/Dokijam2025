@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt8ak3w6rmcpr"]
+[gd_scene load_steps=4 format=3 uid="uid://dt8ak3w6rmcpr"]
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_bk1ev"]
 [ext_resource type="Texture2D" uid="uid://dsevxf5wddixe" path="res://assets/object/warehouse/Interactable/WarehouseExplosives.png" id="2_c4cg8"]
+[ext_resource type="Script" uid="uid://d4hy6jqr0tfst" path="res://scenes/scripts/objects/env_object_warehouse_explosives.gd" id="2_f2alp"]
 
 [node name="EnvObjectWarehouseExplosives" instance=ExtResource("1_bk1ev")]
+script = ExtResource("2_f2alp")
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(0.2, 0.2)
+position = Vector2(0, -33)
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_c4cg8")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
-polygon = PackedVector2Array(-17, -44, 5, -48, -3, -37, 5, -43, 20, -49, 24, -42, 11, -38, 20, -36, 31, -32, 31, -20, 27, -19, 27, 42, 21, 46, 2, 48, -18, 47, -28, 43, -27, -20, -31, -21, -31, -34, -18, -37, -9, -38, -15, -42)
+position = Vector2(0, -43.9)
+polygon = PackedVector2Array(-21, 42.9, -20, -4.1, -24, -5.1, -23, -14.1, -18, -16.1, -7, -17.1, -13, -22.1, 1, -25.1, 4, -25.1, -1, -19.1, 13, -25.1, 15, -25.1, 18, -21.1, 8, -17.1, 19, -15.1, 23, -13.1, 23, -4.1, 20, -3.1, 20, 42.9, 15, 45.9, 1, 46.9, -8, 46.9, -16, 45.9)

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b8j20a4r7osn4" path="res://assets/object/warehouse/Interactable/WarehouseElectricBox.png" id="2_rwj2o"]
 
 [node name="EnvObjectWarehouseElectricBox" instance=ExtResource("1_5f612")]
+object_type = 5
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(0.2, 0.2)

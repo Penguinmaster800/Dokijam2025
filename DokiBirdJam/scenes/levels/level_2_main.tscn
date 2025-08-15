@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4fmjim2k8dq4"]
+[gd_scene load_steps=18 format=3 uid="uid://c4fmjim2k8dq4"]
 
 [ext_resource type="PackedScene" uid="uid://ctjlt14ff44l0" path="res://scenes/levels/level_base.tscn" id="1_txvap"]
 [ext_resource type="Script" uid="uid://cj20ounm7p11h" path="res://scenes/scripts/scenes/level_2_main.gd" id="2_ykheh"]
@@ -17,8 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://dlbdh0onqxnci" path="res://assets/object/warehouse/WarehouseDokiCover.png" id="10_04yuh"]
 [ext_resource type="Texture2D" uid="uid://mduml6br58xc" path="res://assets/object/warehouse/WArehouseDroneportModified.png" id="10_d7aum"]
 [ext_resource type="PackedScene" uid="uid://io1gvw3pq7em" path="res://scenes/objects/Environment/cover_object_warehouse_r_2_front.tscn" id="10_nmocg"]
-[ext_resource type="PackedScene" uid="uid://4ec0c50qn5vb" path="res://scenes/objects/Environment/env_object_warehouse_battery.tscn" id="14_uo0ba"]
-[ext_resource type="PackedScene" uid="uid://dt8ak3w6rmcpr" path="res://scenes/objects/Environment/env_object_warehouse_explosives.tscn" id="15_qexw6"]
 
 [node name="Level2" instance=ExtResource("1_txvap")]
 script = ExtResource("2_ykheh")
@@ -27,6 +25,9 @@ script = ExtResource("2_ykheh")
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_04yuh")
+
+[node name="ConveyorBeltSpawnTimer" type="Timer" parent="Timers" index="5"]
+wait_time = 5.0
 
 [node name="SpawnPoint" parent="EnemyLayer/Row4/SpawnPoints" index="0" instance=ExtResource("7_y41dx")]
 
@@ -81,13 +82,7 @@ position = Vector2(314, 360)
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/StationaryPoints/StationaryPoint" index="0"]
 position = Vector2(921, 389)
 
-[node name="EnvObjectWarehouseBattery" parent="EnemyLayer/Row2/EnvObjects" index="0" instance=ExtResource("14_uo0ba")]
-position = Vector2(287, 321)
-
-[node name="EnvObjectWarehouseExplosives" parent="EnemyLayer/Row2/EnvObjects" index="1" instance=ExtResource("15_qexw6")]
-position = Vector2(189, 328)
-
-[node name="EnvObjectWarehouseElectricBox" parent="EnemyLayer/Row2/EnvObjects" index="2" instance=ExtResource("9_q42ud")]
+[node name="EnvObjectWarehouseElectricBox" parent="EnemyLayer/Row2/EnvObjects" index="0" instance=ExtResource("9_q42ud")]
 position = Vector2(529, 302)
 
 [node name="CoverObjectWarehouseR2" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("5_avj2m")]
@@ -115,16 +110,20 @@ position = Vector2(692, 460)
 [node name="EnvObjectWarehouseWatercooler" parent="EnemyLayer/Row1/EnvObjects" index="0" instance=ExtResource("9_0kn7t")]
 position = Vector2(419, 431)
 
-[node name="EnvObjectWarehouseBattery" parent="EnemyLayer/Row1/EnvObjects" index="1" instance=ExtResource("14_uo0ba")]
-position = Vector2(985, 432)
-
-[node name="EnvObjectWarehouseExplosives" parent="EnemyLayer/Row1/EnvObjects" index="2" instance=ExtResource("15_qexw6")]
-position = Vector2(866, 424)
-
 [node name="CoverObjectWarehouseR1" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("5_tex7k")]
 position = Vector2(640, 360)
 
-[node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="1" instance=ExtResource("10_3a8wu")]
+[node name="EnvObjectsWarehouseConveyorR1" type="Node2D" parent="EnemyLayer/Row1/Covers" index="1"]
+
+[node name="Points" type="Node2D" parent="EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1" index="0"]
+
+[node name="Marker2DSpawnPoint" type="Marker2D" parent="EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1/Points" index="0"]
+position = Vector2(601, 455)
+
+[node name="Marker2DDestinationPoint" type="Marker2D" parent="EnemyLayer/Row1/Covers/EnvObjectsWarehouseConveyorR1/Points" index="1"]
+position = Vector2(1300, 455)
+
+[node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="2" instance=ExtResource("10_3a8wu")]
 position = Vector2(640, 360)
 
 [node name="Sprite2D2" type="Sprite2D" parent="." index="3"]
@@ -136,6 +135,8 @@ texture = ExtResource("10_d7aum")
 position = Vector2(640, 360)
 scale = Vector2(0.5, 0.507795)
 texture = ExtResource("10_04yuh")
+
+[connection signal="timeout" from="Timers/ConveyorBeltSpawnTimer" to="." method="_on_conveyor_belt_spawn_timer_timeout"]
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row4/CoverPoints/CoverPoint"]
