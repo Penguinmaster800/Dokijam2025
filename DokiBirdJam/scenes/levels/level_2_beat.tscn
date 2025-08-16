@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhfgerycjxwx4"]
+[gd_scene load_steps=5 format=3 uid="uid://dhfgerycjxwx4"]
 
 [ext_resource type="Script" uid="uid://dfaaiidipll0q" path="res://scenes/scripts/scenes/level_2_beat.gd" id="1_r7wws"]
+[ext_resource type="Texture2D" uid="uid://dow885mnffefw" path="res://assets/cutscenes/Upgrade Box.png" id="2_hukhb"]
 [ext_resource type="PackedScene" uid="uid://byglw22sudck0" path="res://scenes/objects/ui/upgrade_selector.tscn" id="2_vfu2p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6ja2"]
+texture = ExtResource("2_hukhb")
 
 [node name="Level2Beat" type="Node2D"]
 script = ExtResource("1_r7wws")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="Panel" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_w6ja2")
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
@@ -24,6 +29,7 @@ theme_override_font_sizes/font_size = 64
 text = "Level 2 Beat"
 
 [node name="Button" type="Button" parent="."]
+visible = false
 offset_left = 951.0
 offset_top = 569.0
 offset_right = 1203.0
@@ -32,6 +38,6 @@ theme_override_font_sizes/font_size = 48
 text = "Next Level"
 
 [node name="UpgradeSelector" parent="." instance=ExtResource("2_vfu2p")]
-position = Vector2(636, 353)
+position = Vector2(640, 360)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,13 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://byglw22sudck0"]
+[gd_scene load_steps=2 format=3 uid="uid://byglw22sudck0"]
 
 [ext_resource type="Script" uid="uid://cbv2obfuse14k" path="res://scenes/scripts/scenes/upgrade_selector.gd" id="1_dx0hn"]
-[ext_resource type="Texture2D" uid="uid://7exkf7r7oiq4" path="res://assets/object/block.png" id="2_araw3"]
 
 [node name="UpgradeSelector" type="Node2D"]
 script = ExtResource("1_dx0hn")
-
-[node name="Box" type="Sprite2D" parent="."]
-texture = ExtResource("2_araw3")
 
 [node name="UpgradeLocations" type="Node2D" parent="."]
 
@@ -15,7 +11,7 @@ texture = ExtResource("2_araw3")
 position = Vector2(-90, -83)
 
 [node name="upgrade_2" type="Marker2D" parent="UpgradeLocations"]
-position = Vector2(25, -82)
+position = Vector2(73, -74)
 
 [node name="upgrade_3" type="Marker2D" parent="UpgradeLocations"]
-position = Vector2(-45, 35)
+position = Vector2(22, 62)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0fy0yks20eaj"
-path="res://.godot/imported/Screen 2.png-fe323de32c7b833814bef3dabcff1017.ctex"
+uid="uid://culsqgdv1pmql"
+path="res://.godot/imported/Victory Screen.png-f81bbf50aaad13ed47d62a2272f7ec76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Screen 2.png"
-dest_files=["res://.godot/imported/Screen 2.png-fe323de32c7b833814bef3dabcff1017.ctex"]
+source_file="res://assets/cutscenes/Victory Screen.png"
+dest_files=["res://.godot/imported/Victory Screen.png-f81bbf50aaad13ed47d62a2272f7ec76.ctex"]
 
 [params]
 
