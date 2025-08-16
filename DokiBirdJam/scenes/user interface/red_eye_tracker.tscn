@@ -1,10 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cugs3vytqirn3"]
+[gd_scene load_steps=5 format=3 uid="uid://cugs3vytqirn3"]
 
 [ext_resource type="PackedScene" uid="uid://y0c1grh7psfw" path="res://scenes/objects/ui/ability_button.tscn" id="1_imnhw"]
 [ext_resource type="Script" uid="uid://dwm6it055mb53" path="res://scenes/scripts/scenes/red_eye_tracker.gd" id="2_y58y4"]
+[ext_resource type="Texture2D" uid="uid://ccsvg4n0m1cyd" path="res://assets/ui/Wallhack Icon Grey.png" id="3_skc8i"]
+[ext_resource type="Texture2D" uid="uid://4gb0ptivayv1" path="res://assets/ui/Wallhack Icon Color.png" id="4_jc6ya"]
 
 [node name="RedEyeTracker" instance=ExtResource("1_imnhw")]
 script = ExtResource("2_y58y4")
 
 [node name="ReadyTracker" parent="." index="0"]
+offset_left = -49.9107
+offset_top = -51.3786
+offset_right = 66.0333
+offset_bottom = 66.3214
+scale = Vector2(0.683813, 0.648205)
 value = 100.0
+fill_mode = 3
+texture_under = ExtResource("3_skc8i")
+texture_progress = ExtResource("4_jc6ya")
+
+[node name="TimeRemaining" parent="ReadyTracker" index="0"]
+offset_left = -18.9597
+offset_top = 136.372
+offset_right = 19.0403
+offset_bottom = 148.372
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26

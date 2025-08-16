@@ -6,15 +6,16 @@ var aim_bot_tracker_scene : PackedScene = preload("res://scenes/user interface/a
 
 func _ready():
 	Status.doki_health_change.connect(_doki_health_change)
-	#Status.connect("doki_ammo_change", _doki_ammo_change)
+	Status.connect("doki_ammo_change", _doki_ammo_change)
 	Status.enemies_remaining_change.connect(_enemies_remaining_change)
+	_get_max_hp()
 	_check_all_abilities()
 
 func _doki_health_change():
 	$HpBar.value = Status.doki_health
 
-#func _doki_ammo_change():
-#	$AmmoTracker.value = Status.doki_ammo
+func _doki_ammo_change():
+	$AmmoTracker.value = Status.doki_ammo
 
 func _enemies_remaining_change():
 	$DragoonCounter/Label.text = str(Status.enemies_remaining)
@@ -51,3 +52,17 @@ func _get_aim_bot(ability_marker):
 	aim_bot_tracker.position = ability_marker.position
 	print("aim bot tracker spawned")
 	get_node("AbilityTrackers").add_child(aim_bot_tracker)
+
+func _get_max_hp():
+	if Status.doki_max_health == 10:
+		$HpBar.set_under_texture(load("res://assets/ui/HP10Dead.png"))
+		$HpBar.set_progress_texture(load("res://assets/ui/HP10Alive.png"))
+		$HpBar.position = Vector2(200, -1)
+	elif Status.doki_max_health == 14:
+		$HpBar.set_under_texture(load("res://assets/ui/HP14Dead.png"))
+		$HpBar.set_progress_texture(load("res://assets/ui/HP14Alive.png"))
+		$HpBar.position = Vector2(310, -1)
+	elif Status.doki_max_health == 18:
+		$HpBar.set_under_texture(load("res://assets/ui/HP18Dead.png"))
+		$HpBar.set_progress_texture(load("res://assets/ui/HP18Alive.png"))
+		$HpBar.position = Vector2(540, -1)
