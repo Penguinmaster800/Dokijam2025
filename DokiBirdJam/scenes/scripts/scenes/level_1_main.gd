@@ -9,6 +9,7 @@ func _ready():
 	Status.level = 1
 	Status.doki_shot = 0
 	AudioManager.main_menu_music.stop()
+	AudioManager.game_over_music.stop()
 	AudioManager.level_one_music.play()
 	Status.score = 0
 	
