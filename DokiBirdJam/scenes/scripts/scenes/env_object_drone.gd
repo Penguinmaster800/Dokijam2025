@@ -13,6 +13,7 @@ var off_screen_threshold_right: int = 1400
 @onready var drone_box = $EnvObjectDroneBox as DroneBox
 
 func _ready() -> void:
+	health = max_health
 	var current_x = position.x
 	var dist_left = abs(current_x - position_x_left)
 	var dist_right = abs(current_x - position_x_right)
@@ -61,8 +62,6 @@ func handle_destroyed() -> void:
 		drone_box.current_stance = DroneBoxStatus.DROPPED
 
 	super.handle_destroyed()
-
-
 
 func _on_env_object_drone_box_tree_exited() -> void:
 	if current_stance == Stance.MOVE_TO_LEFT:
