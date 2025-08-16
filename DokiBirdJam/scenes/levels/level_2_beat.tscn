@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dfaaiidipll0q" path="res://scenes/scripts/scenes/level_2_beat.gd" id="1_r7wws"]
 [ext_resource type="Texture2D" uid="uid://dow885mnffefw" path="res://assets/cutscenes/Upgrade Box.png" id="2_hukhb"]
 [ext_resource type="PackedScene" uid="uid://byglw22sudck0" path="res://scenes/objects/ui/upgrade_selector.tscn" id="2_vfu2p"]
+[ext_resource type="Texture2D" uid="uid://574se1gkxa2" path="res://assets/SplashScreens/Screen 3.png" id="2_w6ja2"]
+[ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="3_e7n3i"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w6ja2"]
 texture = ExtResource("2_hukhb")
@@ -10,12 +12,15 @@ texture = ExtResource("2_hukhb")
 [node name="Level2Beat" type="Node2D"]
 script = ExtResource("1_r7wws")
 
-[node name="ColorRect" type="Panel" parent="."]
+
+[node name="ColorRect" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_w6ja2")
+texture = ExtResource("2_w6ja2")
+
 
 [node name="Label" type="Label" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -34,10 +39,12 @@ offset_left = 951.0
 offset_top = 569.0
 offset_right = 1203.0
 offset_bottom = 644.0
+scale = Vector2(1.25914, 1.25914)
+theme = ExtResource("3_e7n3i")
 theme_override_font_sizes/font_size = 48
 text = "Next Level"
 
 [node name="UpgradeSelector" parent="." instance=ExtResource("2_vfu2p")]
-position = Vector2(640, 360)
+
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

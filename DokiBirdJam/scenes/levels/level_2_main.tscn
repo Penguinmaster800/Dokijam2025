@@ -109,6 +109,8 @@ position = Vector2(921, 389)
 
 [node name="EnvObjectWarehouseElectricBox" parent="EnemyLayer/Row2/EnvObjects" index="0" instance=ExtResource("9_q42ud")]
 position = Vector2(529, 302)
+collision_layer = 16
+collision_mask = 1
 
 [node name="CoverObjectWarehouseR2" parent="EnemyLayer/Row2/Covers" index="0" instance=ExtResource("5_avj2m")]
 position = Vector2(640, 360)
@@ -152,6 +154,8 @@ position = Vector2(1124, 430)
 
 [node name="EnvObjectWarehouseWatercooler" parent="EnemyLayer/Row1/EnvObjects" index="0" instance=ExtResource("9_0kn7t")]
 position = Vector2(419, 431)
+collision_layer = 16
+collision_mask = 1
 
 [node name="CoverObjectWarehouseR1" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("5_tex7k")]
 position = Vector2(640, 360)

@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://haxra8p5x4k3"]
+
+[gd_scene load_steps=4 format=3 uid="uid://haxra8p5x4k3"]
 
 [ext_resource type="Script" uid="uid://by8raxh0sh0o5" path="res://scenes/scripts/scenes/level_3_beat.gd" id="1_b3lfu"]
-[ext_resource type="Texture2D" uid="uid://culsqgdv1pmql" path="res://assets/cutscenes/Victory Screen.png" id="2_d0o2o"]
-[ext_resource type="PackedScene" uid="uid://byglw22sudck0" path="res://scenes/objects/ui/upgrade_selector.tscn" id="2_iojjf"]
+[ext_resource type="Texture2D" uid="uid://54wbrobp6msg" path="res://assets/SplashScreens/Victory Screen.png" id="2_d0o2o"]
+[ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="3_lixee"]
+
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lixee"]
 texture = ExtResource("2_d0o2o")
@@ -20,12 +22,15 @@ shadow_size = 4
 [node name="Level3Beat" type="Node2D"]
 script = ExtResource("1_b3lfu")
 
-[node name="ColorRect" type="Panel" parent="."]
+
+[node name="ColorRect" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_lixee")
+texture = ExtResource("2_d0o2o")
+
 
 [node name="Label" type="Label" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -62,17 +67,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lixee")
 text = "Main Menu"
 
 [node name="Button" type="Button" parent="."]
-visible = false
-offset_left = 1019.0
-offset_top = 501.0
-offset_right = 1124.0
-offset_bottom = 576.0
-theme_override_font_sizes/font_size = 48
-text = "Play"
 
-[node name="UpgradeSelector" parent="." instance=ExtResource("2_iojjf")]
-visible = false
-position = Vector2(644, 343)
+offset_left = 786.0
+offset_top = 30.0
+offset_right = 1240.0
+offset_bottom = 105.0
+theme = ExtResource("3_lixee")
+theme_override_font_sizes/font_size = 48
+text = "Thank you for Playing!"
+
 
 [connection signal="pressed" from="ColorRect/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

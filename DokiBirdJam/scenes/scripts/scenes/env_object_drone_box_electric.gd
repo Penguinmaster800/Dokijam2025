@@ -1,5 +1,5 @@
 extends EnvObjectParent
-
+class_name ElectricDroneBox
 const DroneBoxStatus = EnumEnvObjectDroneBoxStatus.DroneBoxStatus
 var current_stance: DroneBoxStatus = DroneBoxStatus.SPAWN
 var drop_destination: Vector2
@@ -18,5 +18,6 @@ func _process(delta: float) -> void:
 	position.y = move_toward(position.y, drop_destination.y, drop_speed * delta)
 
 func handle_destroyed() -> void:
+	AudioManager.dgj_electricity_2.play()
 	shock.emit(row_no, global_position, is_shocked)
 	super.handle_destroyed()
