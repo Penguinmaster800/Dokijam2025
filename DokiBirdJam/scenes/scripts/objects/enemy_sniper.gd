@@ -27,5 +27,8 @@ func attack():
 	pass
 
 func _on_timer_can_shoot_timeout() -> void:
+	if current_stance != Stance.ATTACK:
+		return
+
 	super.attack()
 	AudioManager.enemy_sniper_shot.play()
