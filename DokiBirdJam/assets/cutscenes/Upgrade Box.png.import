@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://culsqgdv1pmql"
-path="res://.godot/imported/Victory Screen.png-6daf1f838060ff8392185534e6a943d3.ctex"
+uid="uid://dow885mnffefw"
+path="res://.godot/imported/Upgrade Box.png-ecfc8f0e1edc26f792b483efdb7596c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Victory Screen.png"
-dest_files=["res://.godot/imported/Victory Screen.png-6daf1f838060ff8392185534e6a943d3.ctex"]
+source_file="res://assets/cutscenes/Upgrade Box.png"
+dest_files=["res://.godot/imported/Upgrade Box.png-ecfc8f0e1edc26f792b483efdb7596c4.ctex"]
 
 [params]
 
