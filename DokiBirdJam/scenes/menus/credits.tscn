@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://clvjg0jrmkasd"]
+[gd_scene load_steps=4 format=3 uid="uid://clvjg0jrmkasd"]
 
 [ext_resource type="Script" uid="uid://d25tmy2kcti3i" path="res://scenes/menus/credits.gd" id="1_iiqlc"]
 [ext_resource type="PackedScene" uid="uid://4ykogtci8enh" path="res://scenes/user interface/main_menu_button.tscn" id="1_kxfi0"]
+[ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="2_b2mra"]
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -26,17 +27,80 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -27.5
-offset_right = 27.5
-offset_bottom = 23.0
+offset_left = -95.0
+offset_top = 27.0
+offset_right = 99.0
+offset_bottom = 107.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme = ExtResource("2_b2mra")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 
 [node name="MainMenuButton" parent="." instance=ExtResource("1_kxfi0")]
 layout_mode = 1
-offset_left = 76.0
-offset_top = 131.0
-offset_right = -793.0
-offset_bottom = -311.0
+offset_left = 581.0
+offset_top = 635.0
+offset_right = -553.0
+offset_bottom = 8.0
+
+[node name="Label3" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 138.0
+offset_top = 138.0
+offset_right = 613.0
+offset_bottom = 573.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[b]Programmers[/b]
+[ul]ぱるぽ (Parupo1467)
+[ul]
+x.com/parupo1467
+https://github.com/parupo1467
+[/ul]
+Penguinmaster800
+[ul]
+twitch.tv/penguinmaster800
+https://github.com/Penguinmaster800
+https://x.com/pnguinmaster800 
+[/ul]
+[/ul]
+
+[b]Art Design[/b]
+[ul]
+CosmoGaze
+[ul]
+x.com/Cosmo_Gaze
+[/ul]
+Rat Tori
+[ul]
+x.com/RatToripng
+[/ul]
+[/ul]
+
+[b]Music / Sound Design[/b]
+[ul]
+CJ
+[ul]
+youtube.com/@TheGuru
+x.com/Nullify_lol
+[/ul]"
+
+[node name="Label2" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 650.0
+offset_top = 142.0
+offset_right = 1146.0
+offset_bottom = 539.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[b]SFX and Assets[/b]
+Pixbay - https://pixabay.com/
+Soundtrap Library - https://www.soundtrap.com/ 
+Kenny assets - www.kenney.nl
+
+[b]Special thanks to[/b]
+Mishii
+Torey"
