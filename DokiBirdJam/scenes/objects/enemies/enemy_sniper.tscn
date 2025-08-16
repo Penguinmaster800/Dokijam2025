@@ -1,8 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://dtqkerpbi7iai"]
+[gd_scene load_steps=32 format=3 uid="uid://dtqkerpbi7iai"]
 
 [ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_tekap"]
 [ext_resource type="Script" uid="uid://c8upwl5jrifs5" path="res://scenes/scripts/objects/enemy_sniper.gd" id="2_uf6m5"]
+[ext_resource type="Shader" uid="uid://byar7cuw2sr0a" path="res://shaders/hit_flash.tres" id="3_sn2ra"]
 [ext_resource type="Texture2D" uid="uid://irpurihhixrd" path="res://assets/enemies/enemy_dragoon_gunman.png" id="3_ttob7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yruso"]
+resource_local_to_scene = true
+shader = ExtResource("3_sn2ra")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4hpt"]
 radius = 13.7396
@@ -579,6 +586,7 @@ max_ammo = 1
 reload_time = 3.0
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_yruso")
 position = Vector2(0, 0)
 texture = ExtResource("3_ttob7")
 hframes = 3
