@@ -524,6 +524,10 @@ _data = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vt6jn"]
 
 [node name="Enemy" instance=ExtResource("1_bga1r")]
+max_health = 3
+movement_speed = 150
+fire_rate = 0.4
+max_ammo = 30
 
 [node name="DeathSprite" parent="." index="0"]
 frame = 31

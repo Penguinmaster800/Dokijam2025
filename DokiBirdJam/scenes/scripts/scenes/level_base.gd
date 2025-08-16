@@ -5,6 +5,7 @@ var reloading: bool = false
 var enemy_bullet_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_bullet.tscn")
 var enemy_gunman_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_gunman.tscn")
 var enemy_brute_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_brute.tscn")
+var enemy_heavy_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_heavy.tscn")
 var enemy_sniper_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper.tscn")
 var enemy_sniper_laser_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_sniper_laser.tscn")
 var enemy_stationary_scene: PackedScene = preload("res://scenes/objects/enemies/enemy_stationary.tscn")
@@ -256,6 +257,12 @@ func spawn_enemy_brute(row_no: EnumRowNo.RowNo):
 
 func spawn_enemy_brute_random_row():
 	spawn_enemy_random_row(enemy_brute_scene, EnemyType.BRUTE)
+	
+func spawn_enemy_heavy(row_no: EnumRowNo.RowNo):
+	spawn_enemy(enemy_heavy_scene, EnemyType.HEAVY, row_no)
+
+func spawn_enemy_heavy_random_row():
+	spawn_enemy_random_row(enemy_heavy_scene, EnemyType.BRUTE)
 
 func spawn_enemy_sniper(row_no: EnumRowNo.RowNo):
 	spawn_enemy(enemy_sniper_scene, EnemyType.SNIPER, row_no)

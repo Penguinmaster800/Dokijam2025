@@ -4,5 +4,6 @@ enum EnemyType {
 	GUNMAN,
 	BRUTE,
 	SNIPER,
-	STATIONARY
+	STATIONARY,
+	HEAVY
 }
