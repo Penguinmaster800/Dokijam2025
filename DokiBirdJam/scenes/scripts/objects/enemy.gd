@@ -266,6 +266,8 @@ func _on_timer_fire_rate_timeout() -> void:
 	attack()
 
 func apply_effect_wet():
+	if not is_wet:
+		movement_speed /= 1.5
 	is_wet = true
 	$TimerEffectWet.start()
 	
@@ -273,6 +275,8 @@ func apply_effect_wet():
 		$TimerEffectWetShockDamage.start()
 
 func apply_effect_shocked():
+	if not is_shocked:
+		fire_rate *= 1.5
 	is_shocked = true
 	$TimerEffectShock.start()
 	
@@ -284,10 +288,14 @@ func _on_timer_effect_wet_timeout() -> void:
 	$TimerEffectWetShockDamage.stop()
 
 func _on_timer_effect_shock_timeout() -> void:
+	if not is_wet:
+		return
 	is_shocked = false
 	$TimerEffectWetShockDamage.stop()
 
 func _on_timer_effect_wet_shock_damage_timeout() -> void:
+	if not is_shocked:
+		return
 	if is_wet and is_shocked:
 		handle_damage(1)
 		$TimerEffectWetShockDamage.start()	
