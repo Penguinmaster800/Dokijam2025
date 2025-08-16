@@ -10,7 +10,5 @@ variation_opentype = {
 }
 
 [resource]
-
 default_font = SubResource("FontVariation_x8oca")
 default_font_size = 16
-
