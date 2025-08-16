@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_ftd3u"]
 [ext_resource type="Texture2D" uid="uid://b6wfei6mhh0cr" path="res://assets/object/mansion/dokimansionYardLightActive.png" id="2_fl8lp"]
-[ext_resource type="Script" path="res://scenes/scripts/objects/env_object_mansion_yard_light.gd" id="2_xbhxq"]
+[ext_resource type="Script" uid="uid://dimimx2q60gy5" path="res://scenes/scripts/objects/env_object_mansion_yard_light.gd" id="2_xbhxq"]
 [ext_resource type="Texture2D" uid="uid://20v177txof0p" path="res://assets/object/mansion/dokimansionYardLightDestroyed.png" id="3_64adp"]
 
 [sub_resource type="Animation" id="Animation_xbhxq"]

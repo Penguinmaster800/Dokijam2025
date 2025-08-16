@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bnj6nkgi2nqyg"]
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_isml2"]
-[ext_resource type="Script" path="res://scenes/scripts/objects/env_object_mansion_sprinkler.gd" id="2_ltwqv"]
+[ext_resource type="Script" uid="uid://c34wm1kyvc1vy" path="res://scenes/scripts/objects/env_object_mansion_sprinkler.gd" id="2_ltwqv"]
 [ext_resource type="Texture2D" uid="uid://c0jgushbyw2tc" path="res://assets/object/mansion/dokimansionSprinklerActive.png" id="2_pyr1m"]
 [ext_resource type="Texture2D" uid="uid://ojwjakpjh3mn" path="res://assets/object/mansion/dokimansionSprinklerDestroyed.png" id="4_ltwqv"]
 
