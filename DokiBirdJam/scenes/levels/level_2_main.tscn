@@ -133,9 +133,6 @@ position = Vector2(640, 360)
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/SpawnPoints/SpawnPoint" index="0"]
 position = Vector2(1400, 460)
 
-[node name="CoverPoints" parent="EnemyLayer/Row1" index="1"]
-visible = false
-
 [node name="CoverPoint" parent="EnemyLayer/Row1/CoverPoints" index="0" instance=ExtResource("8_04yuh")]
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint/InCover" index="0"]
@@ -146,6 +143,14 @@ position = Vector2(518, 460)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint/OutOfCover" index="1"]
 position = Vector2(692, 460)
+
+[node name="CoverPoint2" parent="EnemyLayer/Row1/CoverPoints" index="1" instance=ExtResource("8_04yuh")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint2/InCover" index="0"]
+position = Vector2(1213, 460)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row1/CoverPoints/CoverPoint2/OutOfCover" index="0"]
+position = Vector2(1124, 430)
 
 [node name="EnvObjectWarehouseWatercooler" parent="EnemyLayer/Row1/EnvObjects" index="0" instance=ExtResource("9_0kn7t")]
 position = Vector2(419, 431)
@@ -191,3 +196,4 @@ texture = ExtResource("10_04yuh")
 [editable path="EnemyLayer/Row2/CoverPoints/CoverPoint2"]
 [editable path="EnemyLayer/Row1"]
 [editable path="EnemyLayer/Row1/CoverPoints/CoverPoint"]
+[editable path="EnemyLayer/Row1/CoverPoints/CoverPoint2"]

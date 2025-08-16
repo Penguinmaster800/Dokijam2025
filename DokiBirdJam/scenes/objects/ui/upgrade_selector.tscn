@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=7 format=3 uid="uid://byglw22sudck0"]
 
 [ext_resource type="Script" uid="uid://cbv2obfuse14k" path="res://scenes/scripts/scenes/upgrade_selector.gd" id="1_dx0hn"]
@@ -64,6 +65,7 @@ _data = {
 &"Vanish": SubResource("Animation_5012h")
 }
 
+
 [node name="UpgradeSelector" type="Node2D"]
 script = ExtResource("1_dx0hn")
 
@@ -85,6 +87,7 @@ theme_override_colors/font_shadow_color = Color(0.489622, 0.489622, 0.489622, 1)
 theme_override_font_sizes/font_size = 85
 text = "Choose an Upgrade!"
 
+
 [node name="UpgradeLocations" type="Node2D" parent="."]
 position = Vector2(631, 331)
 
@@ -92,6 +95,7 @@ position = Vector2(631, 331)
 position = Vector2(-48, -65)
 
 [node name="upgrade_2" type="Marker2D" parent="UpgradeLocations"]
+
 position = Vector2(142, 24)
 
 [node name="upgrade_3" type="Marker2D" parent="UpgradeLocations"]
@@ -101,3 +105,4 @@ position = Vector2(-37, 52)
 libraries = {
 &"": SubResource("AnimationLibrary_pnt0o")
 }
+
