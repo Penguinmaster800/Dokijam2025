@@ -5,8 +5,11 @@ var stationary_position: StationaryPointData
 var _reached_stationary_position: bool = false
 
 func _ready() -> void:
-	spawn_move_position = stationary_position.stationary_point_positions[0]
 	super._ready()
+	if stationary_position.stationary_point_positions[0].x < global_position.x:
+		scale.x = abs(calculated_scale)
+	else:
+		scale.x = -abs(calculated_scale)
 
 func _process(delta: float) -> void:
 	if current_stance == Stance.DEATH:
