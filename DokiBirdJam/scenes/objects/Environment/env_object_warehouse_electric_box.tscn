@@ -1,9 +1,24 @@
 [gd_scene load_steps=8 format=3 uid="uid://b3m8glhw43puq"]
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_5f612"]
-[ext_resource type="Script" uid="uid://fg5yhttus8o4" path="res://scenes/scripts/objects/env_object_warehouse_electric_box.gd" id="2_m5clx"]
+[ext_resource type="Script" path="res://scenes/scripts/objects/env_object_warehouse_electric_box.gd" id="2_m5clx"]
 [ext_resource type="Texture2D" uid="uid://b8j20a4r7osn4" path="res://assets/object/warehouse/Interactable/WarehouseElectricBox.png" id="2_rwj2o"]
 [ext_resource type="Texture2D" uid="uid://diyy3ieacllei" path="res://assets/object/warehouse/Interactable/WarehouseElectricBoxDestroyed.png" id="4_m5clx"]
+
+[sub_resource type="Animation" id="Animation_gcyyr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_rwj2o")]
+}
 
 [sub_resource type="Animation" id="Animation_rwj2o"]
 resource_name = "destroyed"
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("2_rwj2o"), ExtResource("4_m5clx")]
-}
-
-[sub_resource type="Animation" id="Animation_gcyyr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_rwj2o")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m5clx"]

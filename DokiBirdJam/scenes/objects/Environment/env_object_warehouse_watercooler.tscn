@@ -1,9 +1,24 @@
 [gd_scene load_steps=8 format=3 uid="uid://dd8gebcccbxv6"]
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_lvhgi"]
-[ext_resource type="Script" uid="uid://s7gl0pcdqeku" path="res://scenes/scripts/objects/env_object_warehouse_watercooler.gd" id="2_255eo"]
+[ext_resource type="Script" path="res://scenes/scripts/objects/env_object_warehouse_watercooler.gd" id="2_255eo"]
 [ext_resource type="Texture2D" uid="uid://bbdnylaqfti64" path="res://assets/object/warehouse/Interactable/WarehouseWAtercooler.png" id="2_fyjwr"]
 [ext_resource type="Texture2D" uid="uid://c3kuf6svvmqhj" path="res://assets/object/warehouse/Interactable/WarehouseWAtercoolerDestroyed.png" id="3_fyjwr"]
+
+[sub_resource type="Animation" id="Animation_255eo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fyjwr")]
+}
 
 [sub_resource type="Animation" id="Animation_lvhgi"]
 resource_name = "destroyed"
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("2_fyjwr"), ExtResource("3_fyjwr")]
-}
-
-[sub_resource type="Animation" id="Animation_255eo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_fyjwr")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fyjwr"]
