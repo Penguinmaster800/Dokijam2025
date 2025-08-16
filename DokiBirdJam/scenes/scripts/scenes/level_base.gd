@@ -33,7 +33,7 @@ const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
 var explosion_drone = env_object_drone_scene
 var water_drone = env_object_drone_water_scene
 var electric_drone = env_object_drone_electric_scene
-var random_drone := [explosion_drone, explosion_drone, electric_drone]
+var random_drone := [explosion_drone, water_drone, electric_drone]
 
 func level_startup():
 	var vp = get_viewport()
