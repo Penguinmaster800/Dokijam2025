@@ -10,6 +10,7 @@ func _ready():
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.level = 3
 	Status.doki_shot = 0
+	AudioManager.game_over_music.stop()
 	AudioManager.level_three_music.play()
 	AudioManager.level_two_music.stop()
 	setup_enemy_waves(8)
