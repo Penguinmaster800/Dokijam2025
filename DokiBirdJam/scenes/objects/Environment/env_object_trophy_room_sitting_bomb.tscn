@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh6us7wqx1fv0"]
+
+[ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_hqwpv"]
+[ext_resource type="Texture2D" uid="uid://rro7avoj73xr" path="res://assets/object/trophyRoom/TrophyRoomSittingBomb.png" id="2_malhk"]
+
+[node name="EnvObjectTrophyRoomSittingBomb" instance=ExtResource("1_hqwpv")]
+object_type = 3
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_malhk")
