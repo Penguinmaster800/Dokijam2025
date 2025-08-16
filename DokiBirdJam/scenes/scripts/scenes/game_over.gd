@@ -13,7 +13,7 @@ func _ready():
 func _on_retry_button_pressed() -> void:
 	match Status.level:
 		1:
-			TransitionLayer.change_scene("res://scenes/levels/level_1_main.tscn")
+			TransitionLayer.change_scene("res://scenes/levels/level_1_intro.tscn")
 #		2:
 #			TransitionLayer.change_scene("res://scenes/levels/level_2_main.tscn")
 #		3:
