@@ -547,3 +547,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_pgtg3"),
 &"heavy": SubResource("AnimationLibrary_vt6jn")
 }
+
+[node name="Marker2D" parent="BulletStartPosition" index="0"]
+position = Vector2(-76, 13)

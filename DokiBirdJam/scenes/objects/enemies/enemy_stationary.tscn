@@ -404,4 +404,4 @@ libraries = {
 wait_time = 0.1
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]
-position = Vector2(-33, -46)
+position = Vector2(-42, -44)
