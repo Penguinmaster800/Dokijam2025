@@ -61,6 +61,20 @@ position = Vector2(319, 263)
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint/OutOfCover" index="0"]
 position = Vector2(392, 263)
 
+[node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint/OutOfCover" index="1"]
+position = Vector2(169, 263)
+
+[node name="CoverPoint2" parent="EnemyLayer/Row3/CoverPoints" index="1" instance=ExtResource("8_04yuh")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint2/InCover" index="0"]
+position = Vector2(547, 263)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint2/OutOfCover" index="0"]
+position = Vector2(491, 263)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row3/CoverPoints/CoverPoint2/OutOfCover" index="1"]
+position = Vector2(614, 263)
+
 [node name="CoverObjectWarehouseR32" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("7_lucow")]
 position = Vector2(640, 360)
 
@@ -79,6 +93,14 @@ position = Vector2(389, 360)
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint/OutOfCover" index="0"]
 position = Vector2(314, 360)
+
+[node name="CoverPoint2" parent="EnemyLayer/Row2/CoverPoints" index="1" instance=ExtResource("8_04yuh")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint2/InCover" index="0"]
+position = Vector2(731, 360)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row2/CoverPoints/CoverPoint2/OutOfCover" index="0"]
+position = Vector2(805.92, 360)
 
 [node name="StationaryPoint" parent="EnemyLayer/Row2/StationaryPoints" index="0" instance=ExtResource("7_dpdh3")]
 
@@ -159,7 +181,9 @@ texture = ExtResource("10_04yuh")
 [editable path="EnemyLayer/Row4/CoverPoints/CoverPoint"]
 [editable path="EnemyLayer/Row3"]
 [editable path="EnemyLayer/Row3/CoverPoints/CoverPoint"]
+[editable path="EnemyLayer/Row3/CoverPoints/CoverPoint2"]
 [editable path="EnemyLayer/Row2"]
 [editable path="EnemyLayer/Row2/CoverPoints/CoverPoint"]
+[editable path="EnemyLayer/Row2/CoverPoints/CoverPoint2"]
 [editable path="EnemyLayer/Row1"]
 [editable path="EnemyLayer/Row1/CoverPoints/CoverPoint"]
