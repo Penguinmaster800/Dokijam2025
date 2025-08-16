@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dui184blbuwpr"
-path="res://.godot/imported/background_mansion.png-51238216f00a4f2a0c2bf1c643f37518.ctex"
+uid="uid://20v177txof0p"
+path="res://.godot/imported/dokimansionYardLightDestroyed.png-945b34a1ab993351e1ba2f3e4dd10d49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/object/background_mansion.png"
-dest_files=["res://.godot/imported/background_mansion.png-51238216f00a4f2a0c2bf1c643f37518.ctex"]
+source_file="res://assets/object/mansion/dokimansionYardLightDestroyed.png"
+dest_files=["res://.godot/imported/dokimansionYardLightDestroyed.png-945b34a1ab993351e1ba2f3e4dd10d49.ctex"]
 
 [params]
 

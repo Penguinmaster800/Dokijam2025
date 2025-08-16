@@ -1,9 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnj6nkgi2nqyg"]
+[gd_scene load_steps=8 format=3 uid="uid://bnj6nkgi2nqyg"]
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_isml2"]
-[ext_resource type="Texture2D" uid="uid://c0jgushbyw2tc" path="res://assets/object/dokimansionSprinklerActive.png" id="2_pyr1m"]
+[ext_resource type="Script" uid="uid://c34wm1kyvc1vy" path="res://scenes/scripts/objects/env_object_mansion_sprinkler.gd" id="2_ltwqv"]
+[ext_resource type="Texture2D" uid="uid://c0jgushbyw2tc" path="res://assets/object/mansion/dokimansionSprinklerActive.png" id="2_pyr1m"]
+[ext_resource type="Texture2D" uid="uid://ojwjakpjh3mn" path="res://assets/object/mansion/dokimansionSprinklerDestroyed.png" id="4_ltwqv"]
+
+[sub_resource type="Animation" id="Animation_pyr1m"]
+resource_name = "destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_pyr1m"), ExtResource("4_ltwqv")]
+}
+
+[sub_resource type="Animation" id="Animation_xqx3s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_pyr1m")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ltwqv"]
+_data = {
+&"RESET": SubResource("Animation_xqx3s"),
+&"destroyed": SubResource("Animation_pyr1m")
+}
 
 [node name="EnvObjectMansionSprinkler" instance=ExtResource("1_isml2")]
+script = ExtResource("2_ltwqv")
 object_type = 4
 
 [node name="Sprite2D" parent="." index="0"]
@@ -13,3 +53,8 @@ texture = ExtResource("2_pyr1m")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 polygon = PackedVector2Array(-4, 0, -4, -23, -8, -24, -8, -44, -1, -45, 3, -45, 8, -43, 8, -22, 5, -23, 6, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_ltwqv")
+}

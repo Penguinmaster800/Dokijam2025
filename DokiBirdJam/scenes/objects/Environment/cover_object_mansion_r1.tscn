@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://o2krh3yv5u14"]
 
 [ext_resource type="PackedScene" uid="uid://d1ajt4tf4la11" path="res://scenes/objects/Environment/cover_object.tscn" id="1_l7xbf"]
-[ext_resource type="Texture2D" uid="uid://cybt86ponldkb" path="res://assets/object/cover_object_mansion_r1.png" id="2_wbn06"]
+[ext_resource type="Texture2D" uid="uid://cybt86ponldkb" path="res://assets/object/mansion/cover_object_mansion_r1.png" id="2_wbn06"]
 
 [node name="CoverObjectMansionR1" instance=ExtResource("1_l7xbf")]
 
