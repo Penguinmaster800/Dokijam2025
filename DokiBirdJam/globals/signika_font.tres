@@ -1,7 +1,14 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://7oviojouonkk"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://7oviojouonkk"]
 
 [ext_resource type="FontFile" uid="uid://84vj3n3ic2cn" path="res://assets/fonts/signika.ttf" id="1_x8oca"]
 
+[sub_resource type="FontVariation" id="FontVariation_x8oca"]
+base_font = ExtResource("1_x8oca")
+variation_opentype = {
+1196572996: 0,
+2003265652: 400
+}
+
 [resource]
-default_font = ExtResource("1_x8oca")
+default_font = SubResource("FontVariation_x8oca")
 default_font_size = 16
