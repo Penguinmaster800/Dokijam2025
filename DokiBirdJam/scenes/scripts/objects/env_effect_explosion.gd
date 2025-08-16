@@ -7,6 +7,7 @@ var rad: int = 200
 
 func _ready() -> void:
 	_set_collison_circle()
+	AudioManager.dgj_explosion_fixed.play()
 #	queue_redraw()
 	$AnimatedSprite2D.play()
 	await $AnimatedSprite2D.animation_finished
