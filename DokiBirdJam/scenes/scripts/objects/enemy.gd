@@ -73,8 +73,8 @@ func _ready() -> void:
 	Abilities.aim_bot_activate.connect(_aim_bot_target)
 	Abilities.red_eye_cover_change.connect(_red_eye_target)
 	$AnimationPlayer.play("Run")
-	if spawn_move_position.x > global_position.x:
-		scale.x = calculated_scale * -1
+	if spawn_move_position.x < global_position.x:
+		scale.x = -abs(calculated_scale)
 
 func _process(delta: float) -> void:
 
