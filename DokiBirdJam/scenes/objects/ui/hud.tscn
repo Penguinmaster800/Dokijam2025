@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvjmoe3acpb6"]
+[gd_scene load_steps=10 format=3 uid="uid://bvjmoe3acpb6"]
 
 [ext_resource type="Script" uid="uid://bfu4hwsm2iuy4" path="res://scenes/scripts/scenes/hud.gd" id="1_vinhp"]
-[ext_resource type="Texture2D" uid="uid://dt3rxq4mcmsng" path="res://assets/ui/health_empty.png" id="2_bk1an"]
-[ext_resource type="Texture2D" uid="uid://d0jfokd1sw2j8" path="res://assets/ui/health_full.png" id="3_av8p5"]
+[ext_resource type="Texture2D" uid="uid://5xdkg84qng21" path="res://assets/ui/HP10Dead.png" id="2_e4dsg"]
+[ext_resource type="Texture2D" uid="uid://b8qrgqn2fvmpc" path="res://assets/ui/HP10Alive.png" id="3_pvsj6"]
 [ext_resource type="PackedScene" uid="uid://dd5tqul65krab" path="res://scenes/user interface/score_tracker.tscn" id="4_av8p5"]
+[ext_resource type="Texture2D" uid="uid://b2hrsodw76x5f" path="res://assets/ui/6 bullets empty.png" id="4_e4dsg"]
 [ext_resource type="Script" uid="uid://ckhvoibeq1gtr" path="res://scenes/scripts/scenes/time_left_panel.gd" id="4_k4aum"]
 [ext_resource type="Texture2D" uid="uid://crxvs3hxnlb7" path="res://assets/object/enemy_attack.png" id="5_e4dsg"]
+[ext_resource type="Texture2D" uid="uid://d03m5nrw5h4b6" path="res://assets/ui/6 bullets full.png" id="5_pvsj6"]
 [ext_resource type="PackedScene" uid="uid://bnsha6fgbgpfa" path="res://scenes/user interface/crosshair_swapper.tscn" id="6_bk1an"]
 
 [node name="Hud" type="CanvasLayer"]
@@ -15,79 +17,87 @@ script = ExtResource("1_vinhp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 203.0
-offset_top = 539.0
-offset_right = 236.0
-offset_bottom = 553.0
+offset_left = 200.0
+offset_top = -1.0
+offset_right = 233.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.23956, 0.23956)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 max_value = 10.0
 value = 10.0
-fill_mode = 4
-texture_under = ExtResource("2_bk1an")
-texture_progress = ExtResource("3_av8p5")
+texture_under = ExtResource("2_e4dsg")
+texture_progress = ExtResource("3_pvsj6")
 
 [node name="AmmoTracker" type="TextureProgressBar" parent="."]
-offset_left = 5.0
-offset_top = 215.0
-offset_right = 45.0
-offset_bottom = 255.0
+offset_left = 2.0
+offset_top = 144.0
+offset_right = 102.0
+offset_bottom = 484.0
 max_value = 6.0
-fill_mode = 2
-texture_under = ExtResource("2_bk1an")
-texture_progress = ExtResource("3_av8p5")
+fill_mode = 3
+texture_under = ExtResource("4_e4dsg")
+texture_progress = ExtResource("5_pvsj6")
 
 [node name="ScoreTracker" parent="." instance=ExtResource("4_av8p5")]
-offset_left = 2.0
-offset_top = 25.0
-offset_right = 2.0
-offset_bottom = 25.0
+offset_left = 4.0
+offset_top = 45.0
+offset_right = 4.0
+offset_bottom = 45.0
 
 [node name="TimeLeft" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 44.0
+offset_bottom = 43.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
 
 [node name="TimeLeftPanel" type="Panel" parent="TimeLeft"]
 layout_mode = 0
 offset_left = 2.0
-offset_right = 142.0
-offset_bottom = 23.0
+offset_right = 191.0
+offset_bottom = 37.0
 script = ExtResource("4_k4aum")
 
 [node name="minute" type="Label" parent="TimeLeft/TimeLeftPanel"]
 layout_mode = 0
-offset_left = 1.0
-offset_right = 26.0
-offset_bottom = 23.0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 28.0
+offset_bottom = 29.0
 text = "10"
 horizontal_alignment = 1
 
 [node name="second" type="Label" parent="TimeLeft/TimeLeftPanel"]
 layout_mode = 0
-offset_left = 27.0
-offset_right = 48.0
-offset_bottom = 23.0
+offset_left = 29.0
+offset_top = 6.0
+offset_right = 50.0
+offset_bottom = 29.0
 text = "10"
 horizontal_alignment = 1
 
 [node name="milisecond" type="Label" parent="TimeLeft/TimeLeftPanel"]
 layout_mode = 0
-offset_left = 54.0
-offset_right = 73.0
-offset_bottom = 23.0
+offset_left = 56.0
+offset_top = 6.0
+offset_right = 75.0
+offset_bottom = 29.0
 text = "10"
 horizontal_alignment = 1
 
 [node name="DragoonCounter" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 99.0
-offset_right = 139.0
-offset_bottom = 40.0
+offset_left = 115.0
+offset_top = 8.0
+offset_right = 155.0
+offset_bottom = 48.0
 
 [node name="TextureRect" type="TextureRect" parent="DragoonCounter"]
 layout_mode = 0

@@ -20,7 +20,7 @@ var level: int = 1:
 		level = value
 		level_change.emit()
 
-var doki_max_health: int = 1:
+var doki_max_health: int = 10:
 	set(value):
 		doki_max_health = value
 		doki_max_health_change.emit()
