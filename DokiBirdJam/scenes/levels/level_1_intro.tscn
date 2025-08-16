@@ -1,23 +1,16 @@
-
 [gd_scene load_steps=4 format=3 uid="uid://hb8irlauocf6"]
 
 [ext_resource type="Script" uid="uid://cclq57k5wgh4m" path="res://scenes/scripts/scenes/level_1_intro.gd" id="1_8j7wv"]
 [ext_resource type="Texture2D" uid="uid://b0ficl7q0ngp6" path="res://assets/SplashScreens/Screen 1.png" id="2_lbpve"]
-
 [ext_resource type="PackedScene" uid="uid://byglw22sudck0" path="res://scenes/objects/ui/upgrade_selector.tscn" id="2_tahbe"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mdh41"]
-texture = ExtResource("2_lbpve")
 
 [node name="Level1Intro" type="Node2D"]
 script = ExtResource("1_8j7wv")
-
 
 [node name="ColorRect" type="TextureRect" parent="."]
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("2_lbpve")
-
 
 [node name="Label" type="Label" parent="ColorRect"]
 visible = false
@@ -34,7 +27,6 @@ theme_override_font_sizes/font_size = 64
 text = "Level 1 Intro"
 
 [node name="Button" type="Button" parent="."]
-visible = false
 offset_left = 1019.0
 offset_top = 501.0
 offset_right = 1124.0
@@ -43,7 +35,6 @@ theme_override_font_sizes/font_size = 48
 text = "Play"
 
 [node name="UpgradeSelector" parent="." instance=ExtResource("2_tahbe")]
-
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cebdebfptql0p"]
+[gd_scene load_steps=10 format=3 uid="uid://cebdebfptql0p"]
 
 [ext_resource type="Script" uid="uid://bia2hodc02em6" path="res://scenes/scripts/scenes/main_menu.gd" id="1_6bivr"]
 [ext_resource type="Texture2D" uid="uid://btbxqco1iglag" path="res://assets/ui/titlescreen.png" id="2_6bivr"]
@@ -65,12 +65,10 @@ texture = ExtResource("4_imvie")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-
 offset_left = 36.0
 offset_top = 46.0
 offset_right = 462.0
 offset_bottom = 374.0
-
 theme = ExtResource("3_8r73w")
 theme_override_constants/separation = 20
 
