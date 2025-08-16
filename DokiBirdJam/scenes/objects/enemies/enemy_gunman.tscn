@@ -1,12 +1,19 @@
-[gd_scene load_steps=35 format=3 uid="uid://byjv058djw8av"]
+[gd_scene load_steps=37 format=3 uid="uid://byjv058djw8av"]
 
 [ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_yphfb"]
 [ext_resource type="Texture2D" uid="uid://irpurihhixrd" path="res://assets/enemies/enemy_dragoon_gunman.png" id="2_f4hpt"]
+[ext_resource type="Shader" uid="uid://byar7cuw2sr0a" path="res://shaders/hit_flash.tres" id="2_ipwwu"]
 [ext_resource type="Animation" uid="uid://bwqwboawel1rl" path="res://assets/enemies/animations/RunBase.res" id="3_vngbr"]
 [ext_resource type="Animation" uid="uid://bcm6glhrnysfq" path="res://assets/enemies/animations/AttackBase.res" id="4_ipwwu"]
 [ext_resource type="Animation" uid="uid://bii05ifjgw4pr" path="res://assets/enemies/animations/AimBase.res" id="5_w137s"]
 [ext_resource type="Animation" uid="uid://jb25k7dsycv3" path="res://assets/enemies/animations/StopFireBase.res" id="6_k0ogr"]
 [ext_resource type="Animation" uid="uid://bih7rkton1gl3" path="res://assets/enemies/animations/HideBase.res" id="7_sb0yu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w137s"]
+resource_local_to_scene = true
+shader = ExtResource("2_ipwwu")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4hpt"]
 radius = 13.7396
@@ -321,6 +328,7 @@ movement_speed = 200
 max_ammo = 2
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_w137s")
 position = Vector2(-22, -57)
 scale = Vector2(0.948, 0.948)
 texture = ExtResource("2_f4hpt")
@@ -350,7 +358,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_fvr6i")
 }
 
-[node name="BulletStartPosition" parent="." index="9"]
+[node name="BulletStartPosition" parent="." index="10"]
 position = Vector2(0, -64)
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]

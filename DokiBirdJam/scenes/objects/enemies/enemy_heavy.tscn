@@ -1,14 +1,23 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnul33vl5v0qw"]
+[gd_scene load_steps=15 format=3 uid="uid://bnul33vl5v0qw"]
 
 [ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_bga1r"]
 [ext_resource type="Texture2D" uid="uid://b1vokhs68myvr" path="res://assets/enemies/Heavy Dragoon.png" id="2_vt6jn"]
+[ext_resource type="Shader" uid="uid://byar7cuw2sr0a" path="res://shaders/hit_flash.tres" id="2_ynd3f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pgfoc"]
+resource_local_to_scene = true
+shader = ExtResource("2_ynd3f")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ynd3f"]
 height = 78.0
 
 [sub_resource type="Animation" id="Animation_pgfoc"]
 resource_name = "Aim"
+
 length = 0.56
+
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,10 +25,12 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [8, 10, 11, 12, 13, 14]
+
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -30,8 +41,10 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+
 "update": 1,
 "values": [SubResource("CapsuleShape2D_ynd3f")]
+
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -52,10 +65,12 @@ tracks/3/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+
 "times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [PackedVector2Array(142, 71, 134, 120, 137, 125, 135, 137, 145, 148, 164, 157, 165, 160, 162, 169, 168, 170, 171, 176, 176, 173, 180, 178, 187, 168, 189, 160, 201, 160, 203, 170, 210, 179, 215, 174, 220, 176, 223, 170, 228, 170, 225, 163, 225, 158, 235, 152, 246, 150, 251, 145, 254, 136, 250, 135, 247, 80, 228, 73, 202, 67, 170, 66, 145, 68), PackedVector2Array(131, 94, 129, 109, 128, 123, 130, 133, 139, 145, 167, 157, 165, 160, 162, 169, 168, 170, 171, 176, 176, 173, 180, 178, 187, 168, 189, 160, 201, 160, 203, 170, 210, 179, 215, 174, 220, 176, 223, 170, 228, 170, 225, 163, 224, 156, 226, 154, 237, 149, 244, 145, 250, 136, 243, 134, 240, 78, 228, 73, 202, 67, 170, 66, 145, 68, 136, 71), PackedVector2Array(130, 94, 128, 109, 127, 123, 128, 134, 139, 145, 151, 153, 167, 157, 165, 160, 162, 169, 168, 170, 171, 176, 176, 173, 180, 178, 187, 168, 189, 160, 201, 160, 203, 170, 210, 179, 215, 174, 220, 176, 223, 170, 228, 170, 225, 163, 224, 156, 226, 154, 234, 148, 240, 140, 243, 134, 240, 78, 228, 73, 202, 67, 170, 66, 145, 68, 134, 71), PackedVector2Array(132, 94, 130, 109, 129, 124, 129, 134, 146, 143, 151, 153, 167, 157, 165, 160, 162, 169, 168, 170, 171, 176, 176, 173, 180, 178, 187, 168, 189, 160, 201, 160, 203, 170, 210, 179, 215, 174, 220, 176, 223, 170, 228, 170, 225, 163, 224, 156, 226, 154, 234, 148, 241, 143, 248, 135, 243, 135, 240, 78, 228, 73, 202, 67, 170, 66, 145, 68, 136, 71)]
+
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -64,10 +79,12 @@ tracks/4/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Vector2(-181, -93), Vector2(-181, -93)]
+
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -81,6 +98,7 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, -66)]
 }
+
 
 [sub_resource type="Animation" id="Animation_ynd3f"]
 resource_name = "Attack"
@@ -277,6 +295,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_j1pss"]
 length = 0.001
+
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -284,10 +303,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -296,10 +315,10 @@ tracks/1/path = NodePath("Sprite2D/HitboxHead/CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(38, -7)]
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(38, -7), Vector2(36, -3), Vector2(38, -7), Vector2(36, -3), Vector2(36, -4)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -320,10 +339,10 @@ tracks/3/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 1), Vector2(0, 4), Vector2(0, 3), Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -332,10 +351,10 @@ tracks/4/path = NodePath("Sprite2D/Hitbox/CollisionShape2D:polygon")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [PackedVector2Array(-47, 9, -57, 10, -62, 7, -61, 14, -54, 28, -43, 40, -26, 49, -18, 53, -23, 69, -17, 69, -16, 74, -10, 71, -6, 76, -5, 69, 0, 67, 5, 61, 6, 58, 13, 58, 16, 62, 20, 64, 27, 71, 28, 68, 37, 68, 36, 64, 43, 62, 38, 56, 54, 56, 61, 52, 65, 49, 65, 41, 75, 41, 81, 38, 80, 32, 75, 21, 83, 11, 83, 7, 75, -2, 70, -21, 43, -21, -2, -15, -47, -4)]
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [PackedVector2Array(-47, 9, -57, 10, -62, 7, -61, 14, -54, 28, -43, 40, -26, 49, -18, 53, -23, 69, -17, 69, -16, 74, -10, 71, -6, 76, -5, 69, 0, 67, 5, 61, 6, 58, 13, 58, 16, 62, 20, 64, 27, 71, 28, 68, 37, 68, 36, 64, 43, 62, 38, 56, 54, 56, 61, 52, 65, 49, 65, 41, 75, 41, 81, 38, 80, 32, 75, 21, 83, 11, 83, 7, 75, -2, 70, -21, 43, -21, -2, -15, -47, -4), PackedVector2Array(-47, 9, -57, 10, -62, 7, -61, 14, -54, 28, -43, 40, -30, 49, -24, 53, -26, 66, -21, 64, -18, 71, -13, 68, -8, 74, -6, 66, -2, 62, 0, 59, 4, 58, 16, 77, 22, 83, 34, 85, 33, 80, 39, 80, 39, 75, 45, 74, 38, 68, 33, 58, 40, 55, 54, 55, 61, 52, 65, 49, 65, 41, 75, 41, 81, 38, 80, 32, 75, 21, 83, 11, 83, 7, 75, -2, 70, -21, 43, -21, -2, -15, -47, -4), PackedVector2Array(-47, 9, -57, 10, -62, 7, -61, 14, -54, 28, -43, 40, -28, 50, -17, 54, -17, 59, -11, 59, -11, 65, -4, 61, -3, 68, 2, 59, 4, 61, 5, 72, 12, 82, 16, 79, 22, 82, 24, 76, 30, 76, 25, 67, 24, 59, 38, 56, 54, 56, 61, 52, 65, 49, 65, 41, 75, 41, 81, 38, 80, 32, 75, 21, 83, 11, 83, 7, 75, -2, 70, -21, 43, -21, -2, -15, -47, -4), PackedVector2Array(-47, 9, -56, 9, -62, 7, -61, 14, -54, 27, -43, 38, -28, 48, -18, 52, -13, 54, -14, 59, -16, 68, -18, 76, -15, 83, -10, 81, -7, 84, -3, 85, -2, 81, 6, 82, 3, 74, 5, 68, 6, 63, 19, 71, 22, 74, 25, 70, 30, 70, 30, 64, 35, 63, 30, 55, 38, 56, 54, 56, 61, 52, 65, 49, 65, 41, 75, 41, 81, 38, 80, 32, 75, 21, 83, 11, 83, 7, 75, -2, 70, -21, 43, -21, -2, -15, -47, -4), PackedVector2Array(-47, 9, -57, 10, -62, 7, -61, 14, -54, 28, -43, 40, -26, 49, -18, 53, -23, 69, -17, 69, -16, 74, -10, 71, -6, 76, -5, 69, 0, 67, 5, 61, 6, 58, 13, 58, 16, 62, 20, 64, 27, 71, 28, 68, 37, 68, 36, 64, 43, 62, 38, 56, 54, 56, 61, 52, 65, 49, 65, 41, 75, 41, 81, 38, 80, 32, 75, 21, 83, 11, 83, 7, 75, -2, 70, -21, 43, -21, -2, -15, -47, -4)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -346,9 +365,10 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -66)]
 }
+
 
 [sub_resource type="Animation" id="Animation_vt6jn"]
 resource_name = "Run"
@@ -503,6 +523,7 @@ tracks/5/keys = {
 "values": [Vector2(0, -66)]
 }
 
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pgtg3"]
 _data = {
 &"Aim": SubResource("Animation_pgfoc"),
@@ -522,6 +543,9 @@ _data = {
 frame = 31
 
 [node name="Sprite2D" parent="." index="1"]
+
+material = SubResource("ShaderMaterial_pgfoc")
+
 texture = ExtResource("2_vt6jn")
 hframes = 8
 vframes = 3
