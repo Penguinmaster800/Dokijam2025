@@ -14,6 +14,7 @@ offset_bottom = 720.0
 texture = ExtResource("2_lbpve")
 
 [node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("3_mdh41")
