@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://upontktgvflk"]
+[gd_scene load_steps=5 format=3 uid="uid://upontktgvflk"]
 
 [ext_resource type="PackedScene" uid="uid://b0d202dxj0wqu" path="res://scenes/objects/ui/upgrade_choice.tscn" id="1_0grif"]
+[ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="2_0yn5a"]
 [ext_resource type="Script" uid="uid://byk8v7jd2kjhl" path="res://scenes/scripts/objects/red_eye_get.gd" id="2_7lb8o"]
 [ext_resource type="Texture2D" uid="uid://4gb0ptivayv1" path="res://assets/ui/Wallhack Icon Color.png" id="3_wdnwe"]
 
@@ -8,9 +9,14 @@
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_left = 427.0
+offset_top = 194.0
+offset_right = 427.0
+offset_bottom = 194.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.57, 0.57)
+theme = ExtResource("2_0yn5a")
 script = ExtResource("2_7lb8o")
 
 [node name="Button" parent="." index="0"]
@@ -18,10 +24,14 @@ tooltip_text = "Red Eye! Activate Doki's Red Eye and strike your targets no matt
 icon = ExtResource("3_wdnwe")
 
 [node name="Label" parent="." index="1"]
-offset_left = 47.3684
-offset_top = 135.088
-offset_right = 114.368
-offset_bottom = 158.088
+offset_left = 31.5789
+offset_top = 136.842
+offset_right = 130.579
+offset_bottom = 174.842
+scale = Vector2(0.622395, 0.622395)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
 text = "Red Eye"
 
 [connection signal="pressed" from="Button" to="." method="_on_red_eye_get_button_pressed"]

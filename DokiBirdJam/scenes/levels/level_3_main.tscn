@@ -45,6 +45,8 @@ position = Vector2(640, 360)
 
 [node name="EnvObjectTrophhyRoomSittingBomb" parent="EnemyLayer/Row2/Covers" index="3" instance=ExtResource("10_1ayn0")]
 position = Vector2(366, 268)
+collision_layer = 16
+collision_mask = 1
 
 [node name="SpawnPoint" parent="EnemyLayer/Row1/SpawnPoints" index="0" instance=ExtResource("4_bsbp7")]
 

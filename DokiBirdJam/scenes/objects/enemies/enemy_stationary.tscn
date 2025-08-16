@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://xfhb7l5lnrwu"]
+[gd_scene load_steps=33 format=3 uid="uid://xfhb7l5lnrwu"]
 
 [ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_xredn"]
 [ext_resource type="Texture2D" uid="uid://bc2v2kalneday" path="res://assets/enemies/enemy_dragoon_stationary.png" id="2_0l6b1"]
 [ext_resource type="Script" uid="uid://d23bcmwxcvl5s" path="res://scenes/scripts/objects/enemy_stationary.gd" id="2_i7ccm"]
 [ext_resource type="Shader" uid="uid://byar7cuw2sr0a" path="res://shaders/hit_flash.tres" id="3_1rtrv"]
+[ext_resource type="Texture2D" uid="uid://b13jatklwfky0" path="res://assets/object/warehouse/the dragoon cart/cartForGoon.png" id="3_3ms0x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ms0x"]
 resource_local_to_scene = true
@@ -372,7 +373,15 @@ fire_rate = 0.2
 max_ammo = 50
 reload_time = 8.0
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="TextureRect" type="TextureRect" parent="." index="1"]
+offset_left = -121.0
+offset_top = -101.0
+offset_right = 712.0
+offset_bottom = 362.0
+scale = Vector2(0.279624, 0.279624)
+texture = ExtResource("3_3ms0x")
+
+[node name="Sprite2D" parent="." index="2"]
 material = SubResource("ShaderMaterial_3ms0x")
 position = Vector2(0, -92)
 texture = ExtResource("2_0l6b1")
@@ -388,19 +397,19 @@ shape = SubResource("CapsuleShape2D_i7ccm")
 [node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
 polygon = PackedVector2Array(52, -94, 50, -81, 59, -79, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -28, 48, -41, 43, -41, 26, -33, 20, -23, 6, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -48, 0, -68, 7, -82, 28, -91, 41, -95)
 
-[node name="AnimatedSprite2D" parent="." index="2"]
+[node name="AnimatedSprite2D" parent="." index="3"]
 visible = false
 position = Vector2(0, -85)
 scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_xredn")
 animation = &"Attack"
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 &"": SubResource("AnimationLibrary_1rtrv")
 }
 
-[node name="TimerFireRate" parent="." index="6"]
+[node name="TimerFireRate" parent="." index="7"]
 wait_time = 0.1
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]

@@ -295,6 +295,7 @@ wait_time = 5.0
 wait_time = 5.0
 
 [node name="TimerEffectWetShockDamage" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="BulletStartPosition" type="Node2D" parent="."]
 

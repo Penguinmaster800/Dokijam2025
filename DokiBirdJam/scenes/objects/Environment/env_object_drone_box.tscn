@@ -8,6 +8,7 @@
 size = Vector2(41, 53)
 
 [node name="EnvObjectDroneBox" instance=ExtResource("1_fw1m3")]
+collision_mask = 56
 script = ExtResource("2_sb755")
 
 [node name="Sprite2D" parent="." index="0"]

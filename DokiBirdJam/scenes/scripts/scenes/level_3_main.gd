@@ -9,7 +9,7 @@ func _ready():
 	Status.level = 3
 	Status.doki_shot = 0
 	AudioManager.level_three_music.play()
-	AudioManager.level_two_music.stop()
+	AudioManager.intermission_music.stop()
 	setup_enemy_waves(2)
 
 
