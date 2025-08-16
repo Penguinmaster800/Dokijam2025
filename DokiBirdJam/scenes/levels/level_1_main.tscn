@@ -40,6 +40,25 @@ position = Vector2(1328, 280)
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/SpawnPoints/SpawnPoint2" index="0"]
 position = Vector2(-58, 280)
 
+[node name="CoverPoint" parent="EnemyLayer/Row4/CoverPoints" index="0" instance=ExtResource("3_3fypp")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/CoverPoints/CoverPoint/InCover" index="0"]
+position = Vector2(214, 308)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/CoverPoints/CoverPoint/OutOfCover" index="0"]
+position = Vector2(289, 300)
+
+[node name="CoverPoint2" parent="EnemyLayer/Row4/CoverPoints" index="1" instance=ExtResource("3_3fypp")]
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/CoverPoints/CoverPoint2/InCover" index="0"]
+position = Vector2(569, 276)
+
+[node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/CoverPoints/CoverPoint2/OutOfCover" index="0"]
+position = Vector2(683, 272)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemyLayer/Row4/CoverPoints/CoverPoint2/OutOfCover" index="1"]
+position = Vector2(411, 275)
+
 [node name="StationaryPoint" parent="EnemyLayer/Row4/StationaryPoints" index="0" instance=ExtResource("5_mdfkt")]
 
 [node name="Marker2D" type="Marker2D" parent="EnemyLayer/Row4/StationaryPoints/StationaryPoint" index="0"]
@@ -146,6 +165,8 @@ scale = Vector2(0.5, 0.5)
 
 [editable path="EnemyLayer/Row4"]
 [editable path="EnemyLayer/Row4/SpawnPoints/SpawnPoint"]
+[editable path="EnemyLayer/Row4/CoverPoints/CoverPoint"]
+[editable path="EnemyLayer/Row4/CoverPoints/CoverPoint2"]
 [editable path="EnemyLayer/Row3"]
 [editable path="EnemyLayer/Row3/SpawnPoints/SpawnPoint1"]
 [editable path="EnemyLayer/Row3/CoverPoints/CoverPoint1"]
