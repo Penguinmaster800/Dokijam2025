@@ -1,8 +1,14 @@
-[gd_scene load_steps=39 format=3 uid="uid://8l40p14fjdd2"]
+[gd_scene load_steps=44 format=3 uid="uid://8l40p14fjdd2"]
 
 [ext_resource type="Script" uid="uid://bx3xlh8ifu4nf" path="res://scenes/scripts/objects/player.gd" id="1_1bf4k"]
 [ext_resource type="Texture2D" uid="uid://buklxsl1u3ihu" path="res://assets/player/Dokibird.png" id="2_0a575"]
+[ext_resource type="Shader" uid="uid://byar7cuw2sr0a" path="res://shaders/hit_flash.tres" id="2_nkbs0"]
 [ext_resource type="Script" uid="uid://nluatvbsew7r" path="res://scenes/scripts/objects/player_hit_detect.gd" id="3_0a575"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wim6f"]
+shader = ExtResource("2_nkbs0")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0a575"]
 atlas = ExtResource("2_0a575")
@@ -277,12 +283,50 @@ animations = [{
 radius = 17.0
 height = 41.2918
 
+[sub_resource type="Animation" id="Animation_gmdvr"]
+resource_name = "HitFlash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_nkbs0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_wim6f")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_io36v"]
+_data = {
+&"HitFlash": SubResource("Animation_gmdvr"),
+&"RESET": SubResource("Animation_nkbs0")
+}
+
 [node name="Dokibird" type="CharacterBody2D"]
 scale = Vector2(3.21163, 3.21163)
 collision_mask = 4
 script = ExtResource("1_1bf4k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_wim6f")
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_0a575")
 animation = &"InCover"
@@ -302,6 +346,11 @@ one_shot = true
 [node name="GoingGhostTimer" type="Timer" parent="."]
 wait_time = 6.0
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_io36v")
+}
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="PlayerHitbox" to="PlayerHitbox" method="_on_body_entered"]
