@@ -61,5 +61,8 @@ func handle_damage() -> void:
 		handle_destroyed()
 
 func handle_destroyed() -> void:
+	if object_type == EnumEnvObjectType.EnvObjectType.EXPLOSIVES:
+		$AnimationPlayer.play("explosion")
+		await $AnimationPlayer.animation_finished
 	object_destroyed.emit(object_type, row_no, global_position, is_shocked, is_wet)
 	queue_free()
