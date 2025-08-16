@@ -1,9 +1,16 @@
-[gd_scene load_steps=31 format=3 uid="uid://csf7ycrwqs03r"]
+[gd_scene load_steps=33 format=3 uid="uid://csf7ycrwqs03r"]
 
 [ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_qbjeo"]
 [ext_resource type="Script" uid="uid://be7ll7u6csn7b" path="res://scenes/scripts/objects/enemy_brute.gd" id="2_06mwg"]
+[ext_resource type="Shader" uid="uid://byar7cuw2sr0a" path="res://shaders/hit_flash.tres" id="3_5wxld"]
 [ext_resource type="Texture2D" uid="uid://irpurihhixrd" path="res://assets/enemies/enemy_dragoon_gunman.png" id="3_mlloj"]
 [ext_resource type="Texture2D" uid="uid://b5hvv4pxu831v" path="res://assets/enemies/Brute Dragoon.png" id="3_vyyow"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5wxld"]
+resource_local_to_scene = true
+shader = ExtResource("3_5wxld")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f4hpt"]
 radius = 22.548
@@ -636,6 +643,7 @@ fire_rate = 1.0
 max_ammo = 2
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_5wxld")
 position = Vector2(-8, -72)
 texture = ExtResource("3_vyyow")
 hframes = 8

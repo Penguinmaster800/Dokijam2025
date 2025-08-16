@@ -1,8 +1,15 @@
-[gd_scene load_steps=30 format=3 uid="uid://xfhb7l5lnrwu"]
+[gd_scene load_steps=32 format=3 uid="uid://xfhb7l5lnrwu"]
 
 [ext_resource type="PackedScene" uid="uid://cd0yfpmn5oeag" path="res://scenes/objects/enemies/enemy.tscn" id="1_xredn"]
 [ext_resource type="Texture2D" uid="uid://bc2v2kalneday" path="res://assets/enemies/enemy_dragoon_stationary.png" id="2_0l6b1"]
 [ext_resource type="Script" uid="uid://d23bcmwxcvl5s" path="res://scenes/scripts/objects/enemy_stationary.gd" id="2_i7ccm"]
+[ext_resource type="Shader" uid="uid://byar7cuw2sr0a" path="res://shaders/hit_flash.tres" id="3_1rtrv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ms0x"]
+resource_local_to_scene = true
+shader = ExtResource("3_1rtrv")
+shader_parameter/enabled = true
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i7ccm"]
 radius = 23.0
@@ -366,6 +373,7 @@ max_ammo = 50
 reload_time = 8.0
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_3ms0x")
 position = Vector2(0, -92)
 texture = ExtResource("2_0l6b1")
 hframes = 8
@@ -392,7 +400,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_1rtrv")
 }
 
-[node name="TimerFireRate" parent="." index="5"]
+[node name="TimerFireRate" parent="." index="6"]
 wait_time = 0.1
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]

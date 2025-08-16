@@ -3,6 +3,8 @@ class_name EnemyParent
 
 enum Stance {SPAWN, COVER, MOVE_TO_ATTACK, ATTACK, ATTACK_COOLDOWN, DEATH}
 
+@onready var hit_flash_animation_player = $HitFlashAnimationPlayer
+
 ## Max Health of the Enemy
 @export var max_health: int = 10
 ## Current Health of the Enemy
@@ -147,6 +149,7 @@ func handle_damage(multiplier: int = 1):
 	_damage = _damage * multiplier
 
 	health = health - _damage
+	hit_flash_animation_player.play("HitFlash")
 	
 	if health <= 0:
 		death()
