@@ -263,6 +263,7 @@ shape = SubResource("CapsuleShape2D_ynd3f")
 
 [node name="Hitbox" type="Area2D" parent="Sprite2D"]
 collision_layer = 8
+collision_mask = 33
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Sprite2D/Hitbox"]
 polygon = PackedVector2Array(-47, 9, -57, 10, -62, 7, -61, 14, -54, 28, -43, 40, -26, 49, -18, 53, -23, 69, -17, 69, -16, 74, -10, 71, -6, 76, -5, 69, 0, 67, 5, 61, 6, 58, 13, 58, 16, 62, 20, 64, 27, 71, 28, 68, 37, 68, 36, 64, 43, 62, 38, 56, 54, 56, 61, 52, 65, 49, 65, 41, 75, 41, 81, 38, 80, 32, 75, 21, 83, 11, 83, 7, 75, -2, 70, -21, 43, -21, -2, -15, -47, -4)

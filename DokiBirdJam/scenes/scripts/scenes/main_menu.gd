@@ -5,14 +5,14 @@ var no_ammo = preload("res://assets/ui/Crosshairs/No Ammo.png")
 func _ready():
 	Input.set_custom_mouse_cursor(no_ammo, Input.CURSOR_ARROW, Vector2(42, 49))
 	Status.doki_max_ammo = 6
-	Status.doki_max_health = 18
+	Status.doki_max_health = 10
 	AudioManager.game_over_music.stop()
 	AudioManager.level_one_music.stop()
 	AudioManager.level_two_music.stop()
 	AudioManager.level_three_music.stop()
 	if  ! AudioManager.main_menu_music.playing:
 		AudioManager.main_menu_music.play()
-	
+
 
 func _on_play_button_pressed() -> void:
 	TransitionLayer.change_scene("res://scenes/levels/level_1_intro.tscn")

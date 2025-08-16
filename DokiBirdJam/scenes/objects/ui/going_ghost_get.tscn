@@ -1,12 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://crwte3436h33k"]
+[gd_scene load_steps=4 format=3 uid="uid://crwte3436h33k"]
 
 [ext_resource type="PackedScene" uid="uid://b0d202dxj0wqu" path="res://scenes/objects/ui/upgrade_choice.tscn" id="1_odvip"]
 [ext_resource type="Script" uid="uid://de5kv7t6wirfk" path="res://scenes/scripts/objects/going_ghost_get.gd" id="2_tx31u"]
+[ext_resource type="Texture2D" uid="uid://r12m8gu2feai" path="res://assets/ui/Ghost Icon Color.png" id="3_y5gt7"]
 
 [node name="GoingGhostGet" instance=ExtResource("1_odvip")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.57, 0.57)
 script = ExtResource("2_tx31u")
 
+[node name="Button" parent="." index="0"]
+tooltip_text = "Going Ghost! Dodge incoming fire and deal with the Dragoons without worry! Minto shall protect."
+icon = ExtResource("3_y5gt7")
+
 [node name="Label" parent="." index="1"]
+offset_left = 31.5789
+offset_top = 135.088
+offset_right = 126.579
+offset_bottom = 158.088
 text = "Going Ghost"
 
 [connection signal="pressed" from="Button" to="." method="_on_ghost_get_button_pressed"]

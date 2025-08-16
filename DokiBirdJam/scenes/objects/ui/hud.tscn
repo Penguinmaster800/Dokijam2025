@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bvjmoe3acpb6"]
+[gd_scene load_steps=11 format=3 uid="uid://bvjmoe3acpb6"]
 
 [ext_resource type="Script" uid="uid://bfu4hwsm2iuy4" path="res://scenes/scripts/scenes/hud.gd" id="1_vinhp"]
 [ext_resource type="Texture2D" uid="uid://5xdkg84qng21" path="res://assets/ui/HP10Dead.png" id="2_e4dsg"]
 [ext_resource type="Texture2D" uid="uid://b8qrgqn2fvmpc" path="res://assets/ui/HP10Alive.png" id="3_pvsj6"]
 [ext_resource type="PackedScene" uid="uid://dd5tqul65krab" path="res://scenes/user interface/score_tracker.tscn" id="4_av8p5"]
-[ext_resource type="Texture2D" uid="uid://b2hrsodw76x5f" path="res://assets/ui/6 bullets empty.png" id="4_e4dsg"]
 [ext_resource type="Script" uid="uid://ckhvoibeq1gtr" path="res://scenes/scripts/scenes/time_left_panel.gd" id="4_k4aum"]
+[ext_resource type="Texture2D" uid="uid://c1p7bm4btlxas" path="res://assets/ui/10 Bullet Bandalier.png" id="4_pvsj6"]
+[ext_resource type="Texture2D" uid="uid://jlk6ayq5400" path="res://assets/ui/10 Bullet Empty.png" id="5_2wcc7"]
 [ext_resource type="Texture2D" uid="uid://crxvs3hxnlb7" path="res://assets/object/enemy_attack.png" id="5_e4dsg"]
-[ext_resource type="Texture2D" uid="uid://d03m5nrw5h4b6" path="res://assets/ui/6 bullets full.png" id="5_pvsj6"]
 [ext_resource type="PackedScene" uid="uid://bnsha6fgbgpfa" path="res://scenes/user interface/crosshair_swapper.tscn" id="6_bk1an"]
+[ext_resource type="Texture2D" uid="uid://cnegdyjqdltxx" path="res://assets/ui/10 Bullet Full.png" id="6_jyvn1"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_vinhp")
@@ -17,10 +18,10 @@ script = ExtResource("1_vinhp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 200.0
-offset_top = -1.0
-offset_right = 233.0
-offset_bottom = 13.0
+offset_left = 300.0
+offset_top = 1.0
+offset_right = 333.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.23956, 0.23956)
@@ -31,15 +32,34 @@ value = 10.0
 texture_under = ExtResource("2_e4dsg")
 texture_progress = ExtResource("3_pvsj6")
 
+[node name="Label" type="Label" parent="HpBar"]
+layout_mode = 0
+offset_left = -258.808
+offset_top = 16.6973
+offset_right = -190.808
+offset_bottom = 85.6973
+scale = Vector2(2.96679, 2.96679)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "HP"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1180.0
+offset_top = 383.0
+offset_right = 1280.0
+offset_bottom = 708.0
+texture = ExtResource("4_pvsj6")
+
 [node name="AmmoTracker" type="TextureProgressBar" parent="."]
-offset_left = 2.0
-offset_top = 144.0
-offset_right = 102.0
-offset_bottom = 484.0
+offset_left = 1211.0
+offset_top = 471.0
+offset_right = 1247.0
+offset_bottom = 612.0
 max_value = 6.0
+value = 6.0
 fill_mode = 3
-texture_under = ExtResource("4_e4dsg")
-texture_progress = ExtResource("5_pvsj6")
+texture_under = ExtResource("5_2wcc7")
+texture_progress = ExtResource("6_jyvn1")
 
 [node name="ScoreTracker" parent="." instance=ExtResource("4_av8p5")]
 offset_left = 4.0
@@ -59,8 +79,8 @@ size_flags_vertical = 4
 
 [node name="TimeLeftPanel" type="Panel" parent="TimeLeft"]
 layout_mode = 0
-offset_left = 2.0
-offset_right = 191.0
+offset_left = 1.0
+offset_right = 181.0
 offset_bottom = 37.0
 script = ExtResource("4_k4aum")
 
@@ -101,7 +121,8 @@ offset_bottom = 48.0
 
 [node name="TextureRect" type="TextureRect" parent="DragoonCounter"]
 layout_mode = 0
-offset_right = 22.0
+offset_left = -3.0
+offset_right = 19.0
 offset_bottom = 23.0
 texture = ExtResource("5_e4dsg")
 expand_mode = 1
@@ -116,12 +137,12 @@ horizontal_alignment = 2
 [node name="AbilityTrackers" type="Node" parent="."]
 
 [node name="Ability 1" type="Marker2D" parent="AbilityTrackers"]
-position = Vector2(1200, 640)
+position = Vector2(1125, 640)
 
 [node name="Ability 2" type="Marker2D" parent="AbilityTrackers"]
-position = Vector2(1100, 640)
+position = Vector2(1025, 640)
 
 [node name="Ability 3" type="Marker2D" parent="AbilityTrackers"]
-position = Vector2(1000, 640)
+position = Vector2(925, 640)
 
 [node name="CrosshairSwapper" parent="." instance=ExtResource("6_bk1an")]
