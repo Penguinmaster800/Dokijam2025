@@ -19,21 +19,31 @@ func _draw() -> void:
 	draw_circle(cen, rad, col)
 
 func _on_area_entered(area: Area2D) -> void:
-	var enemy_node = area.get_parent()
-	var object_node = area
-	if not (enemy_node is EnemyParent):
+	var object_node = get_entered_object_node(area)
+	if object_node:
+		object_node.handle_damage()
 		return
-	if ! is_shocked:
-		object_node = super.get_entered_object_node(area)
-		enemy_node = super.get_entered_enemy_node(area)
-		
+
+	var enemy_node = get_entered_enemy_node(area)
 	if area.name != "Hitbox" and enemy_node:
 		enemy_node.handle_damage(5)
 		return
 		
+func get_entered_enemy_node(area) -> EnemyParent:
+	var sprite = area.get_parent()
+	if !sprite:
+		return null
+	var enemy_node = sprite.get_parent()
+	if not (enemy_node is EnemyParent):
+		return null
+	if !is_shocked:
+		enemy_node = super.get_entered_enemy_node(area)
+	return enemy_node
+	
+func get_entered_object_node(area) -> EnvObjectParent:
+	var object_node = area
 	if not (area is EnvObjectParent):
-		return
-		
-	if object_node:
-		object_node.handle_damage(5)
-		return
+		return null
+	if !is_shocked:
+		object_node = super.get_entered_object_node(area)
+	return object_node

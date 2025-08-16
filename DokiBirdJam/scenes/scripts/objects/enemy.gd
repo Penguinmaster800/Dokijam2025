@@ -54,6 +54,8 @@ var max_y: float = 550.0
 var min_scale: float = 0.5
 var max_scale: float = 1.0
 
+var calculated_scale: float = 1.0
+
 var attack_sound := [AudioManager.enemy_shot_1, AudioManager.enemy_shot_2]
 var random_attack_sound = attack_sound.pick_random()
 
@@ -71,8 +73,8 @@ func _ready() -> void:
 	Abilities.aim_bot_activate.connect(_aim_bot_target)
 	Abilities.red_eye_cover_change.connect(_red_eye_target)
 	$AnimationPlayer.play("Run")
-	if spawn_move_position.x < global_position.x:
-		$Sprite2D.flip_h = true
+	if spawn_move_position.x > global_position.x:
+		scale.x = calculated_scale * -1
 
 func _process(delta: float) -> void:
 
@@ -91,9 +93,8 @@ func _process(delta: float) -> void:
 func set_scale_from_position() -> void:
 	var clamped = clamp(position.y, min_y, max_y)
 	var normalized_position = (clamped - min_y) / (max_y - min_y)
-	var calculated_scale = min_scale + (normalized_position * (max_scale - min_scale))
+	calculated_scale = min_scale + (normalized_position * (max_scale - min_scale))
 	scale = Vector2(calculated_scale, calculated_scale)
-
 
 func _on_hitbox_head_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not event.is_action_pressed("primary action"):
@@ -161,7 +162,7 @@ func after_spawn(delta):
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
 		switch_stance()
-		$Sprite2D.flip_h = false
+		scale.x = abs(calculated_scale)
 
 func move_to_cover(delta):
 	# Move to position

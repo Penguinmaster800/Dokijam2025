@@ -4,6 +4,10 @@ class_name EnemyStationary
 var stationary_position: StationaryPointData
 var _reached_stationary_position: bool = false
 
+func _ready() -> void:
+	spawn_move_position = stationary_position.stationary_point_positions[0]
+	super._ready()
+
 func _process(delta: float) -> void:
 	if current_stance == Stance.DEATH:
 		return
@@ -29,7 +33,7 @@ func after_spawn(delta):
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
 		switch_stance()
-		$Sprite2D.flip_h = false
+		scale.x = abs(calculated_scale)
 
 func stance_to_stationary_attack():
 	var random_time = randf_range(2.0, 7.0)
