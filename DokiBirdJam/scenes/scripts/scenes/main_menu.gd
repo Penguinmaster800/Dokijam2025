@@ -10,6 +10,8 @@ func _ready():
 	AudioManager.level_one_music.stop()
 	AudioManager.level_two_music.stop()
 	AudioManager.level_three_music.stop()
+#	AudioManager.
+	AudioManager.thank_you_for_playing_credits_.stop()
 	if  ! AudioManager.main_menu_music.playing:
 		AudioManager.main_menu_music.play()
 
