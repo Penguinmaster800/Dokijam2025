@@ -6,7 +6,7 @@ var env_object_explosives_scene: PackedScene = preload("res://scenes/objects/Env
 func _ready():
 	level_startup()
 	Status.enemies_remaining = 24
-	Status.time_remaining = 150
+	Status.time_remaining = 151
 	Status.doki_health = Status.doki_max_health
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.level = 2
@@ -56,7 +56,7 @@ func spawn_wave_3():
 	wave_enemy_count = 4
 	spawn_enemy_sniper(EnumRowNo.RowNo.ROW4)
 	spawn_enemy_brute_random_row()
-	spawn_enemy_gunman_random_row()
+	spawn_enemy_heavy(EnumRowNo.RowNo.ROW2)
 	spawn_enemy_gunman_random_row()
 	spawn_env_object_drone(EnumRowNo.RowNo.ROW1)
 
@@ -73,7 +73,7 @@ func spawn_wave_5():
 	spawn_enemy_sniper(EnumRowNo.RowNo.ROW4)
 	spawn_enemy_brute_random_row()
 	spawn_enemy_gunman_random_row()
-	spawn_enemy_gunman_random_row()
+	spawn_enemy_heavy(EnumRowNo.RowNo.ROW1)
 	spawn_env_object_drone(EnumRowNo.RowNo.ROW1)
 
 func spawn_wave_6():
