@@ -1,7 +1,7 @@
 extends Area2D
 class_name EnvObjectParent
 
-@export var max_health: int
+@export var max_health: int = 1
 @export var object_type: EnumEnvObjectType.EnvObjectType
 
 var health: int
@@ -53,6 +53,9 @@ func _red_eye_target():
 		$".".modulate = Color(1.0, 1.0, 1.0)
 
 func handle_damage() -> void:
+	if health <= 0:
+		return
+	
 	var _damage: int = 1
 
 	health = health - _damage

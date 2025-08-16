@@ -13,6 +13,7 @@ var off_screen_threshold_right: int = 1400
 @onready var drone_box = $EnvObjectDroneBox as WaterDroneBox
 
 func _ready() -> void:
+	health = max_health
 	var current_x = position.x
 	var dist_left = abs(current_x - position_x_left)
 	var dist_right = abs(current_x - position_x_right)

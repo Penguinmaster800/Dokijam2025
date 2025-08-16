@@ -11,7 +11,6 @@ size = Vector2(44.5, 25.75)
 
 [node name="EnvObjectDrone" instance=ExtResource("1_n7err")]
 script = ExtResource("2_088wc")
-max_health = 1
 
 [node name="SpriteShadow" type="Sprite2D" parent="." index="0"]
 scale = Vector2(0.5, 0.5)
