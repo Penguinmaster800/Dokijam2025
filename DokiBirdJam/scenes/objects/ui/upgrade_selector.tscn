@@ -12,10 +12,10 @@ texture = ExtResource("2_araw3")
 [node name="UpgradeLocations" type="Node2D" parent="."]
 
 [node name="upgrade_1" type="Marker2D" parent="UpgradeLocations"]
-position = Vector2(-52, -59)
+position = Vector2(-90, -83)
 
 [node name="upgrade_2" type="Marker2D" parent="UpgradeLocations"]
-position = Vector2(52, -59)
+position = Vector2(25, -82)
 
 [node name="upgrade_3" type="Marker2D" parent="UpgradeLocations"]
-position = Vector2(0, 56)
+position = Vector2(-45, 35)

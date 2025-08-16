@@ -9,6 +9,7 @@ func _ready():
 	Status.connect("doki_ammo_change", _doki_ammo_change)
 	Status.enemies_remaining_change.connect(_enemies_remaining_change)
 	_get_max_hp()
+	_get_max_ammo()
 	_check_all_abilities()
 
 func _doki_health_change():
@@ -53,16 +54,42 @@ func _get_aim_bot(ability_marker):
 	print("aim bot tracker spawned")
 	get_node("AbilityTrackers").add_child(aim_bot_tracker)
 
+func _get_max_ammo():
+	if Status.doki_max_ammo == 6:
+		$AmmoTracker.set_under_texture(load("res://assets/ui/6 Bullet Empty.png"))
+		$AmmoTracker.set_progress_texture(load("res://assets/ui/6 Bullet Full.png"))
+		$TextureRect.set_texture(load("res://assets/ui/6 Bullet Bandalier.png"))
+		$AmmoTracker.position = Vector2(1211, 525)
+		$AmmoTracker.max_value = 6
+	elif Status.doki_max_ammo == 8:
+		$AmmoTracker.set_under_texture(load("res://assets/ui/8 Bullet Empty.png"))
+		$AmmoTracker.set_progress_texture(load("res://assets/ui/8 Bullet Full.png"))
+		$TextureRect.set_texture(load("res://assets/ui/8 Bullet Bandalier.png"))
+		$AmmoTracker.position = Vector2(1211, 497)
+		$AmmoTracker.max_value = 8
+	elif Status.doki_max_ammo == 10:
+		$AmmoTracker.set_under_texture(load("res://assets/ui/10 Bullet Empty.png"))
+		$AmmoTracker.set_progress_texture(load("res://assets/ui/10 Bullet Full.png"))
+		$TextureRect.set_texture(load("res://assets/ui/10 Bullet Bandalier.png"))
+		$AmmoTracker.position = Vector2(1211, 471)
+		$AmmoTracker.max_value = 10
+	elif Status.doki_max_ammo == 12:
+		$AmmoTracker.set_under_texture(load("res://assets/ui/12 Bullet Empty.png"))
+		$AmmoTracker.set_progress_texture(load("res://assets/ui/12 Bullet Full.png"))
+		$TextureRect.set_texture(load("res://assets/ui/12 Bullet Bandalier.png"))
+		$AmmoTracker.position = Vector2(1211, 448)
+		$AmmoTracker.max_value = 12
+
 func _get_max_hp():
 	if Status.doki_max_health == 10:
 		$HpBar.set_under_texture(load("res://assets/ui/HP10Dead.png"))
 		$HpBar.set_progress_texture(load("res://assets/ui/HP10Alive.png"))
-		$HpBar.position = Vector2(200, -1)
+		$HpBar.position = Vector2(300, -1)
 	elif Status.doki_max_health == 14:
 		$HpBar.set_under_texture(load("res://assets/ui/HP14Dead.png"))
 		$HpBar.set_progress_texture(load("res://assets/ui/HP14Alive.png"))
-		$HpBar.position = Vector2(310, -1)
+		$HpBar.position = Vector2(410, -1)
 	elif Status.doki_max_health == 18:
 		$HpBar.set_under_texture(load("res://assets/ui/HP18Dead.png"))
 		$HpBar.set_progress_texture(load("res://assets/ui/HP18Alive.png"))
-		$HpBar.position = Vector2(540, -1)
+		$HpBar.position = Vector2(640, -1)

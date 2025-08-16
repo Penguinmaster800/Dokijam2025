@@ -11,8 +11,9 @@ script = ExtResource("1_hf3is")
 
 [node name="ScorePanel" type="Panel" parent="."]
 layout_mode = 1
-offset_right = 193.0
-offset_bottom = 148.0
+offset_right = 182.0
+offset_bottom = 121.0
+mouse_filter = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScorePanel"]
 layout_mode = 1
@@ -47,10 +48,10 @@ one_shot = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 117.0
-offset_right = 183.0
-offset_bottom = 144.0
+offset_left = 2.0
+offset_top = 88.0
+offset_right = 180.0
+offset_bottom = 115.0
 max_value = 5.0
 show_percentage = false
 
