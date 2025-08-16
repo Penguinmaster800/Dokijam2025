@@ -29,7 +29,7 @@ func after_spawn(delta):
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
 		switch_stance()
-		$Sprite2D.flip_h = false
+		$Sprite2D.scale.x = 1
 
 func stance_to_stationary_attack():
 	var random_time = randf_range(2.0, 7.0)

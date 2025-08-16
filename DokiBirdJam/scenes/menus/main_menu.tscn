@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cebdebfptql0p"]
+[gd_scene load_steps=8 format=3 uid="uid://cebdebfptql0p"]
 
 [ext_resource type="Script" uid="uid://bia2hodc02em6" path="res://scenes/scripts/scenes/main_menu.gd" id="1_6bivr"]
 [ext_resource type="Texture2D" uid="uid://cm3hf5jhllhca" path="res://assets/ui/background.jpg" id="2_imvie"]
 [ext_resource type="Theme" uid="uid://bputefyu2uixu" path="res://globals/pixel_font.tres" id="3_imvie"]
 [ext_resource type="PackedScene" uid="uid://c4fgpbww4k2xd" path="res://scenes/user interface/full_screen_button.tscn" id="3_ng0o5"]
-[ext_resource type="PackedScene" uid="uid://dj5aio8r1dai2" path="res://scenes/user interface/mute_button.tscn" id="4_8r73w"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fsby3"]
 texture = ExtResource("2_imvie")
@@ -49,7 +48,7 @@ offset_bottom = 153.0
 grow_horizontal = 0
 theme = ExtResource("3_imvie")
 theme_override_font_sizes/font_size = 75
-text = "DokiJam2025"
+text = "Operation: Merch Mayhem"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -110,15 +109,15 @@ text = "Exit"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.711
-anchor_top = 0.739
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -10.08
-offset_top = -9.08002
-offset_right = -18.0
-offset_bottom = -119.0
+offset_left = -100.0
+offset_top = -51.0
+offset_right = -3.0
+offset_bottom = -50.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("3_imvie")
@@ -127,9 +126,6 @@ theme = ExtResource("3_imvie")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
-
-[node name="MuteButton" parent="VBoxContainer2" instance=ExtResource("4_8r73w")]
-layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

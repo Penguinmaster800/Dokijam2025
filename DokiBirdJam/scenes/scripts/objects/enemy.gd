@@ -72,7 +72,7 @@ func _ready() -> void:
 	Abilities.red_eye_cover_change.connect(_red_eye_target)
 	$AnimationPlayer.play("Run")
 	if spawn_move_position.x < global_position.x:
-		$Sprite2D.flip_h = true
+		$Sprite2D.scale.x = -1
 
 func _process(delta: float) -> void:
 
@@ -161,7 +161,7 @@ func after_spawn(delta):
 		_reached_spawn_move_position = true
 		enemy_reached_position.emit()
 		switch_stance()
-		$Sprite2D.flip_h = false
+		$Sprite2D.scale.x = 1
 
 func move_to_cover(delta):
 	# Move to position
