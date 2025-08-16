@@ -335,16 +335,16 @@ texture = ExtResource("2_f4hpt")
 hframes = 3
 vframes = 13
 
-[node name="HitboxHead" parent="Sprite2D" index="0"]
+[node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
+polygon = PackedVector2Array(-66.4557, 16.8776, -51.6878, 14.7679, -52.7426, 2.10971, -48.5232, -13.7131, -41.1392, -21.097, -37.9747, -34.8101, -28.481, -31.6456, -24.2616, -43.2489, -15.8228, -36.9198, -1.05485, -21.097, 5.27426, -14.7679, 9.49367, -4.21941, 15.8228, 2.10971, 10.5485, 6.32911, 11.6034, 14.7679, 4.21941, 24.2616, 10.5485, 35.865, 4.21941, 36.9198, -5.27426, 34.8101, -13.7131, 37.9747, -30.5907, 39.0295, -46.4135, 33.7553)
+
+[node name="HitboxHead" parent="Sprite2D" index="1"]
 position = Vector2(51.6878, 10.5485)
 
 [node name="CollisionShape2D" parent="Sprite2D/HitboxHead" index="0"]
 position = Vector2(-20.0422, -10.5485)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_f4hpt")
-
-[node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
-polygon = PackedVector2Array(-66.4557, 16.8776, -51.6878, 14.7679, -52.7426, 2.10971, -48.5232, -13.7131, -41.1392, -21.097, -37.9747, -34.8101, -28.481, -31.6456, -24.2616, -43.2489, -15.8228, -36.9198, -1.05485, -21.097, 5.27426, -14.7679, 9.49367, -4.21941, 15.8228, 2.10971, 10.5485, 6.32911, 11.6034, 14.7679, 4.21941, 24.2616, 10.5485, 35.865, 4.21941, 36.9198, -5.27426, 34.8101, -13.7131, 37.9747, -30.5907, 39.0295, -46.4135, 33.7553)
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 visible = false

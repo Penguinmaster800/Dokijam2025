@@ -649,16 +649,16 @@ texture = ExtResource("3_vyyow")
 hframes = 8
 vframes = 3
 
-[node name="HitboxHead" parent="Sprite2D" index="0"]
+[node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
+polygon = PackedVector2Array(-30, -90, -11, -87, 7, -81, 26, -70, 49, -52, 68, -26, 75, -5, 84, 9, 75, 19, 73, 26, 81, 35, 78, 40, 73, 38, 65, 42, 65, 49, 57, 54, 39, 56, 44, 62, 36, 65, 37, 68, 29, 68, 28, 72, 14, 59, 6, 57, 1, 66, -5, 68, -5, 75, -10, 71, -16, 74, -17, 68, -23, 68, -18, 52, -42, 40, -54, 27, -61, 10, -47, 10, -47, -12, -40, -35, -39, -37, -51, -55, -47, -59, -24, -66)
+
+[node name="HitboxHead" parent="Sprite2D" index="1"]
 position = Vector2(51.688, 10.549)
 
 [node name="CollisionShape2D" parent="Sprite2D/HitboxHead" index="0"]
 position = Vector2(-38.688, -39.549)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_f4hpt")
-
-[node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
-polygon = PackedVector2Array(-30, -90, -11, -87, 7, -81, 26, -70, 49, -52, 68, -26, 75, -5, 84, 9, 75, 19, 73, 26, 81, 35, 78, 40, 73, 38, 65, 42, 65, 49, 57, 54, 39, 56, 44, 62, 36, 65, 37, 68, 29, 68, 28, 72, 14, 59, 6, 57, 1, 66, -5, 68, -5, 75, -10, 71, -16, 74, -17, 68, -23, 68, -18, 52, -42, 40, -54, 27, -61, 10, -47, 10, -47, -12, -40, -35, -39, -37, -51, -55, -47, -59, -24, -66)
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 visible = false
@@ -673,4 +673,4 @@ libraries = {
 }
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]
-position = Vector2(-37, -47)
+position = Vector2(-81, 5)
