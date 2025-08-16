@@ -397,12 +397,7 @@ position = Vector2(27, -63)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i7ccm")
 
-
-[node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
-polygon = PackedVector2Array(52, -94, 50, -81, 59, -79, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -28, 48, -41, 43, -41, 26, -33, 20, -23, 6, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -48, 0, -68, 7, -82, 28, -91, 41, -95)
-
 [node name="AnimatedSprite2D" parent="." index="3"]
-
 visible = false
 position = Vector2(0, -85)
 scale = Vector2(1, 1)
