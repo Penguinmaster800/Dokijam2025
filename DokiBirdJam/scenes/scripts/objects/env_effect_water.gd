@@ -16,6 +16,7 @@ var puddle_height: float = 75.0
 func _ready() -> void:
 	_set_collision_circle()
 	queue_redraw()
+	AudioManager.water_explode.play()
 	$Timer.start()
 
 func _set_collision_circle() -> void:

@@ -19,5 +19,4 @@ func _process(delta: float) -> void:
 
 func handle_destroyed() -> void:
 	drench.emit(row_no, global_position, is_shocked)
-	AudioManager.water_explode.play()
 	super.handle_destroyed()

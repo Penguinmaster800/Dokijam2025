@@ -7,6 +7,7 @@ var is_shocked: bool = false
 func _ready() -> void:
 	_set_collision_circle()
 	$AnimatedSprite2D.play()
+	AudioManager.dgj_electricity_2.play()
 	$Timer.start()
 
 func _set_collision_circle() -> void:

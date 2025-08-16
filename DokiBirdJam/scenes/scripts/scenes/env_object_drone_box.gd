@@ -21,5 +21,4 @@ func _process(delta: float) -> void:
 
 func handle_destroyed() -> void:
 	explode.emit(row_no, global_position, is_shocked)
-	AudioManager.dgj_explosion_fixed.play()
 	super.handle_destroyed()
