@@ -1,9 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd8gebcccbxv6"]
+[gd_scene load_steps=8 format=3 uid="uid://dd8gebcccbxv6"]
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_lvhgi"]
+[ext_resource type="Script" uid="uid://s7gl0pcdqeku" path="res://scenes/scripts/objects/env_object_warehouse_watercooler.gd" id="2_255eo"]
 [ext_resource type="Texture2D" uid="uid://bbdnylaqfti64" path="res://assets/object/warehouse/Interactable/WarehouseWAtercooler.png" id="2_fyjwr"]
+[ext_resource type="Texture2D" uid="uid://c3kuf6svvmqhj" path="res://assets/object/warehouse/Interactable/WarehouseWAtercoolerDestroyed.png" id="3_fyjwr"]
+
+[sub_resource type="Animation" id="Animation_lvhgi"]
+resource_name = "destroyed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_fyjwr"), ExtResource("3_fyjwr")]
+}
+
+[sub_resource type="Animation" id="Animation_255eo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_fyjwr")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fyjwr"]
+_data = {
+&"RESET": SubResource("Animation_255eo"),
+&"destroyed": SubResource("Animation_lvhgi")
+}
 
 [node name="EnvObjectWarehouseWatercooler" instance=ExtResource("1_lvhgi")]
+script = ExtResource("2_255eo")
 object_type = 4
 
 [node name="Sprite2D" parent="." index="0"]
@@ -13,3 +53,8 @@ texture = ExtResource("2_fyjwr")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
 polygon = PackedVector2Array(-20, -3, -20, -79, -18, -84, -11, -86, -16, -89, -16, -119, -12, -125, -1, -127, 10, -125, 15, -121, 15, -118, 15, -90, 11, -87, 10, -86, 14, -86, 18, -81, 20, -81, 20, -4, 18, -2, 5, -1, -8, -1, -14, -2, -19, -2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+&"": SubResource("AnimationLibrary_fyjwr")
+}

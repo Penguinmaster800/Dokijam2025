@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcaeva26pfho8"
-path="res://.godot/imported/cover_object_mansion_r4_1.png-143926f22ea770001557fcfc11df20e0.ctex"
+uid="uid://baqo1q1n0ib65"
+path="res://.godot/imported/env_obj_mansion_gate_light_destroyed.png-99f8d5c08df03dcd3eecb25b96f183c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/object/cover_object_mansion_r4_1.png"
-dest_files=["res://.godot/imported/cover_object_mansion_r4_1.png-143926f22ea770001557fcfc11df20e0.ctex"]
+source_file="res://assets/object/mansion/env_obj_mansion_gate_light_destroyed.png"
+dest_files=["res://.godot/imported/env_obj_mansion_gate_light_destroyed.png-99f8d5c08df03dcd3eecb25b96f183c3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cybt86ponldkb"
-path="res://.godot/imported/cover_object_mansion_r1.png-3e71dd1fda0f77d457dc3257acbf257a.ctex"
+uid="uid://bcaeva26pfho8"
+path="res://.godot/imported/cover_object_mansion_r4_1.png-82804718b37163626048ed917e232aa7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/object/cover_object_mansion_r1.png"
-dest_files=["res://.godot/imported/cover_object_mansion_r1.png-3e71dd1fda0f77d457dc3257acbf257a.ctex"]
+source_file="res://assets/object/mansion/cover_object_mansion_r4_1.png"
+dest_files=["res://.godot/imported/cover_object_mansion_r4_1.png-82804718b37163626048ed917e232aa7.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbaov3a113swk"
-path="res://.godot/imported/cover_object_mansion_r3.png-b786847007ad3dbb71bab68f09c9cc29.ctex"
+uid="uid://c0jgushbyw2tc"
+path="res://.godot/imported/dokimansionSprinklerActive.png-9327b5fa0537db156d6ea7de65efb0ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/object/cover_object_mansion_r3.png"
-dest_files=["res://.godot/imported/cover_object_mansion_r3.png-b786847007ad3dbb71bab68f09c9cc29.ctex"]
+source_file="res://assets/object/mansion/dokimansionSprinklerActive.png"
+dest_files=["res://.godot/imported/dokimansionSprinklerActive.png-9327b5fa0537db156d6ea7de65efb0ec.ctex"]
 
 [params]
 
