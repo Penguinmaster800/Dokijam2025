@@ -593,16 +593,17 @@ hframes = 3
 vframes = 13
 frame = 1
 
-[node name="HitboxHead" parent="Sprite2D" index="0"]
+[node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
+position = Vector2(-1.05485, -2.1097)
+polygon = PackedVector2Array(50, -92, 50, -81, 58, -77, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -47, 56, -59, 50, -59, 36, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -46, 0, -68, 7, -82, 28, -91)
+
+[node name="HitboxHead" parent="Sprite2D" index="1"]
 position = Vector2(51.688, 10.549)
 
 [node name="CollisionShape2D" parent="Sprite2D/HitboxHead" index="0"]
-position = Vector2(-23.2068, -11.6034)
+position = Vector2(-74.8945, -22.1519)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_f4hpt")
-
-[node name="CollisionShape2D" parent="Sprite2D/Hitbox" index="0"]
-polygon = PackedVector2Array(50, -92, 50, -81, 58, -77, 44, -45, 40, -34, 38, -9, 42, 15, 46, 24, 52, 22, 53, 17, 51, 44, 44, 55, 44, 77, 48, 81, 38, 86, 32, 62, 26, 62, 30, 78, 14, 93, -16, 92, -11, 46, -47, 56, -59, 50, -59, 36, -22, -1, -15, -3, 10, -4, 17, -17, 17, -39, 5, -46, 0, -68, 7, -82, 28, -91)
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 visible = false
@@ -619,6 +620,6 @@ libraries = {
 [node name="TimerCanShoot" type="Timer" parent="." index="6"]
 
 [node name="Marker2D" parent="BulletStartPosition" index="0"]
-position = Vector2(-47, 43)
+position = Vector2(-56, -23)
 
 [connection signal="timeout" from="TimerCanShoot" to="." method="_on_timer_can_shoot_timeout"]
