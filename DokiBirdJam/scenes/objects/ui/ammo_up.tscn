@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b52jkbpv3oqqo"]
+[gd_scene load_steps=5 format=3 uid="uid://b52jkbpv3oqqo"]
 
 [ext_resource type="PackedScene" uid="uid://b0d202dxj0wqu" path="res://scenes/objects/ui/upgrade_choice.tscn" id="1_2kh3a"]
+[ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="2_daxpb"]
 [ext_resource type="Script" uid="uid://w5u4drw42xhy" path="res://scenes/scripts/objects/ammo_up.gd" id="2_di8kg"]
 [ext_resource type="Texture2D" uid="uid://lo4k3g0borxq" path="res://assets/ui/Bullet.png" id="3_1d7io"]
 
@@ -15,6 +16,7 @@ offset_bottom = 37.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(1.40172, 1.40172)
+theme = ExtResource("2_daxpb")
 script = ExtResource("2_di8kg")
 
 [node name="Button" parent="." index="0"]
@@ -23,13 +25,19 @@ offset_top = -26.0
 offset_right = 17.0
 offset_bottom = 27.0
 tooltip_text = "Increase max ammo! +2"
+theme = ExtResource("2_daxpb")
 icon = ExtResource("3_1d7io")
 
 [node name="Label" parent="." index="1"]
-offset_left = -36.0
-offset_top = 18.0
-offset_right = 38.0
-offset_bottom = 41.0
+offset_left = -33.5302
+offset_top = 24.2559
+offset_right = 155.47
+offset_bottom = 82.2559
+scale = Vector2(0.376641, 0.376641)
+theme = ExtResource("2_daxpb")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
 text = "Ammo Up"
 
 [connection signal="pressed" from="Button" to="." method="_on_ammo_button_pressed"]

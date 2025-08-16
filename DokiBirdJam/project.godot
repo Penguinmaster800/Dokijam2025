@@ -30,6 +30,10 @@ window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://482643ocgusw"
 mouse_cursor/custom_image_hotspot=Vector2(42, 49)
 
+[gui]
+
+theme/custom_font="uid://84vj3n3ic2cn"
+
 [input]
 
 enter_cover={
