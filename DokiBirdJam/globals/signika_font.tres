@@ -9,7 +9,6 @@ variation_opentype = {
 2003265652: 400
 }
 
-
-default_font = ExtResource("1_x8oca")
-default_font_size = 24
-
+[resource]
+default_font = SubResource("FontVariation_x8oca")
+default_font_size = 16

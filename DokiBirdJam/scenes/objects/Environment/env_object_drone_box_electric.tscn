@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://q6614ma3oif6" path="res://scenes/objects/Environment/env_object_base.tscn" id="1_yeker"]
 [ext_resource type="Script" uid="uid://j6cr15oi87ec" path="res://scenes/scripts/scenes/env_object_drone_box_electric.gd" id="2_yeker"]
-[ext_resource type="Texture2D" uid="uid://c2wuyvycd4iws" path="res://assets/object/warehouse/Interactable/WarehouseBattery.png" id="3_yeker"]
+[ext_resource type="Texture2D" uid="uid://drerqv5humjnh" path="res://assets/object/env_obj_drone_box.png" id="3_x7p6h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sb755"]
-size = Vector2(46, 35)
+size = Vector2(41, 53)
 
 [node name="EnvObjectDroneBox" instance=ExtResource("1_yeker")]
 script = ExtResource("2_yeker")
@@ -13,8 +13,8 @@ script = ExtResource("2_yeker")
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -31)
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("3_yeker")
+texture = ExtResource("3_x7p6h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-position = Vector2(0, -30.5)
+position = Vector2(-0.5, -26.5)
 shape = SubResource("RectangleShape2D_sb755")

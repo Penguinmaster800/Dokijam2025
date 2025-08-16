@@ -12,10 +12,8 @@ func _ready():
 	Status.doki_shot = 0
 	AudioManager.game_over_music.stop()
 	AudioManager.level_three_music.play()
-
-	AudioManager.intermission_music.stop()
+	AudioManager.level_two_music.stop()
 	setup_enemy_waves(8)
-
 
 
 func spawn_wave(wave_number: int):

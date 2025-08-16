@@ -31,13 +31,6 @@ extends Node
 @onready var enemy_shotgun_shot: AudioStreamPlayer2D = $EnemySounds/EnemyShotgunShot
 
 
-#environment sounds
-@onready var dgj_explosion_fixed: AudioStreamPlayer2D = $EnvironmentSounds/DgjExplosionFixed
-@onready var dgj_electricity_2: AudioStreamPlayer2D = $EnvironmentSounds/DgjElectricity2
-@onready var water_explode: AudioStreamPlayer2D = $EnvironmentSounds/WaterExplode
-
-
-
 #doki hit sounds
 
 @onready var dgj_doki_injured_1: AudioStreamPlayer2D = $DokiInjuries/DgjDokiInjured1

@@ -1,5 +1,5 @@
 extends EnvObjectParent
-class_name WaterDroneBox
+
 const DroneBoxStatus = EnumEnvObjectDroneBoxStatus.DroneBoxStatus
 var current_stance: DroneBoxStatus = DroneBoxStatus.SPAWN
 var drop_destination: Vector2
@@ -19,5 +19,4 @@ func _process(delta: float) -> void:
 
 func handle_destroyed() -> void:
 	drench.emit(row_no, global_position, is_shocked)
-	AudioManager.water_explode.play()
 	super.handle_destroyed()

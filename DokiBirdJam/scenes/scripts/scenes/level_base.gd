@@ -177,7 +177,6 @@ func _spawn_explosive_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:b
 	env_effect_explosion.row_no = row_no
 	if is_shocked == true:
 		env_effect_explosion.scale.x = 3
-		env_effect_explosion.scale.y = 2
 	if is_shocked == false:
 		env_effect_explosion.scale.x = 1
 	$Projectiles.add_child(env_effect_explosion)
@@ -187,11 +186,11 @@ func _spawn_shock_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool 
 	env_effect_electric.global_position = pos
 	env_effect_electric.row_no = row_no
 	if is_shocked == true:
-		env_effect_electric.scale.x = 3
-		env_effect_electric.scale.y = 3
-	if is_shocked == false:
 		env_effect_electric.scale.x = 2
 		env_effect_electric.scale.y = 2
+	if is_shocked == false:
+		env_effect_electric.scale.x = 1
+		env_effect_electric.scale.y = 1
 	$Projectiles.add_child(env_effect_electric)
 
 func _spawn_wet_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_wet: bool = false):
@@ -199,9 +198,9 @@ func _spawn_wet_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_wet: bool = fal
 	env_effect_water.global_position = pos
 	env_effect_water.row_no = row_no
 	if is_wet == true:
-		env_effect_water.scale.x = 3
-	if is_wet == false:
 		env_effect_water.scale.x = 2
+	if is_wet == false:
+		env_effect_water.scale.x = 1
 	$Projectiles.add_child(env_effect_water)
 
 func enemy_bullet_attack_default(pos: Variant) -> void:

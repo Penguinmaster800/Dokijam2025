@@ -7,19 +7,16 @@ var rad: int = 200
 
 func _ready() -> void:
 	_set_collison_circle()
-#	queue_redraw()
-	$AnimatedSprite2D.play()
-	await $AnimatedSprite2D.animation_finished
-	queue_free()
-	#$Timer.start()
+	queue_redraw()
+	$Timer.start()
 
 func _set_collison_circle() -> void:
 	var col_shape = $CollisionShape2D.shape
 	col_shape.radius = rad
 
-#func _draw() -> void:
-#	var cen = Vector2.ZERO
-#	draw_circle(cen, rad, col)
+func _draw() -> void:
+	var cen = Vector2.ZERO
+	draw_circle(cen, rad, col)
 
 func _on_area_entered(area: Area2D) -> void:
 	var object_node = get_entered_object_node(area)

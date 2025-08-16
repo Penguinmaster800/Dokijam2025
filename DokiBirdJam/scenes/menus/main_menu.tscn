@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://btbxqco1iglag" path="res://assets/ui/titlescreen.png" id="2_6bivr"]
 [ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="3_8r73w"]
 [ext_resource type="PackedScene" uid="uid://c4fgpbww4k2xd" path="res://scenes/user interface/full_screen_button.tscn" id="3_ng0o5"]
-[ext_resource type="Texture2D" uid="uid://bxbp0nufr57nb" path="res://assets/SplashScreens/titlescreen.png" id="4_imvie"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_imvie"]
 
@@ -28,7 +27,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_8r73w")
 script = ExtResource("1_6bivr")
 
 [node name="Panel" type="Panel" parent="."]
@@ -56,21 +54,12 @@ theme = ExtResource("3_8r73w")
 theme_override_font_sizes/font_size = 75
 text = "Operation: Merch Mayhem"
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 2560.0
-offset_bottom = 1440.0
-scale = Vector2(0.500246, 0.500246)
-texture = ExtResource("4_imvie")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-
-offset_left = 36.0
-offset_top = 46.0
-offset_right = 462.0
-offset_bottom = 374.0
-
+offset_left = 49.0
+offset_top = 243.0
+offset_right = 475.0
+offset_bottom = 571.0
 theme = ExtResource("3_8r73w")
 theme_override_constants/separation = 20
 

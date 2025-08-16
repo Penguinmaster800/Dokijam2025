@@ -1,59 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://toujqooj4kio"]
+[gd_scene load_steps=4 format=3 uid="uid://toujqooj4kio"]
 
 [ext_resource type="PackedScene" uid="uid://bc85ohi67me78" path="res://scenes/objects/Environment/env_effect_base.tscn" id="1_kq0k8"]
 [ext_resource type="Script" uid="uid://bebwyvh8e0ccs" path="res://scenes/scripts/objects/env_effect_electric.gd" id="2_gbnte"]
-[ext_resource type="Texture2D" uid="uid://ci0qhwsr0s50h" path="res://assets/EnvironmentalEffects/shock/spark_04.png" id="3_knoeg"]
-[ext_resource type="Texture2D" uid="uid://cteddw2svwtr" path="res://assets/EnvironmentalEffects/shock/spark_03.png" id="4_j60ad"]
-[ext_resource type="Texture2D" uid="uid://dgao17mx86mqe" path="res://assets/EnvironmentalEffects/shock/spark_01.png" id="5_ovqwr"]
-[ext_resource type="Texture2D" uid="uid://e7h518qqousg" path="res://assets/EnvironmentalEffects/shock/spark_02.png" id="6_fqqav"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gbnte"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_5o44d"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_knoeg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_j60ad")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ovqwr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_fqqav")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ovqwr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_j60ad")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_knoeg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_j60ad")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_ovqwr")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [node name="EnvEffectElectric" instance=ExtResource("1_kq0k8")]
-collision_mask = 56
-input_pickable = false
 script = ExtResource("2_gbnte")
 
 [node name="CollisionShape2D" parent="." index="0"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_gbnte")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
-scale = Vector2(0.0952164, 0.0952164)
-sprite_frames = SubResource("SpriteFrames_5o44d")
-frame_progress = 0.0604658

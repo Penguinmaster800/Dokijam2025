@@ -66,13 +66,9 @@ position = Vector2(760, 280)
 
 [node name="EnvObjectMansionGateLight" parent="EnemyLayer/Row4/EnvObjects" index="0" instance=ExtResource("7_pv0im")]
 position = Vector2(214, 165)
-collision_layer = 16
-collision_mask = 1
 
 [node name="EnvObjectMansionGateLight2" parent="EnemyLayer/Row4/EnvObjects" index="1" instance=ExtResource("7_pv0im")]
 position = Vector2(517, 169)
-collision_layer = 16
-collision_mask = 1
 
 [node name="CoverObjectMansionR41" parent="EnemyLayer/Row4/Covers" index="0" instance=ExtResource("5_gx8m8")]
 position = Vector2(640, 360)
@@ -110,9 +106,7 @@ position = Vector2(1042, 334)
 position = Vector2(996, 330)
 
 [node name="EnvObjectMansionSprinkler" parent="EnemyLayer/Row3/EnvObjects" index="0" instance=ExtResource("14_sanpu")]
-position = Vector2(718, 347)
-collision_layer = 16
-collision_mask = 1
+position = Vector2(718, 353)
 
 [node name="CoverObjectMansionR3" parent="EnemyLayer/Row3/Covers" index="0" instance=ExtResource("4_nc32v")]
 position = Vector2(640, 360)
@@ -161,13 +155,9 @@ position = Vector2(1143, 480)
 
 [node name="EnvObjectMansionSprinkler" parent="EnemyLayer/Row1/EnvObjects" index="0" instance=ExtResource("14_sanpu")]
 position = Vector2(721, 486)
-collision_layer = 16
-collision_mask = 1
 
 [node name="EnvObjectMansionYardLight" parent="EnemyLayer/Row1/EnvObjects" index="1" instance=ExtResource("15_qx61c")]
 position = Vector2(790, 320)
-collision_layer = 16
-collision_mask = 1
 
 [node name="CoverObject2" parent="EnemyLayer/Row1/Covers" index="0" instance=ExtResource("7_qjymw")]
 position = Vector2(640, 359)
