@@ -55,7 +55,7 @@ func time_spawn():
 	if Status.time_remaining == 70:
 		spawn_env_object_drone(EnumRowNo.RowNo.ROW2)
 	if Status.time_remaining == 50:
-		spawn_env_object_drone(EnumRowNo.RowNo.ROW2)
+		spawn_env_object_drone(EnumRowNo.RowNo.ROW3)
 	if Status.time_remaining == 30:
 		spawn_env_object_drone(EnumRowNo.RowNo.ROW2)
 	if Status.time_remaining == 20:

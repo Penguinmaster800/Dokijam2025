@@ -9,6 +9,7 @@ extends Node
 @onready var main_menu_music: AudioStreamPlayer2D = $Music/MainMenuMusic
 @onready var thank_you_for_playing_credits_: AudioStreamPlayer2D = $"Music/ThankYouForPlaying(credits)"
 @onready var intermission_music: AudioStreamPlayer2D = $Music/IntermissionMusic
+@onready var victory_music: AudioStreamPlayer2D = $Music/VictoryMusic
 
 
 
