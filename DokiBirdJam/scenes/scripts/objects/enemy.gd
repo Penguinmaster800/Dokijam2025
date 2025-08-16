@@ -11,17 +11,8 @@ enum Stance {SPAWN, COVER, MOVE_TO_ATTACK, ATTACK, ATTACK_COOLDOWN, DEATH}
 var health: int
 
 ## Environmental Status Effects
-var is_wet: bool = false:
-	set(value):
-		is_wet = value
-		if is_wet == true:
-			apply_effect_wet()
-
-var is_shocked: bool = false:
-	set(value):
-		is_shocked = value
-		if is_shocked == true:
-			apply_effect_shocked()
+var is_wet: bool = false
+var is_shocked: bool = false
 
 ## Cover Position Data
 var cover_point: CoverPointData
@@ -275,24 +266,18 @@ func _on_timer_fire_rate_timeout() -> void:
 	attack()
 
 func apply_effect_wet():
-
 	if not is_wet:
 		movement_speed /= 1.5
-    print("wet applied")
 	is_wet = true
-
 	$TimerEffectWet.start()
 	
 	if is_shocked:
 		$TimerEffectWetShockDamage.start()
 
 func apply_effect_shocked():
-
 	if not is_shocked:
 		fire_rate *= 1.5
-    print("shock applied")
 	is_shocked = true
-
 	$TimerEffectShock.start()
 	
 	if is_wet:
@@ -313,6 +298,4 @@ func _on_timer_effect_wet_shock_damage_timeout() -> void:
 		return
 	if is_wet and is_shocked:
 		handle_damage(1)
-		hit_flash_animation_player.play("HitFlash")
-		print("shock damage")
 		$TimerEffectWetShockDamage.start()	

@@ -35,22 +35,15 @@ func _randomize_options():
 
 func _spawn_upgrade_1(selected_position):
 	var chosen_upgrade_1 = selected_position.instantiate()
-	chosen_upgrade_1.global_position = upgrade_1_marker.global_position
+	chosen_upgrade_1.global_position = upgrade_1_marker.position
 	add_child(chosen_upgrade_1)
 
 func _spawn_upgrade_2(selected_position):
 	var chosen_upgrade_2 = selected_position.instantiate()
-	chosen_upgrade_2.global_position = upgrade_2_marker.global_position
+	chosen_upgrade_2.global_position = upgrade_2_marker.position
 	add_child(chosen_upgrade_2)
 
 func _spawn_upgrade_3(selected_position):
 	var chosen_upgrade_3 = selected_position.instantiate()
-	chosen_upgrade_3.global_position = upgrade_3_marker.global_position
+	chosen_upgrade_3.global_position = upgrade_3_marker.position
 	add_child(chosen_upgrade_3)
-
-
-func vanish():
-	$AnimationPlayer.play("Vanish")
-	await $AnimationPlayer.animation_finished
-	$".".hide()
-	

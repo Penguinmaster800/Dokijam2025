@@ -28,8 +28,6 @@ position = Vector2(0, -272.875)
 shape = SubResource("RectangleShape2D_5jcw0")
 
 [node name="EnvObjectDroneBox" parent="." index="3" instance=ExtResource("4_pgpqp")]
-position = Vector2(2, -209)
-collision_layer = 16
-collision_mask = 1
+position = Vector2(0, -204)
 
 [connection signal="tree_exited" from="EnvObjectDroneBox" to="." method="_on_env_object_drone_box_tree_exited"]

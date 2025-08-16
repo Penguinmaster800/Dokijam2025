@@ -10,7 +10,7 @@ var movement_speed: int = 200
 var current_stance: Stance = Stance.SPAWN
 var off_screen_threshold_left: int = -100
 var off_screen_threshold_right: int = 1400
-@onready var drone_box = $EnvObjectDroneBox as DroneBox
+@onready var drone_box = $EnvObjectDroneBox
 
 func _ready() -> void:
 	var current_x = position.x
@@ -54,7 +54,7 @@ func handle_destroyed() -> void:
 	if drone_box:
 		var box_global_pos = drone_box.global_position
 		remove_child(drone_box)
-		get_parent().add_child(drone_box as DroneBox) 
+		get_parent().add_child(drone_box)
 
 		drone_box.global_position = box_global_pos
 		drone_box.drop_destination = global_position

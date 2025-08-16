@@ -10,7 +10,7 @@ var movement_speed: int = 200
 var current_stance: Stance = Stance.SPAWN
 var off_screen_threshold_left: int = -100
 var off_screen_threshold_right: int = 1400
-@onready var drone_box = $EnvObjectDroneBox as WaterDroneBox
+@onready var drone_box = $EnvObjectDroneBox
 
 func _ready() -> void:
 	var current_x = position.x

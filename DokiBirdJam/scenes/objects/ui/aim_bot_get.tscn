@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6gxbv80cl611"]
+[gd_scene load_steps=4 format=3 uid="uid://b6gxbv80cl611"]
 
 [ext_resource type="PackedScene" uid="uid://b0d202dxj0wqu" path="res://scenes/objects/ui/upgrade_choice.tscn" id="1_ekpdo"]
 [ext_resource type="Script" uid="uid://mbl58oxvoiay" path="res://scenes/scripts/objects/aim_bot_get.gd" id="2_ficiv"]
-[ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="2_nfiwd"]
 [ext_resource type="Texture2D" uid="uid://c7e4xcoqes52x" path="res://assets/ui/Aimbot Icon Color.png" id="3_r8u3u"]
 
 [node name="AimBotGet" instance=ExtResource("1_ekpdo")]
@@ -12,7 +11,6 @@ anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.45459, 0.45459)
-theme = ExtResource("2_nfiwd")
 script = ExtResource("2_ficiv")
 
 [node name="Button" parent="." index="0"]
@@ -23,14 +21,11 @@ tooltip_text = "Headshot  all enemies outside of cover! Requires at least 6 bull
 icon = ExtResource("3_r8u3u")
 
 [node name="Label" parent="." index="1"]
-offset_left = 28.5972
-offset_top = 131.987
-offset_right = 180.597
-offset_bottom = 189.987
-scale = Vector2(0.649515, 0.649515)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 46
+offset_left = 42.1298
+offset_top = 133.411
+offset_right = 109.13
+offset_bottom = 156.411
+scale = Vector2(1.19387, 1.19387)
 text = "Aim Bot"
 
 [connection signal="pressed" from="Button" to="." method="_on_aim_bot_get_button_pressed"]

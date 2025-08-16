@@ -1,110 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjfuueg7br8cj"]
+[gd_scene load_steps=4 format=3 uid="uid://bjfuueg7br8cj"]
 
 [ext_resource type="PackedScene" uid="uid://bc85ohi67me78" path="res://scenes/objects/Environment/env_effect_base.tscn" id="1_773iy"]
 [ext_resource type="Script" uid="uid://dqq8q3mfyopks" path="res://scenes/scripts/objects/env_effect_explosion.gd" id="2_qybhk"]
-[ext_resource type="Texture2D" uid="uid://x7i4kdhhrxuc" path="res://assets/EnvironmentalEffects/explosion/ExplosionFinalSheet.png" id="3_uocge"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pngnh"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 0, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4h1sl"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 600, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hw2m5"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 1200, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3f3ru"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 1800, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhyuq"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 2400, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m3ntr"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 3000, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4kfjs"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 3600, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eury6"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 4200, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iegq1"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 4800, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ob8g"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 5400, 1275, 600)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_30c1d"]
-atlas = ExtResource("3_uocge")
-region = Rect2(0, 6000, 1275, 600)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_anxat"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pngnh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4h1sl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hw2m5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3f3ru")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhyuq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m3ntr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4kfjs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eury6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iegq1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ob8g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_30c1d")
-}],
-"loop": false,
-"name": &"default",
-"speed": 11.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qybhk"]
 radius = 40.0125
 
 [node name="EnvEffectExplosion" instance=ExtResource("1_773iy")]
-collision_mask = 56
-input_pickable = false
 script = ExtResource("2_qybhk")
 col = Color(0.878431, 0.0588235, 0.0352941, 0.788235)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
-scale = Vector2(0.274155, 0.274155)
-sprite_frames = SubResource("SpriteFrames_anxat")
-frame_progress = 0.389636
-
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("CircleShape2D_qybhk")
-
-[node name="Timer" parent="." index="2"]
-wait_time = 1.2
