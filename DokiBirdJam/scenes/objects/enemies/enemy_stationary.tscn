@@ -361,8 +361,9 @@ _data = {
 position = Vector2(0, 1)
 script = ExtResource("2_i7ccm")
 max_health = 6
-fire_rate = 0.1
+fire_rate = 0.2
 max_ammo = 50
+reload_time = 8.0
 
 [node name="Sprite2D" parent="." index="1"]
 position = Vector2(0, -92)
