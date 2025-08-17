@@ -81,3 +81,5 @@ var highScore:int = 0:
 	set(value):
 		highScore = value
 		highScore_change.emit()
+
+var last_bullet:bool = true

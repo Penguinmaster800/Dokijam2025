@@ -33,7 +33,9 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if not event.is_action_pressed("primary action"):
 		return
 	
-	if Status.doki_ammo <= 0:
+	if Status.doki_ammo <= 0 and Status.last_bullet == false:
+		return
+	if Status.doki_ammo < 0:
 		return
 	if Status.in_cover == true:
 		return
@@ -45,6 +47,8 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		return
 	
 	handle_damage()
+	if Status.doki_ammo == 0:
+		Status.last_bullet = false
 
 func _red_eye_target():
 	if Abilities.red_eye_cover == true:

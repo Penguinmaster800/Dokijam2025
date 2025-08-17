@@ -47,6 +47,8 @@ func aim_bot():
 		Status.doki_ammo -=6
 		aim_bot_activate.emit()
 		AudioManager.doki_fan_the_hammer.play()
+		if Status.doki_ammo == 0:
+			Status.last_bullet = false
 		
 
 func red_eye():
