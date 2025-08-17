@@ -40,6 +40,7 @@ func level_startup():
 	vp.set_physics_object_picking_sort(true)
 	vp.set_physics_object_picking_first_only(true)
 	Status.doki_ammo = Status.doki_max_ammo
+	Status.last_bullet = true
 	Status.doki_health = Status.doki_max_health
 	Status.enemies_remaining_change.connect(_enemy_defeated)
 	Status.doki_health_change.connect(_doki_hurt)
@@ -81,6 +82,7 @@ func reload():
 
 func _on_reload_timer_timeout() -> void:
 	Status.doki_ammo = Status.doki_max_ammo
+	Status.last_bullet = true
 	reloading = false
 	Status.doki_reloading = false
 	Status.doki_can_fire = true

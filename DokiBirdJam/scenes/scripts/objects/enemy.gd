@@ -109,20 +109,30 @@ func _on_hitbox_head_input_event(_viewport: Node, event: InputEvent, _shape_idx:
 	if not event.is_action_pressed("primary action"):
 		return
 	
-	if Status.doki_ammo <= 0:
+	if Status.doki_ammo == 0 and Status.last_bullet == false:
+		return
+	if Status.doki_ammo < 0:
 		return
 	if Status.in_cover == true:
 		return
+	if Status.doki_exposed == false:
+		return
 	if Status.doki_reloading == true:
+		return
+	if Status.doki_shot_cooldown == true:
 		return
 	handle_damage(2)
 	#add sound from headshot
 	get_viewport().set_input_as_handled()
+	if Status.doki_ammo == 0:
+		Status.last_bullet = false
 
 func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if not event.is_action_pressed("primary action"):
 		return
-	if Status.doki_ammo <= 0:
+	if Status.doki_ammo <= 0 and Status.last_bullet == false:
+		return
+	if Status.doki_ammo < 0:
 		return
 	if Status.in_cover == true:
 		return
@@ -134,6 +144,8 @@ func _on_hitbox_input_event(_viewport: Node, event: InputEvent, _shape_idx: int)
 		return
 	#add basic hit sound
 	handle_damage()
+	if Status.doki_ammo == 0:
+		Status.last_bullet = false
 
 func _aim_bot_target():
 	if current_stance != Stance.COVER or Abilities.red_eye_cover == true:
