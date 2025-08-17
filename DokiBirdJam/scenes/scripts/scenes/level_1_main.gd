@@ -1,5 +1,7 @@
 extends LevelParent
 
+const level_1_beat = "res://scenes/levels/level_1_beat.tscn"
+
 func _ready():
 	level_startup()
 	Status.enemies_remaining = 13
@@ -12,6 +14,7 @@ func _ready():
 	AudioManager.intermission_music.stop()
 	AudioManager.level_one_music.play()
 	Status.score = 0
+	Status.level_1_score = 0
 	Status.time_remaining_change.connect(time_spawn)
 	setup_enemy_waves(3)
 
@@ -60,3 +63,7 @@ func time_spawn():
 		spawn_env_object_drone(EnumRowNo.RowNo.ROW2)
 	if Status.time_remaining == 20:
 		spawn_env_object_drone(EnumRowNo.RowNo.ROW2)
+
+func level_beat():
+	super.level_beat()
+	TransitionLayer.change_scene(level_1_beat)

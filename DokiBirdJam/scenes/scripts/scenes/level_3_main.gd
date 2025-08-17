@@ -1,5 +1,7 @@
 extends LevelParent
 
+const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
+
 var total_enemies = 0
 
 func _ready():
@@ -10,6 +12,8 @@ func _ready():
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.level = 3
 	Status.doki_shot = 0
+	Status.level_3_score = 0
+
 	AudioManager.game_over_music.stop()
 	AudioManager.level_three_music.play()
 	AudioManager.intermission_music.stop()
@@ -122,3 +126,7 @@ func spawn_wave_10():
 	spawn_enemy_gunman_random_row()
 	spawn_enemy_brute_random_row()
 	spawn_env_object_drone(EnumRowNo.RowNo.ROW1)
+
+func level_beat():
+	super.level_beat()
+	TransitionLayer.change_scene(level_3_beat)

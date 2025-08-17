@@ -67,6 +67,21 @@ var doki_shot: int =0:
 		doki_shot_change.emit()
 var doki_shot_cooldown: bool = false
 
+var level_1_score: int = 0:
+	set(value):
+		level_1_score = value
+		Status.update_score()
+		
+var level_2_score: int = 0:
+	set(value):
+		level_2_score = value
+		Status.update_score()
+		
+var level_3_score: int = 0:
+	set(value):
+		level_3_score = value
+		Status.update_score()
+
 var score:int = 0:
 	set(value):
 		score = value
@@ -83,3 +98,6 @@ var highScore:int = 0:
 		highScore_change.emit()
 
 var last_bullet:bool = true
+
+func update_score():
+	self.score = self.level_1_score + self.level_2_score + self.level_3_score

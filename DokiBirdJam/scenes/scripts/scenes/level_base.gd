@@ -20,15 +20,11 @@ var current_wave: int = 0
 var total_waves: int = 0
 var wave_in_progress: bool = false
 var wave_enemy_count: int = 0
+var level_finished: bool = false
 
 const AttackType = EnemyAttackType.AttackType
 const EnemyType = EnumEnemyType.EnemyType
 const EnvObjectType = EnumEnvObjectType.EnvObjectType
-
-const level_1_beat = "res://scenes/levels/level_1_beat.tscn"
-const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
-const level_3_beat = "res://scenes/levels/level_3_beat.tscn"
-
 
 var explosion_drone = env_object_drone_scene
 var water_drone = env_object_drone_water_scene
@@ -387,7 +383,16 @@ func get_rows_with_available_cover() -> Array[EnumRowNo.RowNo]:
 	
 func _enemy_defeated():
 	print("dragoon down")
-	Status.score += 100 * (Status.combo)
+	var additional_score := int(100 * (Status.combo))
+
+	match Status.level:
+		1:
+			Status.level_1_score = Status.level_1_score + additional_score
+		2:
+			Status.level_2_score = Status.level_2_score + additional_score
+		3:
+			Status.level_3_score = Status.level_3_score + additional_score
+
 	Status.combo += 0.1
 	print(Status.combo)
 	wave_enemy_count -= 1
@@ -415,13 +420,9 @@ func level_loss():
 	TransitionLayer.change_scene("res://scenes/levels/game_over.tscn")
 
 func level_beat():
-	Status.level += 1
-	if Status.level == 2:
-		TransitionLayer.change_scene(level_1_beat)
-	if Status.level == 3:
-		TransitionLayer.change_scene(level_2_beat)
-	if Status.level == 4:
-		TransitionLayer.change_scene(level_3_beat)
+	if level_finished == true:
+		return
+	level_finished = true
 
 func _on_enemy_wave_cooldown_timer_timeout() -> void:
 	start_new_wave()
