@@ -1,5 +1,7 @@
 extends LevelParent
 
+const level_2_beat = "res://scenes/levels/level_2_beat.tscn"
+
 var env_object_battery_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_warehouse_battery.tscn")
 var env_object_explosives_scene: PackedScene = preload("res://scenes/objects/Environment/env_object_warehouse_explosives.tscn")
 
@@ -11,8 +13,10 @@ func _ready():
 	Status.doki_ammo = Status.doki_max_ammo
 	Status.level = 2
 	Status.doki_shot = 0
+	Status.level_2_score = 0
 
 	AudioManager.intermission_music.stop()
+	AudioManager.game_over_music.stop()
 
 	AudioManager.level_two_music.play()
 	setup_enemy_waves(6)
@@ -144,3 +148,7 @@ func _on_conveyor_belt_spawn_timer_timeout() -> void:
 func _on_conveyor_belt_row_2_spawn_timer_timeout() -> void:
 	spawn_object_conveyor_random_row2()
 	$Timers/ConveyorBeltRow2SpawnTimer.start()
+
+func level_beat():
+	super.level_beat()
+	TransitionLayer.change_scene(level_2_beat)
