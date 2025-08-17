@@ -102,6 +102,7 @@ func _on_doki_cooldown_timer_timeout() -> void:
 func _input(event):
 	if event.is_action_pressed("primary action"):
 		if Status.doki_ammo <= 0 and not reloading:
+			Status.last_bullet = false
 			AudioManager.doki_dry_fire.play()
 			$Timers/DokiReloadWaitTimer.start()
 		elif Status.doki_ammo >=1 and not reloading and Status.in_cover == false and Status.doki_shot_cooldown == false and Status.doki_exposed == true:
