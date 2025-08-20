@@ -266,12 +266,11 @@ func death():
 	# Play animation
 	$AnimationPlayer.play("Death")
 	AudioManager.enemy_death.play()
-	# Await for animation to end
-	await $AnimationPlayer.animation_finished
 	# Emit Death Signal
 	Status.enemies_remaining -= 1
-	print(Status.enemies_remaining)
 	enemy_death.emit()
+	# Await for animation to end
+	await $AnimationPlayer.animation_finished
 	
 	# Remove itself
 	await deletion_timer.timeout

@@ -137,12 +137,12 @@ horizontal_alignment = 2
 [node name="AbilityTrackers" type="Node" parent="."]
 
 [node name="Ability 1" type="Marker2D" parent="AbilityTrackers"]
-position = Vector2(1125, 640)
+position = Vector2(1125, 600)
 
 [node name="Ability 2" type="Marker2D" parent="AbilityTrackers"]
-position = Vector2(1025, 640)
+position = Vector2(1125, 600)
 
 [node name="Ability 3" type="Marker2D" parent="AbilityTrackers"]
-position = Vector2(925, 640)
+position = Vector2(1125, 600)
 
 [node name="CrosshairSwapper" parent="." instance=ExtResource("6_bk1an")]

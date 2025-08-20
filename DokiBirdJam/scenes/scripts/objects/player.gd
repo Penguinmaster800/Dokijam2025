@@ -7,7 +7,7 @@ const exposed_location_x: int = 400
 const doki_location_y: int = 638
 
 #speed at which doki will enter and exit cover. this is here to make tuning for feel easier
-var speed : int = 40000
+var speed : int = 48000
 
 #functions called when instantiated, will fill with checks connecting to signals and resets states
 

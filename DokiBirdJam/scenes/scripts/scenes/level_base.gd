@@ -191,7 +191,7 @@ func _spawn_shock_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_shocked:bool 
 	if is_shocked == false:
 		env_effect_electric.scale.x = 2
 		env_effect_electric.scale.y = 2
-	$Projectiles.add_child(env_effect_electric)
+	$Projectiles.add_child.call_deferred(env_effect_electric)
 
 func _spawn_wet_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_wet: bool = false):
 	var env_effect_water = env_effect_water_scene.instantiate()
@@ -201,7 +201,7 @@ func _spawn_wet_effect(row_no: EnumRowNo.RowNo, pos: Vector2, is_wet: bool = fal
 		env_effect_water.scale.x = 3
 	if is_wet == false:
 		env_effect_water.scale.x = 2
-	$Projectiles.add_child(env_effect_water)
+	$Projectiles.add_child.call_deferred(env_effect_water)
 
 func enemy_bullet_attack_default(pos: Variant) -> void:
 	var enemy_bullet = enemy_bullet_scene.instantiate()
@@ -210,7 +210,7 @@ func enemy_bullet_attack_default(pos: Variant) -> void:
 	var dest = random_enemy_bullet_destination()
 	enemy_bullet.destination = dest
 	
-	$Projectiles.add_child(enemy_bullet)
+	$Projectiles.add_child.call_deferred(enemy_bullet)
 
 func enemy_bullet_attack_shotgun(pos: Variant) -> void:
 	var bullets_per_shot: int = 3

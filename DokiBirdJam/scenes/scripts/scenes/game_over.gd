@@ -1,10 +1,6 @@
 extends Node2D
 
 func _ready():
-	Abilities.ability1 = null
-	Abilities.ability2 = null
-	Abilities.ability3 = null
-
 	AudioManager.level_one_music.stop()
 	AudioManager.level_two_music.stop()
 	AudioManager.level_three_music.stop()
@@ -13,6 +9,9 @@ func _ready():
 func _on_retry_button_pressed() -> void:
 	match Status.level:
 		1:
+			Abilities.ability1 = null
+			Abilities.ability2 = null
+			Abilities.ability3 = null
 			TransitionLayer.change_scene("res://scenes/levels/level_1_intro.tscn")
 		2:
 			TransitionLayer.change_scene("res://scenes/levels/level_2_main.tscn")

@@ -55,7 +55,7 @@ func handle_destroyed() -> void:
 	if drone_box:
 		var box_global_pos = drone_box.global_position
 		remove_child(drone_box)
-		get_parent().add_child(drone_box as DroneBox) 
+		get_parent().add_child.call_deferred(drone_box as DroneBox) 
 
 		drone_box.global_position = box_global_pos
 		drone_box.drop_destination = global_position
