@@ -8,3 +8,7 @@ func _ready():
 
 func _on_label_3_meta_clicked(meta: Variant) -> void:
 	OS.shell_open(str(meta))
+
+
+func _on_label_2_meta_clicked(meta: Variant) -> void:
+	OS.shell_open(str(meta))

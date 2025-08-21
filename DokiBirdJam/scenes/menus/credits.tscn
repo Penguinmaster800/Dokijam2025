@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://clvjg0jrmkasd"]
+[gd_scene load_steps=6 format=3 uid="uid://clvjg0jrmkasd"]
 
 [ext_resource type="Script" uid="uid://d25tmy2kcti3i" path="res://scenes/menus/credits.gd" id="1_iiqlc"]
 [ext_resource type="PackedScene" uid="uid://4ykogtci8enh" path="res://scenes/user interface/main_menu_button.tscn" id="1_kxfi0"]
@@ -10,13 +10,6 @@ texture = ExtResource("2_yrcfj")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrcfj"]
-bg_color = Color(0, 0, 0, 0.560784)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-
 [node name="Credits" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -26,125 +19,116 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iiqlc")
 
-[node name="Background" type="Panel" parent="."]
+[node name="ColorRect2" type="Panel" parent="."]
+modulate = Color(0.678944, 0.678944, 0.678944, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -563.0
-offset_top = 477.0
-offset_right = 2113.0
-offset_bottom = 3527.0
+offset_left = -709.0
+offset_top = 273.0
+offset_right = 1317.0
+offset_bottom = 3455.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.767945
+rotation = -0.785398
 scale = Vector2(0.5, 0.5)
 theme_override_styles/panel = SubResource("StyleBoxTexture_44wmd")
 
-[node name="ColorRect3" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -532.0
-offset_top = -342.0
-offset_right = 532.0
-offset_bottom = 267.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_b2mra")
-theme_override_styles/panel = SubResource("StyleBoxFlat_yrcfj")
-
-[node name="Label" type="Label" parent="ColorRect3"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -97.0
-offset_top = 9.0
-offset_right = 97.0
-offset_bottom = 89.0
+offset_left = -95.0
+offset_top = 27.0
+offset_right = 99.0
+offset_bottom = 107.0
 grow_horizontal = 2
 theme = ExtResource("2_b2mra")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "Credits"
 
-[node name="Label3" type="RichTextLabel" parent="ColorRect3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -472.0
-offset_top = -205.0
-offset_right = 472.0
-offset_bottom = 290.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/table_v_separation = 18
-theme_override_constants/table_h_separation = 96
-theme_override_font_sizes/normal_font_size = 24
-theme_override_font_sizes/bold_font_size = 24
-bbcode_enabled = true
-text = "[b][font_size=\"28px\"]Programmers[/font_size][/b]
-[table=2,top]
-[cell]Parupo1467
-[url=\"https://x.com/parupo1467\"][font_size=\"16px\"]x.com/parupo1467[/font_size][/url]
-[url=\"https://github.com/parupo1467\"][font_size=\"16px\"]github.com/parupo1467[/font_size][/url]
-[/cell]
-[cell]Penguinmaster800
-[url=\"https://twitch.tv/penguinmaster800\"][font_size=\"16px\"]twitch.tv/penguinmaster800[/font_size][/url]
-[url=\"https://github.com/Penguinmaster800\"][font_size=\"16px\"]github.com/Penguinmaster800[/font_size][/url]
-[url=\"https://x.com/pnguinmaster800\"][font_size=\"16px\"]x.com/pnguinmaster800[/font_size][/url]
-[/cell]
-[/table]
-
-[b][font_size=\"28px\"]Art Design[/font_size][/b]
-[table=2,top]
-[cell]CosmoGaze
-[url=\"https://x.com/Cosmo_Gaze\"][font_size=\"16px\"]x.com/Cosmo_Gaze[/font_size][/url]
-[/cell]
-[cell]Rat Tori
-[url=\"https://x.com/RatTori_png\"][font_size=\"16px\"]x.com/RatTori_png[/font_size][/url]
-[/cell]
-[/table]
-
-[b][font_size=\"28px\"]Music / Sound Design[/font_size][/b]
-[table=1,top]
-[cell]CJ
-[url=\"https://youtube.com/@TheGuru_\"][font_size=\"16px\"]youtube.com/@TheGuru_[/font_size][/url]
-[url=\"https://x.com/Nullify_lol\"][font_size=\"16px\"]x.com/Nullify_lol[/font_size][/url]
-[/cell]
-[/table]
-
-[b][font_size=\"28px\"]SFX and Assets[/font_size][/b]
-Pixbay - [url=\"https://pixabay.com/\"]https://pixabay.com/[/url]
-Soundtrap Library - [url=\"https://www.soundtrap.com/\"]https://www.soundtrap.com/ [/url]
-Kenny assets - [url=\"https://www.kenney.nl\"]www.kenney.nl[/url]
-
-[b][font_size=\"28px\"]Special thanks to[/font_size][/b]
-Mishii for keeping Penguin fed
-Torey for giving bugfixing advice and saving a merge conflict disaster"
-horizontal_alignment = 1
-
-[node name="MainMenuButton" parent="ColorRect3" instance=ExtResource("1_kxfi0")]
+[node name="MainMenuButton" parent="." instance=ExtResource("1_kxfi0")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -122.0
-offset_top = 16.0
-offset_right = 122.0
-offset_bottom = 84.0
+offset_left = -124.5
+offset_top = -116.0
+offset_right = 124.5
+offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[connection signal="meta_clicked" from="ColorRect3/Label3" to="." method="_on_label_3_meta_clicked"]
+[node name="Label3" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 138.0
+offset_top = 138.0
+offset_right = 613.0
+offset_bottom = 573.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_b2mra")
+bbcode_enabled = true
+text = "[b]Programmers[/b]
+[ul]Parupo1467
+[ul]
+[url=\"https://x.com/parupo1467\"]x.com/parupo1467[/url]
+[url=\"https://github.com/parupo1467\"]github.com/parupo1467[/url]
+[/ul]
+Penguinmaster800
+[ul]
+[url=\"https://twitch.tv/penguinmaster800\"]twitch.tv/penguinmaster800[/url]
+[url=\"https://github.com/Penguinmaster800\"]github.com/Penguinmaster800[/url]
+[url=\"https://x.com/pnguinmaster800 \"]x.com/pnguinmaster800[/url]
+[/ul]
+[/ul]
+
+[b]Art Design[/b]
+[ul]
+CosmoGaze
+[ul]
+[url=\"https://x.com/Cosmo_Gaze\"]x.com/Cosmo_Gaze[/url]
+[/ul]
+Rat Tori
+[ul]
+[url=\"https://x.com/RatTori_png\"]x.com/RatTori_png[/url]
+[/ul]
+[/ul]
+
+[b]Music / Sound Design[/b]
+[ul]
+CJ
+[ul]
+[url=\"https://youtube.com/@TheGuru_\"]youtube.com/@TheGuru_[/url]
+[url=\"https://x.com/Nullify_lol\"]x.com/Nullify_lol[/url]
+[/ul]
+[/ul]
+
+"
+
+[node name="Label2" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 650.0
+offset_top = 142.0
+offset_right = 1146.0
+offset_bottom = 539.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_b2mra")
+bbcode_enabled = true
+text = "[b]SFX and Assets[/b]
+Pixbay - [url=\"https://pixabay.com/\"]https://pixabay.com/[/url]
+Soundtrap Library - [url=\"https://www.soundtrap.com/\"]https://www.soundtrap.com/[/url]
+Kenny assets - [url=\"https://www.kenney.nl\"]www.kenney.nl[/url]
+
+[b]Special thanks to[/b]
+Mishii for keeping Penguin fed
+Torey for giving bugfixing advice and saving a merge conflict disaster"
+
+[connection signal="meta_clicked" from="Label3" to="." method="_on_label_3_meta_clicked"]
+[connection signal="meta_clicked" from="Label2" to="." method="_on_label_2_meta_clicked"]
