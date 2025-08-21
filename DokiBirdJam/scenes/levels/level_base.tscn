@@ -21,7 +21,7 @@ wait_time = 0.8
 one_shot = true
 
 [node name="Reload Timer" type="Timer" parent="Timers"]
-wait_time = 3.2
+wait_time = 2.6
 one_shot = true
 
 [node name="DokiFireTimer" type="Timer" parent="Timers"]

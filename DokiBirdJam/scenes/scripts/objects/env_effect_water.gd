@@ -11,7 +11,7 @@ var is_shocked = false:
 
 var puddle_radius: float = 150.0
 var puddle_height: float = 75.0
-@export var water_color: Color = Color(0, 0.5, 1, 0.6)
+@export var water_color: Color = Color(0, 0.5, 1, 0.3)
 
 func _ready() -> void:
 	_set_collision_circle()

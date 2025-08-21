@@ -1,21 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://4ykogtci8enh"]
+[gd_scene load_steps=5 format=3 uid="uid://4ykogtci8enh"]
 
 [ext_resource type="Script" uid="uid://dlvvb0qj8rik8" path="res://scenes/user interface/main_menu_button.gd" id="1_qby8n"]
+[ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="2_qkl46"]
 
-[node name="MainMenuButton" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkl46"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkl46"]
+bg_color = Color(1, 0.894118, 0.388235, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 4
+
+[node name="MainMenuButton" type="Button"]
+offset_right = 262.0
+offset_bottom = 77.0
+theme = ExtResource("2_qkl46")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qkl46")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qkl46")
+text = "Main Menu"
 script = ExtResource("1_qby8n")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-theme_override_font_sizes/font_size = 48
-text = "Menu"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

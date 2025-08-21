@@ -17,8 +17,10 @@ func _ready():
 	_update_options()
 	_randomize_options()
 	_spawn_upgrade_1(random_options[0])
-	_spawn_upgrade_2(random_options[1])
-	_spawn_upgrade_3(random_options[2])
+	if random_options.size() > 1:
+		_spawn_upgrade_2(random_options[1])
+	if random_options.size() > 2:
+		_spawn_upgrade_3(random_options[2])
 
 func _update_options():
 	if Abilities.aim_bot_learned == true:

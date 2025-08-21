@@ -1,37 +1,94 @@
-[gd_scene load_steps=3 format=3 uid="uid://y0c1grh7psfw"]
+[gd_scene load_steps=6 format=3 uid="uid://y0c1grh7psfw"]
 
-[ext_resource type="Texture2D" uid="uid://dt3rxq4mcmsng" path="res://assets/ui/health_empty.png" id="1_n7yd1"]
-[ext_resource type="Texture2D" uid="uid://d0jfokd1sw2j8" path="res://assets/ui/health_full.png" id="2_k4cif"]
+[ext_resource type="Script" uid="uid://rthxvejmplm0" path="res://scenes/scripts/scenes/ability_button.gd" id="1_us7al"]
+[ext_resource type="Texture2D" uid="uid://ccsvg4n0m1cyd" path="res://assets/ui/Wallhack Icon Grey.png" id="2_us7al"]
+[ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="3_k4cif"]
+[ext_resource type="Texture2D" uid="uid://4gb0ptivayv1" path="res://assets/ui/Wallhack Icon Color.png" id="3_p6ajt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_us7al"]
+bg_color = Color(0.940636, 0.940636, 0.940636, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.144063, 0.144063, 0.144062, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="AbilityTracker" type="Control"]
 layout_mode = 3
-anchor_right = 0.028
-anchor_bottom = 0.047
-offset_right = 0.16
-offset_bottom = 0.16
-scale = Vector2(0.681217, 0.681217)
+anchors_preset = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_us7al")
 
 [node name="ReadyTracker" type="TextureProgressBar" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.946
-anchor_bottom = 0.95
-offset_right = -23.056
-offset_bottom = -21.3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = -43.0
+offset_right = 105.0
+offset_bottom = 107.0
 grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3.09724, 2.93596)
-fill_mode = 5
-texture_under = ExtResource("1_n7yd1")
-texture_progress = ExtResource("2_k4cif")
+scale = Vector2(0.6, 0.569)
+fill_mode = 3
+texture_under = ExtResource("2_us7al")
+texture_progress = ExtResource("3_p6ajt")
 
 [node name="TimeRemaining" type="Label" parent="ReadyTracker"]
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -19.695
-offset_top = 9.53691
-offset_right = 18.305
-offset_bottom = 21.5369
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.5
+offset_top = 142.619
+offset_right = 20.5
+offset_bottom = 163.619
+grow_horizontal = 2
+theme = ExtResource("3_k4cif")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 28
 text = "Ready"
 horizontal_alignment = 1
+
+[node name="InputKey" type="Control" parent="ReadyTracker"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 183.735
+offset_right = 20.0
+offset_bottom = 223.735
+grow_horizontal = 2
+
+[node name="Panel" type="Panel" parent="ReadyTracker/InputKey"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.5
+offset_right = 18.5
+offset_bottom = 37.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_us7al")
+
+[node name="Label" type="Label" parent="ReadyTracker/InputKey/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_k4cif")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1

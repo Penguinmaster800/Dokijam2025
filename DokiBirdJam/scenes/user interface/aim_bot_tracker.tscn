@@ -1,28 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://b202xfi5smhor"]
+[gd_scene load_steps=5 format=3 uid="uid://bo07837wj1ltv"]
 
 [ext_resource type="PackedScene" uid="uid://y0c1grh7psfw" path="res://scenes/objects/ui/ability_button.tscn" id="1_4fmp6"]
 [ext_resource type="Script" uid="uid://bn6qot1emlgj4" path="res://scenes/scripts/scenes/aim_bot_tracker.gd" id="2_7j0n8"]
 [ext_resource type="Texture2D" uid="uid://b2k0t873moy0d" path="res://assets/ui/Aimbot Icon Grey.png" id="3_07ln1"]
 [ext_resource type="Texture2D" uid="uid://c7e4xcoqes52x" path="res://assets/ui/Aimbot Icon Color.png" id="4_b4qll"]
 
-[node name="AimBotTracker" instance=ExtResource("1_4fmp6")]
+[node name="AbilityTracker" instance=ExtResource("1_4fmp6")]
 script = ExtResource("2_7j0n8")
 
 [node name="ReadyTracker" parent="." index="0"]
-offset_left = -69.0
-offset_top = -69.0
-offset_right = 46.944
-offset_bottom = 48.7
-scale = Vector2(0.922958, 0.874898)
-value = 100.0
-fill_mode = 3
 texture_under = ExtResource("3_07ln1")
 texture_progress = ExtResource("4_b4qll")
-
-[node name="TimeRemaining" parent="ReadyTracker" index="0"]
-offset_left = -19.0796
-offset_top = 130.88
-offset_right = 18.9204
-offset_bottom = 142.88
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26

@@ -1,11 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3cow3hhtflxv"]
+[gd_scene load_steps=9 format=3 uid="uid://d3cow3hhtflxv"]
 
 [ext_resource type="Theme" uid="uid://7oviojouonkk" path="res://globals/signika_font.tres" id="1_d8vgy"]
 [ext_resource type="Script" uid="uid://cs8xnt4bm61ki" path="res://scenes/scripts/scenes/settings.gd" id="1_g2810"]
-[ext_resource type="PackedScene" uid="uid://dj5aio8r1dai2" path="res://scenes/user interface/mute_button.tscn" id="2_swl1s"]
 [ext_resource type="PackedScene" uid="uid://c4fgpbww4k2xd" path="res://scenes/user interface/full_screen_button.tscn" id="3_d8vgy"]
+[ext_resource type="Texture2D" uid="uid://mtpf3wo82krt" path="res://assets/ui/settings-background-tile.png" id="3_v4co7"]
 [ext_resource type="PackedScene" uid="uid://4ykogtci8enh" path="res://scenes/user interface/main_menu_button.tscn" id="4_v4co7"]
 [ext_resource type="PackedScene" uid="uid://bgpr26aegt7se" path="res://scenes/objects/ui/volume_slider.tscn" id="5_swl1s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d8rlf"]
+texture = ExtResource("3_v4co7")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swl1s"]
+bg_color = Color(0, 0, 0, 0.560784)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -17,105 +29,158 @@ grow_vertical = 2
 theme = ExtResource("1_d8vgy")
 script = ExtResource("1_g2810")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -563.0
+offset_top = 477.0
+offset_right = 2113.0
+offset_bottom = 3527.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.767945
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_d8rlf")
 
-[node name="Label" type="Label" parent="."]
+[node name="ColorRect2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -422.0
+offset_top = -291.0
+offset_right = 422.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d8vgy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_swl1s")
+
+[node name="Label" type="Label" parent="ColorRect2"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -31.0
-offset_right = 31.0
-offset_bottom = 23.0
+offset_left = -113.5
+offset_top = 12.0
+offset_right = 113.5
+offset_bottom = 92.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "Settings"
 
-[node name="MuteButton" parent="." instance=ExtResource("2_swl1s")]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2"]
 layout_mode = 1
-offset_left = 54.0
-offset_top = 185.0
-offset_right = -1040.0
-offset_bottom = -451.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.5
+offset_top = -103.5
+offset_right = 277.5
+offset_bottom = 174.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
 
-[node name="FullScreenButton" parent="." instance=ExtResource("3_d8vgy")]
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_d8vgy")
+theme_override_font_sizes/font_size = 32
+text = "Master Volume"
+
+[node name="Container" type="Control" parent="ColorRect2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="MasterSlider" parent="ColorRect2/VBoxContainer/HBoxContainer/Container" instance=ExtResource("5_swl1s")]
 layout_mode = 1
-offset_left = 58.0
-offset_top = 282.0
-offset_right = -1008.0
-offset_bottom = -357.0
+anchors_preset = 15
+anchor_right = 1.0
+offset_right = 0.0
+size_flags_horizontal = 11
+size_flags_vertical = 4
+bus_name = "Master"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ColorRect2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Music Volume"
+
+[node name="Container" type="Control" parent="ColorRect2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="MusicSlider" parent="ColorRect2/VBoxContainer/HBoxContainer2/Container" instance=ExtResource("5_swl1s")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+offset_right = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus_name = "Music"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ColorRect2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SFX Volume"
+
+[node name="Container" type="Control" parent="ColorRect2/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+
+[node name="SFXSlider" parent="ColorRect2/VBoxContainer/HBoxContainer3/Container" instance=ExtResource("5_swl1s")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+offset_right = 0.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+bus_name = "SFX"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ColorRect2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="ColorRect2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Full Screen"
+
+[node name="FullScreenButton" parent="ColorRect2/VBoxContainer/HBoxContainer4" instance=ExtResource("3_d8vgy")]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MainMenuButton" parent="." instance=ExtResource("4_v4co7")]
 layout_mode = 1
-offset_left = 46.0
-offset_top = 103.0
-offset_right = -1181.0
-offset_bottom = -586.0
-
-[node name="Sliders" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ColorRect" type="ColorRect" parent="Sliders"]
-layout_mode = 0
-offset_left = 342.0
-offset_top = 197.0
-offset_right = 730.0
-offset_bottom = 434.0
-color = Color(0.352941, 0.458824, 1, 1)
-
-[node name="MasterSlider" parent="Sliders" instance=ExtResource("5_swl1s")]
-layout_mode = 1
-offset_left = 380.0
-offset_top = 245.0
-offset_right = 380.0
-offset_bottom = 245.0
-bus_name = "Master"
-
-[node name="MusicSlider" parent="Sliders" instance=ExtResource("5_swl1s")]
-layout_mode = 1
-offset_left = 381.0
-offset_top = 307.0
-offset_right = 381.0
-offset_bottom = 307.0
-bus_name = "Music"
-
-[node name="SFXSlider" parent="Sliders" instance=ExtResource("5_swl1s")]
-layout_mode = 1
-offset_left = 381.0
-offset_top = 370.0
-offset_right = 381.0
-offset_bottom = 370.0
-bus_name = "SFX"
-
-[node name="Label" type="Label" parent="Sliders"]
-layout_mode = 0
-offset_left = 449.0
-offset_top = 216.0
-offset_right = 504.0
-offset_bottom = 241.0
-text = "Master"
-
-[node name="Label2" type="Label" parent="Sliders"]
-layout_mode = 0
-offset_left = 457.0
-offset_top = 283.0
-offset_right = 512.0
-offset_bottom = 308.0
-text = "Music"
-
-[node name="Label3" type="Label" parent="Sliders"]
-layout_mode = 0
-offset_left = 461.0
-offset_top = 339.0
-offset_right = 516.0
-offset_bottom = 364.0
-text = "SFX"
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -131.0
+offset_top = -125.0
+offset_right = 131.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
